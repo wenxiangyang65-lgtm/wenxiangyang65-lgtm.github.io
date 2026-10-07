@@ -1,0 +1,25 @@
+/* The PDF's foreword becomes a readable spread with sourced background. */
+.foreword-section { max-width:1180px; }
+.foreword-section .dossier-heading { display:block; }
+.foreword-section .dossier-heading h2 { font-size:clamp(34px,4vw,52px); line-height:1.4; }
+.foreword-spread { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(0,1fr); gap:48px; margin:36px 0 28px; }
+.foreword-images { position:relative; min-width:0; padding:8px 0 0; }
+.foreword-photo { position:relative; margin:0; padding:9px 9px 13px; border:1px solid #fffdf5; background:#f9f6ed; box-shadow:0 12px 24px #4b3a2626,0 2px 4px #4b3a2626; }
+.foreword-photo .frame-button,.foreword-photo img { width:100%; aspect-ratio:4/3; object-fit:contain; display:block; }
+.foreword-photo figcaption { display:flex; justify-content:space-between; flex-wrap:wrap; gap:4px 10px; padding:9px 2px 0; color:#75684f; font-size:14px; }
+.foreword-photo time { font:12px/1.6 ui-monospace,monospace; white-space:nowrap; }
+.foreword-mother { width:94%; transform:rotate(-1.5deg); z-index:2; }
+.foreword-work { width:68%; margin:-24px 0 0 30%; transform:rotate(2deg); z-index:1; }
+.foreword-margin { position:absolute; left:5px; bottom:20px; width:27%; font-size:24px; color:#805943; line-height:1.65; }
+.foreword-reading article+article { margin-top:29px; border-top:1px solid #ad9a7c55; padding-top:23px; }
+.foreword-label { color:#947955; font:12px/1.7 ui-monospace,monospace; letter-spacing:.06em; margin:0 0 8px; }
+.foreword-reading h3 { font:400 24px/1.5 var(--serif); color:#453d31; margin:0 0 13px; }
+.foreword-reading article>p:not(.foreword-label) { font-size:16px; color:#665c4d; line-height:1.9; margin:10px 0; }
+.foreword-reading .foreword-person h3 { font-size:32px; margin-bottom:5px; }
+.foreword-reading article>.foreword-identity { font-size:14px; color:#8a6c48; margin-bottom:14px; }
+.foreword-source { display:inline-block; margin-top:8px; padding-bottom:4px; border-bottom:1px solid #aa927057; color:#8a7759; font-size:12px; }
+.foreword-position { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:22px 0; border-top:1px solid #ad9a7c55; }
+.foreword-position span { font-size:12px; color:#917b5d; }.foreword-position div>p { font-size:14px; color:#685c49; margin:5px 0 0; }.foreword-position>.handwritten { font-size:26px; color:#825840; }
+@media(max-width:1050px) { .foreword-spread { gap:30px; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }.foreword-section .dossier-page { padding:32px 30px 28px; }.foreword-margin { font-size:22px; }.foreword-reading h3 { font-size:22px; } }
+@media(max-width:760px) { .foreword-section .dossier-page { padding:28px 20px 24px; }.foreword-spread { grid-template-columns:1fr; gap:30px; margin:28px 0; }.foreword-images { margin-bottom:12px; }.foreword-margin { font-size:23px; }.foreword-reading article+article { margin-top:27px; }.foreword-position { display:block; }.foreword-position>.handwritten { margin-top:14px; font-size:25px; }.foreword-photo figcaption { font-size:13px; }.foreword-reading h3 { font-size:23px; }.foreword-section .dossier-heading>p:last-child { line-height:1.85; } }
+@media print { .foreword-photo { box-shadow:none; }.foreword-spread { break-inside:avoid; } }

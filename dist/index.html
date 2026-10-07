@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eaf4ff">
+  <title>杨文祥 · AI Visual Portfolio</title>
+  <meta name="description" content="杨文祥的创意视觉设计作品集。AI 影视创意、品牌视觉、电商视觉、视觉识别系统与 IP 视觉设计。">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="assets/cover.webp" as="image" fetchpriority="high">
+  <script src="app.js?v=20261007-circle" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalog">进入项目目录</a>
+  <main>
+    <section class="screen cover" id="cover" aria-labelledby="cover-heading">
+      <h1 id="cover-heading" class="sr-only">杨文祥 · 创意视觉设计师 · AI Visual Portfolio</h1>
+      <div class="artframe cover-art">
+        <img class="original-art" src="assets/cover.webp" width="2880" height="1620" alt="银蓝唱片与金属字体的 AI Visual Portfolio 封面，杨文祥的创意视觉设计作品集。">
+        <video id="cover-video" class="cover-video" muted loop playsinline preload="none" poster="assets/cover.webp" aria-hidden="true" data-src="assets/cover-motion.mp4"></video>
+        <a class="hotspot invitation" href="#resume" aria-label="请留步，请观赏：查看个人简历"><span class="tooltip">查看个人简历</span></a>
+        <a class="hotspot email" href="mailto:2042311533@qq.com" aria-label="邮件联系杨文祥：2042311533@qq.com"><span class="tooltip">邮件联系</span></a>
+        <a class="hotspot phone" href="tel:15725399952" aria-label="致电杨文祥：15725399952"><span class="tooltip">电话联系</span></a>
+        <button class="hotspot power" id="motion-toggle" aria-label="暂停封面动态" aria-pressed="false"><span class="tooltip">暂停动态</span></button>
+      </div>
+      <a class="scroll-cue" href="#resume"><span>下滑 · 简历</span><i aria-hidden="true"></i></a>
+    </section>
+    <section class="screen resume" id="resume" aria-labelledby="resume-heading">
+      <h2 id="resume-heading" class="sr-only">个人简历与工作经历</h2>
+      <div class="artframe resume-art">
+        <img class="original-art desktop-resume" src="assets/resume.webp" width="2880" height="1620" alt="杨文祥，创意视觉设计师。哈尔滨商业大学视觉传达设计专业，2019—2023。工作经历：广州辛选网络信息科技有限公司，2025.11 至今；杭州易宝有限公司，2023.12—2025.10；幻绮文化创意有限公司，2023.06—2023.12；上海游族信息技术有限公司，2022.10—2023.01。" loading="lazy">
+        <div class="mobile-resume">
+          <img src="assets/resume-profile.webp" alt="个人资料：杨文祥，创意视觉设计师，哈尔滨商业大学视觉传达设计专业，2019—2023。" loading="lazy">
+          <img src="assets/resume-work.webp" alt="四段工作经历，包括辛选集团、阿里驻场设计、C4D 渲染与品牌创意设计。" loading="lazy">
+          <img src="assets/resume-signature.webp" alt="AI 影视创意、品牌视觉、电商视觉、视觉识别系统、IP 视觉设计。" loading="lazy">
+        </div>
+        <a class="hotspot resume-power" href="#catalog" aria-label="查看项目目录"><span class="tooltip">查看项目目录</span></a>
+      </div>
+      <a class="scroll-cue" href="#catalog"><span>下滑 · 项目目录</span><i aria-hidden="true"></i></a>
+    </section>
+    <section class="screen catalog" id="catalog" aria-labelledby="catalog-heading">
+      <div class="artframe catalog-art">
+        <h2 id="catalog-heading">项目经历：</h2>
+        <div class="albums" id="albums" aria-label="项目唱片目录，可左右滑动" tabindex="0"></div>
+        <div class="catalog-controls">
+          <button id="previous" class="album-button" aria-label="上一组项目">上一组</button>
+          <div class="track-control">
+            <div class="selection-label"><span id="selected-title">请选择一张唱片</span><span id="page-count">01—08 / 15</span></div>
+            <input id="album-range" type="range" min="0" max="1" step="0.001" value="0" aria-label="横向浏览项目唱片">
+            <span class="directory-hint">左右滑动 · 点击唱片进入项目</span>
+          </div>
+          <button id="next" class="album-button" aria-label="下一组项目">下一组</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <nav class="page-dots" aria-label="作品集页面">
+    <a href="#cover" aria-label="封面" class="active"><span>封面</span></a>
+    <a href="#resume" aria-label="简历"><span>简历</span></a>
+    <a href="#catalog" aria-label="项目目录"><span>目录</span></a>
+  </nav>
+  <div class="transition-curtain" aria-hidden="true"><img src="assets/disc-01.webp" alt=""><span>正在打开作品</span></div>
+  <div class="sr-only" id="directory-status" role="status" aria-live="polite"></div>
+</body>
+</html>

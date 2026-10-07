@@ -1,0 +1,172 @@
+/* Quiet typography gives the film frames and photographic paper more room. */
+body.memoir-layout { font-size:.875rem; line-height:1.8; }
+.memoir-layout .brand,.memoir-layout .desktop-nav,
+.memoir-layout .motion-toggle,.memoir-layout .menu-toggle,
+.memoir-layout .button,.memoir-layout .text-link,
+.memoir-layout .chapter-nav a { font-size:.8125rem; }
+.memoir-layout .brand-mark { font-size:2.25rem; }
+.memoir-layout .mobile-menu a { font-size:.875rem; }
+.memoir-layout .eyebrow { font-size:.75rem; }
+
+/* Cover and story photographs retain their different sizes and overlaps. */
+.memoir-layout .hero.scrap-hero.wide-hero { padding-left:3vw; padding-right:3vw; }
+.memoir-layout .wide-hero #hero-title { font-size:clamp(2.875rem,4.5vw,4.75rem); line-height:1.2; }
+.scrap-heading { margin-bottom:16px; }
+.scrap-left-stack,.scrap-right-stack { max-width:350px; }
+.scrap-cover { width:min(100%,410px); }
+.scrap-photo figcaption,.scrap-cover figcaption { font-size:.75rem; }
+.scrap-photo figcaption p.handwritten { font-size:1rem; line-height:1.5; }
+.scrap-photo time { font-size:.75rem; }
+.scrap-note p { font-size:1.25rem; }
+.scrap-note-label,.scrap-note-link { font-size:.75rem; }
+.wide-hero .scrap-note { padding:15px 18px; }
+.wide-hero .button.primary,.wide-hero .text-link { font-size:.8125rem; }
+.scrap-footer p { font-size:.8125rem; }
+
+/* A photograph-led foreword, with compact background text beside it. */
+.memoir-layout .foreword-section { max-width:1320px; width:calc(100% - 8vw); }
+.foreword-section .dossier-page { padding:36px 40px 28px; }
+.foreword-section .dossier-heading { padding-bottom:23px; }
+.foreword-section .dossier-heading h2 { font-size:clamp(1.75rem,2.7vw,2.5rem); }
+.foreword-section .dossier-heading>p:last-child { font-size:.875rem; }
+.foreword-spread { grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:34px; margin:29px 0 24px; }
+.foreword-photo figcaption,.foreword-photo time { font-size:.75rem; }
+.foreword-margin { font-size:1.1875rem; }
+.foreword-reading h3 { font-size:1.125rem; margin-bottom:10px; }
+.foreword-reading .foreword-person h3 { font-size:1.5rem; }
+.foreword-reading article>p:not(.foreword-label) { font-size:.875rem; line-height:1.85; }
+.foreword-reading article>.foreword-identity { font-size:.8125rem; }
+.foreword-reading article+article { margin-top:23px; padding-top:20px; }
+.foreword-position { padding:18px 0; }
+.foreword-position div>p { font-size:.8125rem; }
+.foreword-position>.handwritten { font-size:1.25rem; }
+.memoir-layout .dossier-tab,.memoir-layout .project-facts dd { font-size:.8125rem; }
+
+/* The chapter photographs span the page; notes remain a quieter layer. */
+.memoir-layout .story-opening h2 { font-size:2.5rem; }
+.memoir-layout .story-opening>p { font-size:1rem; }
+.memoir-layout .story-opening small { font-size:.75rem; }
+.memoir-layout .memory { max-width:1220px; width:calc(100% - 8vw); padding:34px 30px 26px; }
+.memoir-layout .memory-name h2 { font-size:2.625rem; }
+.memoir-layout .memory-heading h3 { font-size:1.125rem; }
+.memoir-layout .memory-number { font-size:1.25rem; }
+.memoir-layout .memory-heading { margin-bottom:24px; padding-bottom:17px; }
+.memoir-layout .memory-still .memory-visuals { max-width:860px; }
+.memoir-layout .memory .shot figcaption,.memoir-layout .memory .shot time { font-size:.75rem; }
+.memoir-layout .memory .shot { padding:8px 8px 11px; }
+.memoir-layout .memory-note,.memoir-layout .memory-still .memory-note { font-size:1.375rem; }
+.memoir-layout .chapter-story,.memoir-layout .shot-comment { font-size:.875rem; line-height:1.85; }
+.memoir-layout .chapter-copy .shot-comment { font-size:.8125rem; }
+.memoir-layout .chapter-watch,.memoir-layout .chapter-extra summary,
+.memoir-layout .all-frames summary { font-size:.8125rem; }
+.memoir-layout .distance-caption,.memoir-layout .distance-control,
+.memoir-layout .distance-control>span,.memoir-layout .distance-hint { font-size:.8125rem; }
+
+.memoir-layout .concept-section { max-width:1220px; width:calc(100% - 8vw); }
+.memoir-layout .concept-header h2 { font-size:clamp(1.75rem,2.7vw,2.5rem); }
+.memoir-layout .concept-header>p:last-child { font-size:.875rem; }
+.memoir-layout .concept-tabs button>span { font-size:1.125rem; }
+.memoir-layout .concept-tabs small { font-size:.75rem; }
+.thread-book { padding:26px 24px 20px; }
+.thread-shot figcaption { font-size:.75rem; }
+.thread-summary h3 { font-size:1.1875rem; }
+#concept-quote { font-size:1.125rem; }
+.thread-explanation>p { font-size:.875rem; line-height:1.85; }
+.thread-explanation .thread-shot-note { font-size:.8125rem; }
+.thread-footer,.thread-footer button,.thread-coda { font-size:.75rem; }
+
+/* The analysis, archive and film follow the same restrained type scale. */
+.memoir-layout .director-section,.memoir-layout .archive-section { width:calc(100% - 8vw); }
+.memoir-layout .director-heading h2,.memoir-layout .archive-header h2,
+.memoir-layout .film-heading h2 { font-size:2.5rem; }
+.memoir-layout .director-heading>p,.memoir-layout .archive-header>p { font-size:.875rem; }
+.memoir-layout .notes-tabs button { font-size:.8125rem; }
+.memoir-layout .notes-panel { grid-template-columns:minmax(0,1.85fr) minmax(0,1fr); gap:38px; }
+.memoir-layout .note-explanation h3 { font-size:1.25rem; }
+.memoir-layout .note-explanation>p { font-size:.875rem; line-height:1.85; }
+.memoir-layout .note-explanation>.handwritten { font-size:1.3125rem; }
+.memoir-layout .analysis-decision p { font-size:.8125rem; }
+.memoir-layout .analysis-frame figcaption,.memoir-layout .analysis-step span,
+.memoir-layout .archival-print figcaption,.memoir-layout .catalog-shot figcaption,
+.memoir-layout .archive-sequence button { font-size:.75rem; }
+.memoir-layout .archive-page { padding:26px; gap:20px; }
+.memoir-layout .archive-memory { font-size:1.3125rem; }
+.memoir-layout .film-section { max-width:1320px; width:calc(100% - 8vw); }
+.memoir-layout .film-grid { grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:6vw; }
+.memoir-layout .poster-play { font-size:.875rem; }
+.memoir-layout .poster-play>span { font-size:1.5rem; }
+.memoir-layout .reach strong { font-size:clamp(3.5rem,5.5vw,5.5rem); }
+.memoir-layout .reach>p:nth-child(2)>span { font-size:1.25rem; }
+.memoir-layout .film-quote p { font-size:1.5rem; }
+.memoir-layout .downloads>a { font-size:.8125rem; }
+.memoir-layout .creator-section h2 { font-size:1.75rem; }
+.memoir-layout .creator-section>p:last-of-type { font-size:.875rem; }
+.memoir-layout .closing-copy h2 { font-size:clamp(2.75rem,4.8vw,4.25rem); }
+.memoir-layout .site-footer { font-size:.8125rem; }
+.memoir-layout .site-footer .handwritten { font-size:1.625rem; }
+.memoir-layout .lightbox-caption h2 { font-size:1.125rem; }
+.memoir-layout .film-dialog-top { font-size:.875rem; }
+.memoir-layout .dialog-close,.memoir-layout .lightbox-top,
+.memoir-layout .lightbox-prev,.memoir-layout .lightbox-next,
+.memoir-layout .lightbox-actions,#film-status { font-size:.8125rem; }
+
+@media (min-width:1051px) and (max-width:1350px) {
+ .scrap-cover { width:min(100%,365px); }
+ .scrap-note p { font-size:1.1875rem; }
+}
+@media (min-width:641px) and (max-width:1050px) {
+ .memoir-layout .wide-hero .hero-collage { grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr); gap:22px 12px; }
+ .scrap-cover { width:100%; }
+ .scrap-photo figcaption p.handwritten { font-size:.9375rem; }
+ .scrap-note p { font-size:1.125rem; }
+ .foreword-section .dossier-page { padding:28px; }
+ .foreword-spread { gap:26px; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); }
+ .foreword-margin { font-size:1.125rem; }
+ .memoir-layout .memory { padding:28px 24px 23px; }
+ .memoir-layout .memory-name h2 { font-size:2.375rem; }
+ .memoir-layout .memory-heading h3 { font-size:1.0625rem; }
+ .memoir-layout .notes-panel { grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:28px; }
+}
+@media (max-width:760px) {
+ .memoir-layout .foreword-section,.memoir-layout .memory,
+ .memoir-layout .concept-section,.memoir-layout .director-section,
+ .memoir-layout .archive-section { width:calc(100% - 24px); }
+ .foreword-section .dossier-page { padding:25px 18px 22px; }
+ .foreword-section .dossier-heading h2 { font-size:1.875rem; }
+ .foreword-spread { grid-template-columns:1fr; gap:24px; margin-top:25px; }
+ .foreword-reading h3 { font-size:1.125rem; }
+ .foreword-position>.handwritten { font-size:1.25rem; }
+ .memoir-layout .memory { padding:24px 14px 20px; }
+ .memoir-layout .memory-name h2 { font-size:2.125rem; }
+ .memoir-layout .memory-heading h3 { font-size:.9375rem; }
+ .memoir-layout .memory-note,.memoir-layout .memory-still .memory-note { font-size:1.25rem; }
+ .memoir-layout .story-opening h2,.memoir-layout .director-heading h2,
+ .memoir-layout .archive-header h2,.memoir-layout .film-heading h2 { font-size:1.875rem; }
+ .memoir-layout .story-opening>p { font-size:.875rem; }
+ .memoir-layout .memory .extra-shot figcaption { font-size:.75rem; }
+ .memoir-layout .concept-header h2 { font-size:1.875rem; }
+ .memoir-layout .concept-tabs button>span { font-size:1rem; }
+ .thread-book { padding:18px 12px; }
+ .memoir-layout .notes-panel { grid-template-columns:1fr; gap:23px; }
+ .memoir-layout .note-explanation h3 { font-size:1.25rem; }
+ .memoir-layout .note-explanation>.handwritten { font-size:1.3125rem; }
+ .memoir-layout .archive-page { padding:22px 16px; gap:18px 14px; }
+ .memoir-layout .film-grid { grid-template-columns:1fr; gap:30px; }
+ .memoir-layout .film-poster { width:84%; }
+ .memoir-layout .reach strong { font-size:3.75rem; }
+ .memoir-layout .film-quote p { font-size:1.375rem; }
+ .memoir-layout .creator-section h2 { font-size:1.5rem; }
+ .memoir-layout .closing-copy h2 { font-size:2.5rem; }
+ .memoir-layout .site-footer .handwritten { font-size:1.5rem; }
+}
+@media (max-width:640px) {
+ .memoir-layout .hero.scrap-hero.wide-hero { padding-left:5vw; padding-right:5vw; }
+ .memoir-layout .wide-hero #hero-title { font-size:clamp(2.5rem,10vw,3.5rem); }
+ .scrap-cover { width:min(92%,315px); }
+ .scrap-stories .scrap-photo { flex-basis:200px; width:200px; }
+ .scrap-stories .scrap-child,.scrap-stories .scrap-departure { flex-basis:230px; width:230px; }
+ .scrap-stories .scrap-setback { flex-basis:185px; width:185px; }
+ .scrap-photo figcaption p.handwritten { font-size:1rem; }
+ .scrap-note p { font-size:1.1875rem; }
+ .scrap-footer p { font-size:.8125rem; }
+}

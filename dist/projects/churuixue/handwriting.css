@@ -1,0 +1,51 @@
+/* Progressive ink reveal: preserve the original font, layout and readable copy. */
+.ink-host .ink-accessible,
+#hero-title .ink-accessible {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+.ink-host .ink-unit,
+#hero-title .ink-unit {
+  display: inline-block;
+  padding: 0;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.ink-host .ink-glyph,
+#hero-title .ink-glyph {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  opacity: 1;
+  filter: none;
+  clip-path: none;
+}
+.ink-host[data-ink-state="armed"] .ink-glyph,
+#hero-title .ink-host[data-ink-state="armed"] .ink-glyph {
+  opacity: 0;
+  clip-path: polygon(-15% -15%, -15% -15%, -15% 115%, -15% 115%);
+}
+.ink-host[data-ink-state="writing"] .ink-glyph { will-change: clip-path, opacity; }
+/* Never hide copy for printing, reduced motion, or the site's pause control. */
+@media (prefers-reduced-motion: reduce) {
+  .ink-host .ink-glyph { opacity: 1 !important; clip-path: none !important; filter: none !important; }
+}
+@media print {
+  .ink-host .ink-glyph { opacity: 1 !important; clip-path: none !important; filter: none !important; }
+}
+.motion-paused .ink-host .ink-glyph {
+  opacity: 1 !important;
+  clip-path: none !important;
+  filter: none !important;
+}

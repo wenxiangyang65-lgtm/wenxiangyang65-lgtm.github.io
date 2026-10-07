@@ -1,0 +1,20 @@
+/* Light belongs to the surfaces: keep the type clear and the photographs faithful. */
+body.memoir-layout { background-image:radial-gradient(ellipse at 0% 28%,#9c6c3220 0,transparent 44%),radial-gradient(ellipse at 100% 68%,#69796715 0,transparent 45%),url('assets/cloth.webp'); background-size:100% 2400px,100% 2200px,680px; background-attachment:scroll; }
+.memoir-layout .site-header { background:linear-gradient(110deg,#171c17f5,#0a100eef); border-bottom-color:#d4b98425; box-shadow:0 5px 25px #0002; }
+.memoir-layout .hero.scrap-hero { position:relative; background:radial-gradient(ellipse at 10% 22%,#ac793966 0,transparent 52%),radial-gradient(ellipse at 82% 45%,#bc87432d 0,transparent 40%),linear-gradient(#33271e77,#17171200); }
+.scrap-hero::before { content:''; position:absolute; inset:0; background:linear-gradient(118deg,transparent 12%,#ebc9870c 24%,transparent 37%,#e6bd7610 55%,transparent 67%); pointer-events:none; }
+.scrap-shell { position:relative; }
+.scrap-cover .scrap-photo-face { box-shadow:0 19px 32px #0007,0 2px 5px #0007,inset 1px 1px 0 #fff; }
+.scrap-photo-face { border-color:#fff4de; background-image:linear-gradient(115deg,#fff5,transparent 43%,#73582a0d),url('assets/paper.webp'); }
+.scrap-note { background-image:linear-gradient(135deg,#fff5,transparent 50%),url('assets/paper.webp'); box-shadow:4px 10px 16px #0006,inset 0 1px 0 #fff6; }
+.memoir-layout .paper-surface,.memoir-layout .memory,.memoir-layout .archive-page { background-image:linear-gradient(115deg,#fff8 0%,#fff0 36%,#80653c0d 100%),url('assets/paper.webp'); background-size:auto,1100px; }
+.memoir-layout .memory,.memoir-layout .dossier-page,.memoir-layout .analysis-book,.memoir-layout .thread-book { box-shadow:0 1px 0 #fff9 inset,1px 0 0 #fff3 inset,0 20px 42px #0005,0 3px 8px #0003; }
+.memoir-layout .memory .shot,.memoir-layout .archival-print,.thread-shot { box-shadow:-3px 8px 15px #42341e22,0 1px 0 #fff inset; border-color:#fffdf5; }
+.memoir-layout .memory .memory-shot-1::before { filter:drop-shadow(0 1px 1px #54361422); opacity:.8; }
+.memoir-layout .concept-tabs { box-shadow:0 1px 0 #f5dcae0a inset; background:linear-gradient(120deg,#202b25,#141d19); }
+.memoir-layout .concept-tabs [aria-selected=true] { background:linear-gradient(110deg,#354033,#24342b); }
+.memoir-layout .archive-album { box-shadow:0 24px 48px #0006,0 1px 0 #cfb78744 inset; }
+.memoir-layout .film-poster { box-shadow:0 20px 50px #0009,0 0 45px #b0782820; }
+.memoir-layout .chapter-nav { background:linear-gradient(110deg,#161c16f5,#0b0f0cf5); border-top:1px solid #c9ad7e12; border-bottom:1px solid #c9ad7e21; box-shadow:0 4px 15px #0003; }
+@media (max-width:760px) { body.memoir-layout { background-attachment:scroll; }.scrap-cover .scrap-photo-face { box-shadow:0 13px 23px #0007,0 2px 4px #0005; }.memoir-layout .memory,.memoir-layout .thread-book { box-shadow:0 1px 0 #fff9 inset,0 12px 25px #0005; } }
+@media print { body.memoir-layout { background:white; }.scrap-hero::before { display:none; }.memoir-layout .memory,.memoir-layout .thread-book { box-shadow:none; } }

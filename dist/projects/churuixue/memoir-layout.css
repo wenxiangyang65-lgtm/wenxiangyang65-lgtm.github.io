@@ -1,0 +1,103 @@
+/* A cloth-bound memoir, with full photographs on layered paper leaves. */
+body.memoir-layout { background:#0b0e0d url('assets/cloth.webp') repeat; background-size:680px; }
+.memoir-layout .site-header { background:#0b0e0ded; }
+.memoir-layout .hero { max-width:1260px; padding:140px 6vw 0; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:55px; }
+.memoir-layout .hero-copy { padding:0; }
+.memoir-layout .hero-prelude { margin:18px 0; font-size:30px; color:#e2d8c5; }
+.memoir-layout #hero-title { display:block; width:auto; max-width:100%; margin:20px 0 6px; font:400 clamp(65px,7vw,96px)/1.45 var(--hand); letter-spacing:.08em; }
+.hero-subtitle { font:400 27px/1.5 var(--serif); letter-spacing:.18em; color:#c7b493; margin:0 0 20px; }
+.memoir-layout .hero-line { font-size:19px; margin:24px 0; }
+.memoir-layout .hero-collage { height:auto; min-height:0; padding:19px 17px 12px; background:#1b2422 url('assets/cloth.webp') center/520px; border:1px solid #d4c5a21f; box-shadow:0 20px 55px #0009,5px 5px 0 #0005; }
+.memoir-layout .hero-main { position:relative; inset:auto; width:100%; margin:0; padding:8px 8px 12px; background:#ebe6d9 url('assets/paper.webp') center/800px; transform:rotate(.65deg); box-shadow:0 5px 15px #0005; }
+.memoir-layout .hero-cover .frame-button img { width:100%; aspect-ratio:941/1672; object-fit:contain; display:block; }
+.memoir-layout .hero-cover .frame-button::after { content:'▷'; opacity:1; }
+.memoir-layout .hero-main figcaption { color:#615845; font:12px/1.6 var(--serif); padding:10px 1px 0; gap:7px; }
+.memoir-layout .hero-folio { top:-27px; right:0; font-size:12px; }
+.hero-preview { max-width:290px; margin:32px 0 10px; padding:8px 8px 0; background:#e9e4d7 url('assets/paper.webp') center/600px; transform:rotate(-2deg); box-shadow:0 6px 15px #0006; }
+.hero-preview .frame-button { aspect-ratio:4/3; }
+.hero-preview img { display:block; }
+.hero-preview p { display:flex; justify-content:space-between; gap:12px; padding:9px 0 11px; margin:0; color:#6c604c; font:14px/1.6 var(--serif); }
+.hero-preview time { font:12px/1.8 ui-monospace,monospace; }
+.memoir-layout .hero-foot { margin-top:15px; }
+.memoir-layout .memory { position:relative; max-width:1100px; width:calc(100% - 12vw); margin:0 auto 110px; padding:46px 45px 32px; background:#eee9dd url('assets/paper.webp') center/1000px; color:#302e27; border:9px solid #1d2825; box-shadow:0 18px 40px #0007,5px 6px 0 #0007; }
+.memoir-layout .memory-heading { gap:24px; padding-bottom:20px; margin-bottom:28px; border-bottom:1px solid #b1a48760; align-items:baseline; }
+.memoir-layout .memory-name { gap:14px; }
+.memoir-layout .memory-name .eyebrow { writing-mode:horizontal-tb; font:12px/1.6 ui-monospace,monospace; letter-spacing:0; color:#8f7d5c; }
+.memoir-layout .memory-name h2 { color:#272d29; font-size:58px; }
+.memoir-layout .memory-heading h3 { font-size:23px; padding-left:20px; color:#706650; border-color:#b1a48760; }
+.memoir-layout .memory-number { color:#a48b60; font-size:26px; }
+.memoir-layout .memory-visuals { gap:24px; }
+.memoir-layout .memory .shot { padding:10px 10px 14px; background:#f5f1e6 url('assets/paper.webp') center/800px; box-shadow:0 3px 8px #32291c25; border:1px solid #fff8; color:#4a4233; }
+.memoir-layout .memory .shot figcaption { color:#74664d; font:14px/1.65 var(--serif); padding-top:10px; }
+.memoir-layout .memory .shot time { color:#928266; }
+.memoir-layout .memory .frame-button img { display:block; object-fit:contain; }
+.memoir-layout .memory .memory-shot-1::before { content:''; position:absolute; z-index:3; width:72px; height:21px; top:-9px; left:calc(50% - 36px); background:#e0d8beaa url('assets/tape.webp') center/cover; box-shadow:0 1px 2px #0002; transform:rotate(-3deg); pointer-events:none; }
+.memoir-layout .memory-touch .memory-visuals { grid-template-columns:1.6fr 1fr; }
+.memoir-layout .memory-touch .memory-shot-2 { width:100%; margin-top:65px; transform:rotate(1.8deg); }
+.memoir-layout .memory-journey .memory-visuals { grid-template-columns:1.65fr 1fr; }
+.memoir-layout .memory-journey .memory-shot-2 { width:100%; margin-top:55px; transform:rotate(1deg); }
+.memoir-layout .memory-work { transform:none; }
+.memoir-layout .memory-work .memory-visuals { grid-template-columns:1.3fr 1fr; }
+.memoir-layout .memory-work .memory-shot-2 { width:100%; margin-top:45px; }
+.memoir-layout .memory-still .memory-visuals { display:block; max-width:720px; margin:auto; }
+.memoir-layout .memory-still .memory-caption { margin-top:30px; }
+.memoir-layout .memory-gather .memory-heading,.memoir-layout .memory-gather .memory-caption,.memoir-layout .memory-gather .chapter-extra { margin-left:0; margin-right:0; }
+.memoir-layout .memory-gather .memory-visuals { grid-template-columns:1.4fr 1fr; }
+.memoir-layout .memory-gather .memory-shot-2 { width:100%; margin-top:55px; }
+.memoir-layout .memory-bond .memory-visuals { padding:0; gap:24px; }
+.memoir-layout .memory-return .memory-visuals { padding:0; }
+.memoir-layout .memory-return .memory-shot-2 { width:39%; margin-left:56%; margin-top:-45px; transform:rotate(2deg); }
+.memoir-layout .memory-caption { margin:30px 0 24px; gap:35px; }
+.memoir-layout .memory-note { color:#875743; font-size:27px; }
+.memoir-layout .shot-comment { color:#665f51; font-size:16px; }
+.memoir-layout .chapter-extra { color:#74664d; border-color:#b1a48760; }
+.memoir-layout .chapter-extra summary { min-height:54px; font-size:14px; }
+.memoir-layout .chapter-extra[open] summary i { transform:rotate(45deg); }
+.memoir-layout .extra-grid { gap:24px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.memoir-layout .album-dark { background:#1a2824 url('assets/cloth.webp') center/650px; border-color:#111a17; }
+.memoir-layout .album-dark .memory-heading { border-color:#c1b08a35; }
+.memoir-layout .album-dark .memory-name h2 { color:#eee8da; }
+.memoir-layout .album-dark .memory-heading h3 { color:#c0b797; border-color:#c1b08a35; }
+.memoir-layout .album-dark .memory-note { color:#d3bd99; }
+.memoir-layout .album-dark .shot-comment { color:#c0b9a7; }
+.memoir-layout .album-dark .chapter-extra { color:#c9bc9f; border-color:#c1b08a35; }
+.memoir-layout .distance-control { color:#6e5f42; }
+.memoir-layout .distance-hint { color:#827354; }
+.memoir-layout .film-poster { background:#ebe6d9; padding:9px; transform:rotate(-1deg); box-shadow:0 15px 30px #0008; }
+.memoir-layout .film-poster img { display:block; width:100%; height:auto; aspect-ratio:941/1672; object-fit:contain; }
+@media(max-width:1050px) { .memoir-layout .hero { gap:32px; padding-top:130px; }.memoir-layout .memory { padding:35px 28px 25px; }.memoir-layout .memory-heading h3 { font-size:21px; }.memoir-layout .memory-name h2 { font-size:50px; } }
+@media(max-width:760px) {
+ .memoir-layout .hero { display:flex; flex-direction:column; padding:105px 6vw 0; gap:35px; align-items:stretch; }
+ .memoir-layout .hero-copy { width:100%; }.memoir-layout .hero-prelude { font-size:25px; margin:12px 0; }
+ .memoir-layout #hero-title { font-size:65px; line-height:1.4; margin:8px 0 0; }
+ .hero-subtitle { font-size:22px; margin:0 0 15px; }.memoir-layout .hero-line { font-size:18px; margin:17px 0; }
+ .hero-preview { display:none; }
+ .memoir-layout .hero-collage { width:100%; max-width:450px; margin:12px auto 0; padding:14px 12px 9px; height:auto; }
+ .memoir-layout .hero-main { width:100%; padding:7px 7px 11px; }
+ .memoir-layout .hero-foot { width:100%; margin-top:0; padding:18px 0; }
+ .memoir-layout .memory { width:calc(100% - 28px); padding:25px 18px 20px; border-width:6px; margin-bottom:60px; }
+ .memoir-layout .memory-heading { flex-wrap:wrap; align-items:center; gap:10px 15px; padding-bottom:17px; margin-bottom:25px; }
+ .memoir-layout .memory-name { gap:10px; }.memoir-layout .memory-name h2 { font-size:43px; }.memoir-layout .memory-name .eyebrow { font-size:12px; }
+ .memoir-layout .memory-heading h3 { font-size:18px; padding-left:12px; flex:1; min-width:110px; }
+ .memoir-layout .memory .shot { padding:7px 7px 10px; }
+ .memoir-layout .memory-touch .memory-visuals,.memoir-layout .memory-journey .memory-visuals,.memoir-layout .memory-work .memory-visuals,.memoir-layout .memory-gather .memory-visuals { grid-template-columns:1fr; gap:22px; }
+ .memoir-layout .memory-touch .memory-shot-2,.memoir-layout .memory-journey .memory-shot-2,.memoir-layout .memory-work .memory-shot-2,.memoir-layout .memory-gather .memory-shot-2 { width:74%; justify-self:end; margin:0 3px 0 0; transform:rotate(1.5deg); }
+ .memoir-layout .memory-return .memory-shot-2 { width:65%; margin:22px 0 0 31%; }
+ .memoir-layout .memory-bond .memory-visuals { gap:15px; }
+ .memoir-layout .memory-caption { grid-template-columns:1fr; gap:12px; margin:24px 0 18px; }
+ .memoir-layout .memory-note { font-size:25px; }.memoir-layout .shot-comment { font-size:16px; }
+ .memoir-layout .extra-grid { grid-template-columns:1fr 1fr; gap:20px 12px; }
+ .memoir-layout .memory .extra-shot figcaption { font-size:14px; }
+}
+@media print { body.memoir-layout { background:#fff; }.memoir-layout .memory { break-inside:avoid; box-shadow:none; } }
+
+/* Story details use the existing caption columns and paper colors. */
+.memoir-layout .chapter-era { margin:0 0 12px; font:12px/1.7 ui-monospace,monospace; color:#8f7d5c; }
+.memoir-layout .chapter-story { margin:0 0 16px; font-size:16px; line-height:1.95; color:#413c30; }
+.memoir-layout .chapter-copy .shot-comment { margin:0; font-size:14px; line-height:1.85; }
+.memoir-layout .chapter-watch { display:inline-flex; gap:20px; margin-bottom:24px; color:#74664d; font-size:14px; }
+.memoir-layout .chapter-watch span { font:12px/1.8 ui-monospace,monospace; }
+.memoir-layout .album-dark .chapter-story { color:#e4ddcc; }
+.memoir-layout .album-dark .chapter-era,.memoir-layout .album-dark .chapter-watch { color:#c9bc9f; }
+.story-opening small { display:inline-block; margin-top:10px; font-size:13px; opacity:.7; }
+#film-status { padding:0 20px; font-size:14px; }

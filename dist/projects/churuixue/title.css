@@ -1,0 +1,22 @@
+/* Editorial title: high-contrast Song lettering with a stepped baseline. */
+.hero-prelude{font-size:clamp(21px,2.1vw,31px);margin:23px 0 26px;letter-spacing:-.02em;color:#c6bfaa}
+#hero-title{font-family:var(--serif);font-weight:400;font-size:clamp(105px,10.1vw,157px);line-height:1.08;letter-spacing:0;margin:0 0 28px -.035em;position:relative;width:max-content;max-width:100%;font-synthesis:none;text-rendering:optimizeLegibility}
+#hero-title span{padding:0;display:inline-block}
+#hero-title .title-prefix{display:flex;align-items:baseline;gap:.13em;font-size:.63em;line-height:1.22;white-space:nowrap;margin-bottom:.08em;letter-spacing:.075em;color:#ece6d7}
+#hero-title .title-adversity{letter-spacing:.07em}
+#hero-title .title-within{font-size:.53em;position:relative;top:-.05em;letter-spacing:0;color:#c9bb9f;padding-bottom:.17em;margin-left:.1em;border-bottom:1px solid #bca68094}
+#hero-title .title-bloom{display:flex;align-items:flex-start;position:relative;gap:.12em;margin-left:.31em;line-height:1.22;white-space:nowrap}
+#hero-title .title-open{color:#ece6d7}
+#hero-title .title-flower{position:relative;top:.115em;color:#cdbb98}
+#hero-title .title-annotation{align-self:end;position:relative;top:-.72em;margin-left:-.15em;font:12px/1.65 Georgia,serif;letter-spacing:.11em;color:#b6a37d;white-space:normal}
+.hero-line{margin-top:18px;letter-spacing:.075em;font-size:clamp(19px,1.5vw,24px)}
+@media(min-width:1600px){#hero-title{font-size:157px}}
+@media(min-width:761px) and (max-width:1050px){#hero-title{font-size:clamp(87px,10.4vw,111px)}#hero-title .title-annotation{font-size:12px;letter-spacing:.04em;max-width:76px}.hero-prelude{font-size:24px}.hero-line{font-size:19px}}
+@media(max-width:760px){.hero-prelude{font-size:25px;margin:16px 0 18px}#hero-title{font-size:clamp(88px,22.5vw,124px);margin:0 0 19px -.035em}#hero-title .title-prefix{font-size:.56em;line-height:1.17;margin-bottom:.01em;gap:.1em}#hero-title .title-within{font-size:.57em}#hero-title .title-bloom{margin-left:.42em;gap:.12em;line-height:1.16}#hero-title .title-flower{top:.075em}#hero-title .title-annotation{font-size:12px;top:-.48em;letter-spacing:.05em;max-width:72px}.hero-line{font-size:20px;line-height:1.5;margin:18px 0 22px;letter-spacing:.025em}.hero-meta{margin-top:23px}.hero-collage{margin-top:36px}}
+@media(max-width:350px){#hero-title{font-size:80px}#hero-title .title-annotation{font-size:12px;max-width:68px}}
+/* Keep the title compact beside the new large image. */
+#hero-title{font-size:clamp(98px,8.9vw,142px)}
+#hero-title .title-annotation{font-size:12px}
+@media(min-width:1600px){#hero-title{font-size:142px}}
+@media(min-width:761px) and (max-width:1100px){#hero-title{font-size:clamp(85px,9vw,99px)}#hero-title .title-annotation{max-width:62px;font-size:12px}.hero-line{font-size:20px}.hero-prelude{font-size:24px}}
+@media(max-width:760px){#hero-title{font-size:clamp(70px,18.2vw,110px);margin:16px 0 0;width:auto;max-width:100%;display:flex;align-items:baseline;gap:.12em;flex-wrap:wrap}#hero-title .title-prefix{font-size:.55em;margin:0;gap:.08em;line-height:1.3}#hero-title .title-within{font-size:.55em;margin-left:.03em}#hero-title .title-bloom{margin-left:0;gap:.06em;line-height:1.25}#hero-title .title-flower{top:.055em}#hero-title .title-annotation{display:none}.hero-line{font-size:20px;margin:12px 0 22px}}

@@ -1,0 +1,87 @@
+/* A book-cover title and paired scenes carry the memoir's existing material language. */
+.memoir-layout .hero { padding-top:145px; gap:60px; align-items:start; }
+.memoir-layout .hero-copy { padding-top:6px; }
+.hero-kicker { display:flex; justify-content:space-between; max-width:420px; border-bottom:1px solid #c7b49355; padding-bottom:15px; color:#c5b99f; font-size:14px; letter-spacing:.12em; }
+.hero-kicker span:last-child { font:12px/1.8 ui-monospace,monospace; letter-spacing:.08em; }
+.hero-title-block { position:relative; margin:28px 0 25px; padding-left:25px; border-left:1px solid #c7b49355; }
+.memoir-layout .hero-prelude { font:12px/1.6 ui-monospace,monospace; letter-spacing:.25em; color:#ab9b80; margin:0 0 14px; }
+.memoir-layout #hero-title { font:400 clamp(68px,7.8vw,100px)/1.4 var(--hand); letter-spacing:.06em; margin:0 0 12px; }
+.memoir-layout .hero-subtitle { display:flex; align-items:baseline; gap:13px; margin:0; font:400 clamp(29px,3.2vw,43px)/1.6 var(--serif); letter-spacing:.14em; color:#eee5d2; }
+.memoir-layout .hero-subtitle span:last-child { color:#ccb387; }
+.memoir-layout .hero-line { margin:0 0 20px; font-size:16px; line-height:1.95; letter-spacing:0; color:#d0c8b8; }
+.hero-spec { display:flex; flex-wrap:wrap; gap:8px 18px; color:#a89d87; font-size:12px; margin-bottom:25px; }
+.memoir-layout .hero-actions { display:flex; flex-wrap:wrap; gap:18px 28px; }
+.memoir-layout .hero-preview { width:245px; max-width:75%; margin:34px 0 10px 25px; transform:rotate(-2deg); }
+.hero-preview p { font-size:12px; }
+.hero-preview p span:last-child { font:10px/1.8 ui-monospace,monospace; }
+.memoir-layout .hero-collage { margin-top:15px; }
+/* Put the premise above the controls and compare two complete frames on one paper spread. */
+.memoir-layout .concept-section { display:block; max-width:1100px; width:calc(100% - 12vw); margin:100px auto 115px; }
+.concept-header { margin:0 0 30px; }
+.memoir-layout .concept-header h2 { font:400 clamp(30px,3.8vw,48px)/1.45 var(--serif); letter-spacing:.025em; margin:14px 0 13px; }
+.memoir-layout .concept-header>p:last-child { font-size:16px; line-height:1.9; max-width:700px; color:#c4bcac; }
+.memoir-layout .concept-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; margin:0; border:1px solid #c1af8740; border-bottom:0; background:#14201dcc; }
+.memoir-layout .concept-tabs button { position:relative; min-width:0; padding:18px 22px; margin:0; border:0; border-bottom:3px solid transparent; background:none; font:inherit; color:#aea38e; text-align:left; transition:background .25s,color .25s; }
+.memoir-layout .concept-tabs button+button { border-left:1px solid #c1af8730; }
+.memoir-layout .concept-tabs [aria-selected=true] { background:#25342d; border-bottom-color:#cfad77; color:#f2e5cc; }
+.memoir-layout .concept-tabs button>span { display:block; margin:0; font:400 22px/1.6 var(--hand); }
+.memoir-layout .concept-tabs .thread-index { font:12px/1.6 ui-monospace,monospace; margin-bottom:5px; opacity:.65; }
+.concept-tabs small { display:block; font-size:14px; line-height:1.8; margin-top:5px; opacity:.8; }
+.thread-book { position:relative; padding:32px 30px 23px; color:#3b382f; background:#eee9dd url('assets/paper.webp') center/1000px; border:1px solid #c1af8750; box-shadow:0 18px 40px #0005; }
+.thread-spread { display:grid; grid-template-columns:1fr 1fr; gap:28px; position:relative; }
+.thread-spread::after { content:''; position:absolute; left:50%; top:0; bottom:0; width:1px; background:#b1a48740; pointer-events:none; }
+.thread-shot { margin:0; padding:8px 8px 10px; background:#faf6eb; border:1px solid #fff; box-shadow:0 3px 10px #32291c20; min-width:0; }
+.thread-shot .frame-button { display:block; width:100%; aspect-ratio:4/3; overflow:hidden; background:#101512; }
+.thread-shot img { width:100%; height:100%; object-fit:contain; display:block; }
+.thread-shot figcaption { display:flex; justify-content:space-between; align-items:baseline; gap:8px; padding:10px 1px 0; color:#716249; font-size:14px; line-height:1.7; }
+.thread-shot time { font:12px/1.8 ui-monospace,monospace; white-space:nowrap; color:#928266; }
+.thread-reading { display:grid; grid-template-columns:1fr 1.25fr; gap:30px; margin-top:28px; padding-top:23px; border-top:1px solid #b1a48760; }
+.thread-summary .eyebrow { color:#8c7957; font:12px/1.8 ui-monospace,monospace; letter-spacing:0; }
+.thread-summary h3 { font:400 23px/1.5 var(--hand); margin:10px 0 14px; }
+#concept-quote { color:#895a42; font-size:22px; line-height:1.7; }
+.thread-explanation>p { font-size:16px; line-height:1.95; }
+.thread-explanation .thread-shot-note { margin-top:16px; color:#756b59; font-size:14px; line-height:1.85; }
+.thread-footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px 25px; padding-top:20px; margin-top:24px; border-top:1px solid #b1a48760; color:#827052; font-size:13px; }
+.thread-footer button { background:none; font-size:14px; padding:4px 0; color:#68583e; }
+.thread-footer time { margin-left:12px; font:12px/1.8 ui-monospace,monospace; }
+.thread-coda { margin-top:17px; font-size:14px; color:#b7ad97; text-align:center; }
+@media (max-width:1050px) {
+ .memoir-layout .hero { gap:35px; }
+ .memoir-layout .hero-subtitle { font-size:29px; gap:9px; }
+ .memoir-layout .hero-title-block { padding-left:18px; }
+ .memoir-layout .hero-preview { margin-left:18px; }
+ .thread-book { padding:25px 22px 20px; }
+ .thread-reading { gap:24px; grid-template-columns:1fr 1.15fr; }
+ .thread-spread { gap:22px; }
+ .memoir-layout .concept-tabs button { padding:15px 16px; }
+}
+@media (max-width:760px) {
+ .memoir-layout .hero { padding:112px 7vw 0; gap:24px; }
+ .memoir-layout .hero-copy { padding:0; }
+ .hero-kicker { max-width:none; }
+ .memoir-layout .hero-title-block { margin:23px 0 19px; padding-left:20px; }
+ .memoir-layout #hero-title { font-size:70px; display:block; margin:0 0 5px; }
+ .memoir-layout .hero-subtitle { font-size:32px; gap:12px; }
+ .memoir-layout .hero-line { font-size:16px; }
+ .memoir-layout .hero-collage { margin-top:10px; }
+ .memoir-layout .hero-actions { gap:16px 24px; }
+ .memoir-layout .concept-section { width:calc(100% - 28px); margin:65px auto 80px; }
+ .concept-header { padding:0 6px; margin-bottom:23px; }
+ .memoir-layout .concept-header h2 { font-size:31px; margin:12px 0; }
+ .memoir-layout .concept-tabs button { padding:13px 9px 12px; }
+ .memoir-layout .concept-tabs button>span { font-size:18px; }
+ .memoir-layout .concept-tabs .thread-index { font-size:12px; }
+ .concept-tabs small { font-size:12px; }
+ .thread-book { padding:18px 14px; }
+ .thread-spread { gap:14px; }
+ .thread-shot { padding:5px 5px 7px; }
+ .thread-shot figcaption { display:block; padding-top:7px; font-size:14px; }
+ .thread-shot time { display:block; font-size:12px; margin-top:4px; }
+ .thread-reading { grid-template-columns:1fr; gap:18px; margin-top:20px; padding-top:19px; }
+ .thread-summary h3 { font-size:23px; margin:9px 0 6px; }
+ #concept-quote { font-size:22px; }
+ .thread-footer { display:block; margin-top:20px; padding-top:15px; }
+ .thread-footer button { display:block; margin-top:12px; }
+ .thread-coda { margin:15px 10px 0; text-align:left; }
+}
+@media print { .thread-book { box-shadow:none; }.thread-spread { break-inside:avoid; } }

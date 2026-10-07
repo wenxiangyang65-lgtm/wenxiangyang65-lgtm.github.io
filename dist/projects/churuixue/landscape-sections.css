@@ -1,0 +1,79 @@
+/* The cover fades into the same cloth that carries the interior pages. */
+.memoir-layout .hero.atelier-hero{background:transparent}
+.atelier-backdrop{-webkit-mask-image:linear-gradient(180deg,#000 77%,#000f 83%,#000c 90%,#0005 96%,transparent 100%);mask-image:linear-gradient(180deg,#000 77%,#000f 83%,#000c 90%,#0005 96%,transparent 100%)}
+.atelier-backdrop::after{background:none}
+.atelier-light{-webkit-mask-image:linear-gradient(#000 75%,transparent);mask-image:linear-gradient(#000 75%,transparent)}
+.album-right-inscription{top:22%}.album-right-inscription p{margin:0}
+.album-paper-note{top:61.5%}
+
+/* Each spread is a single 16:9 artboard; every measure follows its width. */
+.landscape-stage{container-type:inline-size;width:calc(100% - 8vw);max-width:1580px;margin:44px auto 0}
+.narrative-stage{margin-top:6cqw;margin-bottom:6cqw}
+.memoir-layout #dossier,.memoir-layout #narrative-thread{width:100%;max-width:none;height:56.25cqw;min-height:0;margin:0;box-sizing:border-box}
+#dossier{display:grid;grid-template-rows:3.8cqw minmax(0,1fr)}
+#dossier::before{inset:4.7cqw -.4cqw -.4cqw .5cqw;transform:rotate(.35deg)}
+#dossier .dossier-tab{width:31cqw;height:100%;min-height:0;padding:0 2.5cqw;border-radius:.6cqw .6cqw 0 0;gap:2cqw;font-size:1.05cqw}
+#dossier .dossier-tab span{font-size:.9cqw}
+#dossier .dossier-page{display:grid;grid-template-rows:6.2cqw minmax(0,1fr) 4.1cqw;gap:1.5cqw;min-height:0;padding:2.1cqw 2.6cqw 1.6cqw}
+#dossier .dossier-heading{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:.2cqw 3cqw;align-content:start;align-items:end;padding:0 0 1.1cqw}
+#dossier .dossier-heading>.eyebrow{grid-column:1;grid-row:1;font-size:.98cqw;line-height:1.6;letter-spacing:.06em}
+#dossier .dossier-heading h2{grid-column:1;grid-row:2;font-size:2.35cqw;line-height:1.4;margin:.35cqw 0 0}
+#dossier .dossier-heading>p:last-child{grid-column:2;grid-row:1/3;max-width:27cqw;justify-self:end;font-size:1.02cqw;line-height:1.75;margin:0}
+#dossier .foreword-spread{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,1fr);gap:2.6cqw;min-height:0;align-items:stretch;margin:0}
+#dossier .foreword-images{position:relative;min-width:0;min-height:0;margin:0;padding:0}
+#dossier .foreword-photo{position:absolute;min-height:0;margin:0;padding:.65cqw .65cqw .7cqw;border-width:.07cqw;box-shadow:0 .8cqw 1.5cqw #4b3a262b,0 .15cqw .3cqw #4b3a2626}
+#dossier .foreword-mother{top:.7cqw;left:.2cqw;width:76%;z-index:1;transform:rotate(-1.2deg)}
+#dossier .foreword-work{bottom:.45cqw;right:.1cqw;width:36%;z-index:2;transform:rotate(2deg)}
+#dossier .foreword-photo .frame-button,#dossier .foreword-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
+#dossier .foreword-photo figcaption{display:flex;justify-content:space-between;flex-wrap:nowrap;gap:.6cqw;padding:.45cqw .1cqw 0;font-size:.93cqw;line-height:1.6}
+#dossier .foreword-photo time{font-size:.83cqw;line-height:1.6}
+#dossier .foreword-margin{left:1cqw;bottom:1.1cqw;width:43%;font-size:1.65cqw;line-height:1.7;margin:0}
+#dossier .foreword-reading{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.8cqw;align-items:start;min-height:0}
+#dossier .foreword-reading article{min-width:0}
+#dossier .foreword-reading article+article{margin:0;padding:0 0 0 1.7cqw;border-top:0;border-left:1px solid #ad9a7c55}
+#dossier .foreword-label{font-size:.94cqw;line-height:1.6;letter-spacing:.03em;margin:0 0 .95cqw}
+#dossier .foreword-reading h3{font-size:1.55cqw;line-height:1.55;margin:0 0 1.05cqw}
+#dossier .foreword-reading .foreword-person h3{font-size:2.15cqw;margin-bottom:.65cqw}
+#dossier .foreword-reading article>p:not(.foreword-label){font-size:1.065cqw;line-height:1.8;margin:.9cqw 0;color:#5d5345}
+#dossier .foreword-reading article>p.foreword-identity{font-size:.92cqw;line-height:1.75;color:#886b48}
+#dossier .foreword-source{font-size:.82cqw;line-height:1.7;margin-top:.25cqw;padding-bottom:.2cqw}
+#dossier .foreword-position{display:none}
+#dossier .project-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2cqw;min-height:0;margin:0;padding:1cqw 0 0;border-top:1px solid #96876c50}
+#dossier .project-facts dt{font-size:.87cqw;line-height:1.5;margin:0 0 .2cqw}
+.memoir-layout #dossier .project-facts dd{font-size:1.02cqw;line-height:1.6;margin:0}
+
+/* A quiet rail and two large, uncropped film frames share the second artboard. */
+.memoir-layout #narrative-thread{display:grid;grid-template-columns:minmax(0,17.5fr) minmax(0,80.5fr);grid-template-rows:minmax(0,1fr) 1.8cqw;column-gap:2cqw;row-gap:.8cqw;align-items:stretch;padding:0}
+#narrative-thread .concept-rail{min-width:0;min-height:0;padding-top:1cqw}
+#narrative-thread .concept-header{margin:0 0 2.4cqw;padding:0}
+.memoir-layout #narrative-thread .concept-header>.eyebrow{font-size:.94cqw;line-height:1.65;letter-spacing:.035em}
+.memoir-layout #narrative-thread .concept-header h2{font-size:2.2cqw;line-height:1.6;letter-spacing:0;margin:1.1cqw 0 1.3cqw}
+.memoir-layout #narrative-thread .concept-header>p:last-child{font-size:1.025cqw;line-height:1.85;color:#c0b39d;max-width:none}
+.memoir-layout #narrative-thread .concept-tabs{display:flex;flex-direction:column;gap:0;border:0;background:none;box-shadow:none;margin:0}
+.memoir-layout #narrative-thread .concept-tabs button{display:grid;grid-template-columns:1.7cqw minmax(0,1fr);column-gap:.65cqw;padding:1.25cqw .7cqw;margin:0;border:0;border-top:1px solid #c8b48c38;border-left:.18cqw solid transparent;color:#a8997e;background:#1b201921}
+.memoir-layout #narrative-thread .concept-tabs button+button{border-left:.18cqw solid transparent}
+.memoir-layout #narrative-thread .concept-tabs button:last-child{border-bottom:1px solid #c8b48c38}
+.memoir-layout #narrative-thread .concept-tabs [aria-selected=true]{border-left-color:#d6b784;background:linear-gradient(100deg,#c8a26b24,#c8a26b06);color:#f0dec0}
+.memoir-layout #narrative-thread .concept-tabs .thread-index{grid-column:1;grid-row:1/3;font-size:.95cqw;line-height:1.8;margin:0;padding-top:.15cqw}
+.memoir-layout #narrative-thread .concept-tabs button>span:not(.thread-index){grid-column:2;margin:0;font-size:1.65cqw;line-height:1.5}
+.memoir-layout #narrative-thread .concept-tabs small{grid-column:2;font-size:.91cqw;line-height:1.7;margin:.3cqw 0 0}
+#narrative-thread .thread-book{display:grid;grid-template-rows:minmax(0,1fr) 13.4cqw 3cqw;gap:1.2cqw;min-width:0;min-height:0;padding:1.6cqw 1.7cqw 1.2cqw}
+#narrative-thread .thread-spread{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.6cqw;min-width:0;min-height:0;align-items:start}
+#narrative-thread .thread-spread::after{display:none}
+#narrative-thread .thread-shot{display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0;margin:0;padding:.6cqw .6cqw .65cqw;border-width:.07cqw}
+#narrative-thread .thread-shot .frame-button{width:100%;height:auto;aspect-ratio:4/3}
+#narrative-thread .thread-shot img{width:100%;height:100%;aspect-ratio:4/3;object-fit:contain}
+#narrative-thread .thread-shot figcaption{display:flex;justify-content:space-between;flex-wrap:nowrap;align-items:baseline;gap:.6cqw;padding:.55cqw 0 0;font-size:.96cqw;line-height:1.6}
+#narrative-thread .thread-shot time{display:inline;font-size:.85cqw;line-height:1.6;margin:0}
+#narrative-thread .thread-reading{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.35fr);gap:2cqw;min-height:0;margin:0;padding:1.1cqw 0 0;border-top:1px solid #b1a48760}
+#narrative-thread .thread-summary .eyebrow{font-size:.91cqw;line-height:1.7}
+#narrative-thread .thread-summary h3{font-size:1.85cqw;line-height:1.6;margin:.65cqw 0 .7cqw}
+#narrative-thread #concept-quote{font-size:1.75cqw;line-height:1.65;margin:0}
+#narrative-thread .thread-explanation>p{font-size:1.065cqw;line-height:1.85;margin:0}
+#narrative-thread .thread-explanation .thread-shot-note{font-size:.97cqw;line-height:1.8;margin-top:.85cqw}
+#narrative-thread .thread-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:1.2cqw;padding:.6cqw 0 0;margin:0;min-height:0;font-size:.91cqw}
+#narrative-thread .thread-footer button{font-size:.98cqw;line-height:1.6;min-height:0;padding:.25cqw 0;gap:.7cqw;margin:0}
+#narrative-thread .thread-footer time{font-size:.88cqw;margin-left:.4cqw}
+#narrative-thread .thread-coda{grid-column:2;margin:0;font-size:.95cqw;line-height:1.7;text-align:left;color:#a9987c}
+@media(max-width:760px){.landscape-stage{width:calc(100% - 28px);margin-top:30px}.narrative-stage{margin-top:34px;margin-bottom:45px}}
+@media(max-width:680px){.atelier-backdrop::after{background:linear-gradient(180deg,transparent 880px,#1c150f 1300px)}}

@@ -1,0 +1,84 @@
+/* Reference-led art direction. The title, photos, labels and controls remain separate. */
+.memoir-layout .site-header{position:absolute;inset:0 0 auto;height:auto;min-height:0;padding:2.5vw 3.7vw;align-items:flex-start;border:0;background:none;box-shadow:none;pointer-events:none;color:#e9d4aa}
+.site-header a,.site-header button{pointer-events:auto}
+.memoir-layout .brand{display:block;letter-spacing:.09em;color:#f1d9ac}
+.memoir-layout .brand-mark{display:block;font:400 clamp(23px,2.45vw,50px)/1.2 var(--hand);white-space:nowrap;letter-spacing:.12em}
+.memoir-layout .brand>small{display:block;font:clamp(8px,.7vw,14px)/1.25 Georgia,serif;letter-spacing:.13em;margin-top:.5vw;color:#e3cba4}
+.memoir-layout .desktop-nav{display:flex;flex-direction:column;gap:0;text-align:right;margin-left:auto;color:#d5c3a2;font:clamp(10px,1.04vw,21px)/1.3 var(--serif);letter-spacing:.14em}
+.memoir-layout .desktop-nav a{padding:1px 0}.desktop-nav a:last-child{display:none}
+.memoir-layout .header-controls{position:absolute;right:3.7vw;top:10.7vw;gap:12px}
+.memoir-layout .motion-toggle{padding:0;font-size:clamp(9px,.65vw,12px);opacity:.55;color:#e7cda8}
+.memoir-layout .hero.atelier-hero{display:block;position:relative;isolation:isolate;width:100%;max-width:none;margin:0;padding:0;overflow:hidden;background:#1e1510;color:#e5d0aa}
+.atelier-shell{position:relative;width:100%;height:auto;aspect-ratio:1758/1408;margin:0;isolation:isolate}
+.atelier-backdrop{position:absolute;inset:0;z-index:-3;background:#201610 url('assets/atelier/reference-album-background.webp') center/100% 100% no-repeat;pointer-events:none}
+.atelier-backdrop::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 90%,#11130f80);pointer-events:none}
+.atelier-light{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.42;background:radial-gradient(ellipse at var(--light-x,8%) var(--light-y,5%),#ffdd9c30,transparent 49%);mix-blend-mode:screen}
+.atelier-heading{position:absolute;left:27.9%;top:3.7%;width:49.4%;max-width:none;margin:0;text-align:center;z-index:8}
+.atelier-eyebrow{display:flex;justify-content:center;align-items:center;gap:1.2vw;font:clamp(9px,1.05vw,22px)/1.4 var(--serif);letter-spacing:.3em;color:#d1c2a0}
+.atelier-eyebrow span{width:2.8vw;height:1px;background:#c6b58d66}
+.atelier-title{width:100%;margin:.8vw 0 .2vw;padding:0}
+.memoir-layout .atelier-hero #hero-title{display:block;width:100%;max-width:100%;font-size:inherit;line-height:1;letter-spacing:0;margin:0;padding:0;text-shadow:none}
+.atelier-title-art{display:block;width:100%;height:auto;aspect-ratio:1207/308;object-fit:contain;filter:drop-shadow(0 1px 1px #0f08062b)}
+.atelier-english{font:clamp(8px,1vw,20px)/1.5 Georgia,serif;letter-spacing:.27em;color:#dfcca8;margin:.5vw 0 .45vw;white-space:nowrap}
+.atelier-intro{font:clamp(9px,1.05vw,21px)/1.6 var(--serif);letter-spacing:.16em;color:#dfceab}
+.album-inscription{position:absolute;top:17.7%;left:3.9%;width:12%;z-index:1;transform:rotate(-14deg);font:clamp(14px,1.8vw,34px)/1.3 Georgia,serif;letter-spacing:.08em;color:#d5a56f;text-shadow:0 1px 1px #211107;pointer-events:none}
+.album-inscription i{display:block;width:90%;height:1px;background:#be8c555e;margin-top:.6vw}
+.album-right-inscription{position:absolute;left:86.8%;top:13.9%;width:10%;z-index:2;pointer-events:none}
+.album-right-inscription>img{width:100%;margin:auto;opacity:.94;mix-blend-mode:screen}
+.album-right-inscription p{font:400 clamp(17px,2.1vw,40px)/1.2 var(--hand);color:#ba8545;transform:rotate(-9deg);margin:1.5vw 0 0;letter-spacing:.03em;text-align:center}
+.album-paper-note{position:absolute;left:88.7%;top:54.8%;width:9.7%;z-index:2;pointer-events:none;transform:rotate(10deg);text-align:center;color:#53351e}
+.album-paper-note>img{width:86%;margin:0 auto 1.35vw;filter:grayscale(1) invert(1);mix-blend-mode:multiply}
+.album-paper-note p{font:400 clamp(13px,1.68vw,32px)/1.52 var(--hand);letter-spacing:.03em}
+.album-paper-note small{display:block;font:clamp(8px,.85vw,16px)/1.35 Georgia,serif;letter-spacing:.06em;margin-top:1.1vw}
+.memoir-layout .atelier-hero .memory-wall{position:absolute;inset:0;width:100%;height:100%;min-height:0;max-width:none;margin:0;padding:0;display:block;perspective:none;isolation:isolate;background:none;border:0;box-shadow:none}
+.memory-stack,.memory-center{display:contents}
+.memory-threads{display:none}
+.memoir-card{--angle:0deg;--lift:0px;position:absolute;isolation:isolate;margin:0;min-width:0;transform:translateY(var(--lift)) rotate(var(--angle));transition:transform .5s cubic-bezier(.2,.65,.25,1),filter .5s;filter:drop-shadow(.16vw .55vw .5vw #06030185);transform-origin:50% 45%;z-index:4}
+.memoir-card::before{content:'';position:absolute;inset:.5%;z-index:-1;background:#cbb48f url('assets/paper.webp') center/500px;transform:translate(.2vw,.2vw) rotate(-1deg);box-shadow:0 .05vw .1vw #1c10076b;pointer-events:none}
+.memoir-card::after{content:'';position:absolute;top:-.95vw;left:34%;width:24%;height:1.7vw;z-index:4;transform:rotate(-6deg);background:linear-gradient(125deg,#cca37345,#f4d7a244,#aa74364a),url('assets/paper.webp') center/240px;box-shadow:0 1px 1px #3f281014;opacity:.48;clip-path:polygon(0 8%,98% 0,100% 92%,3% 100%);pointer-events:none}
+.memoir-card-face{position:relative;padding:.78vw .78vw .85vw;background:linear-gradient(118deg,#fff8e7d9,#f8e6c6e0),url('assets/paper.webp') center/450px;border:1px solid #fff1d3b0;box-shadow:inset 0 0 .9vw #bd874c14,0 1px 1px #43240938}
+.atelier-hero .memoir-card .frame-button{background:#16120d;aspect-ratio:4/3}
+.atelier-hero .memoir-card .frame-button img{display:block;width:100%;height:100%;aspect-ratio:4/3;object-fit:contain;transform:none;transition:filter .4s}
+.atelier-hero .memoir-card .frame-button::after{width:clamp(20px,2vw,36px);height:clamp(20px,2vw,36px);bottom:.5vw;right:.5vw;font:clamp(16px,1.4vw,25px)/1.3 Georgia,serif;background:#1f130c99;border-color:#fff0c988}
+.memoir-card figcaption{padding:.38vw .2vw 0;color:#59432c;line-height:1.3;text-align:left}
+.memoir-card-meta{display:flex;justify-content:space-between;align-items:baseline;gap:.6vw}
+.memoir-card-meta>span{font:400 clamp(10px,1.05vw,21px)/1.4 var(--serif)}
+.memoir-card time{font:clamp(8px,.86vw,17px)/1.4 Georgia,serif;white-space:nowrap;color:#6d5033}
+.memoir-card figcaption p.handwritten{font:400 clamp(10px,1.27vw,25px)/1.4 var(--hand);margin:.1vw 0 0;letter-spacing:.025em;color:#6d492c;white-space:nowrap}
+.chapter-medallion{position:absolute;left:-.25vw;top:-.45vw;z-index:6;display:grid;place-items:center;width:2.75vw;height:2.75vw;min-width:25px;min-height:25px;border-radius:50%;color:#fff0d1;font:400 clamp(14px,1.45vw,27px)/1 Georgia,serif;background:linear-gradient(130deg,#e2b682 0%,#c18b5f 18%,#976344 72%,#d8ac79);border:1px solid #e8c38c;box-shadow:inset 0 0 0 .14vw #ad7954,inset 0 0 0 .23vw #e4c398,0 .13vw .21vw #2a130980;text-shadow:0 1px 1px #5e321a4d;transition:filter .2s,transform .2s}
+.chapter-medallion::after{content:'';position:absolute;inset:-6px;border-radius:50%}.chapter-medallion:hover{transform:scale(1.08);filter:brightness(1.17)}
+.card-child{left:9.55%;top:24.1%;width:21%;--angle:-7deg;z-index:6}
+.card-livelihood{left:12.65%;top:51.2%;width:18.5%;--angle:8deg;z-index:5}
+.card-setback{left:13.4%;top:70.5%;width:18.2%;--angle:-4deg;z-index:4}
+.card-departure{left:69.3%;top:26.5%;width:19.7%;--angle:4deg;z-index:6}
+.card-rebuild{left:68.5%;top:50.7%;width:18.1%;--angle:-7deg;z-index:5}
+.card-future{left:70.05%;top:73.6%;width:18.3%;--angle:5deg;z-index:7}
+.card-cover{left:33.35%;top:28.4%;width:32.8%;--angle:2deg;z-index:3;filter:drop-shadow(.5vw .8vw .65vw #05020180)}
+.card-cover::before{inset:-.55vw;transform:rotate(-2.6deg);background:linear-gradient(100deg,#b08050af,#64412677),url('assets/paper.webp') center/700px;box-shadow:.35vw .5vw .45vw #160b0460}
+.card-cover::after{left:auto;right:5%;top:-1.35vw;width:1.23vw;height:4.2vw;opacity:1;transform:rotate(16deg);clip-path:none;border:2px solid #d4a46d;border-radius:1vw;background:none;box-shadow:inset 2px 0 1px #ffdea8,inset -2px 0 1px #633811,2px 3px 3px #170b07aa}
+.card-cover .memoir-card-face{padding:.95vw .95vw .7vw}
+.atelier-hero .card-cover .frame-button,.atelier-hero .card-cover .frame-button img{aspect-ratio:7/10;object-fit:cover;object-position:center top}
+.card-cover figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:1vw;padding:.65vw .25vw .1vw;font:clamp(10px,1vw,20px)/1.5 var(--serif)}
+.atelier-hero .card-cover .frame-button::after{content:'▷';opacity:.9;bottom:1vw;right:1vw;width:2.7vw;height:2.7vw;min-width:28px;min-height:28px;font:clamp(20px,1.8vw,34px)/1.35 Georgia,serif;background:#0c08077a}
+.memoir-layout .atelier-hero .hero-actions{position:absolute;left:33.2%;top:90%;width:32.8%;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:.8vw;margin:0;z-index:10}
+.atelier-hero .button.primary{border:1px solid #c99c64;border-radius:100px;padding:.22vw 1.65vw;min-height:2.6vw;background:#160d0690;color:#dbc396;box-shadow:inset 0 1px 1px #ebbe7440,0 2px 6px #0003;font:clamp(11px,1.05vw,20px)/1.4 var(--serif);gap:.8vw;white-space:nowrap;transition:background .25s,color .25s}
+.atelier-hero .button.primary:hover{background:#e2c591;color:#332112}.play-disc{font:clamp(15px,1.35vw,25px)/1 Georgia,serif}
+.atelier-archive-link{font:clamp(9px,.74vw,14px)/1.5 var(--serif);border-bottom:1px solid #a68b6266;color:#c9b18b;white-space:nowrap;padding:.25vw 0}
+.atelier-hint{position:absolute;left:35%;top:94.4%;width:30%;margin:0;text-align:center;font:clamp(8px,.63vw,12px)/1.4 var(--serif);letter-spacing:.03em;color:#a99572}.atelier-hint span{margin:0 .4vw}
+.atelier-footer{position:absolute;left:30%;top:96.3%;width:42%;padding:0;margin:0;text-align:center;border:0}
+.atelier-footer>p{font:clamp(8px,.94vw,18px)/1.6 var(--serif);color:#d9c4a0;white-space:nowrap}
+.atelier-footer>div{display:flex;justify-content:center;gap:0;margin-top:.45vw;font:clamp(8px,.78vw,15px)/1.4 var(--serif);letter-spacing:.05em;color:#b5915e}
+.atelier-footer>div span+span::before{content:'/';margin:0 .75vw;color:#b4916266}
+@media(hover:hover) and (pointer:fine){.memoir-card:hover,.memoir-card:focus-within{--lift:-5px;z-index:14;filter:drop-shadow(.35vw .9vw .75vw #060301a6)}.memoir-card:hover .frame-button img{transform:none;filter:brightness(1.035)}}
+@media(max-width:1050px) and (min-width:681px){.atelier-footer{top:95.8%}.atelier-footer>p{font-size:9px;white-space:normal}.atelier-footer>div{margin-top:.2vw}.atelier-hint{top:93.5%}.memoir-layout .atelier-hero .hero-actions{top:89.6%}.atelier-archive-link{display:none}.memoir-card figcaption p.handwritten{font-size:1.31vw}.memoir-card-meta>span{font-size:1.15vw}.memoir-card time{font-size:.94vw}}
+@media(max-width:680px){
+ .memoir-layout .site-header{padding:22px 6vw;height:80px}.memoir-layout .brand-mark{font-size:25px}.memoir-layout .brand>small{font-size:8px;margin-top:3px}.memoir-layout .desktop-nav{display:none}.memoir-layout .header-controls{top:27px;right:6vw;gap:16px}.memoir-layout .motion-toggle{font-size:11px;opacity:.8}.memoir-layout .menu-toggle{font-size:12px;display:block}.mobile-menu{top:82px}
+ .atelier-shell{aspect-ratio:auto;padding:108px 6vw 32px}.atelier-heading{position:relative;left:auto;top:auto;width:100%;margin:0 auto 28px}.atelier-eyebrow{font-size:10px;letter-spacing:.18em;gap:10px}.atelier-eyebrow span{width:24px}.atelier-title{margin:18px auto 9px;width:104%;margin-left:-2%}.atelier-english{font-size:8px;letter-spacing:.19em;margin:10px 0}.atelier-intro{font-size:12px;line-height:1.7;letter-spacing:.08em}
+ .atelier-backdrop{background-size:auto 1300px;background-position:center top;background-color:#1c150f}.atelier-backdrop::after{background:linear-gradient(180deg,transparent 900px,#1c150f 1300px,#11140f)}.album-inscription,.album-right-inscription,.album-paper-note{display:none}
+ .memoir-layout .atelier-hero .memory-wall{position:relative;inset:auto;display:grid;grid-template-columns:1fr 1fr;gap:24px 14px;height:auto;transform:none!important}.memory-center{display:flex;flex-direction:column;grid-column:1/-1;grid-row:1;align-items:center}.memory-stack{display:flex;flex-direction:column;gap:26px;position:relative;padding:0;min-width:0}.stack-left{grid-column:1;grid-row:2}.stack-right{grid-column:2;grid-row:2;padding-top:25px}
+ .memoir-card{position:relative;left:auto;top:auto;width:100%;margin:0;filter:drop-shadow(2px 7px 6px #0008);--angle:-3deg}.card-livelihood{--angle:4deg}.card-departure,.card-future{--angle:3deg}.card-rebuild{--angle:-4deg}.card-cover{width:78%;max-width:360px;margin:0 auto;--angle:1deg}.memoir-card-face{padding:7px 7px 11px}.memoir-card::after{height:19px;width:30%;top:-8px}.memoir-card::before{transform:translate(2px,3px) rotate(-1deg)}.card-cover::before{inset:-5px;transform:rotate(-2deg)}.card-cover::after{width:10px;height:37px;top:-11px;right:8%;border-radius:12px}.card-cover .memoir-card-face{padding:9px 9px 12px}.atelier-hero .card-cover .frame-button,.atelier-hero .card-cover .frame-button img{aspect-ratio:941/1672;object-fit:contain}.card-cover figcaption{padding:9px 2px 0;font-size:11px}.memoir-card figcaption{padding:6px 2px 0}.memoir-card-meta{gap:5px;flex-wrap:wrap}.memoir-card-meta>span{font-size:12px}.memoir-card time{font-size:10px}.memoir-card figcaption p.handwritten{font-size:14px;line-height:1.55;white-space:normal;margin-top:3px}.chapter-medallion{width:29px;height:29px;top:-6px;left:-6px;font-size:16px;box-shadow:inset 0 0 0 2px #b47c52,inset 0 0 0 3px #edcda0,0 2px 3px #2a130980}
+ .memoir-layout .atelier-hero .hero-actions{position:relative;left:auto;top:auto;width:100%;margin:25px 0 8px;gap:15px}.atelier-hero .button.primary{min-height:42px;padding:8px 19px;font-size:13px;gap:10px}.play-disc{font-size:20px}.atelier-archive-link{display:block;font-size:11px;padding:6px 0}.atelier-hero .card-cover .frame-button::after{width:35px;height:35px;font-size:23px;line-height:31px;bottom:10px;right:10px}.atelier-hero .memoir-card .frame-button::after{bottom:8px;right:8px}
+ .atelier-hint{position:relative;left:auto;top:auto;width:100%;font-size:10px;line-height:1.7;margin:25px 0 0}.atelier-hint span{margin:0 6px}.atelier-footer{position:relative;left:auto;top:auto;width:100%;margin:12px auto 0;padding-top:14px;border-top:1px solid #bd9a6133}.atelier-footer>p{white-space:normal;font-size:12px;line-height:1.8}.atelier-footer>div{font-size:10px;flex-wrap:wrap;gap:4px 0;margin-top:10px}.atelier-footer>div span+span::before{margin:0 7px}
+}
+@media(prefers-reduced-motion:reduce){.atelier-hero *{transition:none!important}.memoir-card{--lift:0px!important}.atelier-light{display:none}}
+.motion-paused .memoir-card{--lift:0px!important;transition:none}.motion-paused .atelier-light{opacity:.3}

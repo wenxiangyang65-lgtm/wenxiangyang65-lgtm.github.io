@@ -1,0 +1,520 @@
+{
+  "images": {
+    "real-initial": {
+      "source": "写实形象素材/徐婕-特写-1784465893328.jpg",
+      "source_dimensions": [
+        6741,
+        2177
+      ],
+      "web_dimensions": [
+        4096,
+        1323
+      ],
+      "src": "assets/hd/real-initial.webp"
+    },
+    "real-awakened": {
+      "source": "写实形象素材/女王造型 拷贝-1784369723286.jpg",
+      "source_dimensions": [
+        9755,
+        4656
+      ],
+      "web_dimensions": [
+        4096,
+        1955
+      ],
+      "src": "assets/hd/real-awakened.webp"
+    },
+    "real-lion": {
+      "source": "写实形象素材/狮子0319-2 拷贝-1784369723041.jpg",
+      "source_dimensions": [
+        9640,
+        5349
+      ],
+      "web_dimensions": [
+        4096,
+        2273
+      ],
+      "src": "assets/hd/real-lion.webp"
+    },
+    "real-scepter": {
+      "source": "写实形象素材/权杖.jpg",
+      "source_dimensions": [
+        9640,
+        5349
+      ],
+      "web_dimensions": [
+        4096,
+        2273
+      ],
+      "src": "assets/hd/real-scepter.webp"
+    },
+    "initial-face": {
+      "source": "卡通版本/卡通形象素材/微信图片_20260331145815_144_148.jpg",
+      "source_dimensions": [
+        1280,
+        2202
+      ],
+      "web_dimensions": [
+        1280,
+        2202
+      ],
+      "src": "assets/hd/initial-face.webp"
+    },
+    "initial-body": {
+      "source": "卡通版本/卡通形象素材/微信图片_20260331145816_145_148.png",
+      "source_dimensions": [
+        3840,
+        2180
+      ],
+      "web_dimensions": [
+        3840,
+        2180
+      ],
+      "src": "assets/hd/initial-body.webp"
+    },
+    "awakened": {
+      "source": "卡通版本/卡通形象素材/微信图片_20260330150954_132_148.png",
+      "source_dimensions": [
+        2752,
+        1536
+      ],
+      "web_dimensions": [
+        2752,
+        1536
+      ],
+      "src": "assets/hd/awakened.webp"
+    },
+    "lion": {
+      "source": "卡通版本/卡通形象素材/微信图片_2026-03-23_155828_783.jpg",
+      "source_dimensions": [
+        5604,
+        5349
+      ],
+      "web_dimensions": [
+        4096,
+        3910
+      ],
+      "src": "assets/hd/lion.webp"
+    },
+    "scepter": {
+      "source": "卡通版本/卡通形象素材/微信图片_20260331174153_161_148.jpg",
+      "source_dimensions": [
+        6144,
+        11008
+      ],
+      "web_dimensions": [
+        3429,
+        6144
+      ],
+      "src": "assets/hd/scepter.webp"
+    },
+    "frame-12": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 12,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-12.webp"
+    },
+    "frame-86": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 86,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-86.webp"
+    },
+    "frame-90": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 90,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-90.webp",
+      "creation": {
+        "src": "assets/hd/still-90.webp",
+        "source": "卡通版本/动画版本针/8动物咆哮/静态/图片生成-1774957021623.png",
+        "dimensions": [
+          1536,
+          2752
+        ],
+        "web_dimensions": [
+          1536,
+          2752
+        ]
+      }
+    },
+    "frame-28": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 28,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-28.webp"
+    },
+    "frame-24": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 24,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-24.webp",
+      "creation": {
+        "src": "assets/hd/still-24.webp",
+        "source": "卡通版本/动画版本针/3马车/图片20.png",
+        "dimensions": [
+          3040,
+          5404
+        ],
+        "web_dimensions": [
+          3040,
+          5404
+        ]
+      }
+    },
+    "frame-48": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 48,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-48.webp"
+    },
+    "frame-29": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 29,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-29.webp"
+    },
+    "frame-44": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 44,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-44.webp"
+    },
+    "frame-52": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 52,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-52.webp"
+    },
+    "frame-59": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 59,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-59.webp"
+    },
+    "frame-18": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 18,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-18.webp"
+    },
+    "frame-34": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 34,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-34.webp"
+    },
+    "frame-22": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 22,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-22.webp",
+      "creation": {
+        "src": "assets/hd/still-22.webp",
+        "source": "卡通版本/动画版本针/2.5吹号角/图片生成-1775407523171.png",
+        "dimensions": [
+          3072,
+          5504
+        ],
+        "web_dimensions": [
+          3072,
+          5504
+        ]
+      }
+    },
+    "frame-02": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 2,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-02.webp"
+    },
+    "frame-14": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 14,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-14.webp"
+    },
+    "frame-38": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 38,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-38.webp"
+    },
+    "frame-78": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 78,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-78.webp"
+    },
+    "frame-42": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 42,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-42.webp"
+    },
+    "frame-54": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 54,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-54.webp"
+    },
+    "frame-74": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 74,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-74.webp"
+    },
+    "frame-62": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 62,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-62.webp"
+    },
+    "frame-58": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 58,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-58.webp"
+    },
+    "frame-36": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 36,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-36.webp"
+    },
+    "frame-16": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 16,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-16.webp"
+    },
+    "frame-56": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 56,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-56.webp"
+    },
+    "frame-40": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 40,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-40.webp"
+    },
+    "frame-10": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 10,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-10.webp"
+    },
+    "frame-06": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 6,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-06.webp"
+    },
+    "frame-26": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 26,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-26.webp"
+    },
+    "frame-30": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 30,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-30.webp"
+    },
+    "frame-31": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 31,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-31.webp"
+    },
+    "frame-66": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 66,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-66.webp",
+      "creation": {
+        "src": "assets/hd/still-66.webp",
+        "source": "卡通版本/动画版本针/6精灵/精灵/精灵 2/图片生成-1774894710614.png",
+        "dimensions": [
+          3072,
+          5504
+        ],
+        "web_dimensions": [
+          3072,
+          5504
+        ]
+      }
+    },
+    "frame-70": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 70,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-70.webp",
+      "creation": {
+        "src": "assets/hd/still-70.webp",
+        "source": "卡通版本/动画版本针/动物感应/图片生成-1775124652551.png",
+        "dimensions": [
+          3072,
+          5504
+        ],
+        "web_dimensions": [
+          3072,
+          5504
+        ]
+      }
+    },
+    "frame-50": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 50,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-50.webp"
+    },
+    "frame-46": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "time": 46,
+      "web_dimensions": [
+        1080,
+        1920
+      ],
+      "src": "assets/hd/frame-46.webp"
+    }
+  },
+  "videos": {
+    "animated": {
+      "source": "卡通版本/卡通最终视频.mov",
+      "width": 1080,
+      "height": 1920,
+      "src": "assets/videos/animated.mp4",
+      "smoothSrc": "assets/videos/animated-smooth.mp4"
+    },
+    "realistic": {
+      "source": "写实形象素材/辛巴门徒.m4v",
+      "width": 1080,
+      "height": 1920,
+      "src": "assets/videos/realistic.mp4",
+      "smoothSrc": "assets/videos/realistic-smooth.mp4",
+      "sourceWidth": 2160,
+      "sourceHeight": 3840,
+      "duration": 73.36
+    },
+    "coronation": {
+      "source": "其他完整的视频/门徒加冕.m4v",
+      "width": 1080,
+      "height": 1920,
+      "src": "assets/videos/coronation.mp4",
+      "smoothSrc": "assets/videos/coronation-smooth.mp4"
+    },
+    "march": {
+      "source": "其他完整的视频/点将.m4v",
+      "width": 1080,
+      "height": 1920,
+      "src": "assets/videos/march.mp4",
+      "smoothSrc": "assets/videos/march-smooth.mp4"
+    }
+  }
+}
