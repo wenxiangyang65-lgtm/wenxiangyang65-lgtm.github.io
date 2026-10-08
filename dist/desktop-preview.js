@@ -6,6 +6,7 @@
     });
   };
   document.addEventListener('DOMContentLoaded', reserveArtwork, {once:true});
+  if (document.documentElement.hasAttribute('data-portfolio-home')) return;
   const touch = navigator.maxTouchPoints > 0 || matchMedia('(pointer:coarse)').matches || /iPhone|iPad|iPod|Android/.test(navigator.userAgent);
   if (!touch || Math.min(screen.width, screen.height) > 1024) return;
   const root = document.documentElement;
