@@ -21,7 +21,8 @@ remote="$TENCENT_USER@$TENCENT_HOST"
 ssh "${ssh_flags[@]}" "$remote" "python3 /usr/local/lib/portfolio-deploy.py prepare $release"
 printf -v transport '%q ' ssh "${ssh_flags[@]}"
 # --delete only operates inside the NEW incoming release, never current or older releases.
-rsync -az --delay-updates --delete --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
+rsync -rplz --checksum --link-dest=/srv/yang-wenxiang-portfolio/current \
+    --delay-updates --delete --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
     -e "$transport" build/ "$remote:/srv/yang-wenxiang-portfolio/.incoming/$release/"
 ssh "${ssh_flags[@]}" "$remote" "python3 /usr/local/lib/portfolio-deploy.py publish $release"
 export PORTFOLIO_EXPECTED_RELEASE="$release"

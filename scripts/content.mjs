@@ -14,6 +14,13 @@ export async function compileContent(target='dist') {
     return p;
   }));
   await writeFile(resolve(target,'project-data.js'),`/* Generated from content/projects.json. Run npm run content after editing. */\nwindow.PORTFOLIO_PROJECTS=${JSON.stringify(result).replaceAll('<','\\u003c')};\n`);
+  if(target!=='dist')for(const p of projects)if(p.description) {
+    const page=resolve(target,p.entry),html=await readFile(page,'utf8');
+    const escape=text=>text.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    const meta=`<meta name="description" content="${escape(p.description)}">`;
+    const existing=/<meta\b[^>]*\bname=["']description["'][^>]*>/i;
+    await writeFile(page,existing.test(html)?html.replace(existing,meta):html.replace(/<\/head>/i,meta+'\n</head>'));
+  }
   return projects;
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))await compileContent();

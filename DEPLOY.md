@@ -52,7 +52,7 @@ Nginx 已配置开机启动。`current` 软链接在重启后仍然指向完整�
 1. 安装锁定依赖（当前无外部依赖），运行发布保护测试。
 2. 检查所有项目入口、HTML 与 CSS 的本地资源引用、JS 语法、JSON 和敏感文件。
 3. 把 `dist/` 打包到 `build/`，生成目录配置和包含每个文件大小、SHA-256 的清单。
-4. 经 SSH 上传至新的 `.incoming/<提交号-运行号-尝试号>/`。
+4. 经 SSH 上传至新的 `.incoming/<提交号-运行号-尝试号>/`。按文件内容校验变化，未改变的素材从当前版本创建硬链接，只传修改的文件。更新后的文件写到新文件中，不会改旧版本的共享素材。
 5. 服务器逐文件校验后才切换 `current`。上传或校验失败时旧版不受影响。
 6. Nginx 本地检查当前版本、主页和全部项目；失败自动把链接切回旧版。
 7. 外网验证提交号、全部项目入口、封面/简历图片、视频大小与视频 Range 请求。
@@ -94,7 +94,7 @@ npm run build
 
 不要直接修改 `build/`。目录卡片的顺序就是 `content/projects.json` 数组顺序。原编号 `n` 用于原版美术，不因展示顺序改变。前八项的卡片文字已印在图片里，修改图片中的字需要替换原素材；配置里的名称控制链接、提示与目录下方的文字。
 
-各项目的正文仍在各自页面或已有数据文件里。例如徐杰在 `dist/projects/xujie/site-data.json`，许我一匹马吧在其 `project-data.js`，初瑞雪有独立 `project-profile.js` 和各章节文件。不要把不同项目的数据合并到一个大文件。
+中央配置里的 `description` 在构建时同步到项目页面的描述元数据，供分享和搜索使用，不插入新视觉元素。各项目可见正文仍在各自页面或已有数据文件里。例如徐杰在 `dist/projects/xujie/site-data.json`，许我一匹马吧在其 `project-data.js`，初瑞雪有独立 `project-profile.js` 和各章节文件。不要把不同项目的数据合并到一个大文件。
 
 新增项目优先沿用现有唱片模板：在 `dist/projects/<新slug>/` 新建详情页，把圆形封面放入明确命名的素材目录，在中央配置增加唯一 `n`、`slug`、`title`、`label`、`year`、`description`、`entry`、`cover`、`category` 和 `template: "sleeve"`。页数和滚动计数自动跟随项目数量，不必修改动画脚本。编辑详情页后把 `/project-navigation.js` 和 `/desktop-preview.js` 接入，沿用现有返回目录与手机预览行为。
 
@@ -127,7 +127,7 @@ ssh portfolio-tencent 'python3 /usr/local/lib/portfolio-deploy.py rollback'
 
 ## 域名与 HTTPS
 
-拿到域名后告诉 Codex域名和希望使用的主机名即可。服务器在上海；域名上线前需要核对备案和接入状态，不填写或提交身份材料来替代你本人操作。
+拿到域名后告诉 Codex 域名和希望使用的主机名即可。服务器在上海；域名上线前需要核对备案和接入状态，不填写或提交身份材料来替代你本人操作。当前公网 IP 可用于访问测试；腾讯云说明，域名解析到大陆服务器前需办理对应备案，纯公网 IP 测试可暂不备案。[腾讯云备案说明](https://cloud.tencent.com/document/api/243/19630)
 
 后续顺序：把域名 A 记录指向 `115.159.25.132`；添加独立域名虚拟主机；配置经验证的 TLS 证书和自动续期；只放通所需 443 端口；测试 `nginx -t` 后 reload；把 HTTP 转到 HTTPS；更新 `TENCENT_SITE_URL`。同时更新 `/etc/portfolio-deploy.json` 的 `server_name`，使本地检查仍然命中作品集站点。配置源码模板也同步更新，避免以后误覆盖。新域名验证成功前保留 IP 和 GitHub 原入口。
 
@@ -137,4 +137,4 @@ ssh portfolio-tencent 'python3 /usr/local/lib/portfolio-deploy.py rollback'
 
 当前约 251MB，服务器足够容纳站点与最近三个版本。Nginx 原生支持视频范围请求；素材保持原来的项目目录，构建校验能检查漏传或损坏。入口脚本、页面、JSON 不长期缓存；封面素材配置按内容生成版本参数，方便替换后刷新。
 
-本次没有开通 COS、CDN 或迁移素材。后续视频明显增加或访问量变大时，再根据实际流量和成本评估 COS；迁移前需确认费用、域名、缓存和兼容性，不让付费服务成为发布前提。
+本次没有开通 COS、CDN 或迁移素材。当前体积不足以构成迁移的必要条件；后续视频明显增加或访问量变大时，再根据实际流量和成本评估 COS。COS 的存储、请求次数和外网下载流量分别计费；迁移前需确认预算、域名、缓存和兼容性，不让付费服务成为发布前提。[腾讯云 COS 计费概述](https://cloud.tencent.com/document/product/436/16871)
