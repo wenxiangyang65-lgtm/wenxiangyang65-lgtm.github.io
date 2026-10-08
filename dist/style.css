@@ -20,3 +20,13 @@
 .poster-disc{background:#171719}
 .poster-disc:before{content:'';position:absolute;inset:-8%;background-image:var(--poster-art);background-position:center;background-size:cover;filter:blur(9px) brightness(.48);pointer-events:none}
 .poster-disc img{position:relative;object-fit:contain;padding:7%}
+
+/* Interaction refinement: preserve the authored sleeves and keep poster text upright. */
+.record-disc img{animation:none;transform:rotate(0deg);transition:transform .7s var(--ease)}
+.record:hover .record-disc img,.record:focus-visible .record-disc img{transform:rotate(var(--record-angle,4deg))}
+.albums.is-dragging{cursor:grabbing;user-select:none;scroll-behavior:auto}
+.albums.is-dragging .record{transform:none;filter:none}
+.albums.is-dragging .record-disc img{transform:rotate(0deg)}
+.record-image,.record-disc img,.record-tab{-webkit-user-drag:none;user-select:none}
+@media(hover:none){.record:hover{transform:none}.record:hover .record-disc img{transform:none}.record:active{transform:scale(.975);filter:drop-shadow(0 0 10px #6babff55)}}
+@media(prefers-reduced-motion:reduce){.record-disc img{transform:none!important}}
