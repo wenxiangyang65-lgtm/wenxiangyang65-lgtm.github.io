@@ -1,0 +1,58 @@
+name: Publish to Tencent Cloud
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tencent-portfolio
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-tencent-build
+          path: build/
+          include-hidden-files: true
+          retention-days: 7
+  deploy:
+    needs: build
+    if: vars.TENCENT_DEPLOY_ENABLED == 'true' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: tencent-production
+      url: ${{ vars.TENCENT_SITE_URL }}
+    env:
+      TENCENT_HOST: ${{ secrets.TENCENT_HOST }}
+      TENCENT_PORT: ${{ secrets.TENCENT_PORT }}
+      TENCENT_USER: ${{ secrets.TENCENT_USER }}
+      TENCENT_SSH_KEY: ${{ secrets.TENCENT_SSH_KEY }}
+      TENCENT_KNOWN_HOSTS: ${{ secrets.TENCENT_KNOWN_HOSTS }}
+      TENCENT_SITE_URL: ${{ vars.TENCENT_SITE_URL }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - uses: actions/download-artifact@v4
+        with:
+          name: portfolio-tencent-build
+          path: build/
+      - name: Upload and activate verified release
+        run: bash scripts/deploy-tencent.sh
+      - name: Record deployed version
+        run: |
+          printf '### Published portfolio\n\nCommit: `%s`\n\n[Open website](%s)\n' "$GITHUB_SHA" "$TENCENT_SITE_URL" >> "$GITHUB_STEP_SUMMARY"

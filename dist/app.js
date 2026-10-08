@@ -1,43 +1,28 @@
-const projects=[
- {n:1,slug:'awe',title:'AWE 展会 · 到生活里 AI',year:2025,x:13.16,y:5.84,size:75.12,spin:true},
- {n:2,slug:'new-year',title:'天猫家享生活年货节视觉设计',year:2024,x:10.81,y:5.84,size:77.15,spin:true},
- {n:3,slug:'dunhuang',title:'天猫家享 · 大过中国年与敦煌奇境',year:2024,spin:false},
- {n:4,slug:'new-world',title:'AWE 展会 · 串门发现新世界',year:2024,spin:false},
- {n:5,slug:'trade-in',title:'以旧换新与政府补贴 / 国补',year:2025,x:14.32,y:5.56,size:75.42,spin:true},
- {n:6,slug:'miaosuda',title:'喵速达两周年主视觉设计',year:2024,x:10.81,y:5.84,size:77.15,spin:true},
- {n:7,slug:'aigc',title:'AIGC 研究与应用',year:2025,x:12.95,y:5.84,size:75.3,spin:true},
- {n:8,slug:'illustration',title:'插画与三维设计',year:2025,x:12.74,y:5.84,size:75.48,spin:true},
- {n:9,slug:'churuixue',title:'初瑞雪 · 逆境中开花',label:'初瑞雪·逆境中开花',year:2026},
- {n:10,slug:'xinxuan-redesign',title:'辛选年货为你而来 · 重设计版',label:'辛选年货为你而来·重设计',year:2026},
- {n:11,slug:'a-horse',title:'许我一匹马吧',label:'许我一匹马吧',year:2026},
- {n:12,slug:'spring-horse',title:'骏马迎春，步步生花',label:'骏马迎春·步步生花',year:2026},
- {n:13,slug:'xujie',title:'徐杰拜师整合营销',label:'徐杰拜师整合营销',year:2026},
- {n:14,slug:'mr-chen',title:'陈先生 · 向全网亮剑',label:'陈先生·向全网亮剑',year:2026},
- {n:15,slug:'xinxuan-views',title:'辛选年货为你而来 · 三视图交互',label:'辛选年货为你而来·三视图',year:2026}
-];
-
-const order=['trade-in','awe','new-world','new-year','dunhuang','miaosuda','aigc','illustration','churuixue','xinxuan-redesign','a-horse','spring-horse','xujie','mr-chen','xinxuan-views'];
-const orderedProjects=order.map(slug=>projects.find(p=>p.slug===slug));
+const projects=window.PORTFOLIO_PROJECTS;
+const order=projects.map(p=>p.slug);
+const orderedProjects=projects;
 const albums=document.querySelector('#albums'),range=document.querySelector('#album-range'),previous=document.querySelector('#previous'),next=document.querySelector('#next'),catalogMotion=document.querySelector('#catalog-motion');
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
 const pad=n=>String(n).padStart(2,'0');
 let suppressRecordClickUntil=0,cycleWidth=0,pitch=0,position=0,lastFrame=0,interactionUntil=0,manualPaused=reduced.matches,hovered=false,focused=false,catalogVisible=false,albumDrag=null,initialized=false;
-function recordMarkup(p){
- if(p.n<=8)return `<img class="record-image" src="assets/card-${pad(p.n)}.webp" alt="${p.title}的原版唱片入口" width="418" height="360" draggable="false">${p.spin?`<span class="record-disc"><img src="assets/disc-${pad(p.n)}.webp" alt="" draggable="false"><i class="record-hole"></i><i class="record-glint"></i></span><img class="record-tab" src="assets/tab-${pad(p.n)}.webp" alt="" draggable="false">`:''}`;
- return `<img class="record-image" src="assets/record-sleeve.webp" alt="" width="418" height="360" draggable="false"><span class="record-disc"><img src="assets/disc-${p.slug}.webp?v=20261007-circle" alt="${p.title}的项目封面" draggable="false"><i class="record-hole"></i><i class="record-glint"></i></span><span class="new-tab"></span><span class="record-title">${p.label}</span><span class="record-role">【项目角色】<b>主设＆主创</b></span><span class="record-number">${pad(p.n)}</span><span class="record-year">${p.year}</span><span class="record-category">${p.slug==='xinxuan-views'?'角色三视图':p.slug==='xujie'?'整合营销':'AIGC 影像'}</span>`;
+function recordMarkup(project){
+ const escape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('\"','&quot;').replaceAll("'",'&#39;');
+ const p=Object.fromEntries(Object.entries(project).map(([key,value])=>[key,typeof value==='string'?escape(value):value]));
+ if(p.template==='original')return `<img class="record-image" src="${p.card}" alt="${p.title}的原版唱片入口" width="418" height="360" draggable="false">${p.spin?`<span class="record-disc"><img src="${p.cover}" alt="" draggable="false"><i class="record-hole"></i><i class="record-glint"></i></span><img class="record-tab" src="${p.tab}" alt="" draggable="false">`:''}`;
+ return `<img class="record-image" src="assets/record-sleeve.webp" alt="" width="418" height="360" draggable="false"><span class="record-disc"><img src="${p.cover}" alt="${p.title}的项目封面" draggable="false"><i class="record-hole"></i><i class="record-glint"></i></span><span class="new-tab"></span><span class="record-title">${p.label}</span><span class="record-role">【项目角色】<b>主设＆主创</b></span><span class="record-number">${pad(p.n)}</span><span class="record-year">${p.year}</span><span class="record-category">${p.category}</span>`;
 }
 for(let cycle=-1;cycle<=1;cycle++){
  const group=document.createElement('div');group.className='album-page';group.dataset.cycle=cycle;
- if(cycle===0){group.setAttribute('role','group');group.setAttribute('aria-label','项目唱片目录，15个项目');}else group.setAttribute('aria-hidden','true');
+ if(cycle===0){group.setAttribute('role','group');group.setAttribute('aria-label',`项目唱片目录，${projects.length}个项目`);}else group.setAttribute('aria-hidden','true');
  orderedProjects.forEach((p,index)=>{
-  const a=document.createElement('a');a.className='record';a.href=`projects/${p.slug}/index.html`;a.dataset.project=p.slug;a.dataset.order=index;a.title=p.title;a.setAttribute('aria-label',`${p.title}，点击查看项目`);if(cycle!==0)a.tabIndex=-1;
+  const a=document.createElement('a');a.className='record';a.href=`${p.entry}`;a.dataset.project=p.slug;a.dataset.order=index;a.title=p.title;a.setAttribute('aria-label',`${p.title}，点击查看项目`);if(cycle!==0)a.tabIndex=-1;
   a.style.setProperty('--disc-x',`${p.x||13.16}%`);a.style.setProperty('--disc-y',`${p.y||5.84}%`);a.style.setProperty('--disc-size',`${p.size||75.12}%`);a.innerHTML=recordMarkup(p);
-  const select=()=>{document.querySelector('#selected-title').textContent=p.title;document.querySelector('#page-count').textContent=`${pad(index+1)} / 15`};
+  const select=()=>{document.querySelector('#selected-title').textContent=p.title;document.querySelector('#page-count').textContent=`${pad(index+1)} / ${projects.length}`};
   a.addEventListener('pointerenter',select);a.addEventListener('focus',select);
   a.addEventListener('click',e=>{
    if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button!==0)return;
    if(performance.now()<suppressRecordClickUntil){e.preventDefault();return}
-   e.preventDefault();rememberDirectory(p.slug);document.querySelector('.transition-curtain img').src=`assets/${p.n<=8&&p.spin?'disc-'+pad(p.n):p.n<=8?'card-'+pad(p.n):'disc-'+p.slug}.webp?v=20261007-circle`;
+   e.preventDefault();rememberDirectory(p.slug);document.querySelector('.transition-curtain img').src=p.cover;
    if(reduced.matches){location.href=a.href;return}
    document.body.classList.add('is-opening');setTimeout(()=>location.href=a.href,180);
   });group.append(a);
@@ -45,7 +30,7 @@ for(let cycle=-1;cycle<=1;cycle++){
 }
 function offset(){return cycleWidth?((albums.scrollLeft-cycleWidth)%cycleWidth+cycleWidth)%cycleWidth:0}
 function measure(){const groups=albums.children,old=initialized&&cycleWidth>0?offset()/cycleWidth:0,newCycle=groups[1].offsetLeft-groups[0].offsetLeft,newPitch=groups[1].children[1].offsetLeft-groups[1].children[0].offsetLeft;if(newCycle<=0||newPitch<=0)return;cycleWidth=newCycle;pitch=newPitch;position=cycleWidth+(Number.isFinite(old)?old:0)*cycleWidth;albums.scrollLeft=position;initialized=true;syncControls()}
-function syncControls(){if(!cycleWidth)return;const x=offset(),index=Math.min(14,Math.floor((x+1)/pitch));range.value=Math.min(1,x/Math.max(1,cycleWidth-pitch));previous.disabled=false;next.disabled=false;if(!hovered&&!focused){document.querySelector('#selected-title').textContent=orderedProjects[index].title;document.querySelector('#page-count').textContent=`${pad(index+1)} / 15`}}
+function syncControls(){if(!cycleWidth)return;const x=offset(),index=Math.min(projects.length-1,Math.floor((x+1)/pitch));range.value=Math.min(1,x/Math.max(1,cycleWidth-pitch));previous.disabled=false;next.disabled=false;if(!hovered&&!focused){document.querySelector('#selected-title').textContent=orderedProjects[index].title;document.querySelector('#page-count').textContent=`${pad(index+1)} / ${projects.length}`}}
 function interact(ms=7000){interactionUntil=performance.now()+ms;position=albums.scrollLeft}
 function wrap(){if(!cycleWidth)return;while(position>=cycleWidth*2)position-=cycleWidth;while(position<cycleWidth)position+=cycleWidth}
 function frame(time){const dt=lastFrame?Math.min(50,time-lastFrame):0;lastFrame=time;if(initialized&&catalogVisible&&!manualPaused&&!hovered&&!focused&&!albumDrag&&!document.hidden&&time>interactionUntil){position+=dt*.03;wrap();albums.scrollLeft=position;syncControls()}requestAnimationFrame(frame)}
