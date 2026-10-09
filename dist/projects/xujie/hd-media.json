@@ -489,15 +489,15 @@
       "source": "卡通版本/卡通最终视频.mov",
       "width": 1080,
       "height": 1920,
-      "src": "assets/videos/animated.mp4",
-      "smoothSrc": "assets/videos/animated-smooth.mp4"
+      "src": "assets/videos/animated.mp4?v=20261010-all-film-hd",
+      "smoothSrc": "assets/videos/animated.mp4?v=20261010-all-film-hd"
     },
     "realistic": {
       "source": "写实形象素材/辛巴门徒.m4v",
       "width": 1080,
       "height": 1920,
-      "src": "assets/videos/realistic.mp4",
-      "smoothSrc": "assets/videos/realistic-smooth.mp4",
+      "src": "assets/videos/realistic.mp4?v=20261010-all-film-hd",
+      "smoothSrc": "assets/videos/realistic.mp4?v=20261010-all-film-hd",
       "sourceWidth": 2160,
       "sourceHeight": 3840,
       "duration": 73.36
@@ -506,15 +506,15 @@
       "source": "其他完整的视频/门徒加冕.m4v",
       "width": 1080,
       "height": 1920,
-      "src": "assets/videos/coronation.mp4",
-      "smoothSrc": "assets/videos/coronation-smooth.mp4"
+      "src": "assets/videos/coronation.mp4?v=20261010-all-film-hd",
+      "smoothSrc": "assets/videos/coronation.mp4?v=20261010-all-film-hd"
     },
     "march": {
       "source": "其他完整的视频/点将.m4v",
       "width": 1080,
       "height": 1920,
-      "src": "assets/videos/march.mp4",
-      "smoothSrc": "assets/videos/march-smooth.mp4"
+      "src": "assets/videos/march.mp4?v=20261010-all-film-hd",
+      "smoothSrc": "assets/videos/march.mp4?v=20261010-all-film-hd"
     }
   }
 }

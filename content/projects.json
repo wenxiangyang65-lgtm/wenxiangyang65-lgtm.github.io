@@ -216,12 +216,12 @@
     "category": "整合营销",
     "films": [
       {
-        "label": "写实 AI 预告",
+        "label": "写实 AI 预告 · 1080P",
         "src": "projects/xujie/assets/videos/realistic.mp4",
         "poster": "projects/xujie/assets/redesign/cover-realistic.webp"
       },
       {
-        "label": "卡通动画正片",
+        "label": "卡通动画正片 · 1080P",
         "src": "projects/xujie/assets/videos/animated.mp4",
         "poster": "projects/xujie/assets/redesign/cover-animated.webp"
       }
@@ -240,7 +240,7 @@
     "category": "AIGC 影像",
     "films": [
       {
-        "label": "完整成片",
+        "label": "1080P 高清成片",
         "src": "projects/mr-chen/assets/film.mp4",
         "poster": "projects/mr-chen/assets/p77.webp"
       }

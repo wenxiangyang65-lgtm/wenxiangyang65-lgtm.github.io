@@ -14,12 +14,12 @@ async function videoViewer(key,time=0){
   const video=document.createElement('video');video.className='dialog-video';video.controls=true;video.playsInline=true;video.preload='metadata';video.setAttribute('aria-label',info[0]);
   const toolbar=document.createElement('div');toolbar.className='video-quality';const status=document.createElement('span');const switcher=document.createElement('button');switcher.type='button';toolbar.append(status,switcher);content.append(toolbar,video);
   let isHd=true,start=time,usingFallback=false;
-  const fallback=()=>{if(isHd&&hd?.videos[key]?.smoothSrc){load(false,video.currentTime||start,!video.paused);return;}stopStream();usingFallback=true;status.textContent='视频暂时无法加载，请重新打开。';};
+  const fallback=()=>{if(isHd&&hd?.videos[key]?.smoothSrc&&hd.videos[key].smoothSrc!==hd.videos[key].src){load(false,video.currentTime||start,!video.paused);return;}stopStream();usingFallback=true;status.textContent='视频暂时无法加载，请重新打开。';};
   const load=(high,position,play=false)=>{
     stopStream();start=position;isHd=high;usingFallback=false;
     const seek=()=>{if(start&&Math.abs(video.currentTime-start)>1)video.currentTime=start;};video.onloadedmetadata=seek;video.oncanplay=()=>{seek();video.oncanplay=null;if(play)video.play().catch(()=>{});};
     status.textContent=high?'1080P 高清':'流畅播放';switcher.textContent=high?'切换流畅':'切换1080P高清';
-    const stream=hd?.videos[key],src=high?stream?.src:stream?.smoothSrc;
+    const stream=hd?.videos[key],src=high?stream?.src:stream?.smoothSrc;switcher.hidden=!stream?.smoothSrc||stream.smoothSrc===stream.src;
     if(!src){fallback();return;}
     video.src=src;video.load();
   };
