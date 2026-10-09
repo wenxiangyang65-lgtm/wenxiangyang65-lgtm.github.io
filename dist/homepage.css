@@ -15,9 +15,12 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
 .homepage .catalog-art{aspect-ratio:auto;padding:0;width:100%;overflow:visible;background:linear-gradient(110deg,#eaf4ff 38%,#f4faff 68%,#e4f0fc)}
 .homepage .catalog-art:before{display:none}
 .homepage .catalog h2{position:relative;inset:auto;margin:0 4.55% 8px;font-size:clamp(28px,3.2vw,46px);line-height:1.3}
-.homepage .albums{position:relative;inset:auto;width:100%;height:auto;min-height:0;display:flex;padding:22px 4.55% 24px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:none;scroll-padding:0;touch-action:pan-x pan-y;cursor:grab;mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent)}
-.homepage .album-page{display:flex;flex:0 0 auto;grid-template:none;gap:24px;padding:0;margin-right:24px;scroll-snap-align:none}
-.homepage .record{flex:0 0 clamp(300px,31vw,460px);width:clamp(300px,31vw,460px);aspect-ratio:418/360;align-self:auto;cursor:pointer;scroll-snap-align:none}
+.homepage .albums{--card-width:clamp(280px,29vw,420px);position:relative;inset:auto;width:100%;height:auto;min-height:0;display:flex;padding:46px 4.55% 110px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:none;scroll-padding:0;scroll-behavior:auto;touch-action:pan-x pan-y;cursor:grab;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.homepage .album-page{display:flex;flex:0 0 auto;grid-template:none;gap:0;padding:0;margin-right:0;scroll-snap-align:none}
+.homepage .record{flex:0 0 var(--card-width);width:var(--card-width);margin-right:calc(var(--card-width)*-.32);aspect-ratio:418/360;align-self:auto;cursor:pointer;scroll-snap-align:none;transform-origin:50% 125%;transform:translate3d(0,var(--fan-y,0px),0) rotate(var(--fan-angle,0deg)) scale(var(--fan-scale,1));transition:filter .22s;will-change:transform}
+.homepage .record:hover,.homepage .record:focus-visible,.homepage .albums.is-dragging .record{transform:translate3d(0,var(--fan-y,0px),0) rotate(var(--fan-angle,0deg)) scale(var(--fan-scale,1))}
+.homepage .record.is-current{filter:drop-shadow(0 10px 11px #48669724)}
+.homepage .record:active{filter:brightness(1.04) drop-shadow(0 5px 6px #48669730)}
 .homepage .record-title{font-size:5.45cqw}
 .homepage .record-disc{display:block;aspect-ratio:1;border-radius:50%;overflow:hidden;clip-path:circle(50% at 50% 50%);-webkit-mask-image:-webkit-radial-gradient(white,black);isolation:isolate;transform:translateZ(0)}
 .homepage .record-disc img{width:100%;height:100%;max-width:none;object-fit:cover;aspect-ratio:1;border-radius:50%;clip-path:circle(50% at 50% 50%);backface-visibility:hidden}
@@ -32,9 +35,8 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
  .homepage .resume{padding-top:12px}
  .homepage .catalog{padding-top:22px}
  .homepage .catalog h2{margin:0 5% 4px;font-size:28px}
- .homepage .album-page{gap:18px;margin-right:18px}
- .homepage .record{flex-basis:min(84vw,390px);width:min(84vw,390px)}
- .homepage .albums{padding:18px 5% 24px}
+ .homepage .album-page{gap:0;margin-right:0}
+ .homepage .albums{--card-width:min(66vw,330px);padding:38px 5% 72px}
  .homepage .catalog-controls{margin:0 5%;gap:10px;flex-wrap:wrap}
  .homepage .track-control{flex:1 0 100%;order:-1}
  .homepage .album-button{flex:1;padding:9px 10px;min-height:40px}
@@ -43,7 +45,7 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
  .homepage .page-dots{right:1px;gap:5px}
  .homepage .tooltip{display:none}
 }
-@media(prefers-reduced-motion:reduce){.homepage .record-disc img{transform:none!important}}
+@media(prefers-reduced-motion:reduce){.homepage .record-disc img{transform:none!important}.homepage .record{will-change:auto}}
 .homepage .power .tooltip,.homepage .resume-power .tooltip{left:auto;right:0;transform:translateY(6px)}
 .homepage .power:hover .tooltip,.homepage .power:focus-visible .tooltip,.homepage .resume-power:hover .tooltip,.homepage .resume-power:focus-visible .tooltip{transform:translateY(0)}
 .homepage .hotspot{min-width:0;min-height:0}
