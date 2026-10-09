@@ -20,8 +20,16 @@ ssh_flags=(-i "$ssh_dir/key" -p "$TENCENT_PORT" -o BatchMode=yes -o IdentitiesOn
 remote="$TENCENT_USER@$TENCENT_HOST"
 ssh "${ssh_flags[@]}" "$remote" "python3 /usr/local/lib/portfolio-deploy.py prepare $release"
 printf -v transport '%q ' ssh "${ssh_flags[@]}"
+# Large material updates may be uploaded locally into an unpublished staging release first.
+# The final release is still checked against its full manifest before activation.
+seed="/srv/yang-wenxiang-portfolio/.incoming/$GITHUB_SHA-0-1"
+seed_flags=()
+if ssh "${ssh_flags[@]}" "$remote" "test -d $seed"; then
+    seed_flags=(--link-dest="$seed")
+fi
 # --delete only operates inside the NEW incoming release, never current or older releases.
 rsync -rplz --checksum --link-dest=/srv/yang-wenxiang-portfolio/current \
+    "${seed_flags[@]}" \
     --delay-updates --delete --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
     -e "$transport" build/ "$remote:/srv/yang-wenxiang-portfolio/.incoming/$release/"
 ssh "${ssh_flags[@]}" "$remote" "python3 /usr/local/lib/portfolio-deploy.py publish $release"

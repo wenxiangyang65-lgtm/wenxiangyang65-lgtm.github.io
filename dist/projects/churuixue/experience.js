@@ -17,7 +17,7 @@ function chooseConcept(index) {
   data.seconds.forEach((seconds, i) => {
     const frame = frames.find(item => item.seconds === seconds);
     const image = document.querySelector(`#concept-image-${i}`);
-    image.src = `assets/${frame.id}-hd.webp`;
+    image.src = `assets/${frame.id}-hd.webp?revision=20261009-details`;
     image.alt = frame.name;
     document.querySelector(`#concept-frame-${i}`).dataset.seconds = String(seconds);
     document.querySelector(`#concept-frame-${i}`).setAttribute('aria-label', `放大：${frame.name}`);

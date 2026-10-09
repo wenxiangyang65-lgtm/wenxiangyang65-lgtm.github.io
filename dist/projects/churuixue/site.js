@@ -101,13 +101,13 @@ function displayFrame(index) {
   activeFrame = (index + frames.length) % frames.length;
   const f = frames[activeFrame];
   const im = document.querySelector('#lightbox-image');
-  im.src = `assets/${f.id}-hd.webp`;
+  im.src = `assets/${f.id}-hd.webp?revision=20261009-details`;
   im.alt = f.name.replace('资料影像_', '');
   document.querySelector('#lightbox-title').textContent = im.alt;
   document.querySelector('#lightbox-time').textContent = f.time;
   document.querySelector('#lightbox-play').dataset.filmTime = String(f.seconds);
   const download = document.querySelector('#lightbox-download');
-  download.href = `assets/${f.id}-hd.webp`;
+  download.href = `assets/${f.id}-hd.webp?revision=20261009-details`;
   download.download = `${f.name}_${f.time.replace(':', '-')}.webp`;
   document.querySelector('#lightbox-count').textContent = `${String(activeFrame + 1).padStart(2, '0')} / ${frames.length}`;
 }
@@ -206,7 +206,7 @@ function selectAnalysisStep(index, animate = true) {
   const step = data.steps[index];
   document.querySelector('#analysis-image-button').setAttribute('aria-label', `放大：${step.label}`);
   const frame = frames.find(f => f.seconds === step.seconds);
-  document.querySelector('#analysis-image').src = `assets/${frame.id}.webp`;
+  document.querySelector('#analysis-image').src = `assets/${frame.id}.webp?revision=20261009-details`;
   document.querySelector('#analysis-image').alt = frame.name;
   document.querySelector('#analysis-image-button').dataset.seconds = String(step.seconds);
   document.querySelector('#analysis-caption').textContent = frame.name;
@@ -238,7 +238,7 @@ function selectNote(tab, animate = true) {
     button.setAttribute('aria-pressed', String(i === 0));
     button.setAttribute('aria-label', `查看${step.label}的镜头分析`);
     const image = document.createElement('img');
-    image.src = `assets/${frame.id}-sm.webp`; image.alt = ''; image.width = 640; image.height = 480; image.loading = 'lazy';
+    image.src = `assets/${frame.id}-sm.webp?revision=20261009-details`; image.alt = ''; image.width = 640; image.height = 480; image.loading = 'lazy';
     const label = document.createElement('span'); label.textContent = step.label;
     button.append(image, label);
     button.addEventListener('click', () => selectAnalysisStep(i));

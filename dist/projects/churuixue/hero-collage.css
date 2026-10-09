@@ -1,5 +1,5 @@
 /* A wide, clean photo archive; foreground and backing remain separate layers. */
-.memoir-layout .hero.scrap-hero.wide-hero { display:block; max-width:none; padding:105px 4vw 24px; overflow:visible; background:radial-gradient(ellipse at 83% 20%,#7c503440,transparent 53%),radial-gradient(ellipse at 8% 66%,#986a3121,transparent 44%),linear-gradient(120deg,#121211f7,#221916f7 54%,#101314f7),url('assets/cloth.webp'); background-size:auto,auto,auto,680px; }
+.memoir-layout .hero.scrap-hero.wide-hero { display:block; max-width:none; padding:105px 4vw 24px; overflow:visible; background:radial-gradient(ellipse at 83% 20%,#7c503440,transparent 53%),radial-gradient(ellipse at 8% 66%,#986a3121,transparent 44%),linear-gradient(120deg,#121211f7,#221916f7 54%,#101314f7),url('assets/cloth.webp?revision=20261009-details'); background-size:auto,auto,auto,680px; }
 .wide-hero::before { content:''; position:absolute; inset:0; background:linear-gradient(113deg,transparent 20%,#f8d4a609 38%,transparent 58%); pointer-events:none; }
 .scrap-shell { position:relative; max-width:1760px; margin:auto; }
 .scrap-heading { position:relative; z-index:6; text-align:center; margin:0 auto 22px; }
@@ -9,7 +9,7 @@
 .memoir-layout .wide-hero .hero-collage { position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr); grid-template-rows:auto auto; align-items:start; gap:26px 24px; width:100%; max-width:none; height:auto; min-height:0; padding:22px 8px 14px; margin:0; border:0; box-shadow:none; background:none; isolation:isolate; }
 .scrap-stories { display:contents; }
 .scrap-photo { position:relative; min-width:0; margin:0; padding:0; background:none; border:0; box-shadow:none; transform:rotate(var(--angle)); transition:filter .3s; z-index:3; isolation:isolate; }
-.wide-hero .scrap-photo-face { position:relative; z-index:1; padding:9px 9px 12px; background:#f4f0e7; background-image:linear-gradient(125deg,#f9f6efeb,#f4f0e7ee 53%,#ece5d9ed),url('assets/paper.webp'); background-size:auto,600px; border:1px solid #fffbef; box-shadow:0 14px 23px #0007,0 2px 4px #0005; }
+.wide-hero .scrap-photo-face { position:relative; z-index:1; padding:9px 9px 12px; background:#f4f0e7; background-image:linear-gradient(125deg,#f9f6efeb,#f4f0e7ee 53%,#ece5d9ed),url('assets/paper.webp?revision=20261009-details'); background-size:auto,600px; border:1px solid #fffbef; box-shadow:0 14px 23px #0007,0 2px 4px #0005; }
 .scrap-photo::before { content:''; position:absolute; inset:2px; background:#dacebb; border:1px solid #e4d9c5; box-shadow:0 4px 8px #0004; transform:translate(3px,4px) rotate(1deg); z-index:0; pointer-events:none; }
 .scrap-photo::after { content:''; position:absolute; width:54px; height:18px; top:-8px; left:18%; background:#ece5d169; border:1px solid #fff4; opacity:.8; transform:rotate(-4deg); pointer-events:none; z-index:2; }
 .scrap-photo:hover { filter:drop-shadow(0 3px 5px #0004); }

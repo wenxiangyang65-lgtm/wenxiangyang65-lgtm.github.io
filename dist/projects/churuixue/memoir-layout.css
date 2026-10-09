@@ -1,5 +1,5 @@
 /* A cloth-bound memoir, with full photographs on layered paper leaves. */
-body.memoir-layout { background:#0b0e0d url('assets/cloth.webp') repeat; background-size:680px; }
+body.memoir-layout { background:#0b0e0d url('assets/cloth.webp?revision=20261009-details') repeat; background-size:680px; }
 .memoir-layout .site-header { background:#0b0e0ded; }
 .memoir-layout .hero { max-width:1260px; padding:140px 6vw 0; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:55px; }
 .memoir-layout .hero-copy { padding:0; }
@@ -7,19 +7,19 @@ body.memoir-layout { background:#0b0e0d url('assets/cloth.webp') repeat; backgro
 .memoir-layout #hero-title { display:block; width:auto; max-width:100%; margin:20px 0 6px; font:400 clamp(65px,7vw,96px)/1.45 var(--hand); letter-spacing:.08em; }
 .hero-subtitle { font:400 27px/1.5 var(--serif); letter-spacing:.18em; color:#c7b493; margin:0 0 20px; }
 .memoir-layout .hero-line { font-size:19px; margin:24px 0; }
-.memoir-layout .hero-collage { height:auto; min-height:0; padding:19px 17px 12px; background:#1b2422 url('assets/cloth.webp') center/520px; border:1px solid #d4c5a21f; box-shadow:0 20px 55px #0009,5px 5px 0 #0005; }
-.memoir-layout .hero-main { position:relative; inset:auto; width:100%; margin:0; padding:8px 8px 12px; background:#ebe6d9 url('assets/paper.webp') center/800px; transform:rotate(.65deg); box-shadow:0 5px 15px #0005; }
+.memoir-layout .hero-collage { height:auto; min-height:0; padding:19px 17px 12px; background:#1b2422 url('assets/cloth.webp?revision=20261009-details') center/520px; border:1px solid #d4c5a21f; box-shadow:0 20px 55px #0009,5px 5px 0 #0005; }
+.memoir-layout .hero-main { position:relative; inset:auto; width:100%; margin:0; padding:8px 8px 12px; background:#ebe6d9 url('assets/paper.webp?revision=20261009-details') center/800px; transform:rotate(.65deg); box-shadow:0 5px 15px #0005; }
 .memoir-layout .hero-cover .frame-button img { width:100%; aspect-ratio:941/1672; object-fit:contain; display:block; }
 .memoir-layout .hero-cover .frame-button::after { content:'▷'; opacity:1; }
 .memoir-layout .hero-main figcaption { color:#615845; font:12px/1.6 var(--serif); padding:10px 1px 0; gap:7px; }
 .memoir-layout .hero-folio { top:-27px; right:0; font-size:12px; }
-.hero-preview { max-width:290px; margin:32px 0 10px; padding:8px 8px 0; background:#e9e4d7 url('assets/paper.webp') center/600px; transform:rotate(-2deg); box-shadow:0 6px 15px #0006; }
+.hero-preview { max-width:290px; margin:32px 0 10px; padding:8px 8px 0; background:#e9e4d7 url('assets/paper.webp?revision=20261009-details') center/600px; transform:rotate(-2deg); box-shadow:0 6px 15px #0006; }
 .hero-preview .frame-button { aspect-ratio:4/3; }
 .hero-preview img { display:block; }
 .hero-preview p { display:flex; justify-content:space-between; gap:12px; padding:9px 0 11px; margin:0; color:#6c604c; font:14px/1.6 var(--serif); }
 .hero-preview time { font:12px/1.8 ui-monospace,monospace; }
 .memoir-layout .hero-foot { margin-top:15px; }
-.memoir-layout .memory { position:relative; max-width:1100px; width:calc(100% - 12vw); margin:0 auto 110px; padding:46px 45px 32px; background:#eee9dd url('assets/paper.webp') center/1000px; color:#302e27; border:9px solid #1d2825; box-shadow:0 18px 40px #0007,5px 6px 0 #0007; }
+.memoir-layout .memory { position:relative; max-width:1100px; width:calc(100% - 12vw); margin:0 auto 110px; padding:46px 45px 32px; background:#eee9dd url('assets/paper.webp?revision=20261009-details') center/1000px; color:#302e27; border:9px solid #1d2825; box-shadow:0 18px 40px #0007,5px 6px 0 #0007; }
 .memoir-layout .memory-heading { gap:24px; padding-bottom:20px; margin-bottom:28px; border-bottom:1px solid #b1a48760; align-items:baseline; }
 .memoir-layout .memory-name { gap:14px; }
 .memoir-layout .memory-name .eyebrow { writing-mode:horizontal-tb; font:12px/1.6 ui-monospace,monospace; letter-spacing:0; color:#8f7d5c; }
@@ -27,11 +27,11 @@ body.memoir-layout { background:#0b0e0d url('assets/cloth.webp') repeat; backgro
 .memoir-layout .memory-heading h3 { font-size:23px; padding-left:20px; color:#706650; border-color:#b1a48760; }
 .memoir-layout .memory-number { color:#a48b60; font-size:26px; }
 .memoir-layout .memory-visuals { gap:24px; }
-.memoir-layout .memory .shot { padding:10px 10px 14px; background:#f5f1e6 url('assets/paper.webp') center/800px; box-shadow:0 3px 8px #32291c25; border:1px solid #fff8; color:#4a4233; }
+.memoir-layout .memory .shot { padding:10px 10px 14px; background:#f5f1e6 url('assets/paper.webp?revision=20261009-details') center/800px; box-shadow:0 3px 8px #32291c25; border:1px solid #fff8; color:#4a4233; }
 .memoir-layout .memory .shot figcaption { color:#74664d; font:14px/1.65 var(--serif); padding-top:10px; }
 .memoir-layout .memory .shot time { color:#928266; }
 .memoir-layout .memory .frame-button img { display:block; object-fit:contain; }
-.memoir-layout .memory .memory-shot-1::before { content:''; position:absolute; z-index:3; width:72px; height:21px; top:-9px; left:calc(50% - 36px); background:#e0d8beaa url('assets/tape.webp') center/cover; box-shadow:0 1px 2px #0002; transform:rotate(-3deg); pointer-events:none; }
+.memoir-layout .memory .memory-shot-1::before { content:''; position:absolute; z-index:3; width:72px; height:21px; top:-9px; left:calc(50% - 36px); background:#e0d8beaa url('assets/tape.webp?revision=20261009-details') center/cover; box-shadow:0 1px 2px #0002; transform:rotate(-3deg); pointer-events:none; }
 .memoir-layout .memory-touch .memory-visuals { grid-template-columns:1.6fr 1fr; }
 .memoir-layout .memory-touch .memory-shot-2 { width:100%; margin-top:65px; transform:rotate(1.8deg); }
 .memoir-layout .memory-journey .memory-visuals { grid-template-columns:1.65fr 1fr; }
@@ -54,7 +54,7 @@ body.memoir-layout { background:#0b0e0d url('assets/cloth.webp') repeat; backgro
 .memoir-layout .chapter-extra summary { min-height:54px; font-size:14px; }
 .memoir-layout .chapter-extra[open] summary i { transform:rotate(45deg); }
 .memoir-layout .extra-grid { gap:24px; grid-template-columns:repeat(3,minmax(0,1fr)); }
-.memoir-layout .album-dark { background:#1a2824 url('assets/cloth.webp') center/650px; border-color:#111a17; }
+.memoir-layout .album-dark { background:#1a2824 url('assets/cloth.webp?revision=20261009-details') center/650px; border-color:#111a17; }
 .memoir-layout .album-dark .memory-heading { border-color:#c1b08a35; }
 .memoir-layout .album-dark .memory-name h2 { color:#eee8da; }
 .memoir-layout .album-dark .memory-heading h3 { color:#c0b797; border-color:#c1b08a35; }

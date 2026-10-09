@@ -98,6 +98,8 @@ npm run build
 
 新增项目优先沿用现有唱片模板：在 `dist/projects/<新slug>/` 新建详情页，把圆形封面放入明确命名的素材目录，在中央配置增加唯一 `n`、`slug`、`title`、`label`、`year`、`description`、`entry`、`cover`、`category` 和 `template: "sleeve"`。页数和滚动计数自动跟随项目数量，不必修改动画脚本。编辑详情页后把 `/project-navigation.js` 和 `/desktop-preview.js` 接入，沿用现有返回目录与手机预览行为。
 
+大量替换素材时，可以先把同一提交的构建文件通过本机上传到 `/srv/yang-wenxiang-portfolio/.incoming/<提交号>-0-1/`，作为不对外开放的上传缓存。Actions 会按校验和复用其中相同的文件，完整验证最终版本后再切换线上目录；没有缓存时沿用正常上传流程。缓存不会提前改动线上版本，也不会改变回滚目录。
+
 ## 查看结果与日志
 
 - 打开仓库的 [Actions](https://github.com/wenxiangyang65-lgtm/wenxiangyang65-lgtm.github.io/actions)，查看 `Publish to Tencent Cloud` 的最新运行。成功运行会在 Summary 提供网站链接和提交号。
