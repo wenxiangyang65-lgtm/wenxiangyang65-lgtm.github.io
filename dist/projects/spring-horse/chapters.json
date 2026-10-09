@@ -1,0 +1,101 @@
+[
+  {
+    "title": "瑞雪至",
+    "subtitle": "瑞雪至",
+    "start": 0,
+    "end": 14,
+    "time": "00:00–00:13",
+    "image": "assets/story-static-01.webp?revision=20261009-spring-horse",
+    "actor": 1,
+    "voice": "冰晶鞋履、雪原人物与白马同框。",
+    "image_alt": "瑞雪至：雪原中的人物正面静态原图，冰晶冠饰与银白礼服"
+  },
+  {
+    "title": "天马奔",
+    "subtitle": "天马奔",
+    "start": 14,
+    "end": 22,
+    "time": "00:14–00:21",
+    "image": "assets/story-static-02.webp?revision=20261009-spring-horse",
+    "actor": 2,
+    "voice": "白马冲出雪浪，沿雪原奔跑。",
+    "image_alt": "天马奔：白马冲出雪浪，高清静态原图"
+  },
+  {
+    "title": "寒冬过",
+    "subtitle": "寒冬过",
+    "start": 22,
+    "end": 24,
+    "time": "00:22–00:23",
+    "image": "assets/frame-14.webp?revision=20261009-spring-horse",
+    "actor": 3,
+    "voice": "树洞中的雄狮苏醒。",
+    "image_alt": "寒冬过：成片中的狮子苏醒画面"
+  },
+  {
+    "title": "万物生",
+    "subtitle": "万物生",
+    "start": 24,
+    "end": 39,
+    "time": "00:24–00:38",
+    "image": "assets/story-static-04.webp?revision=20261009-spring-horse",
+    "actor": 0,
+    "voice": "森林与动物群像、初花、人物抚马及金色光环。",
+    "image_alt": "万物生：日光照进冬日森林，高清静态原图"
+  },
+  {
+    "title": "骏马迎春",
+    "subtitle": "骏马迎春",
+    "start": 39,
+    "end": 44,
+    "time": "00:39–00:43",
+    "image": "assets/story-static-05.webp?revision=20261009-spring-horse",
+    "actor": 2,
+    "voice": "马蹄掠过初花，雪路两侧生花。",
+    "image_alt": "骏马迎春：白马向晨光奔跑，雪地边缘生花"
+  },
+  {
+    "title": "步步生花",
+    "subtitle": "步步生花",
+    "start": 44,
+    "end": 55,
+    "time": "00:44–00:54",
+    "image": "assets/story-static-06.webp?revision=20261009-spring-horse",
+    "actor": 4,
+    "voice": "山脊花路、跨桥入城、玫瑰拱门与建筑生花。",
+    "image_alt": "步步生花：铺满鲜花的桥梁连接城市，高清静态原图"
+  },
+  {
+    "title": "春风所至",
+    "subtitle": "春风所至，皆成花海",
+    "start": 55,
+    "end": 71,
+    "time": "00:55–01:10",
+    "image": "assets/story-static-07.webp?revision=20261009-spring-horse",
+    "actor": 6,
+    "voice": "花街、动物居民、花拱、辛选巴士与车内群像。",
+    "image_alt": "春风所至：花街、花车与熊猫居民，高清静态原图"
+  },
+  {
+    "title": "山河无恙",
+    "subtitle": "山河无恙，人间皆安",
+    "start": 71,
+    "end": 84,
+    "time": "01:11–01:23",
+    "image": "assets/story-static-08.webp?revision=20261009-spring-horse",
+    "actor": 7,
+    "voice": "热气球升空、春装人物与城市终景。",
+    "image_alt": "山河无恙：辛选热气球飞过花城，高清静态原图"
+  },
+  {
+    "title": "马到成功",
+    "subtitle": "2026 马到成功",
+    "start": 84,
+    "end": 87,
+    "time": "01:24–01:26",
+    "image": "assets/hero-final.webp?revision=20261009-spring-horse",
+    "actor": 2,
+    "voice": "人物与白马并肩，片尾新年题字。",
+    "image_alt": "马到成功：春装人物与白马正面并肩，高清静态原图"
+  }
+]
