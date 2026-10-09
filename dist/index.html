@@ -10,9 +10,12 @@
   <link rel="stylesheet" href="style.css?v=20261008-interaction">
   <link rel="stylesheet" href="homepage.css?v=20261009-scroll-spring">
   <link rel="preload" href="assets/cover.webp" as="image" fetchpriority="high">
-  <script src="project-data.js?v=20261008-xinxuan-title" defer></script>
-  <script src="catalog-spring.js?v=20261009-scroll-spring" defer></script>
-  <script src="app.js?v=20261009-spring" defer></script>
+  <script src="project-data.js?v=20261009-film-first" defer></script>
+  <script src="catalog-spring.js?v=20261009-film-first" defer></script>
+
+  <link rel="stylesheet" href="catalog-films.css?v=20261009-film-first">
+  <script src="catalog-films.js?v=20261009-film-first" defer></script>
+  <script src="app.js?v=20261009-film-first" defer></script>
 </head>
 <body class="homepage">
   <a class="skip-link" href="#catalog">进入项目目录</a>
@@ -66,5 +69,10 @@
   </nav>
   <div class="transition-curtain" aria-hidden="true"><img src="assets/disc-01.webp" alt="" data-preview-aspect="900 / 900"><span>正在打开作品</span></div>
   <div class="sr-only" id="directory-status" role="status" aria-live="polite"></div>
+  <dialog id="catalog-film-dialog" class="catalog-film-dialog" aria-labelledby="catalog-film-title">
+    <header class="catalog-film-header"><div><p>AI FILM / 作品成片</p><h2 id="catalog-film-title"></h2></div><button type="button" id="catalog-film-close" class="catalog-film-close" aria-label="关闭影片，返回唱片目录">关闭 ×</button></header>
+    <div class="catalog-film-stage"><video id="catalog-film-video" controls playsinline preload="none"></video></div>
+    <footer class="catalog-film-footer"><div id="catalog-film-variants" class="catalog-film-variants" aria-label="选择影片版本" hidden></div><button type="button" id="catalog-film-sound" hidden>开启声音</button><button type="button" id="catalog-film-retry" hidden>播放影片</button><a id="catalog-film-detail" class="catalog-film-detail" href="#catalog">查看项目详情 <span aria-hidden="true">→</span></a><p id="catalog-film-status" class="catalog-film-status" role="status" hidden></p></footer>
+  </dialog>
 </body>
 </html>

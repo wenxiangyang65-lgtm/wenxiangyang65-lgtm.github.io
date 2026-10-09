@@ -35,6 +35,16 @@ export async function check() {
       if(!p[key]||p[key].startsWith('/')||p[key].includes('..')||!/^[-a-zA-Z0-9_./]+$/.test(p[key]||''))errors.push(`项目资源路径无效: ${p.slug}/${key}`);
       else await localReference(p[key],resolve(root,'index.html'));
     }
+    if(p.films) {
+      if(!Array.isArray(p.films)||!p.films.length)errors.push(`影片配置为空: ${p.slug}`);
+      else for(const film of p.films) {
+        if(!film.label||!film.src||!film.src.endsWith('.mp4'))errors.push(`影片字段不完整: ${p.slug}`);
+        for(const key of ['src','poster'])if(film[key]) {
+          if(!film[key].startsWith(`projects/${p.slug}/`)||film[key].includes('..')||!/^[-a-zA-Z0-9_./]+$/.test(film[key]))errors.push(`影片资源路径无效: ${p.slug}/${key}`);
+          else await localReference(film[key],resolve(root,'index.html'));
+        }
+      }
+    }
   }
   let size=0,js=0,html=0;
   for(const file of files) {

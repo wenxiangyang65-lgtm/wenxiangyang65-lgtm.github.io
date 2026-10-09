@@ -137,7 +137,14 @@
     "entry": "projects/churuixue/index.html",
     "template": "sleeve",
     "cover": "assets/disc-churuixue.webp",
-    "category": "AIGC 影像"
+    "category": "AIGC 影像",
+    "films": [
+      {
+        "label": "完整影片",
+        "src": "projects/churuixue/assets/full-film-hd.mp4",
+        "poster": "projects/churuixue/assets/cover-redesign.webp"
+      }
+    ]
   },
   {
     "n": 10,
@@ -149,7 +156,14 @@
     "entry": "projects/xinxuan-redesign/index.html",
     "template": "sleeve",
     "cover": "assets/disc-xinxuan-redesign.webp",
-    "category": "AIGC 影像"
+    "category": "AIGC 影像",
+    "films": [
+      {
+        "label": "完整成片",
+        "src": "projects/xinxuan-redesign/media/xinxuan-new-year-film.mp4",
+        "poster": "projects/xinxuan-redesign/assets/header-2400.webp"
+      }
+    ]
   },
   {
     "n": 11,
@@ -161,7 +175,14 @@
     "entry": "projects/a-horse/index.html",
     "template": "sleeve",
     "cover": "assets/disc-a-horse.webp",
-    "category": "AIGC 影像"
+    "category": "AIGC 影像",
+    "films": [
+      {
+        "label": "完整成片",
+        "src": "projects/a-horse/assets/video/film-captioned.mp4",
+        "poster": "projects/a-horse/assets/clean_33.80.webp"
+      }
+    ]
   },
   {
     "n": 12,
@@ -173,7 +194,14 @@
     "entry": "projects/spring-horse/index.html",
     "template": "sleeve",
     "cover": "assets/disc-spring-horse.webp",
-    "category": "AIGC 影像"
+    "category": "AIGC 影像",
+    "films": [
+      {
+        "label": "完整成片",
+        "src": "projects/spring-horse/assets/film-final-1080.mp4",
+        "poster": "projects/spring-horse/assets/hero-final.webp"
+      }
+    ]
   },
   {
     "n": 13,
@@ -185,7 +213,19 @@
     "entry": "projects/xujie/index.html",
     "template": "sleeve",
     "cover": "assets/disc-xujie.webp",
-    "category": "整合营销"
+    "category": "整合营销",
+    "films": [
+      {
+        "label": "写实 AI 预告",
+        "src": "projects/xujie/assets/videos/realistic.mp4",
+        "poster": "projects/xujie/assets/redesign/cover-realistic.webp"
+      },
+      {
+        "label": "卡通动画正片",
+        "src": "projects/xujie/assets/videos/animated.mp4",
+        "poster": "projects/xujie/assets/redesign/cover-animated.webp"
+      }
+    ]
   },
   {
     "n": 14,
@@ -197,7 +237,14 @@
     "entry": "projects/mr-chen/index.html",
     "template": "sleeve",
     "cover": "assets/disc-mr-chen.webp",
-    "category": "AIGC 影像"
+    "category": "AIGC 影像",
+    "films": [
+      {
+        "label": "完整成片",
+        "src": "projects/mr-chen/assets/film.mp4",
+        "poster": "projects/mr-chen/assets/p77.webp"
+      }
+    ]
   },
   {
     "n": 15,

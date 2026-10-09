@@ -5,6 +5,7 @@ const albums=document.querySelector('#albums'),range=document.querySelector('#al
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
 const pad=n=>String(n).padStart(2,'0');
 let suppressRecordClickUntil=0;
+const filmPreview=window.createPortfolioFilmPreview({onOpen:()=>{window.dispatchEvent(new Event('portfolio-film-open'));document.querySelector('#cover-video').pause()},onClose:()=>window.dispatchEvent(new Event('portfolio-film-close'))});
 function recordMarkup(project){
  const escape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('\"','&quot;').replaceAll("'",'&#39;');
  const p=Object.fromEntries(Object.entries(project).map(([key,value])=>[key,typeof value==='string'?escape(value):value]));
@@ -16,13 +17,14 @@ for(let cycle=-1;cycle<=1;cycle++){
  if(cycle===0){group.setAttribute('role','group');group.setAttribute('aria-label',`项目唱片目录，${projects.length}个项目`);}else group.setAttribute('aria-hidden','true');
  orderedProjects.forEach((p,index)=>{
   const a=document.createElement('a');a.className='record';a.href=`${p.entry}`;a.dataset.project=p.slug;a.dataset.order=index;a.title=p.title;a.setAttribute('aria-label',`${p.title}，点击查看项目`);if(cycle!==0)a.tabIndex=-1;
+  if(p.films?.length){a.setAttribute('aria-haspopup','dialog');a.setAttribute('aria-label',`${p.title}，点击观看成片，再查看项目详情`)}
   a.style.setProperty('--disc-x',`${p.x||13.16}%`);a.style.setProperty('--disc-y',`${p.y||5.84}%`);a.style.setProperty('--disc-size',`${p.size||75.12}%`);a.innerHTML=recordMarkup(p);
   const select=()=>{document.querySelector('#selected-title').textContent=p.title;document.querySelector('#page-count').textContent=`${pad(index+1)} / ${projects.length}`};
   a.addEventListener('pointerenter',select);a.addEventListener('focus',select);
   a.addEventListener('click',e=>{
    if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button!==0)return;
    if(performance.now()<suppressRecordClickUntil){e.preventDefault();return}
-   e.preventDefault();rememberDirectory(p.slug);document.querySelector('.transition-curtain img').src=p.cover;
+   e.preventDefault();rememberDirectory(p.slug);if(filmPreview.open(p,a))return;document.querySelector('.transition-curtain img').src=p.cover;
    if(reduced.matches){location.href=a.href;return}
    document.body.classList.add('is-opening');setTimeout(()=>location.href=a.href,180);
   });group.append(a);
@@ -34,7 +36,7 @@ const sections=[...document.querySelectorAll('.screen')],dots=document.querySele
 function sectionMarker(){const anchor=scrollY+innerHeight*.25;let current=sections[0];for(const section of sections)if(section.offsetTop<=anchor)current=section;dots.forEach(a=>{const active=a.hash==='#'+current.id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}
 addEventListener('scroll',()=>{cancelAnimationFrame(sectionRAF);sectionRAF=requestAnimationFrame(sectionMarker)},{passive:true});addEventListener('resize',sectionMarker);sectionMarker();
 const video=document.querySelector('#cover-video'),toggle=document.querySelector('#motion-toggle');let paused=reduced.matches,coverVisible=true;
-function startVideo(){if(paused||!coverVisible||document.hidden)return;if(!video.src){video.src=video.dataset.src;video.load()}video.play().catch(()=>{})}
+function startVideo(){if(paused||!coverVisible||document.hidden||document.querySelector('#catalog-film-dialog').open)return;if(!video.src){video.src=video.dataset.src;video.load()}video.play().catch(()=>{})}
 function updateMotion(){toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'播放封面动态':'暂停封面动态');toggle.querySelector('.tooltip').textContent=paused?'播放动态':'暂停动态';if(paused)video.pause();else startVideo()}
 toggle.addEventListener('click',()=>{paused=!paused;updateMotion()});video.addEventListener('playing',()=>video.classList.add('ready'));video.addEventListener('error',()=>video.classList.remove('ready'));
 new IntersectionObserver(entries=>{coverVisible=entries[0].isIntersecting;if(coverVisible)startVideo();else video.pause()},{threshold:.1}).observe(document.querySelector('#cover'));

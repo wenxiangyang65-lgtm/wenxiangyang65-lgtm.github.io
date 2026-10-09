@@ -4,7 +4,7 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  const records=[...albums.querySelectorAll('.record')];
  const states=records.map(record=>({record,center:0,y:0,angle:0,scale:1,vy:0,va:0,vs:0,visible:false}));
  let origin=0,cycle=0,pitch=0,position=0,target=0,velocity=0,last=0,ready=false;
- let visible=false,hovered=false,focused=false,drag=null,nativeTouch=false,paused=true;
+ let visible=false,hovered=false,focused=false,drag=null,nativeTouch=false,paused=true,filmOpen=false;
  let holdUntil=0,autoAt=0,snapTimer=0,writingScroll=false;
  let wheelPageY=null,wheelActiveUntil=0;
  const wrapValue=value=>((value%cycle)+cycle)%cycle;
@@ -65,7 +65,7 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  function frame(time){
   const dt=last?Math.min(.024,(time-last)/1000):1/60;last=time;
   if(ready&&visible&&!document.hidden){
-   if(!paused&&!hovered&&!focused&&!drag&&!nativeTouch&&time>holdUntil&&time>autoAt){
+   if(!filmOpen&&!paused&&!hovered&&!focused&&!drag&&!nativeTouch&&time>holdUntil&&time>autoAt){
     go(origin+(Math.round((target-origin)/pitch)+1)*pitch,false);autoAt=time+2900;
    }
    if(!drag?.active&&!nativeTouch){
@@ -138,6 +138,7 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  new ResizeObserver(measure).observe(albums);
  new IntersectionObserver(entries=>{const wasVisible=visible;visible=entries[0].isIntersecting;if(visible&&!wasVisible){autoAt=performance.now()+2900;render(1/60,true)}},{threshold:.12}).observe(albums);
  window.addEventListener('pageshow',restoreDirectory);window.addEventListener('hashchange',restoreDirectory);
+ window.addEventListener('portfolio-film-open',()=>{filmOpen=true});window.addEventListener('portfolio-film-close',()=>{filmOpen=false;hold()});
  measure();updateMotion();requestAnimationFrame(frame);
  return {rememberDirectory,restoreDirectory};
 };

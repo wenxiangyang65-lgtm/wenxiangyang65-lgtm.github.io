@@ -11,6 +11,14 @@ export async function compileContent(target='dist') {
       const digest=createHash('sha256').update(await readFile(resolve('dist',p[field]))).digest('hex').slice(0,12);
       p[field]+=`?v=${digest}`;
     }
+    if(p.films)p.films=await Promise.all(p.films.map(async film=>{
+      const item={...film};
+      for(const field of ['src','poster'])if(item[field]) {
+        const digest=createHash('sha256').update(await readFile(resolve('dist',item[field]))).digest('hex').slice(0,12);
+        item[field]+=`?v=${digest}`;
+      }
+      return item;
+    }));
     return p;
   }));
   await writeFile(resolve(target,'project-data.js'),`/* Generated from content/projects.json. Run npm run content after editing. */\nwindow.PORTFOLIO_PROJECTS=${JSON.stringify(result).replaceAll('<','\\u003c')};\n`);

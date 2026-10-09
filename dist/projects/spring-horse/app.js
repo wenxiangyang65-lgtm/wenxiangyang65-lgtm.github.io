@@ -107,19 +107,18 @@ tabKeys($$('.role-tabs button'),b=>selectRole(Number(b.dataset.role)));
 $('#role-zoom').addEventListener('click',()=>{const r=roles[roleIndex];if(r)openImage(r.image,`${r.name} / 原角色三视图 / ${r.trait}`);});
 Promise.resolve(window.SPRING_ATLAS_DATA.roles).then(data=>{roles=data;selectRole(0);updateRolePlayback();}).catch(()=>{$('.role-error').hidden=false;$('#role-zoom').disabled=true;});
 
-let roleAuto=!reduced.matches,roleVisible=false,roleTimer=null,roleHovered=false,roleFocused=false;
+let roleAuto=!reduced.matches,roleVisible=false,roleTimer=null,roleFocused=false;
 const rolePlayback=$('#role-autoplay');
 function updateRolePlayback(){
  if(roleTimer)clearInterval(roleTimer);roleTimer=null;
  rolePlayback.setAttribute('aria-pressed',String(roleAuto));rolePlayback.textContent=roleAuto?'暂停轮播':'开始轮播';
  if(roleAuto&&roleVisible&&roles.length&&!document.hidden){
-  roleTimer=setInterval(()=>{if(!roleHovered&&!roleFocused&&!imageDialog.open&&!filmDialog.open)selectRole((roleIndex+1)%roles.length);},5000);
+  roleTimer=setInterval(()=>{if(!roleFocused&&!imageDialog.open&&!filmDialog.open){selectRole((roleIndex+1)%roles.length);const strip=$('.role-tabs'),tab=strip.children[roleIndex];if(tab)strip.scrollTo({left:Math.max(0,tab.offsetLeft-strip.offsetLeft-strip.clientWidth/2+tab.offsetWidth/2),behavior:reduced.matches?'instant':'smooth'});}},5000);
  }
 }
 rolePlayback.addEventListener('click',()=>{roleAuto=!roleAuto;updateRolePlayback();});
 if('IntersectionObserver'in window){new IntersectionObserver(entries=>{roleVisible=entries[0].isIntersecting;updateRolePlayback();},{threshold:.15}).observe($('.role-stage'));}
-if(window.matchMedia('(hover:hover)').matches){$('.role-stage').addEventListener('mouseenter',()=>roleHovered=true);$('.role-stage').addEventListener('mouseleave',()=>roleHovered=false);}
-$('.role-tabs').addEventListener('focusin',()=>roleFocused=true);$('.role-tabs').addEventListener('focusout',e=>{if(!$('.role-tabs').contains(e.relatedTarget))roleFocused=false;});
+$('.role-tabs').addEventListener('focusin',e=>roleFocused=e.target.matches(':focus-visible'));$('.role-tabs').addEventListener('focusout',e=>{if(!$('.role-tabs').contains(e.relatedTarget))roleFocused=false;});
 document.addEventListener('visibilitychange',updateRolePlayback);
 reduced.addEventListener('change',()=>{if(reduced.matches){roleAuto=false;updateRolePlayback();}});
 updateRolePlayback();
