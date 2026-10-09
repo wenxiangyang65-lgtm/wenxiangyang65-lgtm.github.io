@@ -4,19 +4,24 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  const records=[...albums.querySelectorAll('.record')];
  const states=records.map(record=>({record,center:0,y:0,angle:0,scale:1,vy:0,va:0,vs:0,visible:false}));
  let origin=0,cycle=0,pitch=0,position=0,target=0,velocity=0,last=0,ready=false;
- let visible=false,hovered=false,focused=false,drag=null,nativeTouch=false,paused=reduced.matches;
+ let visible=false,hovered=false,focused=false,drag=null,nativeTouch=false,paused=true;
  let holdUntil=0,autoAt=0,snapTimer=0,writingScroll=false;
+ let wheelPageY=null,wheelActiveUntil=0;
  const wrapValue=value=>((value%cycle)+cycle)%cycle;
  const fraction=()=>cycle?wrapValue(position-origin)/cycle:0;
  const index=()=>cycle?Math.round(wrapValue(position-origin)/pitch)%projects.length:0;
  function controls() {
   if(!ready)return;
   const i=index();range.value=Math.min(1,wrapValue(position-origin)/Math.max(pitch,cycle-pitch));
-  if(!hovered&&!focused){title.textContent=projects[i].title;count.textContent=`${String(i+1).padStart(2,'0')} / ${projects.length}`}
+  title.textContent=projects[i].title;count.textContent=`${String(i+1).padStart(2,'0')} / ${projects.length}`;
  }
  function hold(ms=4500){holdUntil=performance.now()+ms;autoAt=holdUntil+2600}
  function stopSpring(){position=albums.scrollLeft;target=position;velocity=0}
- function writeScroll(){writingScroll=true;albums.scrollLeft=position;writingScroll=false}
+ function writeScroll(){
+  writingScroll=true;albums.scrollLeft=position;writingScroll=false;
+  // Wheel scrubbing belongs to this gallery, including browsers that move an ancestor during a nested scroll.
+  if(wheelPageY!==null&&performance.now()<wheelActiveUntil&&Math.abs(window.scrollY-wheelPageY)>.5)window.scrollTo({top:wheelPageY,behavior:'instant'});
+ }
  function normalize(){
   while(position>=origin+cycle){position-=cycle;target-=cycle}
   while(position<origin){position+=cycle;target+=cycle}
@@ -39,7 +44,7 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
   for(const s of states){
    const d=(s.center-center)/pitch,abs=Math.abs(d),inView=abs<3.8;
    if(!inView){if(s.visible)s.record.style.visibility='hidden';s.visible=false;continue}
-   const y=Math.pow(abs,1.65)*18,angle=Math.max(-32,Math.min(32,d*13)),scale=1.035-Math.min(.19,abs*.063);
+   const y=Math.pow(abs,1.65)*18,angle=Math.max(-32,Math.min(32,d*13)),scale=1-Math.min(.16,abs*.052)+.105*Math.exp(-abs*abs*3.2);
    if(instant||!s.visible||reduced.matches){s.y=y;s.angle=angle;s.scale=scale;s.vy=s.va=s.vs=0}
    else {spring(s,'y','vy',y,dt);spring(s,'angle','va',angle,dt);spring(s,'scale','vs',scale,dt,180,23)}
    if(!s.visible)s.record.style.visibility='visible';s.visible=true;
@@ -55,8 +60,8 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
   target=value;if(reduced.matches){position=target;normalize();writeScroll();render(1/60,true);controls()}
  }
  function move(direction){go(origin+Math.round((target-origin)/pitch)*pitch+direction*pitch)}
- function snap(){if(!ready||drag)return;nativeTouch=false;go(origin+Math.round((position-origin)/pitch)*pitch)}
- function scheduleSnap(){clearTimeout(snapTimer);snapTimer=setTimeout(snap,130)}
+ function snap(fromTarget=false){if(!ready||drag)return;nativeTouch=false;go(origin+Math.round(((fromTarget?target:position)-origin)/pitch)*pitch)}
+ function scheduleSnap(fromTarget=false){clearTimeout(snapTimer);snapTimer=setTimeout(()=>snap(fromTarget),170)}
  function frame(time){
   const dt=last?Math.min(.024,(time-last)/1000):1/60;last=time;
   if(ready&&visible&&!document.hidden){
@@ -79,7 +84,7 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
   controls();
  },{passive:true});
  albums.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')hovered=true});
- albums.addEventListener('pointerleave',()=>{hovered=false;hold(300)});
+ albums.addEventListener('pointerleave',()=>{hovered=false;wheelPageY=null;hold(300)});
  albums.addEventListener('focusin',e=>{
   focused=true;
   const record=e.target.closest('.record'),state=states.find(s=>s.record===record);
@@ -87,12 +92,19 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  });
  albums.addEventListener('focusout',()=>{focused=albums.contains(document.activeElement);hold(300)});
  albums.addEventListener('wheel',e=>{
-  if(Math.abs(e.deltaX)>Math.abs(e.deltaY)||e.shiftKey){
-   e.preventDefault();hold();stopSpring();position+=e.shiftKey?e.deltaY:e.deltaX;target=position;normalize();writeScroll();scheduleSnap();
-  }
+  if(!ready||e.ctrlKey||e.metaKey||drag)return;
+  const unit=e.deltaMode===1?16:e.deltaMode===2?albums.clientHeight:1;
+  const delta=(Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY)*unit;
+  if(!Number.isFinite(delta)||delta===0)return;
+  if(wheelPageY===null||performance.now()>wheelActiveUntil)wheelPageY=window.scrollY;
+  wheelActiveUntil=performance.now()+1600;
+  e.preventDefault();paused=true;updateMotion();
+  go(target+Math.max(-pitch*2,Math.min(pitch*2,delta*1.1)));scheduleSnap(true);
  },{passive:false});
+ document.addEventListener('wheel',e=>{if(!albums.contains(e.target))wheelPageY=null},{capture:true,passive:true});
+ document.addEventListener('keydown',()=>{wheelPageY=null});
  albums.addEventListener('pointerdown',e=>{
-  if(e.button!==0)return;hold();clearTimeout(snapTimer);stopSpring();
+  if(e.button!==0)return;wheelPageY=null;hold();clearTimeout(snapTimer);stopSpring();
   drag={id:e.pointerId,type:e.pointerType,x:e.clientX,y:e.clientY,start:position,active:false};
   nativeTouch=e.pointerType!=='mouse';
  });
@@ -114,14 +126,14 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  range.addEventListener('input',()=>go(origin+Number(range.value)*(cycle-pitch)));
  range.addEventListener('change',()=>go(origin+Math.round((target-origin)/pitch)*pitch));
  previous.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
- function updateMotion(){catalogMotion.textContent=paused?'继续播放':'暂停播放';catalogMotion.setAttribute('aria-pressed',String(paused));catalogMotion.setAttribute('aria-label',paused?'继续项目弹性轮播':'暂停项目弹性轮播')}
+ function updateMotion(){catalogMotion.textContent=paused?'自动播放':'暂停播放';catalogMotion.setAttribute('aria-pressed',String(paused));catalogMotion.setAttribute('aria-label',paused?'开启项目自动播放':'暂停项目自动播放')}
  catalogMotion.addEventListener('click',()=>{paused=!paused;hold(0);updateMotion()});
- reduced.addEventListener('change',()=>{paused=reduced.matches;velocity=0;go(target,false);updateMotion()});
- function rememberDirectory(slug){try{sessionStorage.setItem('portfolio-directory',JSON.stringify({fraction:fraction(),slug,mode:'spring',paused}))}catch{}}
+ reduced.addEventListener('change',()=>{paused=true;velocity=0;go(target,false);updateMotion()});
+ function rememberDirectory(slug){try{sessionStorage.setItem('portfolio-directory',JSON.stringify({fraction:fraction(),slug,mode:'scroll-spring',paused}))}catch{}}
  function restoreDirectory(){
   document.body.classList.remove('is-opening');if(location.hash!=='#catalog'||!ready)return;
   let state;try{state=JSON.parse(sessionStorage.getItem('portfolio-directory')||'null')}catch{}
-  if(state){const i=projects.findIndex(p=>p.slug===state.slug);position=origin+(state.mode==='spring'?state.fraction*cycle:Math.max(0,i)*pitch);target=position;velocity=0;writeScroll();hold(6000);render(1/60,true);controls();if(i>=0)title.textContent=projects[i].title;if(typeof state.paused==='boolean'){paused=state.paused||reduced.matches;updateMotion()}}
+  if(state){const i=projects.findIndex(p=>p.slug===state.slug);position=origin+(['spring','scroll-spring'].includes(state.mode)?state.fraction*cycle:Math.max(0,i)*pitch);target=position;velocity=0;writeScroll();hold(6000);render(1/60,true);controls();if(i>=0)title.textContent=projects[i].title;if(state.mode==='scroll-spring'&&typeof state.paused==='boolean'){paused=state.paused||reduced.matches;updateMotion()}}
  }
  new ResizeObserver(measure).observe(albums);
  new IntersectionObserver(entries=>{const wasVisible=visible;visible=entries[0].isIntersecting;if(visible&&!wasVisible){autoAt=performance.now()+2900;render(1/60,true)}},{threshold:.12}).observe(albums);

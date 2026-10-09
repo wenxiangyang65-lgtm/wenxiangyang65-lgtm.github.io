@@ -11,7 +11,7 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
 .homepage .resume>.scroll-cue{display:none}
 .homepage .scroll-cue{bottom:12px;font-size:14px;padding:6px 12px;z-index:5}
 .homepage .hotspot:before{content:'';position:absolute;inset:-9px}
-.homepage .catalog{padding:30px 0 28px;background:#eaf4ff}
+.homepage .catalog{padding:30px 0 28px;background:#eaf4ff;overflow-anchor:none}
 .homepage .catalog-art{aspect-ratio:auto;padding:0;width:100%;overflow:visible;background:linear-gradient(110deg,#eaf4ff 38%,#f4faff 68%,#e4f0fc)}
 .homepage .catalog-art:before{display:none}
 .homepage .catalog h2{position:relative;inset:auto;margin:0 4.55% 8px;font-size:clamp(28px,3.2vw,46px);line-height:1.3}
@@ -29,6 +29,7 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
 .homepage .album-button{order:0;flex:0 0 auto;padding:10px 14px;font-size:14px}
 .homepage .selection-label{font-size:14px}
 .homepage .directory-hint{font-size:12px;letter-spacing:.05em}
+.homepage .touch-hint{display:none}
 .homepage .page-dots{right:8px}
 .homepage .page-dots a{width:24px;height:24px}
 @media(max-width:800px){
@@ -44,6 +45,8 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
  .homepage .scroll-cue i{height:12px}
  .homepage .page-dots{right:1px;gap:5px}
  .homepage .tooltip{display:none}
+ .homepage .wheel-hint{display:none}
+ .homepage .touch-hint{display:inline}
 }
 @media(prefers-reduced-motion:reduce){.homepage .record-disc img{transform:none!important}.homepage .record{will-change:auto}}
 .homepage .power .tooltip,.homepage .resume-power .tooltip{left:auto;right:0;transform:translateY(6px)}

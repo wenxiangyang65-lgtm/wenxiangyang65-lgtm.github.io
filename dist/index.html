@@ -8,10 +8,10 @@
   <meta name="description" content="杨文祥的创意视觉设计作品集。AI 影视创意、品牌视觉、电商视觉、视觉识别系统与 IP 视觉设计。">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css?v=20261008-interaction">
-  <link rel="stylesheet" href="homepage.css?v=20261009-spring">
+  <link rel="stylesheet" href="homepage.css?v=20261009-scroll-spring">
   <link rel="preload" href="assets/cover.webp" as="image" fetchpriority="high">
   <script src="project-data.js?v=20261008-xinxuan-title" defer></script>
-  <script src="catalog-spring.js?v=20261009-spring" defer></script>
+  <script src="catalog-spring.js?v=20261009-scroll-spring" defer></script>
   <script src="app.js?v=20261009-spring" defer></script>
 </head>
 <body class="homepage">
@@ -51,10 +51,10 @@
           <div class="track-control">
             <div class="selection-label"><span id="selected-title">请选择一张唱片</span><span id="page-count">01—08 / 15</span></div>
             <input id="album-range" type="range" min="0" max="1" step="0.001" value="0" aria-label="横向浏览项目唱片">
-            <span class="directory-hint">左右滑动 · 点击唱片进入项目</span>
+            <span class="directory-hint"><span class="wheel-hint">上下滚轮 · 左右拖动 · 点击唱片进入项目</span><span class="touch-hint">左右滑动 · 点击唱片进入项目</span></span>
           </div>
           <button id="next" class="album-button" aria-label="下一个项目">下一项</button>
-          <button id="catalog-motion" class="album-button" aria-pressed="false">暂停播放</button>
+          <button id="catalog-motion" class="album-button" aria-pressed="true">自动播放</button>
         </div>
       </div>
     </section>
