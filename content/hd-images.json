@@ -1,5 +1,5 @@
 {
-  "version": "20261010-hd",
+  "version": "20261010-art-fix",
   "assets": [
     {
       "slug": "new-year",
@@ -611,11 +611,11 @@
         670
       ],
       "after": [
-        2560,
-        1429
+        3372,
+        1882
       ],
-      "bytes": 246628,
-      "sha256": "f9b078c936a32d6715e9e4f68ff962345045e6cde354230782ac72d3094791a7"
+      "bytes": 882146,
+      "sha256": "ef19db98dbcb6d6ab07789c5d912e5138113413c49d7ec0c622e347706042fd3"
     },
     {
       "slug": "awe",
@@ -821,11 +821,11 @@
         713
       ],
       "after": [
-        2560,
-        1522
+        3372,
+        2005
       ],
-      "bytes": 233828,
-      "sha256": "89a52b78c897537ec3c890f5a2f8d77f7f3d27bfb6b0e5558614db033722c489"
+      "bytes": 876608,
+      "sha256": "d2b393ff0d0d809616c3b3301a882e4c2dfd345e2acd47949e692e7c5ab3d696"
     },
     {
       "slug": "awe",
@@ -3310,6 +3310,16 @@
       ],
       "bytes": 40652,
       "sha256": "a9c0eff2f8c1f1f0c0906662fadc539838b430259e16c687effc7b1fe02ba184"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hero-motion-poster.webp",
+      "after": [
+        1920,
+        1440
+      ],
+      "bytes": 503768,
+      "sha256": "e089650a9a954cbe6bb5a95d178e1904b5768f1fce40bf262cce98e29c7095b7"
     }
   ]
 }
