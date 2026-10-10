@@ -4,8 +4,8 @@ const pageHeights = { 1: 12636, 2: 12914, 3: 7406 };
 // Only motion that matches the visible PDF artwork replaces it in place.
 const clips = [
   { key: "launch-2024", title: "2024 发布会主视觉应用", page: 1, section: "发布会主视觉", type: "marker", x: 1798, y: 4980 },
-  { key: "banner-2024", title: "2024 发布会横幅", page: 1, section: "主视觉动效", type: "overlay", x: 131, y: 10304, w: 1658, h: 415, poster: "static/full/024.webp" },
-  { key: "countdown-1", title: "发布会倒计时 1 天", page: 1, section: "倒计时物料", type: "overlay", x: 133, y: 11840, w: 343, h: 745, poster: "static/full/027.webp" },
+  { key: "banner-2024", title: "2024 发布会横幅", page: 1, section: "主视觉动效", type: "overlay", x: 131, y: 10304, w: 1658, h: 415, poster: "static/full/024.webp?v=20261010-hd" },
+  { key: "countdown-1", title: "发布会倒计时 1 天", page: 1, section: "倒计时物料", type: "overlay", x: 133, y: 11840, w: 343, h: 745, poster: "static/full/027.webp?v=20261010-hd" },
   { key: "friends-cat", title: "大家电抢先购 · 朋友圈动态", page: 2, section: "线上链路", type: "overlay", x: 1267, y: 4499, w: 503, h: 504, poster: "media/friends-cat-revised.jpg", fit: "contain", replacement: true, background: "#fff" },
   { key: "logo-2025", title: "国家补贴 · 至高 20% OFF 折叠券", page: 2, section: "2025 项目规划", type: "marker", x: 1775, y: 9010, poster: "media/logo-2025-revised.jpg", transparent: true },
   { key: "brand-2025", title: "国补品牌视觉", page: 2, section: "视觉升级", type: "marker", indexOnly: true, x: 1760, y: 10370 },
@@ -15,11 +15,11 @@ const clips = [
   { key: "flying-coupon", title: "优惠券飞入", page: 2, section: "领券动效", type: "marker", indexOnly: true },
   { key: "confetti", title: "领券庆祝动效", page: 2, section: "领券动效", type: "marker", indexOnly: true },
   { key: "main-venue", media: "main-venue-header", title: "国家补贴主会场版头", page: 3, section: "会场分层表达", type: "overlay", x: 138, y: 862, w: 487, h: 333, poster: "media/main-venue-header.webp" },
-  { key: "category-banner", title: "品类权益版头轮播", page: 3, section: "内容分级", type: "overlay", x: 1035, y: 860, w: 481, h: 335, poster: "static/full/055.webp" },
+  { key: "category-banner", title: "品类权益版头轮播", page: 3, section: "内容分级", type: "overlay", x: 1035, y: 860, w: 481, h: 335, poster: "static/full/055.webp?v=20261010-hd" },
   { key: "xiaomi-brand-banner", title: "品牌权益版头轮播", page: 3, section: "内容分级", type: "overlay", x: 138, y: 1262, w: 501, h: 323, poster: "static/full/060.webp" },
   { key: "brand-venues", title: "品牌会场轮播", page: 3, section: "品牌会场", type: "overlay", x: 135, y: 1863, w: 296, h: 643, poster: "static/full/065.webp" },
-  { key: "category-venue", title: "品类会场轮播", page: 3, section: "品类会场", type: "overlay", x: 1377, y: 1936, w: 204, h: 443, poster: "static/full/066.webp" },
-  { key: "june18-venue-header", title: "618 国补抢先购领券版头", page: 3, section: "多权益表达", type: "overlay", x: 172.213, y: 3059.857, w: 283.352, h: 202.125, poster: "static/full/070.webp", foreground: { src: "media/june18-phone-frame.webp", x: 155, y: 3045, w: 315, h: 225 } },
+  { key: "category-venue", title: "品类会场轮播", page: 3, section: "品类会场", type: "overlay", x: 1377, y: 1936, w: 204, h: 443, poster: "static/full/066.webp?v=20261010-hd" },
+  { key: "june18-venue-header", title: "618 国补抢先购领券版头", page: 3, section: "多权益表达", type: "overlay", x: 172.213, y: 3059.857, w: 283.352, h: 202.125, poster: "static/full/070.webp?v=20261010-hd", foreground: { src: "media/june18-phone-frame.webp", x: 155, y: 3045, w: 315, h: 225 } },
   { key: "double11", title: "双 11 补上加补", page: 3, section: "多权益表达", type: "marker", indexOnly: true, x: 1780, y: 3550 },
   { key: "super-day", title: "超级国补日数字翻转", page: 3, section: "会场延展", type: "marker", indexOnly: true, x: 1365, y: 4750 },
   { key: "double11-numbers", title: "双 11 优惠数字翻转", page: 3, section: "会场延展", type: "overlay", x: 1600, y: 4825, w: 198, h: 135, poster: "static/full/086.webp" },
@@ -33,7 +33,7 @@ const clips = [
   { key: "metro-coupons", media: "metro-banner", title: "地铁长屏 · 多重优惠券", page: 3, section: "上海徐家汇地铁站", type: "overlay", x: 137, y: 6042, w: 850, h: 96, poster: "static/full/099.webp", start: 6, end: 9 },
   { key: "metro-benefits", media: "metro-banner", title: "地铁长屏 · 优惠券展开", page: 3, section: "上海徐家汇地铁站", type: "overlay", x: 137, y: 6152, w: 850, h: 96, poster: "static/full/102.webp", start: 9, end: 12 },
   { key: "metro-call-to-action", media: "metro-banner", title: "地铁长屏 · 国补收尾", page: 3, section: "上海徐家汇地铁站", type: "overlay", x: 137, y: 6261, w: 850, h: 96, poster: "static/full/103.webp", start: 12, end: 15.3 },
-  { key: "elderly-vertical", title: "惠老补贴竖版广告", page: 3, section: "惠老补贴项目", type: "overlay", x: 957, y: 6575, w: 236, h: 559, poster: "static/full/104.webp" },
+  { key: "elderly-vertical", title: "惠老补贴竖版广告", page: 3, section: "惠老补贴项目", type: "overlay", x: 957, y: 6575, w: 236, h: 559, poster: "static/full/104.webp?v=20261010-hd" },
   { key: "elderly-venue", title: "惠老补贴会场", page: 3, section: "惠老补贴项目", type: "overlay", x: 152, y: 6577, w: 274, h: 557, poster: "media/elderly-venue-crop.jpg", fit: "fill" },
   { key: "elderly-popup", title: "惠老补贴弹窗", page: 3, section: "惠老补贴项目", type: "overlay", x: 426, y: 6577, w: 254, h: 557, poster: "media/elderly-popup-crop.jpg", fit: "fill" },
   { key: "national-showcase", title: "2025 国家补贴 · 营销设计动态展示", page: 3, section: "国家补贴设计展示", type: "overlay", x: 1388, y: 6585, w: 249.084, h: 540, poster: "media/national-showcase.jpg", fit: "contain", replacement: true },
@@ -49,7 +49,7 @@ const clips = [
 ];
 
 const clipSource = clip => `media/${clip.media || clip.key}.mp4`;
-const clipPoster = clip => clip.poster || `media/${clip.key}.jpg`;
+const clipPoster = clip => { const src = clip.poster || `media/${clip.key}.jpg`; return src.includes("?") ? src : `${src}?v=20261010-hd`; };
 
 const pages = Object.fromEntries(
   [...document.querySelectorAll(".pdf-page")].map(page => [Number(page.dataset.page), page])

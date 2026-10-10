@@ -1,0 +1,3315 @@
+{
+  "version": "20261010-hd",
+  "assets": [
+    {
+      "slug": "new-year",
+      "path": "assets/research.webp",
+      "before": [
+        1200,
+        416
+      ],
+      "after": [
+        2800,
+        972
+      ],
+      "bytes": 165864,
+      "sha256": "5c1b0176f696f0298d9af4ce451ae7ad87466bab727bbdb77a5bfde2dae923e4"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/strategy-style-complete.webp",
+      "before": [
+        1200,
+        1203
+      ],
+      "after": [
+        2800,
+        2808
+      ],
+      "bytes": 536260,
+      "sha256": "caef58236e8ec4d946b3585e475c31aa44fc96c7bd66314a08a3e807e7c3d8e5"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/sketch-layue24.webp",
+      "before": [
+        331,
+        420
+      ],
+      "after": [
+        1324,
+        1680
+      ],
+      "bytes": 436790,
+      "sha256": "63d68f2a455488a4b85ed1084aa6b440fdcb3b2ca6c73107ab33bdccfe22a0c0"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/sketch-day28.webp",
+      "before": [
+        332,
+        420
+      ],
+      "after": [
+        1328,
+        1680
+      ],
+      "bytes": 482564,
+      "sha256": "f34dfcd384bf2e2dd17dc0f78a983f4814f2b578bc2777fa71f4db4c59bc527b"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/sketch-new-years-eve.webp",
+      "before": [
+        334,
+        420
+      ],
+      "after": [
+        1336,
+        1680
+      ],
+      "bytes": 528968,
+      "sha256": "7cc3cb8d4576399140cddc52f1fe010ff2baefc20565406042f1e35eba2e5384"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/sketch-day1.webp",
+      "before": [
+        334,
+        420
+      ],
+      "after": [
+        1336,
+        1680
+      ],
+      "bytes": 601414,
+      "sha256": "1c70118c641df9015f07e97e2cc602cd6f65b46493dcb976ccf171b89337a82f"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/sketch-lantern.webp",
+      "before": [
+        333,
+        420
+      ],
+      "after": [
+        1332,
+        1680
+      ],
+      "bytes": 432830,
+      "sha256": "28ba551919ef7733ed32d623aa6b3ba15837a0c2adb62cafbfe262f117764703"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/type-system.webp",
+      "before": [
+        995,
+        790
+      ],
+      "after": [
+        2800,
+        2223
+      ],
+      "bytes": 597010,
+      "sha256": "136f15115772933e8eeb7c98671d23b527a3ea3d8cfa24248a07ee7f99896463"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/brand-system.webp",
+      "before": [
+        690,
+        790
+      ],
+      "after": [
+        2070,
+        2370
+      ],
+      "bytes": 144514,
+      "sha256": "5a2b156729989d3a308d0bd1988e2020fd8ed95320a096e4856758419ffb958a"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/final-layue24.webp",
+      "before": [
+        1200,
+        881
+      ],
+      "after": [
+        2800,
+        2056
+      ],
+      "bytes": 1122122,
+      "sha256": "05e703c1178b6f96dbdbadeb6a1c1a9426b2e81300288a55e7134ff0de3f0455"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/final-day28.webp",
+      "before": [
+        1200,
+        882
+      ],
+      "after": [
+        2800,
+        2057
+      ],
+      "bytes": 1140268,
+      "sha256": "75330d5fe753920e0e1f5f1c582627624dd7ff127860147a4a9a2c675f70c64e"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/final-new-years-eve.webp",
+      "before": [
+        1200,
+        882
+      ],
+      "after": [
+        2800,
+        2057
+      ],
+      "bytes": 1266502,
+      "sha256": "7e0f7cf075882b9ba15b01aecc8c99e747683dfa74a3c9531152cf4e4f3329c0"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/final-day1.webp",
+      "before": [
+        1200,
+        882
+      ],
+      "after": [
+        2800,
+        2059
+      ],
+      "bytes": 1222772,
+      "sha256": "c7e4e4b8120d4e24f7125ddd940aa0fbc25bc436ac0a3be651adbb6b0c47d8b0"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/final-lantern.webp",
+      "before": [
+        1200,
+        882
+      ],
+      "after": [
+        2800,
+        2057
+      ],
+      "bytes": 1269014,
+      "sha256": "3146dbe3b3224d7bd97413954216c29ef023fedcaeaed4affc1d284bb372566d"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/kv-sketch-main.webp",
+      "before": [
+        790,
+        312
+      ],
+      "after": [
+        2370,
+        936
+      ],
+      "bytes": 616822,
+      "sha256": "0c0423a714bd0e61dec4d409e1e797b7e4e51cad79b85409ffaa344f42542636"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/kv-sketch-a.webp",
+      "before": [
+        493,
+        148
+      ],
+      "after": [
+        1972,
+        592
+      ],
+      "bytes": 298834,
+      "sha256": "fe6aecd850ce4bace65a03b4a1148d4f54f3289ca34171a0d157e9aede4fb394"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/kv-sketch-b.webp",
+      "before": [
+        440,
+        148
+      ],
+      "after": [
+        1760,
+        592
+      ],
+      "bytes": 354770,
+      "sha256": "f6fa28f7d115cc6f2ae3b2a75aac4fab4993fd4d747420d8539a92482333e75a"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/kv-sketch-c.webp",
+      "before": [
+        493,
+        158
+      ],
+      "after": [
+        1972,
+        632
+      ],
+      "bytes": 354810,
+      "sha256": "af48c93f8d02dc8ec226548c58fa8f53c0bf0f06711f92220634fd51618d5294"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/kv-final.webp",
+      "before": [
+        1200,
+        463
+      ],
+      "after": [
+        2800,
+        1089
+      ],
+      "bytes": 500996,
+      "sha256": "821a2f5e23f688a98c1ce3393a52141b196df416415651be428e088d2ed25812"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/poster-layue24.webp",
+      "before": [
+        1200,
+        2133
+      ],
+      "after": [
+        2260,
+        4048
+      ],
+      "bytes": 1596378,
+      "sha256": "2d396fce9d7166c3239a4bf1ee1ba35007c786da33a734e1a9b6bd396659d38d"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/poster-day28.webp",
+      "before": [
+        1200,
+        2133
+      ],
+      "after": [
+        2264,
+        4048
+      ],
+      "bytes": 1579170,
+      "sha256": "afb99341795151dd446bcdf966e66da5cf0544fe2b1a6778d9d884b379693482"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/poster-new-years-eve.webp",
+      "before": [
+        1200,
+        2133
+      ],
+      "after": [
+        2264,
+        4048
+      ],
+      "bytes": 1775000,
+      "sha256": "5e3f84958b4ece140c75d6a60a095638432f26f6ea74a5d01e11c04198a071f6"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/poster-day1.webp",
+      "before": [
+        1200,
+        2133
+      ],
+      "after": [
+        2260,
+        4044
+      ],
+      "bytes": 1710316,
+      "sha256": "04e7d058353276dc5025fe2803f33abc9fb0e3acd5ad696d26190ef75a7bc7b8"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/poster-lantern.webp",
+      "before": [
+        1200,
+        2133
+      ],
+      "after": [
+        2264,
+        4044
+      ],
+      "bytes": 1760958,
+      "sha256": "22fb2d40ee1d456c256f0da0f495a5aa69318053849cead00f232f4b2c1ab837"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/online-complete.webp",
+      "before": [
+        1200,
+        1164
+      ],
+      "after": [
+        2800,
+        2716
+      ],
+      "bytes": 492738,
+      "sha256": "1c780fc6548c340c870922f0d1b66925aef0c06d95e424953be3b3940e9e4f8f"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/offline-complete.webp",
+      "before": [
+        1200,
+        1568
+      ],
+      "after": [
+        2800,
+        3660
+      ],
+      "bytes": 932800,
+      "sha256": "9d1e9d4c8ab705bdbfe7ae98f593e06213b147d05871be72fb35a9354dc489fe"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/outcome-display.webp",
+      "before": [
+        917,
+        722
+      ],
+      "after": [
+        2751,
+        2166
+      ],
+      "bytes": 509166,
+      "sha256": "2862b1942069acdf252ad53f8dd0b49d525a9ca3872308c2ec1d73dbeddd1b74"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/outcome-poster.webp",
+      "before": [
+        815,
+        684
+      ],
+      "after": [
+        2445,
+        2052
+      ],
+      "bytes": 216938,
+      "sha256": "ebd22125a4669de78eddd3e21d16ce7eeb721cff14ca2a3f8aa55b4e29e14bc4"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/outcome-store.webp",
+      "before": [
+        917,
+        508
+      ],
+      "after": [
+        2751,
+        1524
+      ],
+      "bytes": 489800,
+      "sha256": "f796cc9d34be9e03274c2dac0b3b11d6a1ae681bdb32eb83490310354f862829"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/outcome-venue.webp",
+      "before": [
+        815,
+        534
+      ],
+      "after": [
+        2445,
+        1602
+      ],
+      "bytes": 692544,
+      "sha256": "ab12a6ec96a2040f3b8e858dbbaaec5a7e98c4c0563d0fbe93c88d3f5930662b"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-1-01.webp",
+      "before": [
+        1600,
+        2667
+      ],
+      "after": [
+        3840,
+        6400
+      ],
+      "bytes": 1128846,
+      "sha256": "3bc057e9f894b8070010fb1f5c77d6de2714f369175c8b78ab8764c22c1be204"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-1-02.webp",
+      "before": [
+        1600,
+        2667
+      ],
+      "after": [
+        3840,
+        6400
+      ],
+      "bytes": 915062,
+      "sha256": "dffcc17fcc873bc2b988189e74559de3fcc1e90473d08b6ecd0f0ae559eef383"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-1-03.webp",
+      "before": [
+        1600,
+        2667
+      ],
+      "after": [
+        3840,
+        6400
+      ],
+      "bytes": 884456,
+      "sha256": "ce52a823c06e625579de7675e3435f7a56e7ed65fa1d6815ae7b681a09d01ed4"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-1-04.webp",
+      "before": [
+        1600,
+        2530
+      ],
+      "after": [
+        3840,
+        6072
+      ],
+      "bytes": 1112476,
+      "sha256": "61e6e9c0bad8a8aacb145c959cddd943ad840500ef3183d8577f25650903891e"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-2-01.webp",
+      "before": [
+        1600,
+        2667
+      ],
+      "after": [
+        3840,
+        6400
+      ],
+      "bytes": 1404936,
+      "sha256": "c342d47b97b0b2a993e75720d8d6c142445362711f46388c2f3fae1c9d663d03"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-2-02.webp",
+      "before": [
+        1600,
+        2667
+      ],
+      "after": [
+        3840,
+        6400
+      ],
+      "bytes": 1528934,
+      "sha256": "ea7377bc20cb026940fe0febbcf9cafffcaa8d2c929cdd6125c24714a62ed661"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-2-03.webp",
+      "before": [
+        1600,
+        2667
+      ],
+      "after": [
+        3840,
+        6400
+      ],
+      "bytes": 1016930,
+      "sha256": "22ebaef60fa1a90fd76f87c454f33ab9a4c6d80ac061e9abb500ab2eaf37397a"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-2-04.webp",
+      "before": [
+        1600,
+        2667
+      ],
+      "after": [
+        3840,
+        6400
+      ],
+      "bytes": 692830,
+      "sha256": "0fe8aa5aa463e46877117ad12512b49fcf856007b1fc473046d99a780698b003"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-2-05.webp",
+      "before": [
+        3840,
+        228
+      ],
+      "after": [
+        3840,
+        228
+      ],
+      "bytes": 4582,
+      "sha256": "79a2d83264a7dfb6a80e8005a02190a0888e7c5a68ece7c4f5fd72eb04ccff17"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-3-01.webp",
+      "before": [
+        1600,
+        2667
+      ],
+      "after": [
+        3840,
+        6400
+      ],
+      "bytes": 750268,
+      "sha256": "c7f7e939424fae26509c189c7e50522fbcfc173f3243ff81ce8ac0174f893a03"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-3-02.webp",
+      "before": [
+        1600,
+        2667
+      ],
+      "after": [
+        3840,
+        6400
+      ],
+      "bytes": 1485354,
+      "sha256": "71ab4f784efd960bb8ea5b6a2e4d4b916c5300a8f7f2896838ea984a17d95f89"
+    },
+    {
+      "slug": "trade-in",
+      "path": "pdf-pages/hd/page-3-03.webp",
+      "before": [
+        1600,
+        838
+      ],
+      "after": [
+        3840,
+        2012
+      ],
+      "bytes": 297660,
+      "sha256": "7d63c04f480cb21fb9a08e5a72df1fce6ea5558fa5fb4772db59da2544066716"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/01/001-00-layout-reference.jpg",
+      "before": [
+        1200,
+        453
+      ],
+      "after": [
+        2560,
+        967
+      ],
+      "bytes": 339766,
+      "sha256": "3f4cbc064f324e56393019d631b89db71b17e31ae68689007d97cc14e811b106"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/01/002-asset.webp",
+      "before": [
+        1200,
+        670
+      ],
+      "after": [
+        2560,
+        1429
+      ],
+      "bytes": 246628,
+      "sha256": "f9b078c936a32d6715e9e4f68ff962345045e6cde354230782ac72d3094791a7"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/01/003-asset.webp",
+      "before": [
+        1200,
+        435
+      ],
+      "after": [
+        2560,
+        927
+      ],
+      "bytes": 109776,
+      "sha256": "7d71b1b3a711c4688721a7272148d379d9fb5607b22f3682b02107453d563088"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/02/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        1376
+      ],
+      "after": [
+        2560,
+        2936
+      ],
+      "bytes": 340340,
+      "sha256": "df747a3f624b23c2b0bc73c2d9d30736f40734197472adbbd4c5d950e6863e5c"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/02/002-00-layout-reference.webp",
+      "before": [
+        1600,
+        132
+      ],
+      "after": [
+        2560,
+        210
+      ],
+      "bytes": 73202,
+      "sha256": "820aa7853716c61b98a1a78e63551b89a761b6c4249725d4a81496e272fc2be6"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/02/003-00-layout-reference.webp",
+      "before": [
+        1200,
+        416
+      ],
+      "after": [
+        2560,
+        888
+      ],
+      "bytes": 194532,
+      "sha256": "9b8c6082f0887b99d4f120044da4c653e0a81e40e7e62e934c9b46512230af41"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/02/004-asset.webp",
+      "before": [
+        1600,
+        1601
+      ],
+      "after": [
+        1783,
+        1784
+      ],
+      "bytes": 43446,
+      "sha256": "a89e6a76dce5ea10cd7115225f6d42d434fc9612a93e1dca5aa6d6f7976968e7"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/02/005-asset.webp",
+      "before": [
+        1600,
+        1601
+      ],
+      "after": [
+        1783,
+        1784
+      ],
+      "bytes": 43446,
+      "sha256": "a89e6a76dce5ea10cd7115225f6d42d434fc9612a93e1dca5aa6d6f7976968e7"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/02/006-asset.webp",
+      "before": [
+        1600,
+        1601
+      ],
+      "after": [
+        1783,
+        1784
+      ],
+      "bytes": 43446,
+      "sha256": "a89e6a76dce5ea10cd7115225f6d42d434fc9612a93e1dca5aa6d6f7976968e7"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/02/007-asset.webp",
+      "before": [
+        1200,
+        729
+      ],
+      "after": [
+        2560,
+        1556
+      ],
+      "bytes": 213344,
+      "sha256": "0ed267c8e5228df7b73a0c1e3b0a22cfce9e815d7999da4ae6c7f3a954774fab"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/02/008-asset.webp",
+      "before": [
+        1200,
+        1200
+      ],
+      "after": [
+        2560,
+        2560
+      ],
+      "bytes": 518222,
+      "sha256": "a6410ddf652fc4144e963c74c84de00257d7bab547474e01faeda7c5ee5f3df0"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/03/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        2072
+      ],
+      "after": [
+        2560,
+        4421
+      ],
+      "bytes": 546920,
+      "sha256": "6f4a3cdddbe65b20512fbc02da1512516f28742229fe481ad6fd2d519663a88e"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/03/002-00-layout-reference.webp",
+      "before": [
+        1600,
+        172
+      ],
+      "after": [
+        2560,
+        275
+      ],
+      "bytes": 95974,
+      "sha256": "446f2b7a3c2ec68f89d76fc51e3d4371e9434c2711402e60070d5c71dd3eb88d"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/03/003-00-layout-reference.webp",
+      "before": [
+        1200,
+        386
+      ],
+      "after": [
+        2560,
+        823
+      ],
+      "bytes": 253410,
+      "sha256": "6158b75789b7bec6d14dc13d591d054499d7eae60b3a1db098cc9524c5f7d084"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/03/004-00-layout-reference.webp",
+      "before": [
+        1200,
+        354
+      ],
+      "after": [
+        2560,
+        756
+      ],
+      "bytes": 310194,
+      "sha256": "7101391a74526e948796b761a58a244957a46b228e7f56799e657363c0eb1877"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/03/005-01.webp",
+      "before": [
+        1200,
+        501
+      ],
+      "after": [
+        2560,
+        1069
+      ],
+      "bytes": 124186,
+      "sha256": "791ba663bab91812ddcead8a731838fd98e440c80a5d22083d45cbcaf9a3a8a8"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/03/007-02.webp",
+      "before": [
+        1200,
+        713
+      ],
+      "after": [
+        2560,
+        1522
+      ],
+      "bytes": 233828,
+      "sha256": "89a52b78c897537ec3c890f5a2f8d77f7f3d27bfb6b0e5558614db033722c489"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/03/011-1.webp",
+      "before": [
+        1200,
+        252
+      ],
+      "after": [
+        2560,
+        538
+      ],
+      "bytes": 163486,
+      "sha256": "252cc7cd9a5c2f4a4cd9f85cbab7aca18e20eede096415d962ff01532fbcddcd"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/03/012-2.webp",
+      "before": [
+        1200,
+        396
+      ],
+      "after": [
+        1740,
+        574
+      ],
+      "bytes": 73760,
+      "sha256": "39f364edac5c0ea3030010116b833437d3d5425bc1a277fa57e6e6fc6a611d7a"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/03/013-3.webp",
+      "before": [
+        1600,
+        249
+      ],
+      "after": [
+        2560,
+        399
+      ],
+      "bytes": 112428,
+      "sha256": "ced2db3a28c9884d56c6d482d4da708c63d3462a3e1b173a99096999a042bf58"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/04/001-asset.webp",
+      "before": [
+        1200,
+        656
+      ],
+      "after": [
+        2181,
+        1192
+      ],
+      "bytes": 300616,
+      "sha256": "d8b5285fe4e13da9e700ec7d4d0b31e3b6fbe0cd6091783258e28f4ee6ccb5f7"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/04/002-asset.webp",
+      "before": [
+        1200,
+        524
+      ],
+      "after": [
+        2560,
+        1117
+      ],
+      "bytes": 586174,
+      "sha256": "18db5596f60f3aa30a092e530bf4cc8a682235f3611ef5468b39ac2f1c0f7e5b"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/05/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        818
+      ],
+      "after": [
+        2560,
+        1744
+      ],
+      "bytes": 143270,
+      "sha256": "d3a9bfa6c2b7fa9b9f699da5febf974ae2f5f3e6701820a22bce097c01476d3d"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/05/002-asset.webp",
+      "before": [
+        1200,
+        1200
+      ],
+      "after": [
+        2135,
+        2135
+      ],
+      "bytes": 272730,
+      "sha256": "42f1bc34ff78b254d5d8e6f07e351e02d934859e7d39fa6fb03e1929f907c53e"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/05/003-asset.webp",
+      "before": [
+        1200,
+        1200
+      ],
+      "after": [
+        2560,
+        2560
+      ],
+      "bytes": 395976,
+      "sha256": "e4a2392511fb8feb7a52aec9134c13433dfad25ea94f05ed339198dcfbe61520"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/05/004-ai.webp",
+      "before": [
+        1200,
+        1200
+      ],
+      "after": [
+        2560,
+        2560
+      ],
+      "bytes": 560010,
+      "sha256": "065933f48f63b805e214604becfe1c9c1ae943dadb202e3edb44d2f25284df7e"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/05/006-ai.webp",
+      "before": [
+        1200,
+        1200
+      ],
+      "after": [
+        2135,
+        2135
+      ],
+      "bytes": 251434,
+      "sha256": "7587dd266f7738c030fb6106bcfe0e2a1558255787bc07bbd0cd568fc0424819"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/05/007-asset.webp",
+      "before": [
+        1200,
+        1200
+      ],
+      "after": [
+        2135,
+        2135
+      ],
+      "bytes": 378256,
+      "sha256": "47eb0b19b1a2d5b06dac5bd4ac188b8733264537cf7cdcf1d6c7905ac6536152"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/06/003-asset.webp",
+      "before": [
+        1600,
+        800
+      ],
+      "after": [
+        2560,
+        1280
+      ],
+      "bytes": 63714,
+      "sha256": "cf151a8698e77fe97749f0879c9fb24cf132e661f99980d3345d6214c71b5d0c"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/06/002-02-2.webp",
+      "before": [
+        1600,
+        479
+      ],
+      "after": [
+        2351,
+        704
+      ],
+      "bytes": 13354,
+      "sha256": "992c4af8e83190206fbd3828c5f7c24d4a443a66fdf305f8cb7870a1d321fbe1"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/06/004-asset.webp",
+      "before": [
+        1600,
+        703
+      ],
+      "after": [
+        1855,
+        815
+      ],
+      "bytes": 22374,
+      "sha256": "eea90c950c99f98bccb53512d09d34873f9d2f0495fb9bff5536963d87e555bc"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/06/005-asset.webp",
+      "before": [
+        1600,
+        760
+      ],
+      "after": [
+        1724,
+        819
+      ],
+      "bytes": 17364,
+      "sha256": "3dd24ae683bafdc6180d967418891dc34d5aaaf20f72cc39a8950ce347306bc4"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/07/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        2451
+      ],
+      "after": [
+        2560,
+        5228
+      ],
+      "bytes": 674826,
+      "sha256": "f886102e69a98b05752a06dd88f75dde549d89cc3c36aa1279d259e914663169"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/07/002-01.webp",
+      "before": [
+        1200,
+        750
+      ],
+      "after": [
+        2560,
+        1600
+      ],
+      "bytes": 212082,
+      "sha256": "d07f76e3aec9f9e4d2c8f7de1d1c4b10515b41ea5254b3609e15cab7011db259"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/07/003-02.webp",
+      "before": [
+        1200,
+        1601
+      ],
+      "after": [
+        1949,
+        2600
+      ],
+      "bytes": 220248,
+      "sha256": "7e9f08a6e2b85db31d3d25d6f4373d66e33ba8a5e7b3f42cbaa11419c0184928"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/07/005-04.webp",
+      "before": [
+        1200,
+        1668
+      ],
+      "after": [
+        2560,
+        3558
+      ],
+      "bytes": 658344,
+      "sha256": "dbf4d029eb9215665fad4e61b1f55d7c97a3c2298d94284a187e5613953c3880"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/07/006-05.webp",
+      "before": [
+        1200,
+        960
+      ],
+      "after": [
+        2560,
+        2048
+      ],
+      "bytes": 238780,
+      "sha256": "83bd394f95d6697a2d2e5f06f3bef20921981f600b70a4d5135646a040494228"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/08/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        2380
+      ],
+      "after": [
+        2560,
+        5077
+      ],
+      "bytes": 525410,
+      "sha256": "765f2e82fabbe5e5e011c8cd5e81b6b1b8d87e73033374316d91b43c2d3f98df"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/08/002-00-layout-reference.webp",
+      "before": [
+        1200,
+        684
+      ],
+      "after": [
+        2560,
+        1460
+      ],
+      "bytes": 175756,
+      "sha256": "9ccc625e87d4d000c33e059c55f4b86c769a73797f312be80823a7807eb9a0b2"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/08/003-02.webp",
+      "before": [
+        1200,
+        241
+      ],
+      "after": [
+        2560,
+        513
+      ],
+      "bytes": 105608,
+      "sha256": "7b93aacacdf1596d2fea0ecce1533d3f7f10a14d17b9ce9f974ab3d15981fd97"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/08/004-02-149-4x.webp",
+      "before": [
+        1200,
+        1099
+      ],
+      "after": [
+        2560,
+        2345
+      ],
+      "bytes": 239992,
+      "sha256": "6e5d9602e4455870e85af9507cd16dec1208e323c79ae64eb363ef1b4e0f8b53"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/08/005-03-150-4x.webp",
+      "before": [
+        1200,
+        2193
+      ],
+      "after": [
+        1670,
+        3052
+      ],
+      "bytes": 229238,
+      "sha256": "c96497bc96277c6db028eb4dbde0e5d6ece26b0d7441c6af4d4b90272e279f39"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/08/018-kv.webp",
+      "before": [
+        1600,
+        900
+      ],
+      "after": [
+        2560,
+        1440
+      ],
+      "bytes": 106722,
+      "sha256": "dded3c47b1181c1aa9a9bd56dfed22a9533639e14a93aef1ce078f4ef5925d96"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/09/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        527
+      ],
+      "after": [
+        2560,
+        1124
+      ],
+      "bytes": 153678,
+      "sha256": "462e2ebc46269ba92d76fdb1291a2203bb92e59934c6bb39cf6ce991521576c4"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/09/002-01.webp",
+      "before": [
+        1200,
+        1910
+      ],
+      "after": [
+        1680,
+        2674
+      ],
+      "bytes": 219556,
+      "sha256": "34e9a99dd9f0d0add641392e2fb76b3534cbcbbe3f3a9bc6f9c5781faa9ed692"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/09/003-02.webp",
+      "before": [
+        1200,
+        1911
+      ],
+      "after": [
+        1679,
+        2674
+      ],
+      "bytes": 178982,
+      "sha256": "4571ee26a56affc06dc74246a90cc5d43299db12c3e4a9bd542fd30968bd1708"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/09/004-03.webp",
+      "before": [
+        1600,
+        2547
+      ],
+      "after": [
+        1680,
+        2674
+      ],
+      "bytes": 25224,
+      "sha256": "982e951a58e4a1384fd210738492b088ab91b7e45f7cfec1fb8a07dd94499312"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/09/005-4.webp",
+      "before": [
+        1200,
+        834
+      ],
+      "after": [
+        2560,
+        1779
+      ],
+      "bytes": 708590,
+      "sha256": "9b0a6eac08451caee96250548bddef0a9abc902b537267157c927200bcbbed43"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/10/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        1695
+      ],
+      "after": [
+        2560,
+        3616
+      ],
+      "bytes": 360838,
+      "sha256": "1371ee5a553bfec6e1f913e029c1a1113c99556ffe871199c24ad4e68fdf4db8"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/10/002-01.webp",
+      "before": [
+        1200,
+        2462
+      ],
+      "after": [
+        1474,
+        3024
+      ],
+      "bytes": 180722,
+      "sha256": "467ec35f4e8f7d43d5643457491c5ada0a85dc453ed4d18f48a0fa74e4244681"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/10/003-02.webp",
+      "before": [
+        1200,
+        1598
+      ],
+      "after": [
+        1297,
+        1727
+      ],
+      "bytes": 95600,
+      "sha256": "a426b7deb5d39602bea6762b4ffa5e521769524963698321340839e7a3fc91c9"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/10/006-04-banner.webp",
+      "before": [
+        1600,
+        701
+      ],
+      "after": [
+        1987,
+        870
+      ],
+      "bytes": 79188,
+      "sha256": "28c483987e3039e0ae06539d2312a807be352940afdc7c455bb8de67b2f15f0b"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/10/008-asset.webp",
+      "before": [
+        1200,
+        2462
+      ],
+      "after": [
+        1468,
+        3012
+      ],
+      "bytes": 187938,
+      "sha256": "ad154b5c8aa78f497e4eb6af8a8c6ac0d95d21033458d7279e6cf29ca881a04a"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        1160
+      ],
+      "after": [
+        2560,
+        2475
+      ],
+      "bytes": 365270,
+      "sha256": "c461c639a7fa28959108bef704f2c5d54dd61b182b438f02c63d27bb68e6216a"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/002-00-layout-reference.webp",
+      "before": [
+        1200,
+        824
+      ],
+      "after": [
+        2560,
+        1758
+      ],
+      "bytes": 497074,
+      "sha256": "3bea4d0998251c04b5ee5200a2a27e19b1ac41cbcae00e2690d277e5d3015bd4"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/006-34-5x.webp",
+      "before": [
+        1200,
+        455
+      ],
+      "after": [
+        2560,
+        970
+      ],
+      "bytes": 241552,
+      "sha256": "b6cfe5f71689b926f75037bf0412ad5d8761704f14cafd6ad4ff4984bc80ec01"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/007-35-5x.webp",
+      "before": [
+        1200,
+        454
+      ],
+      "after": [
+        2560,
+        969
+      ],
+      "bytes": 281208,
+      "sha256": "466948abeee49c5aecb418d4f933d22e004082cf5b3bcd8b87112750620cbb85"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/008-90-4x.webp",
+      "before": [
+        1200,
+        2125
+      ],
+      "after": [
+        1453,
+        2573
+      ],
+      "bytes": 114832,
+      "sha256": "991d2c10ed291fc629f06027d1eab25789c207d65f805fb05aa8fb0f843aca59"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/009-91-4x.webp",
+      "before": [
+        1200,
+        2011
+      ],
+      "after": [
+        1533,
+        2569
+      ],
+      "bytes": 189918,
+      "sha256": "3a8050e18e995adc735204a0384edeef6037ccf6cb42edf7441b6e3695e8a8c8"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/010-92-4x.webp",
+      "before": [
+        1200,
+        2131
+      ],
+      "after": [
+        1449,
+        2573
+      ],
+      "bytes": 107956,
+      "sha256": "736faff5475e5f2e1b6fcc6dfefecc3e04de37895e9d205b5225b1849cc7916c"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/011-93-4x.webp",
+      "before": [
+        1200,
+        2125
+      ],
+      "after": [
+        1453,
+        2573
+      ],
+      "bytes": 113666,
+      "sha256": "7169f673646d37429a8acdc86c336e9c92eebf2c41007bdb03d98d62f33b8b4b"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/018-109-4x.webp",
+      "before": [
+        1200,
+        819
+      ],
+      "after": [
+        2560,
+        1746
+      ],
+      "bytes": 567406,
+      "sha256": "af82e8b230bbc9d83b22c8e80a2c5ca95246cc2ec54a8717e1ac9a20b519d060"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/019-132-4x.webp",
+      "before": [
+        1200,
+        702
+      ],
+      "after": [
+        2175,
+        1273
+      ],
+      "bytes": 190120,
+      "sha256": "6338187aa742728d5725f28e28d6e443fabbc50244d2d4018b75a9a59a011d02"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/020-133-4x.webp",
+      "before": [
+        1200,
+        567
+      ],
+      "after": [
+        2175,
+        1028
+      ],
+      "bytes": 182874,
+      "sha256": "43e6c8669607b462c50daae2708ff2aa979197a5ff7994043cbee3710419816d"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/11/021-134-4x.webp",
+      "before": [
+        1200,
+        1200
+      ],
+      "after": [
+        2341,
+        2341
+      ],
+      "bytes": 326064,
+      "sha256": "70e6757702a5f128341d0adf3501c61ad9246d960183010d181aa65f00016f9d"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/12/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        874
+      ],
+      "after": [
+        2560,
+        1865
+      ],
+      "bytes": 421242,
+      "sha256": "0ff6067d8de26d603989bd8e62a084ce5e186f9378776d60b1bd6fcea574f408"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/12/002-01-27-6x.webp",
+      "before": [
+        1200,
+        1991
+      ],
+      "after": [
+        2560,
+        4248
+      ],
+      "bytes": 569416,
+      "sha256": "5f5638a602c27a5cb46fc754e0eb6f43fa43f2990c05fdf59f149676f74bda06"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/12/003-02-100-3x.webp",
+      "before": [
+        1200,
+        1600
+      ],
+      "after": [
+        1243,
+        1657
+      ],
+      "bytes": 204036,
+      "sha256": "2f3f85b2ac0e3d221fb519ad9c49c92316d24e3f354ab8a9e6914fa77d3758f7"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/12/004-03-101-3x.webp",
+      "before": [
+        1200,
+        1599
+      ],
+      "after": [
+        1244,
+        1658
+      ],
+      "bytes": 183312,
+      "sha256": "570a5f480f0c95417ce6438d4a537c3a1bf7c4703082e970ea0ed6a576c4b475"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/12/005-04-102-3x.webp",
+      "before": [
+        1200,
+        1598
+      ],
+      "after": [
+        1244,
+        1657
+      ],
+      "bytes": 118104,
+      "sha256": "c6604da66ff88830a52cc8c7b76826f9a7e00a990ed5e63f3329c414521273e8"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/12/006-05-103-3x.webp",
+      "before": [
+        1200,
+        1598
+      ],
+      "after": [
+        1244,
+        1657
+      ],
+      "bytes": 211594,
+      "sha256": "7f2a1788897f632d71d0aefb57c353f7a8f207e769623f8ce1f69e710e855b89"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/13/001-00-layout-reference.webp",
+      "before": [
+        1200,
+        2128
+      ],
+      "after": [
+        2560,
+        4539
+      ],
+      "bytes": 917738,
+      "sha256": "e8f2e2cd76b7467440cf51fffd4711a8eddc8e833738fd688769237c81289a55"
+    },
+    {
+      "slug": "awe",
+      "path": "assets/awe/full/13/002-02.webp",
+      "before": [
+        1200,
+        1756
+      ],
+      "after": [
+        2560,
+        3747
+      ],
+      "bytes": 865498,
+      "sha256": "e4c4e77530fc4948b82b106504c8599c586c023b23c97dd3681c08d048155a0e"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-6fb26c159ea38e4a.webp",
+      "before": [
+        1166,
+        874
+      ],
+      "after": [
+        2746,
+        2058
+      ],
+      "bytes": 891884,
+      "sha256": "746192e248a8058f9cce2d6c621166de31e641ae579042435352450f9c955c17"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-c376250c063e65ee.webp",
+      "before": [
+        1200,
+        1602
+      ],
+      "after": [
+        2404,
+        3214
+      ],
+      "bytes": 592980,
+      "sha256": "d2b5e49e96a0291cde75f201e69534f577c50c07a96fdd786165418cb3a614d6"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-cc712adf538c118c.webp",
+      "before": [
+        1200,
+        900
+      ],
+      "after": [
+        2657,
+        1993
+      ],
+      "bytes": 1070252,
+      "sha256": "ac11c20b4496f1097d6feba0fe61adc9da4f96a0877c99b8603761e33469463b"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-d10c491428564e1f.webp",
+      "before": [
+        1200,
+        1600
+      ],
+      "after": [
+        2060,
+        2746
+      ],
+      "bytes": 1117030,
+      "sha256": "c9e64efa05c8c399bbc70d229b1ceb93f1b1c0a35056da2dfaeaef32c7090299"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-5afc909cddf88bb9.webp",
+      "before": [
+        1200,
+        900
+      ],
+      "after": [
+        2616,
+        1962
+      ],
+      "bytes": 1377938,
+      "sha256": "2864cd9770bb94fc81f746ff409f241389b4e2e97c2bbc450e98b55b2b15a290"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-6d6e3645f6ef6579.webp",
+      "before": [
+        1200,
+        677
+      ],
+      "after": [
+        3480,
+        1961
+      ],
+      "bytes": 742352,
+      "sha256": "e24e2492045c2c8c394239de1704777b8e78d43967ea37db737e9ee60f89cce1"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-d2b1ddeabecb410c.webp",
+      "before": [
+        1200,
+        900
+      ],
+      "after": [
+        2377,
+        1783
+      ],
+      "bytes": 1068492,
+      "sha256": "702db81788496c0171804311a79835bed3c18e38f596d9fb45960fb92be8bf4d"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-e26382d918fe949c.webp",
+      "before": [
+        1080,
+        1440
+      ],
+      "after": [
+        2097,
+        2795
+      ],
+      "bytes": 1583198,
+      "sha256": "3ca5e501842dde9c36d9f8c220185d80f60523f17885dc1ab83f820fff026b35"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-5e971c0234af532f.webp",
+      "before": [
+        1080,
+        1440
+      ],
+      "after": [
+        2039,
+        2718
+      ],
+      "bytes": 508354,
+      "sha256": "9abf1373b517597ac19cef21e820ea9e8b2ac3be051c6ce15ad6468b300f73e1"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-37bfececfa2d1959.webp",
+      "before": [
+        1200,
+        800
+      ],
+      "after": [
+        2387,
+        1591
+      ],
+      "bytes": 436028,
+      "sha256": "85c8978f119e2be07c28d4d3f6199c33e23feef3a9746ef792b9406012691714"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-9b4e082671f0ab38.webp",
+      "before": [
+        568,
+        732
+      ],
+      "after": [
+        2417,
+        3114
+      ],
+      "bytes": 986908,
+      "sha256": "9906b8e47b767a56b34a794323da5921d4b6a8215a64adde140fa17459fc5d78"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-e266a10501e7eb67.webp",
+      "before": [
+        1200,
+        900
+      ],
+      "after": [
+        2580,
+        1935
+      ],
+      "bytes": 912072,
+      "sha256": "dcc501f2828aac845e529ec398c5457453842dedd3e1c5b8105db2f1a2effa73"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-376487cbb51c9b87.webp",
+      "before": [
+        1200,
+        900
+      ],
+      "after": [
+        2551,
+        1913
+      ],
+      "bytes": 1644150,
+      "sha256": "cbef31628e4f47a3af77ea4eeacb85eb453758de27a185d734f3ec47263aac74"
+    },
+    {
+      "slug": "dunhuang",
+      "path": "embedded/embedded-d6416265558ee34a.webp",
+      "before": [
+        1024,
+        568
+      ],
+      "after": [
+        1977,
+        1097
+      ],
+      "bytes": 126006,
+      "sha256": "907840be2495ff2d8022dc3ccd038a135f48a0c7064e92983ebc42d4af3a38f6"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hd/base-1-01.webp",
+      "after": [
+        3840,
+        6000
+      ],
+      "bytes": 421718,
+      "sha256": "02a1403ca22d6d03816e4ace5bf5f1218728a056a8111e8bda99fb2a02ba77fe"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hd/base-1-02.webp",
+      "after": [
+        3840,
+        6000
+      ],
+      "bytes": 217336,
+      "sha256": "f1ee75abe47fd3c68a22b065b6df977f19ca3c7e7fe1a17a75f6d655365e5e82"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hd/base-1-03.webp",
+      "after": [
+        3840,
+        6000
+      ],
+      "bytes": 84672,
+      "sha256": "0ca6d31b8c8c2e346dc813fdd661ef2f23463f445becf1492ab3c4909367f2e2"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hd/base-1-04.webp",
+      "after": [
+        3840,
+        6000
+      ],
+      "bytes": 79908,
+      "sha256": "812ede00014a13315131cd42c75215f63d87619fa24c757be6fed13f980ee2ee"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hd/base-1-05.webp",
+      "after": [
+        3840,
+        1118
+      ],
+      "bytes": 13636,
+      "sha256": "7c8a48cf2ab5da6e509930369efddf6635adc0c4634eb0c7a410e58d6dd3135e"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hd/base-2-01.webp",
+      "after": [
+        3840,
+        6000
+      ],
+      "bytes": 228464,
+      "sha256": "babf724993c2971e99808a1ba6e60ab99108ca2b8582e79181591706c9b180c3"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hd/base-2-02.webp",
+      "after": [
+        3840,
+        6000
+      ],
+      "bytes": 104542,
+      "sha256": "98f3d7cfcc4aed3d46334e3e529ac4f28fea84eb9275ffde05fb32a76ca8e6d2"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hd/base-2-03.webp",
+      "after": [
+        3840,
+        6000
+      ],
+      "bytes": 297340,
+      "sha256": "6175d3bffc32d90f5ab7d6eb4b6f7cd446ae263bad225cebbea96add550a979c"
+    },
+    {
+      "slug": "new-year",
+      "path": "assets/hd/base-2-04.webp",
+      "after": [
+        3840,
+        6000
+      ],
+      "bytes": 80928,
+      "sha256": "735d90809fbcece87c14896e53a7ae003cc64d0342fd86ff92273f9da8049269"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/004.webp",
+      "before": [
+        1200,
+        914
+      ],
+      "after": [
+        2726,
+        2076
+      ],
+      "bytes": 247442,
+      "sha256": "a147f9524c7892023a037cb8de2ceadc5c589795392c70b9b5a62641886e6013"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/059.webp",
+      "before": [
+        1200,
+        836
+      ],
+      "after": [
+        2869,
+        1999
+      ],
+      "bytes": 126624,
+      "sha256": "3033660518cbdb6d22377211046568baad123d4ef235704704086aa6f6017d11"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/002.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        3200,
+        1801
+      ],
+      "bytes": 574440,
+      "sha256": "b18d209316045478038f2710541b74774cca24c1aa7126f112d794ca5996e329"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/071.webp",
+      "before": [
+        750,
+        535
+      ],
+      "after": [
+        2651,
+        1891
+      ],
+      "bytes": 129650,
+      "sha256": "cb5f07bee4623404f7bc8816d0c0b960319d501fedc7b77d3a7d7412f5497564"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/020.webp",
+      "before": [
+        1200,
+        586
+      ],
+      "after": [
+        2486,
+        1215
+      ],
+      "bytes": 161368,
+      "sha256": "5a3360db3b7f0be35846fce0076a67299bbc744ea64450d39fd3e5b0a26733df"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/074.webp",
+      "before": [
+        1200,
+        1042
+      ],
+      "after": [
+        2628,
+        2283
+      ],
+      "bytes": 175794,
+      "sha256": "6c9c06d5507bd855ba3b7ce8027abb0a3a524762ff8702ec5492a0f824ad7b9a"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/078.webp",
+      "before": [
+        1200,
+        1693
+      ],
+      "after": [
+        1717,
+        2422
+      ],
+      "bytes": 361100,
+      "sha256": "676c5b7a427f068554cf5d30f4b33566c98c1c33f1d51ddc41fa306aad588cef"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/049.webp",
+      "before": [
+        1200,
+        783
+      ],
+      "after": [
+        2627,
+        1715
+      ],
+      "bytes": 90662,
+      "sha256": "06120b42e6764a2200ed613e81bba566e29dd281173fcfff2fc6ea778ab47eb2"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/023.webp",
+      "before": [
+        1099,
+        1186
+      ],
+      "after": [
+        2234,
+        2413
+      ],
+      "bytes": 209306,
+      "sha256": "19bb8d6c4b83b9576cb53c803fdf028a32ad5c025d4f522690aaf12ae19499f3"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/022.webp",
+      "before": [
+        1138,
+        1165
+      ],
+      "after": [
+        2360,
+        2413
+      ],
+      "bytes": 146428,
+      "sha256": "1b8128f2b7d1f1d66341d7450449895ac420b894400c20f48f83bcf48f0785c8"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/039.webp",
+      "before": [
+        1379,
+        2810
+      ],
+      "after": [
+        1428,
+        2910
+      ],
+      "bytes": 39534,
+      "sha256": "c2f6eebafede9034ad474873e7395d8766dcdd8943b1f16d680cdcd92610c6bd"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/036.webp",
+      "before": [
+        1200,
+        849
+      ],
+      "after": [
+        2736,
+        1938
+      ],
+      "bytes": 317044,
+      "sha256": "e8caccbe3e330643dd29cb1c3c95747d67390fae56cae2fb1a34eda0f467fb47"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/045.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        3200,
+        1801
+      ],
+      "bytes": 692408,
+      "sha256": "5c43ee89d99c07b760e549302c0e29c3a37c65528d03156b8cef42c8832087c8"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/105.webp",
+      "before": [
+        1200,
+        831
+      ],
+      "after": [
+        2417,
+        1673
+      ],
+      "bytes": 298482,
+      "sha256": "804a74a40492729fe646063591d78af0da49acbf3bb89793bea33637152d3645"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/044.webp",
+      "before": [
+        677,
+        672
+      ],
+      "after": [
+        2514,
+        2520
+      ],
+      "bytes": 125944,
+      "sha256": "2c56679d3726ede1d783aa541aa882b8ebb68511933a892984615e6a02520e3e"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/038.webp",
+      "before": [
+        1200,
+        661
+      ],
+      "after": [
+        3200,
+        1763
+      ],
+      "bytes": 575586,
+      "sha256": "8699e2df907d2db463eb92c50321c027f94caab3f67ca4d3a7ea4163b2ff7835"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/063.webp",
+      "before": [
+        1063,
+        2183
+      ],
+      "after": [
+        1251,
+        2568
+      ],
+      "bytes": 43244,
+      "sha256": "31cd7294c5bb8a705c2308eaa8a3906e484cc1b8018a0c0fdab91f27ab0513b9"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/070.webp",
+      "before": [
+        1200,
+        856
+      ],
+      "after": [
+        2268,
+        1618
+      ],
+      "bytes": 111982,
+      "sha256": "3ed1008bb3c0ba971ca207081ccbd69f33148935d3bcae0645302896f81472b2"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/014.webp",
+      "before": [
+        1200,
+        1200
+      ],
+      "after": [
+        2077,
+        2079
+      ],
+      "bytes": 272460,
+      "sha256": "fde18a20aeb1f86f7b96065cd92973c9ab5dd2f12fe21927581f264a24d3e272"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/026.webp",
+      "before": [
+        1200,
+        676
+      ],
+      "after": [
+        3200,
+        1804
+      ],
+      "bytes": 249458,
+      "sha256": "1f00d52d9f7d321600c47165d64d90b686ad77e19bf5fe9f768989d21d53cfad"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/003.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2620,
+        1474
+      ],
+      "bytes": 231786,
+      "sha256": "2fc3fdaae846a897a9ac857cdb7ca8ea0f2eef016b7505d41f98a85c91fa10d5"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/007.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2627,
+        1479
+      ],
+      "bytes": 276616,
+      "sha256": "d143bb0f566ed1378f7ccceefdf189c51990edf8e08c117edfb365afe63ed887"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/056.webp",
+      "before": [
+        1200,
+        2608
+      ],
+      "after": [
+        1462,
+        3116
+      ],
+      "bytes": 160604,
+      "sha256": "1d714f3dffc33aef6e04fff8640aea9ad0f48d4203db29b534090934433af61e"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/051.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        3200,
+        1801
+      ],
+      "bytes": 205616,
+      "sha256": "7e1d216e536c0fc1625b74d28cfa54165d3ff85f5d901b2eb808bfa22f6b69a0"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/024.webp",
+      "before": [
+        1200,
+        300
+      ],
+      "after": [
+        2620,
+        656
+      ],
+      "bytes": 124222,
+      "sha256": "0a1bff8804ac82f78b16ad5bc4a6a24980fb7a782abbc3df23c4d793628b15ad"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/005.webp",
+      "before": [
+        1200,
+        300
+      ],
+      "after": [
+        2620,
+        656
+      ],
+      "bytes": 124222,
+      "sha256": "0a1bff8804ac82f78b16ad5bc4a6a24980fb7a782abbc3df23c4d793628b15ad"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/050.webp",
+      "before": [
+        1200,
+        888
+      ],
+      "after": [
+        2766,
+        2049
+      ],
+      "bytes": 291390,
+      "sha256": "163545f913b7ef46ddfdb6301bef9627f40533d10fd10cab30797d8dfbc0fe34"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/067.webp",
+      "before": [
+        1200,
+        2598
+      ],
+      "after": [
+        1225,
+        2651
+      ],
+      "bytes": 131288,
+      "sha256": "dd32259a53578db8d08d8206cc1b9222dd84dbae8d0638997376dfe0a3ffe025"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/030.webp",
+      "before": [
+        1200,
+        2602
+      ],
+      "after": [
+        1375,
+        2981
+      ],
+      "bytes": 171280,
+      "sha256": "f977ca62ff567e1d231aac8ce79f9696ab7c7ce7717b35af14d09c65ec6acfe5"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/031.webp",
+      "before": [
+        1200,
+        2602
+      ],
+      "after": [
+        1374,
+        2981
+      ],
+      "bytes": 125124,
+      "sha256": "6c7aca7fed6083c4304e3970d5dd9191ef96c92522fcc30da98dbc933ddc01d0"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/027.webp",
+      "before": [
+        1200,
+        2602
+      ],
+      "after": [
+        1374,
+        2981
+      ],
+      "bytes": 378198,
+      "sha256": "00502898f3a9850fef3a36fc9e94a1eb4a108332dfdbf065198cb231eef93efe"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/028.webp",
+      "before": [
+        1200,
+        2602
+      ],
+      "after": [
+        1374,
+        2981
+      ],
+      "bytes": 184596,
+      "sha256": "b5fdfc9e9044fec96d51d5dcecd58c4aa8ba03e6173fb38947d9adc6a61b7436"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/029.webp",
+      "before": [
+        1200,
+        2602
+      ],
+      "after": [
+        1374,
+        2981
+      ],
+      "bytes": 155686,
+      "sha256": "7dc49d7d7877a530aa1034701087582e524cf1815ccba24951a09af17f82fa8c"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/016.webp",
+      "before": [
+        1200,
+        901
+      ],
+      "after": [
+        2775,
+        2088
+      ],
+      "bytes": 226530,
+      "sha256": "e0a6a29f8ae94f3b8b10aa87e1132666f80ca1ac39d8d73b5ff9bc60fd461e00"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/055.webp",
+      "before": [
+        1200,
+        836
+      ],
+      "after": [
+        2404,
+        1676
+      ],
+      "bytes": 117946,
+      "sha256": "1bfa78533d548f75e9a8af96c881997134891e8bd29e172ee171b88c9855fc5d"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/048.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        3200,
+        1800
+      ],
+      "bytes": 508752,
+      "sha256": "77da664636388a2b833880295cd8efc4d4dc6d1d8c3fc3e6512d60f6406d914f"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/001.webp",
+      "before": [
+        1200,
+        1116
+      ],
+      "after": [
+        3200,
+        2970
+      ],
+      "bytes": 138856,
+      "sha256": "3fd3372691896dba2426c01cce405993c6fd8d88dbe42072b61d0f521404f318"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/097.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2676,
+        1507
+      ],
+      "bytes": 528178,
+      "sha256": "f28a476951b4de6fd63f7ba74a8a3b03bb89d465484ee4ef5d4c1f24f734d486"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/093.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2676,
+        1506
+      ],
+      "bytes": 568982,
+      "sha256": "962a954fbe05d9c04dc5db8d0290a5e7b84674e6166c24795d74d819fdb0bb04"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/100.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2676,
+        1506
+      ],
+      "bytes": 483626,
+      "sha256": "268f310073c044e509bdbe3869c5312d8ba5a594a98d7da40492d5a68044fcc3"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/094.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2676,
+        1506
+      ],
+      "bytes": 434310,
+      "sha256": "3bdce5f7c0e8480b2bf4ed6145215f3bb20121e28d558f284226dd9166a68bf6"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/101.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2674,
+        1504
+      ],
+      "bytes": 528300,
+      "sha256": "5870dd1e23f6edffb5a47db181ce8484851ab4217467481582558e1a85311311"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/019.webp",
+      "before": [
+        1200,
+        851
+      ],
+      "after": [
+        2660,
+        1887
+      ],
+      "bytes": 257662,
+      "sha256": "060870fd11b262b240bbac553f25fbbf143d242316b544b0f7167a8cabfc7f8e"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/096.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2680,
+        1509
+      ],
+      "bytes": 580304,
+      "sha256": "272b2be1ac99735f8f28e444f0a7425697b36d83d9dfce0acdb82068354b17dd"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/106.webp",
+      "before": [
+        1179,
+        2556
+      ],
+      "after": [
+        1246,
+        2700
+      ],
+      "bytes": 112468,
+      "sha256": "2d0be01bfbf762a1e6ee443fe21f5a65159023c53876a11d824ecaa3e0e08987"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/013.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        3084,
+        1736
+      ],
+      "bytes": 384146,
+      "sha256": "c671f5209dd01c37f81f2815c08bf29d5a1bf7baaec84a6cb4903693a4bb92a9"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/079.webp",
+      "before": [
+        694,
+        101
+      ],
+      "after": [
+        2450,
+        357
+      ],
+      "bytes": 97114,
+      "sha256": "015b75b437dec711c6a89c85c3d4a10ec6c1e8688d807647ee7856f6d81c2b0a"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/006.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2620,
+        1474
+      ],
+      "bytes": 275096,
+      "sha256": "823c223eddeadd971b9fb1b69ea823657a5ba49e44845a0ee73fe1fda07d67c9"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/047.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        3200,
+        1800
+      ],
+      "bytes": 185966,
+      "sha256": "88d3ddfc87e29768083e2e35f9b69dfc30967cc86c1eb24406dfc45f4a832c0b"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/069.webp",
+      "before": [
+        1200,
+        2598
+      ],
+      "after": [
+        1211,
+        2620
+      ],
+      "bytes": 116010,
+      "sha256": "468781e7df46c0daeec90032c8b85c82b664219195a6556bd17cdd87a65795f1"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/032.webp",
+      "before": [
+        1200,
+        753
+      ],
+      "after": [
+        3193,
+        2006
+      ],
+      "bytes": 152792,
+      "sha256": "31342fac694098e6db262d64bcb28710059053f6ea555a235e840f1d52ff4e0c"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/104.webp",
+      "before": [
+        539,
+        1279
+      ],
+      "after": [
+        1179,
+        2796
+      ],
+      "bytes": 118440,
+      "sha256": "80522efa628b9c062a90ab4340fffc8c4fd9e736816f6ebf4dd0f6b2af7420d9"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/068.webp",
+      "before": [
+        750,
+        1630
+      ],
+      "after": [
+        1210,
+        2627
+      ],
+      "bytes": 139818,
+      "sha256": "08488601fd610ef759889448d7e0bac8f491e36fdef33239b73f972779473b36"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/066.webp",
+      "before": [
+        750,
+        1630
+      ],
+      "after": [
+        1225,
+        2661
+      ],
+      "bytes": 171034,
+      "sha256": "f15b4aece764fa1d6ad0ede1f6e378ac38c29b5ed7886dfae20bf4f871808c2e"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/052.webp",
+      "before": [
+        2556,
+        1179
+      ],
+      "after": [
+        2966,
+        1368
+      ],
+      "bytes": 41246,
+      "sha256": "2c19f1bd3b3beb9316ee2a4a7c0f08fcc6e3cbe36181d1114a342cf4cd130152"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/012.webp",
+      "before": [
+        776,
+        1374
+      ],
+      "after": [
+        1456,
+        2578
+      ],
+      "bytes": 157004,
+      "sha256": "8d8c3c01b878ee233eac98c8e566a99c5e5c3fac04c13a77c75b2d0b6e567212"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/076.webp",
+      "before": [
+        1200,
+        856
+      ],
+      "after": [
+        2668,
+        1904
+      ],
+      "bytes": 125674,
+      "sha256": "adb01300e52ae698665d0e5f6f37cc6625ecd39a6fe79edad2993a4c5d009efd"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/037.webp",
+      "before": [
+        1000,
+        2000
+      ],
+      "after": [
+        1282,
+        2562
+      ],
+      "bytes": 493962,
+      "sha256": "77da43ec6d98c5038d1d06b87b8b96110044b2282373c7ace004e87a051a20b5"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/018.webp",
+      "before": [
+        1065,
+        1215
+      ],
+      "after": [
+        2384,
+        2719
+      ],
+      "bytes": 241594,
+      "sha256": "046d556c058013d2628d672522509daf3c3a93e026611a97bef84178ef2915b3"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/011.webp",
+      "before": [
+        782,
+        1376
+      ],
+      "after": [
+        1465,
+        2579
+      ],
+      "bytes": 252130,
+      "sha256": "e6af622c6128bd62c7a25900d0a4c6300c1cc49dacfde0a13093c9607eacf8b9"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/061.webp",
+      "before": [
+        920,
+        494
+      ],
+      "after": [
+        2008,
+        1079
+      ],
+      "bytes": 26272,
+      "sha256": "b77891c7b614dc27516a174976f21dbeb0ade23025a02111f57fd5dc38a2d1a3"
+    },
+    {
+      "slug": "trade-in",
+      "path": "static/full/040.webp",
+      "before": [
+        1200,
+        1600
+      ],
+      "after": [
+        2086,
+        2789
+      ],
+      "bytes": 536808,
+      "sha256": "352f48a31a4a6c8197af8f4da4d405b7bc49577d35f55046fbf2ebb997a4f995"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/source-23220826.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2400,
+        1350
+      ],
+      "bytes": 146666,
+      "sha256": "2d1626fc8d3a566987011a3923097094cd489bc9fc2077057ce12c26785b02ff"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/source-23220729.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2400,
+        1350
+      ],
+      "bytes": 439170,
+      "sha256": "15d8c5c616afdd77cbd721edc45d76110a9bce2be34f892e6b6883fe59246369"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/source-23220712.webp",
+      "before": [
+        1200,
+        800
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "bytes": 722202,
+      "sha256": "15018ed2f53d5a38e960dec21cd28c742ce7f2373f55c1a488911fc8d62a5b81"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/source-23220717.webp",
+      "before": [
+        1200,
+        800
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "bytes": 716296,
+      "sha256": "71a5dcf5c95f248083e0b5ad642bfd96fc0b672a170d8bc4ed4352407587cf5e"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/bee-concept.webp",
+      "before": [
+        1200,
+        1348
+      ],
+      "after": [
+        2400,
+        2696
+      ],
+      "bytes": 387980,
+      "sha256": "9ef3df39c2c979f8d3d4d56f7259aee7994adf3916a4d8504b95d98c21ceeb9f"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/yellow-door.webp",
+      "before": [
+        267,
+        620
+      ],
+      "after": [
+        1068,
+        2480
+      ],
+      "bytes": 118774,
+      "sha256": "459e2443be8e1a8a27a8b945c9fcc888fad9ee1d084b2cd9c216d6cd55231583"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/invitation-static.webp",
+      "before": [
+        1131,
+        2193
+      ],
+      "after": [
+        1131,
+        2193
+      ],
+      "bytes": 181362,
+      "sha256": "0724fcad70f1c788c43208187c9b13b0060325abf62342d09df5db2222c0ff85"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/source-23220754.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2400,
+        1350
+      ],
+      "bytes": 161394,
+      "sha256": "8e9071066a58caad4740323efa0ebd0e14754df16ef7eb34fb7d83a14ef6973f"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/bee-pose-fly.webp",
+      "before": [
+        673,
+        751
+      ],
+      "after": [
+        2019,
+        2253
+      ],
+      "bytes": 363802,
+      "sha256": "1c63a1bb7936d180f1502094780722929a9798010004a3388f8746001b30eecb"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/heart-door.webp",
+      "before": [
+        521,
+        521
+      ],
+      "after": [
+        1042,
+        1042
+      ],
+      "bytes": 111150,
+      "sha256": "6605b392bf9c485d11989b40e7b5b78ba51b3492673d03962647a8c220a2e421"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/grass-eyes.webp",
+      "before": [
+        522,
+        521
+      ],
+      "after": [
+        1044,
+        1042
+      ],
+      "bytes": 115612,
+      "sha256": "153b5221973c372b4571e770f8aff7f9888177dcc1723c1ddfe54f5bd2661215"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/pink-flower.webp",
+      "before": [
+        521,
+        521
+      ],
+      "after": [
+        1042,
+        1042
+      ],
+      "bytes": 114782,
+      "sha256": "09a3a129d38ac7f47f59687840009fa421791824606977a8cb2f1cb98340be55"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/green-door-outline.webp",
+      "before": [
+        440,
+        975
+      ],
+      "after": [
+        440,
+        975
+      ],
+      "bytes": 12080,
+      "sha256": "e979c841eb406c951f69590330d60d1ba21629244a7da0c4594d116049e6ba97"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/small-bee.webp",
+      "before": [
+        522,
+        521
+      ],
+      "after": [
+        1044,
+        1042
+      ],
+      "bytes": 112802,
+      "sha256": "accb144020ef76df080072090cbb6d92105f1fe082bd18c9d0e03a452157669a"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/blue-water.webp",
+      "before": [
+        522,
+        521
+      ],
+      "after": [
+        1044,
+        1042
+      ],
+      "bytes": 97076,
+      "sha256": "5b188b5fc51554150e6cbd7a350fd494f19daebc47902bf3465c94b51f323292"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/heart-plant.webp",
+      "before": [
+        522,
+        521
+      ],
+      "after": [
+        1044,
+        1042
+      ],
+      "bytes": 112464,
+      "sha256": "9e9f92dfcaecfc8a5a3fb7c1fe216b3345f87cd57c32a34098a10caa1293b931"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/blue-wave.webp",
+      "before": [
+        381,
+        877
+      ],
+      "after": [
+        381,
+        877
+      ],
+      "bytes": 10502,
+      "sha256": "ab4561d8f0ba1a5340626b4b78a149f0766571ab09a842d5d75446702572c140"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/pink-door.webp",
+      "before": [
+        393,
+        972
+      ],
+      "after": [
+        393,
+        972
+      ],
+      "bytes": 11788,
+      "sha256": "96b1de9753b87aadd093d744433063314a0ce9bc4e4107f8b3cf13b89e8fe9b9"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/cloud-eyes.webp",
+      "before": [
+        522,
+        521
+      ],
+      "after": [
+        1044,
+        1042
+      ],
+      "bytes": 86654,
+      "sha256": "9e888ce10c3a874f4b4e7fbd4ae1400e1e79119909508d6e3ad93d17a08b9517"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/green-flower.webp",
+      "before": [
+        522,
+        521
+      ],
+      "after": [
+        1044,
+        1042
+      ],
+      "bytes": 102032,
+      "sha256": "d3b1b035b061253270ba1fc0a0d39ac1896c7c5111c0194d242520277464200b"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/house-mark.webp",
+      "before": [
+        522,
+        521
+      ],
+      "after": [
+        1044,
+        1042
+      ],
+      "bytes": 81508,
+      "sha256": "86feb55cb98fe59c6071c36731273d0ea472241e14c7e725aede86eee307d601"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/blue-arch.webp",
+      "before": [
+        338,
+        968
+      ],
+      "after": [
+        338,
+        968
+      ],
+      "bytes": 13142,
+      "sha256": "99a5a34e7827592783fd7ee6d9f0437d8d8db2adf6707d1dfa02bad4d3712ae4"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/flower-grass.webp",
+      "before": [
+        236,
+        512
+      ],
+      "after": [
+        708,
+        1536
+      ],
+      "bytes": 139680,
+      "sha256": "69a2b5aff0707ba38abfab41c2a5c43b5931d199ecf885257b565dae8117fe52"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/project-logo.webp",
+      "before": [
+        863,
+        651
+      ],
+      "after": [
+        1726,
+        1302
+      ],
+      "bytes": 195368,
+      "sha256": "100c7a49bd65e52dfea49ac3578426de7d0f36d7cef86e36b9c5b08c5d577f85"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/concept-explore.webp",
+      "before": [
+        780,
+        750
+      ],
+      "after": [
+        1560,
+        1500
+      ],
+      "bytes": 49470,
+      "sha256": "93fe3045a82ba28dd888630f444a2371f3feee1b805a1f09078891c4106591a3"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/badge-photos.webp",
+      "before": [
+        1200,
+        780
+      ],
+      "after": [
+        2400,
+        1560
+      ],
+      "bytes": 815794,
+      "sha256": "0687eeda8f9d4abf460126074550e4445880f0c42a496f0d9d1080f848893a32"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/concept-symbol.webp",
+      "before": [
+        810,
+        750
+      ],
+      "after": [
+        1620,
+        1500
+      ],
+      "bytes": 39982,
+      "sha256": "28a0a94d40eb57ac760189a15b889fa73583750fa7e2ef070098d70ea1f54f95"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/bee-back.webp",
+      "before": [
+        513,
+        553
+      ],
+      "after": [
+        2052,
+        2212
+      ],
+      "bytes": 356962,
+      "sha256": "d00aa190054d719df6742ed28f6b37795222a0c25016242b8c9bac43cff02c24"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/hero-composition.webp",
+      "before": [
+        1200,
+        678
+      ],
+      "after": [
+        2400,
+        1356
+      ],
+      "bytes": 203460,
+      "sha256": "1c4a1fd6fb1c0b337aa3f012e6b1d127a8b7a6eeed1d20afac46cef77a13712a"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/ip-scenarios.webp",
+      "before": [
+        1200,
+        277
+      ],
+      "after": [
+        3600,
+        831
+      ],
+      "bytes": 164900,
+      "sha256": "257e7d50bd8f6367a41f8ecf7979d137f4a26bcac6599ab5a9233789d24f6c54"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/badge-designs.webp",
+      "before": [
+        1200,
+        762
+      ],
+      "after": [
+        2400,
+        1524
+      ],
+      "bytes": 235124,
+      "sha256": "e7e3df06ef36d47cacea062aab56c230024faf5a97382bc7c5c096e9eeb65893"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/ip-flat-characters.webp",
+      "before": [
+        1600,
+        442
+      ],
+      "after": [
+        3200,
+        884
+      ],
+      "bytes": 164470,
+      "sha256": "3c6f7d9b2aecf73b1057f0015cdfb463969799ea4488757ffdc708c450f52aba"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/sticker-pack.webp",
+      "before": [
+        900,
+        1500
+      ],
+      "after": [
+        1800,
+        3000
+      ],
+      "bytes": 538820,
+      "sha256": "70a2f8f44e8612659982eba0a21a1b78d7a8500fb05f3dea17a0f37885505216"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/awe-application-board.webp",
+      "before": [
+        1200,
+        675
+      ],
+      "after": [
+        2400,
+        1350
+      ],
+      "bytes": 186012,
+      "sha256": "947f56ac38ad307009b2dca8cb461df7f34dceb719f003a381308000fc0e54b6"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/bee-front.webp",
+      "before": [
+        571,
+        617
+      ],
+      "after": [
+        1713,
+        1851
+      ],
+      "bytes": 223490,
+      "sha256": "d8ab2a8c379a94e63d5672bc28fd222e5d8bc9fb08797bc9d927dd2afab0124a"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/sticker-set.webp",
+      "before": [
+        1200,
+        947
+      ],
+      "after": [
+        2400,
+        1894
+      ],
+      "bytes": 380478,
+      "sha256": "53cf0f5047e1d3de8532bc0780091e2a862808e834a5aa6b521a20a96c902549"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/kv-dimensional.webp",
+      "before": [
+        1600,
+        361
+      ],
+      "after": [
+        3200,
+        722
+      ],
+      "bytes": 163818,
+      "sha256": "d0a40f6c8b950b9a25d3b4390f918159f7951e612bbb08aeec735e3210ec95a5"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/tmall-black.webp",
+      "before": [
+        1200,
+        1284
+      ],
+      "after": [
+        1200,
+        1284
+      ],
+      "bytes": 80632,
+      "sha256": "c356b269c60dbd4e486ebb6ab789c962fa65d7cd86af4af49536b8041b67a3a8"
+    },
+    {
+      "slug": "new-world",
+      "path": "assets/concept-distance.webp",
+      "before": [
+        860,
+        750
+      ],
+      "after": [
+        1720,
+        1500
+      ],
+      "bytes": 40652,
+      "sha256": "a9c0eff2f8c1f1f0c0906662fadc539838b430259e16c687effc7b1fe02ba184"
+    }
+  ]
+}
