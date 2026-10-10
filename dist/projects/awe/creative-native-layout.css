@@ -19,7 +19,7 @@
  grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(8px,2vw,28px);
 }
 #creative > div > div:nth-child(8) > div:nth-child(4) > button {
- background:transparent;border-radius:0;
+ background:transparent;border-radius:0;display:flex;flex-direction:column;
 }
 #creative > div > div:nth-child(8) > div:nth-child(4) img {border-radius:0;}
 #creative > div > div:nth-child(9) {margin-top:clamp(24px,3vw,46px);}
@@ -29,11 +29,11 @@
 
 #creative > div > div:nth-child(7) img {max-width:100%;}
 /* The four native material captions sit below their cubes, without card boxes. */
-#creative > div > div:nth-child(8) > div:nth-child(4) > button::after {
- display:block;white-space:pre-line;margin-top:clamp(12px,1.5vw,22px);
+#creative > div > div:nth-child(8) > div:nth-child(4) > button::before {
+ display:block;order:2;white-space:pre-line;margin-top:clamp(12px,1.5vw,22px);
  color:rgba(210,215,218,.48);font-size:clamp(8px,.8vw,12px);line-height:1.65;text-align:center;
 }
-#creative button[aria-label="预览 形"]::after {content:"品牌IP（天猫解构）\A 几何重构（科技矩阵）";}
-#creative button[aria-label="预览 色"]::after {content:"科技冷调（蓝 / 黑 / 灰）\A 情感暖调（白 / 米）\A 渐变响应（光影流动）";}
-#creative button[aria-label="预览 质"]::after {content:"前沿显示（透明 OLED / 全息）\A 交互触感（纳米银）\A 可持续材料（光伏玻璃）";}
-#creative button[aria-label="预览 构"]::after {content:"未来家享空间（未来AI家电）\A 动态适配（可重组AI芯片）";}
+#creative button[aria-label="预览 形"]::before {content:"品牌IP（天猫解构）\A 几何重构（科技矩阵）";}
+#creative button[aria-label="预览 色"]::before {content:"科技冷调（蓝 / 黑 / 灰）\A 情感暖调（白 / 米）\A 渐变响应（光影流动）";}
+#creative button[aria-label="预览 质"]::before {content:"前沿显示（透明 OLED / 全息）\A 交互触感（纳米银）\A 可持续材料（光伏玻璃）";}
+#creative button[aria-label="预览 构"]::before {content:"未来家享空间（未来AI家电）\A 动态适配（可重组AI芯片）";}
