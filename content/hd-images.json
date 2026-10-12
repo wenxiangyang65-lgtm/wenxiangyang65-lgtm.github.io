@@ -1,5 +1,5 @@
 {
-  "version": "20261010-art-fix",
+  "version": "20261012-native-fix",
   "assets": [
     {
       "slug": "new-year",
@@ -639,11 +639,12 @@
         1376
       ],
       "after": [
-        2560,
-        2936
+        1600,
+        1835
       ],
-      "bytes": 340340,
-      "sha256": "df747a3f624b23c2b0bc73c2d9d30736f40734197472adbbd4c5d950e6863e5c"
+      "bytes": 121892,
+      "sha256": "ff2b78b32d008d6d45f44df51298ab5053a94f94187bfb31124ab5c6e967ee8b",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -653,11 +654,12 @@
         132
       ],
       "after": [
-        2560,
-        210
+        1600,
+        131
       ],
-      "bytes": 73202,
-      "sha256": "820aa7853716c61b98a1a78e63551b89a761b6c4249725d4a81496e272fc2be6"
+      "bytes": 42286,
+      "sha256": "2ecc91ba8098b4ad4252d11eb861cb2c4487c82e7bdc3f49eff3158004aec69c",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -667,11 +669,12 @@
         416
       ],
       "after": [
-        2560,
-        888
+        1600,
+        555
       ],
-      "bytes": 194532,
-      "sha256": "9b8c6082f0887b99d4f120044da4c653e0a81e40e7e62e934c9b46512230af41"
+      "bytes": 105702,
+      "sha256": "513cebd0b45007408ee0bf39b54bf590e64e009f3b8a1a5587a31dced82246c5",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -751,11 +754,12 @@
         2072
       ],
       "after": [
-        2560,
-        4421
+        1600,
+        2763
       ],
-      "bytes": 546920,
-      "sha256": "6f4a3cdddbe65b20512fbc02da1512516f28742229fe481ad6fd2d519663a88e"
+      "bytes": 247266,
+      "sha256": "9a00a03710947fac43d2c1089e22a37501e155591fa3d91a15851a25691ba16f",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -765,11 +769,12 @@
         172
       ],
       "after": [
-        2560,
-        275
+        1600,
+        172
       ],
-      "bytes": 95974,
-      "sha256": "446f2b7a3c2ec68f89d76fc51e3d4371e9434c2711402e60070d5c71dd3eb88d"
+      "bytes": 52388,
+      "sha256": "dc9da1bae7a74b3006bf072e97e55bf8de96e7683d986c2d693a6d5866e3349f",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -779,11 +784,12 @@
         386
       ],
       "after": [
-        2560,
-        823
+        1600,
+        514
       ],
-      "bytes": 253410,
-      "sha256": "6158b75789b7bec6d14dc13d591d054499d7eae60b3a1db098cc9524c5f7d084"
+      "bytes": 128622,
+      "sha256": "9028db24fbd1c33ff6b3eb1f99c5fbc8af0800571f63b83ae919f16675215e55",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -793,11 +799,12 @@
         354
       ],
       "after": [
-        2560,
-        756
+        1600,
+        473
       ],
-      "bytes": 310194,
-      "sha256": "7101391a74526e948796b761a58a244957a46b228e7f56799e657363c0eb1877"
+      "bytes": 149028,
+      "sha256": "436b4c5bb7d3153cb1cf830abf7efc700afebbcf8732ae66ca7cf5ee4387ba10",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -905,11 +912,12 @@
         818
       ],
       "after": [
-        2560,
-        1744
+        1600,
+        1090
       ],
-      "bytes": 143270,
-      "sha256": "d3a9bfa6c2b7fa9b9f699da5febf974ae2f5f3e6701820a22bce097c01476d3d"
+      "bytes": 59516,
+      "sha256": "2f0ae7cb289564acf302885a353c4c858f0251c7fa22fd08810c8a992711108c",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -1045,11 +1053,12 @@
         2451
       ],
       "after": [
-        2560,
-        5228
+        1600,
+        3268
       ],
-      "bytes": 674826,
-      "sha256": "f886102e69a98b05752a06dd88f75dde549d89cc3c36aa1279d259e914663169"
+      "bytes": 295750,
+      "sha256": "f0e1960bf7298f1fb4758b35366a0cdd2dec7ec5fb810e4fdc5e3657c9edef6e",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -1115,11 +1124,12 @@
         2380
       ],
       "after": [
-        2560,
-        5077
+        1600,
+        3173
       ],
-      "bytes": 525410,
-      "sha256": "765f2e82fabbe5e5e011c8cd5e81b6b1b8d87e73033374316d91b43c2d3f98df"
+      "bytes": 238344,
+      "sha256": "c043d350083cb6725748f22ff2a84b7e7c6219c10131366b0a0396bee9ccc1be",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -1129,11 +1139,12 @@
         684
       ],
       "after": [
-        2560,
-        1460
+        1600,
+        913
       ],
-      "bytes": 175756,
-      "sha256": "9ccc625e87d4d000c33e059c55f4b86c769a73797f312be80823a7807eb9a0b2"
+      "bytes": 78026,
+      "sha256": "6aa5c4face25082d68102f385611d81b32aaaf5db8e91d59eed3b8432b2edaa7",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -1199,11 +1210,12 @@
         527
       ],
       "after": [
-        2560,
-        1124
+        1600,
+        703
       ],
-      "bytes": 153678,
-      "sha256": "462e2ebc46269ba92d76fdb1291a2203bb92e59934c6bb39cf6ce991521576c4"
+      "bytes": 69806,
+      "sha256": "c9dcb983a116df99dec01291c0e33fdee897212f6903d49ce7bf17a140248c76",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -1269,11 +1281,12 @@
         1695
       ],
       "after": [
-        2560,
-        3616
+        1600,
+        2260
       ],
-      "bytes": 360838,
-      "sha256": "1371ee5a553bfec6e1f913e029c1a1113c99556ffe871199c24ad4e68fdf4db8"
+      "bytes": 179396,
+      "sha256": "56554e342f68e3acf936e0d450d8684892857a037167d13701248514dbd3825f",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -1339,11 +1352,12 @@
         1160
       ],
       "after": [
-        2560,
-        2475
+        1600,
+        1547
       ],
-      "bytes": 365270,
-      "sha256": "c461c639a7fa28959108bef704f2c5d54dd61b182b438f02c63d27bb68e6216a"
+      "bytes": 170930,
+      "sha256": "c99f8ab790674b7487d885f9003b817dc84d29a23b65fe42954e3e66a150ea7b",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -1353,11 +1367,12 @@
         824
       ],
       "after": [
-        2560,
-        1758
+        1600,
+        1099
       ],
-      "bytes": 497074,
-      "sha256": "3bea4d0998251c04b5ee5200a2a27e19b1ac41cbcae00e2690d277e5d3015bd4"
+      "bytes": 234816,
+      "sha256": "92be114c1ab29c8c3516f0cd1ab5df86d4fda541d1974e6043ddf53b51b4fc5b",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -1507,11 +1522,12 @@
         874
       ],
       "after": [
-        2560,
-        1865
+        1600,
+        1166
       ],
-      "bytes": 421242,
-      "sha256": "0ff6067d8de26d603989bd8e62a084ce5e186f9378776d60b1bd6fcea574f408"
+      "bytes": 169614,
+      "sha256": "9869f6e02af9ef6aca1344434dc05771137a96fa2b6315ae588ffea190cd4371",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",
@@ -1591,11 +1607,12 @@
         2128
       ],
       "after": [
-        2560,
-        4539
+        1600,
+        2837
       ],
-      "bytes": 917738,
-      "sha256": "e8f2e2cd76b7467440cf51fffd4711a8eddc8e833738fd688769237c81289a55"
+      "bytes": 398888,
+      "sha256": "2adaced96588f4d257921588fc2c2a4dcd5e28a24877a4f2f1d64eff754831e6",
+      "purpose": "Layout reference preview; native masters remain local"
     },
     {
       "slug": "awe",

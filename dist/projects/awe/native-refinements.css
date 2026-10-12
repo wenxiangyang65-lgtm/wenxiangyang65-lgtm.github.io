@@ -1,0 +1,72 @@
+/* Source-artwork composition and smaller supporting type. */
+main.awe-page .awe-section p {font-size:11px;line-height:1.8;}
+main.awe-page .awe-section h3,
+main.awe-page .awe-section h4 {font-size:16px;line-height:1.5;}
+main.awe-page .awe-section > header p.awe-result-header-subtitle,
+main.awe-page .awe-section > header p.awe-header-statement {font-size:12px!important;line-height:1.85!important;margin-top:18px;}
+main.awe-page .awe-section .awe-section-top-meta p {font-size:13px;line-height:1.3;}
+main.awe-page .awe-section .awe-section-top-meta__cn {font-size:12px;}
+main.awe-page .awe-section header > .grid {margin-top:14px;grid-template-columns:230px minmax(0,1fr);}
+main.awe-page .awe-section header > .grid > p {font-size:10px;}
+main.awe-page .awe-section header:has(h2.sr-only) {margin-bottom:24px;}
+main.awe-page .awe-section p.pixel-text {font-size:16px;}
+main.awe-page .awe-section strong {font-size:clamp(42px,5vw,72px);line-height:1.05;}
+/* Restore the original full-width artwork, centered concept and four-cube row. */
+#creative > div > div:nth-child(8) {display:block;}
+#creative > div > div:nth-child(8) > button {width:100%;max-width:none;}
+#creative > div > div:nth-child(8) > button img {max-width:100%;}
+#creative > div > div:nth-child(8) > div:nth-child(3) {text-align:center;margin-top:36px;}
+#creative > div > div:nth-child(8) > div:nth-child(3) p {color:rgba(238,241,244,.82);}
+#creative > div > div:nth-child(8) > div:nth-child(4) {grid-template-columns:repeat(4,minmax(0,1fr));}
+#creative > div > div:nth-child(8) > div:nth-child(4) img {max-width:100%;}
+#creative > div > div:nth-child(8) > div:nth-child(4) > button::before {font-size:10px;}
+/* Native main-KV order: large artwork, poster/guide/flag row, metric, application. */
+#main-kv {display:block;}
+#main-kv > figure:first-of-type img {width:100%;height:100%;}
+#main-kv > .grid {grid-template-columns:.75fr 1fr .75fr;align-items:start;}
+#main-kv > .max-w-4xl {max-width:880px;margin:32px auto;padding:24px;background:transparent;border:0;box-shadow:none;}
+#main-kv > figure:last-of-type {max-width:1000px;margin-inline:auto;}
+/* Large ID templates, matching the source's three-poster / library spread. */
+#offline-id > .grid {grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:30px;}
+#offline-id > .grid > div:first-child > .grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+#offline-id figure {border:0;border-radius:0;background:transparent;box-shadow:none;}
+#offline-id figure > .scanline {background:transparent;}
+#offline-id > .grid > .grid > div:last-child {background:transparent;border:0;box-shadow:none;text-align:right;padding:18px;}
+/* Let portrait assets use their own aspect, filling the frame rather than a tiny letterbox. */
+#online > .relative > .grid {grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:24px;}
+#online article {padding:0;background:transparent;border:0;display:block;}
+#online article > figure {margin-bottom:16px;}
+#online figure {border:0;border-radius:0;background:transparent;box-shadow:none;}
+#online figure > .scanline {background:transparent;}
+#online > .mt-14 > .grid {grid-template-columns:repeat(4,minmax(0,1fr));align-items:start;gap:22px;}
+#online .awe-long-scroll {height:clamp(320px,39vw,560px) !important;}
+#online article h3 {margin-block:10px;}
+/* The main dynamic KV overlays its existing full-width source stage. */
+#invitation > div > div.relative.z-10:has(> div.absolute video) > div.absolute:has(video) {
+ display:block;inset:0;width:100%;height:100%;min-width:0;padding:0;
+ border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;
+}
+#invitation > div > div.relative.z-10:has(> div.absolute video) > div.absolute:has(video) > button {
+ width:100%;height:100%;border-radius:0;background:transparent;
+}
+#invitation > div > div.relative.z-10:has(> div.absolute video) video {display:block;width:100%;height:100%;object-fit:cover;border-radius:0;}
+#invitation > div > div.relative.z-10:has(> div.absolute video) > div.relative button img {
+ width:100%;max-width:100%;max-height:none;height:auto;
+}
+/* The portrait film also fills its own enlarged, source-ratio frame. */
+#invitation > div > div.relative.z-10 > div.grid:has(button[aria-label="预览 动态邀请函预览"]) {
+ grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:30px;align-items:start;
+}
+#invitation button[aria-label="预览 动态邀请函预览"] {
+ position:relative;width:100%;max-width:none;min-height:0;padding:0;aspect-ratio:481/809;
+}
+#invitation button[aria-label="预览 动态邀请函预览"] video {
+ position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;
+}
+#main-kv > .grid {grid-template-columns:1fr .4fr 1fr;gap:32px;}
+#main-kv > .grid .awe-long-scroll {height:clamp(480px,46vw,680px) !important;}
+#main-kv > .max-w-4xl strong {white-space:nowrap;display:inline-block;width:auto;max-width:none;}
+#main-kv > figure,
+#main-kv > .grid > figure {border:0;border-radius:0;background:transparent;box-shadow:none;}
+#main-kv figure > .scanline {background:transparent;}
+#main-kv > figure:last-of-type {max-width:none;width:100%;}
