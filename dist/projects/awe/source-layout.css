@@ -1,0 +1,110 @@
+/* Match the authored boards without replacing the motion or preview components. */
+main.awe-page {--awe-counter-size:48px;}
+main.awe-page .awe-section strong {
+ font-family:var(--pixel-font)!important;font-size:var(--awe-counter-size)!important;
+ font-weight:400!important;font-synthesis:none;font-variant-numeric:tabular-nums;
+ line-height:1.12!important;letter-spacing:0;white-space:nowrap;
+}
+/* Project analysis and design goals occupy successive full-width boards. */
+#background > div {display:block;padding-inline:clamp(28px,4vw,58px);border:0;border-radius:0;box-shadow:none;}
+#background > div > div:has(.awe-analysis-stage) {margin-top:52px;}
+#background > div > div:has(img[src*="/02/007-"]) {margin-top:64px;}
+#background .awe-analysis-stage {padding:32px 12px;border:0;border-radius:0;}
+#background .awe-analysis-core {max-width:260px;width:100%;}
+#background .awe-analysis-nodes {grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;}
+#background .awe-analysis-stage > .pointer-events-none {opacity:0;}
+#background .awe-analysis-stage > svg {opacity:0;}
+#background div:has(> img[src*="/02/007-"]) {padding:0;background:transparent;border:0;border-radius:0;}
+#background img[src*="/02/007-"] {max-width:none;width:100%;}
+/* Continuous source gradient: strategy edge meets the white style-setting board. */
+#creative > div {padding-inline:0;padding-block:32px;}
+#creative > div > .awe-section-top-meta {padding-inline:32px;}
+#creative > div > div:nth-child(7) {margin-top:36px;}
+#creative > div > div:nth-child(7) > button {width:100%;}
+#creative > div > div:nth-child(7) img {width:100%;max-width:none;}
+#creative > div > div:nth-child(8) {
+ margin-top:clamp(-120px,-7.5vw,-60px);padding:clamp(96px,9vw,140px) 32px 0;
+ background:linear-gradient(180deg,#fff 0%,#f3f3f3 15%,#575757 42%,#020202 68%);
+}
+#creative > div > div:nth-child(8) > button {margin-top:34px;width:100%;}
+#creative > div > div:nth-child(8) > div:nth-child(3) {max-width:100%;margin-top:36px;}
+#creative > div > div:nth-child(8) > div:nth-child(4) {max-width:100%;gap:28px;margin-top:40px;}
+#creative > div > div:nth-child(8) > div:nth-child(4) > button {padding:0;}
+#creative > div > div:nth-child(9) {padding-inline:32px;}
+/* Central visual is dominant; four circular satellites sit in two side columns. */
+#visual-language > .relative.grid {
+ grid-template-columns:1fr 2.5fr 1fr;grid-template-rows:auto auto;
+ gap:0 20px;align-items:center;padding:18px 5% 0;
+}
+#visual-language > .relative.grid > svg {display:none;}
+#visual-language > .relative.grid > div[class*="col-start-1"] {grid-column:1;}
+#visual-language > .relative.grid > div[class*="col-start-3"] {grid-column:3;}
+#visual-language > .relative.grid > div[class*="row-start-1"] {grid-row:1;}
+#visual-language > .relative.grid > div[class*="row-start-3"] {grid-row:2;}
+#visual-language > .relative.grid > div[class*="col-start-2"] {grid-column:2;grid-row:1/3;}
+#visual-language figure {border:0;border-radius:0;box-shadow:none;background:transparent;}
+main.awe-page #visual-language > .relative.grid > div > figure > div.scanline {
+ aspect-ratio:1!important;position:relative;background:transparent;
+}
+#visual-language > .relative.grid > div > button:first-child {
+ padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;
+}
+#visual-language > .relative.grid img {width:100%;max-width:none;}
+#visual-language > .relative.grid > div > button:nth-child(2) {
+ border:0;background:transparent;border-radius:0;max-width:58%;margin-top:0;padding:0;
+}
+#visual-language > .relative.grid > div[class*="col-start-1"][class*="row-start-3"]::after,
+#visual-language > .relative.grid > div[class*="col-start-3"][class*="row-start-3"]::after {
+ display:block;white-space:pre-line;text-align:center;margin-top:16px;font-size:16px;line-height:1.45;color:#b6b8bd;
+}
+#visual-language > .relative.grid > div[class*="col-start-1"][class*="row-start-3"]::after {content:"未来家享生活\A 可能性";}
+#visual-language > .relative.grid > div[class*="col-start-3"][class*="row-start-3"]::after {content:"想象力\A 创意视觉元素";}
+#visual-language > .mx-auto {border:0;background:transparent;padding:0;margin-top:24px;}
+/* Large native-ratio artwork, with the existing long-image viewers and galleries. */
+#live-commerce > div {padding-inline:20px;border:0;border-radius:0;box-shadow:none;}
+#live-commerce > div > .grid:has(.awe-long-scroll) {grid-template-columns:1fr 1fr;gap:24px;}
+#live-commerce > div > .grid:has(.awe-long-scroll) > div {padding:0;border:0;background:transparent;}
+#live-commerce .awe-long-scroll {height:clamp(460px,46vw,640px)!important;}
+#live-commerce button[aria-label^="预览 单品榜单海报"] {min-height:0;padding:0;}
+#live-commerce button[aria-label^="预览 单品榜单海报"] img {height:auto;width:100%;max-height:none;object-fit:contain;}
+#live-commerce [aria-label="明星达人直播海报画廊"] {gap:22px;}
+#live-commerce [aria-label="明星达人直播海报画廊"] > button {width:clamp(320px,31vw,440px);min-width:clamp(320px,31vw,440px);padding:0;min-height:0;background:transparent;border:0;}
+#live-commerce [aria-label="明星达人直播海报画廊"] > button img {height:auto;width:100%;max-height:none;object-fit:contain;}
+/* Avoid the narrow 170px thumbnail and stacked desktop columns at 1218px. */
+#live-commerce > div > div:has(> div.grid > div > button[aria-label="预览 微博热搜话题截图"]) {padding:24px 0;border:0;box-shadow:none;background:transparent;}
+#live-commerce > div > div > .grid:has(> div > button[aria-label="预览 微博热搜话题截图"]) {grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start;}
+#live-commerce div:has(> button[aria-label="预览 微博热搜话题截图"]) {padding:0;}
+#live-commerce button[aria-label="预览 微博热搜话题截图"],
+#live-commerce button[aria-label="预览 社媒传播截图矩阵"] {height:auto;padding:0;min-height:0;background:transparent;border:0;}
+#live-commerce button[aria-label="预览 微博热搜话题截图"] img,
+#live-commerce button[aria-label="预览 社媒传播截图矩阵"] img {width:100%;height:auto;max-height:none;}
+#live-commerce div:has(> button[aria-label="预览 社媒传播截图矩阵"]) > .grid {grid-template-columns:1fr;gap:20px;}
+#live-commerce button[aria-label$="截图"]:not([aria-label="预览 微博热搜话题截图"]) {height:auto;padding:0;border:0;min-height:0;}
+#live-commerce button[aria-label$="截图"] img {height:auto;max-height:none;width:100%;}
+#live-commerce button:has(> span.text-right) {grid-template-columns:minmax(0,1fr) 75px;gap:10px;font-size:10px;}
+#live-commerce button:has(> span.text-right) > span {font-size:10px;line-height:1.65;}
+/* Native offline spread: one large poster, four large posters in a 2x2 grid. */
+#offline-posters > .grid {grid-template-columns:1fr 1.15fr;gap:24px;align-items:start;}
+#offline-posters > .grid > .grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+#offline-posters figure {background:transparent;border:0;border-radius:0;box-shadow:none;}
+main.awe-page #offline-posters figure > div.scanline,
+main.awe-page #offline-posters > .grid > .grid figure > div.scanline {aspect-ratio:auto!important;height:auto!important;background:transparent;}
+main.awe-page #offline-posters figure > div.scanline > img {position:static;display:block;height:auto;width:100%;object-fit:contain;}
+/* Source data balls and full-width scene collage; keep the long image scrollable. */
+#results > .grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;}
+#results > .grid article {min-height:0;aspect-ratio:1;padding:12px;border:0;background:radial-gradient(circle at 50% 50%,#030303 25%,#222 51%,#777 62%,#222 68%,transparent 72%);box-shadow:none;}
+main.awe-page #results > .grid article h3 {font-size:12px;font-weight:400;margin-top:12px;}
+#results figure {border:0;background:transparent;border-radius:0;box-shadow:none;}
+main.awe-page #results figure > div.scanline {height:clamp(700px,78vw,1120px)!important;background:transparent;}
+main.awe-page #results figure > div.scanline > img {position:static;width:100%;max-width:none!important;height:auto;max-height:none;object-fit:initial;}
+/* Tighter supporting copy never competes with authored artwork. */
+main.awe-page #live-commerce h3 {font-size:14px;}
+/* Opaque authored boards let the original circular glow read against true black. */
+#visual-language {background:#000;}
+#creative > div > .pointer-events-none {opacity:0;}
+#background > div > .thin-grid,
+#background > div > .awe-noise,
+#background > div > .awe-green-blocks {opacity:0;}
+/* Give the two evidence collages half a board each; metrics keep one shared type size below. */
+#live-commerce > div > div > .grid:has(> div > button[aria-label="预览 微博热搜话题截图"]) {grid-template-columns:repeat(2,minmax(0,1fr));}
+#live-commerce > div > div > .grid:has(> div > button[aria-label="预览 微博热搜话题截图"]) > div:last-child {grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;}
