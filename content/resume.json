@@ -1,0 +1,28 @@
+{
+  "source": "杨文祥_简历_F版_可编辑_20261014.ai",
+  "sourceSha256": "0f64f6467caf733b444c1e8f5b547256b7cebd8f14f19e8bb93032b88881e782",
+  "pages": [
+    {
+      "path": "assets/resume.webp",
+      "size": [
+        4032,
+        1728
+      ],
+      "bytes": 649744,
+      "sha256": "9682c6e7b907321189a6402ab909fbd5439f1a9bbcad1133c84050ab093e7c8d"
+    },
+    {
+      "path": "assets/resume-projects.webp",
+      "size": [
+        4032,
+        1728
+      ],
+      "bytes": 349872,
+      "sha256": "ba0cd09be01d7812ca781e233c56743a13d4892df82d9f68a54429356fb719d9"
+    }
+  ],
+  "edition": "F / 20261014",
+  "exported": "2026-10-15",
+  "layoutAspect": "7 / 3",
+  "encoding": "lossless WebP"
+}

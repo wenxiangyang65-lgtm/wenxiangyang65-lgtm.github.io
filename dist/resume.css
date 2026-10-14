@@ -1,0 +1,27 @@
+/* Authored two-page resume: preserve its 2520 x 1080 artboards on every screen. */
+.homepage .resume .resume-art {aspect-ratio:auto;container-type:inline-size;}
+.resume-page {position:relative;width:100%;aspect-ratio:7/3;}
+.homepage .resume-page .original-art {width:100%;height:auto;display:block;}
+.resume-page + .resume-page {margin-top:14px;}
+.resume-open {position:absolute;inset:0;width:100%;border:0;background:transparent;cursor:zoom-in;}
+.resume-open:focus-visible {outline:2px solid #1b617a;outline-offset:-4px;}
+.resume-works-link {position:absolute;left:60.35%;top:24.25%;width:8.1%;height:3.7%;z-index:2;background:#f2f8fd;color:#172433;font-size:.98cqw;line-height:1.5;white-space:nowrap;text-decoration:none;display:flex;align-items:center;justify-content:center;}
+.resume-works-link:hover,.resume-works-link:focus-visible {color:#0755ad;text-decoration:underline;}
+.resume-read-hint {margin:14px 4.5% 0;color:#57718b;font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:20px;}
+.resume-read-hint a {text-decoration:none;color:inherit;}
+.resume-read-hint a:hover {text-decoration:underline;}
+.resume-dialog {width:calc(100vw - 24px);max-width:1600px;height:calc(100dvh - 24px);max-height:calc(100dvh - 24px);margin:auto;padding:0;border:1px solid #abc0d5;border-radius:12px;background:#edf5fd;color:#13283f;overflow:hidden;}
+.resume-dialog::backdrop {background:#0b203bc9;backdrop-filter:blur(5px);}
+.resume-dialog[open] {display:flex;flex-direction:column;}
+.resume-dialog header {display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid #abc0d566;flex:0 0 auto;}
+.resume-dialog header p {margin:0;font-size:13px;}
+.resume-dialog-controls {display:flex;gap:8px;align-items:center;}
+.resume-dialog button {font:inherit;font-size:13px;padding:7px 10px;border:1px solid #abc0d5;background:#fff8;color:inherit;border-radius:4px;cursor:pointer;}
+.resume-dialog button:disabled {opacity:.4;cursor:default;}
+.resume-dialog button:focus-visible {outline:2px solid #1b617a;}
+.resume-dialog-body {overflow:auto;flex:1;min-height:0;overscroll-behavior:contain;}
+.resume-dialog-body img {display:block;width:100%;height:auto;max-width:none;}
+.resume-dialog-page {position:relative;width:100%;container-type:inline-size;}
+.resume-dialog.is-zoomed .resume-dialog-page {width:max(100%,1800px);}
+@media(max-width:800px){.resume-dialog header{padding:8px;gap:6px;flex-wrap:wrap}.resume-dialog-controls{gap:5px}.resume-dialog button{font-size:12px;padding:7px}.resume-read-hint{font-size:11px;margin-top:10px}.resume-page + .resume-page{margin-top:8px}}
+.resume-works-link[hidden] {display:none;}
