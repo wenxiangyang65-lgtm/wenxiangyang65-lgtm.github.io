@@ -92,7 +92,7 @@ npm test
 npm run build
 ```
 
-不要直接修改 `build/`。目录卡片的顺序就是 `content/projects.json` 数组顺序。原编号 `n` 用于原版美术，不因展示顺序改变。前八项的卡片文字已印在图片里，修改图片中的字需要替换原素材；配置里的名称控制链接、提示与目录下方的文字。
+不要直接修改 `build/`。`content/projects.json` 的父项目继续维护页面与原片素材；每项中的 `catalogItems` 维护分类入口，按父项目及子项的数组顺序在对应分类内显示。五类顺序为品牌整合、品牌影像、运营视觉、IP 与三维、个人探索。原编号 `n` 用于原版美术，不因展示顺序改变。前八项的卡片文字已印在图片里，修改图片中的字需要替换原素材；配置里的名称控制链接、提示与目录下方的文字。
 
 中央配置里的 `description` 在构建时同步到项目页面的描述元数据，供分享和搜索使用，不插入新视觉元素。各项目可见正文仍在各自页面或已有数据文件里。例如徐杰在 `dist/projects/xujie/site-data.json`，许我一匹马吧在其 `project-data.js`，初瑞雪有独立 `project-profile.js` 和各章节文件。不要把不同项目的数据合并到一个大文件。
 
@@ -142,3 +142,7 @@ ssh portfolio-tencent 'python3 /usr/local/lib/portfolio-deploy.py rollback'
 当前约 800MB，服务器足够容纳站点与最近三个版本。Nginx 原生支持视频范围请求；素材保持原来的项目目录，构建校验能检查漏传或损坏。入口脚本、页面、JSON 不长期缓存；封面素材配置按内容生成版本参数，方便替换后刷新。
 
 本次没有开通 COS、CDN 或迁移素材。当前体积不足以构成迁移的必要条件；后续视频明显增加或访问量变大时，再根据实际流量和成本评估 COS。COS 的存储、请求次数和外网下载流量分别计费；迁移前需确认预算、域名、缓存和兼容性，不让付费服务成为发布前提。[腾讯云 COS 计费概述](https://cloud.tencent.com/document/product/436/16871)
+
+## 分类目录维护
+
+每个分类项包含唯一 `id`、`group`、`title`、`summary`、`tags`、`year`、`image`、`entry` 与 `filmFirst`。`group` 可为 `integrated`、`film`、`operations`、`ip`、`explore`；`entry` 必须指向所属父项目，可加章节锚点。先看片的项目将 `filmFirst` 设为 true，并继续使用父项目的 `films`。分类在首页原位展开，最多同时展开一类，少于三项时并排显示。新建合辑章节时，在保持原稿完整展示的前提下添加对应锚点，并检查电脑与手机的实际跳转位置。

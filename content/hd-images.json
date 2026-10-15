@@ -1,5 +1,5 @@
 {
-  "version": "20261012-native-fix",
+  "version": "20261015-classified-catalog",
   "assets": [
     {
       "slug": "new-year",
@@ -754,12 +754,12 @@
         2072
       ],
       "after": [
-        1600,
-        2763
+        1200,
+        2072
       ],
-      "bytes": 247266,
-      "sha256": "9a00a03710947fac43d2c1089e22a37501e155591fa3d91a15851a25691ba16f",
-      "purpose": "Layout reference preview; native masters remain local"
+      "bytes": 147150,
+      "sha256": "d1ff4226fe9912da93968c0e360ca1d89b29ca51680aac970f4919fb706be13d",
+      "purpose": "Non-body source-layout reference preview; full-resolution originals retained locally"
     },
     {
       "slug": "awe",
@@ -1053,12 +1053,12 @@
         2451
       ],
       "after": [
-        1600,
-        3268
+        1200,
+        2451
       ],
-      "bytes": 295750,
-      "sha256": "f0e1960bf7298f1fb4758b35366a0cdd2dec7ec5fb810e4fdc5e3657c9edef6e",
-      "purpose": "Layout reference preview; native masters remain local"
+      "bytes": 178470,
+      "sha256": "bd2c7e0b86fc59d0adc803ce1ae86e861f960d03dce9d7effabc2fd0af87a400",
+      "purpose": "Non-body source-layout reference preview; full-resolution originals retained locally"
     },
     {
       "slug": "awe",
@@ -1124,12 +1124,12 @@
         2380
       ],
       "after": [
-        1600,
-        3173
+        1200,
+        2380
       ],
-      "bytes": 238344,
-      "sha256": "c043d350083cb6725748f22ff2a84b7e7c6219c10131366b0a0396bee9ccc1be",
-      "purpose": "Layout reference preview; native masters remain local"
+      "bytes": 146196,
+      "sha256": "7d4a6dd22e07abc367e692a3d08b0d4a24e4e98e1fe0998b400fa544bcc71a05",
+      "purpose": "Non-body source-layout reference preview; full-resolution originals retained locally"
     },
     {
       "slug": "awe",
@@ -1607,12 +1607,12 @@
         2128
       ],
       "after": [
-        1600,
-        2837
+        1200,
+        2128
       ],
-      "bytes": 398888,
-      "sha256": "2adaced96588f4d257921588fc2c2a4dcd5e28a24877a4f2f1d64eff754831e6",
-      "purpose": "Layout reference preview; native masters remain local"
+      "bytes": 242706,
+      "sha256": "449c9a11421c11dab219a6e690c4bc7a85c06b4cf604deea8f997038341d2f01",
+      "purpose": "Non-body source-layout reference preview; full-resolution originals retained locally"
     },
     {
       "slug": "awe",

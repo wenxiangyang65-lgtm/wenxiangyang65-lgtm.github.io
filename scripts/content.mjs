@@ -19,6 +19,10 @@ export async function compileContent(target='dist') {
       }
       return item;
     }));
+    if(p.catalogItems)p.catalogItems=await Promise.all(p.catalogItems.map(async item=>{
+      const digest=createHash('sha256').update(await readFile(resolve('dist',item.image))).digest('hex').slice(0,12);
+      return {...item,image:item.image+`?v=${digest}`};
+    }));
     return p;
   }));
   await writeFile(resolve(target,'project-data.js'),`/* Generated from content/projects.json. Run npm run content after editing. */\nwindow.PORTFOLIO_PROJECTS=${JSON.stringify(result).replaceAll('<','\\u003c')};\n`);

@@ -14,7 +14,25 @@
     "cover": "assets/disc-05.webp",
     "card": "assets/card-05.webp",
     "tab": "assets/tab-05.webp",
-    "category": "AIGC 影像"
+    "category": "整合营销",
+    "catalogItems": [
+      {
+        "id": "trade-in",
+        "title": "天猫以旧换新 · 国补",
+        "group": "integrated",
+        "summary": "把国补权益，转化为统一的视觉识别与传播链路。",
+        "tags": [
+          "视觉系统",
+          "运营动效",
+          "线上线下"
+        ],
+        "year": "2024—2025",
+        "image": "assets/disc-05.webp",
+        "entry": "projects/trade-in/index.html",
+        "featured": true,
+        "filmFirst": false
+      }
+    ]
   },
   {
     "n": 1,
@@ -31,7 +49,25 @@
     "cover": "assets/disc-01.webp",
     "card": "assets/card-01.webp",
     "tab": "assets/tab-01.webp",
-    "category": "AIGC 影像"
+    "category": "整合营销",
+    "catalogItems": [
+      {
+        "id": "awe",
+        "title": "AWE · 到生活里 AI",
+        "group": "integrated",
+        "summary": "从未来生活概念，延展至展会、会场与传播触点。",
+        "tags": [
+          "创意策略",
+          "视觉规范",
+          "整合传播"
+        ],
+        "year": "2025",
+        "image": "assets/disc-01.webp",
+        "entry": "projects/awe/index.html",
+        "featured": true,
+        "filmFirst": false
+      }
+    ]
   },
   {
     "n": 4,
@@ -44,7 +80,25 @@
     "template": "original",
     "cover": "assets/card-04.webp",
     "card": "assets/card-04.webp",
-    "category": "AIGC 影像"
+    "category": "整合营销",
+    "catalogItems": [
+      {
+        "id": "new-world",
+        "title": "AWE · 串门发现新世界",
+        "group": "integrated",
+        "summary": "用「串门」串联生活方式、品牌 IP 与现场体验。",
+        "tags": [
+          "品牌 IP",
+          "主视觉",
+          "展会体验"
+        ],
+        "year": "2024",
+        "image": "assets/card-04.webp",
+        "entry": "projects/new-world/index.html",
+        "featured": true,
+        "filmFirst": false
+      }
+    ]
   },
   {
     "n": 2,
@@ -61,7 +115,25 @@
     "cover": "assets/disc-02.webp",
     "card": "assets/card-02.webp",
     "tab": "assets/tab-02.webp",
-    "category": "AIGC 影像"
+    "category": "整合营销",
+    "catalogItems": [
+      {
+        "id": "new-year",
+        "title": "天猫家享 · 大过中国年",
+        "group": "integrated",
+        "summary": "以年俗与家生活，构建系列节日视觉。",
+        "tags": [
+          "节日营销",
+          "系列 KV",
+          "应用延展"
+        ],
+        "year": "2024",
+        "image": "assets/disc-02.webp",
+        "entry": "projects/new-year/index.html",
+        "featured": false,
+        "filmFirst": false
+      }
+    ]
   },
   {
     "n": 3,
@@ -74,7 +146,25 @@
     "template": "original",
     "cover": "assets/card-03.webp",
     "card": "assets/card-03.webp",
-    "category": "AIGC 影像"
+    "category": "整合营销",
+    "catalogItems": [
+      {
+        "id": "dunhuang",
+        "title": "敦煌奇境 × 大过中国年",
+        "group": "integrated",
+        "summary": "让文化元素进入市集、导视与互动场景。",
+        "tags": [
+          "文化转译",
+          "导视",
+          "线下互动"
+        ],
+        "year": "2024—2025",
+        "image": "assets/card-03.webp",
+        "entry": "projects/dunhuang/index.html",
+        "featured": true,
+        "filmFirst": false
+      }
+    ]
   },
   {
     "n": 6,
@@ -91,7 +181,25 @@
     "cover": "assets/disc-06.webp",
     "card": "assets/card-06.webp",
     "tab": "assets/tab-06.webp",
-    "category": "AIGC 影像"
+    "category": "整合营销",
+    "catalogItems": [
+      {
+        "id": "miaosuda",
+        "title": "喵速达 · 两周年",
+        "group": "integrated",
+        "summary": "从品牌心智出发，统一 IP、主视觉与周年传播。",
+        "tags": [
+          "IP 换肤",
+          "品牌营销",
+          "周边设计"
+        ],
+        "year": "2024",
+        "image": "assets/disc-06.webp",
+        "entry": "projects/miaosuda/index.html",
+        "featured": false,
+        "filmFirst": false
+      }
+    ]
   },
   {
     "n": 7,
@@ -108,7 +216,99 @@
     "cover": "assets/disc-07.webp",
     "card": "assets/card-07.webp",
     "tab": "assets/tab-07.webp",
-    "category": "AIGC 影像"
+    "category": "运营视觉",
+    "catalogItems": [
+      {
+        "id": "outdoor",
+        "title": "天猫千星计划 · 户外新势力邀请函",
+        "group": "operations",
+        "summary": "活动识别与信息层级，延展为系列动态邀请。",
+        "tags": [
+          "邀请函",
+          "动态传播"
+        ],
+        "year": "2025",
+        "image": "assets/catalog/outdoor.webp",
+        "entry": "projects/aigc/index.html#outdoor",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "new-car",
+        "title": "天猫汽车 · 超级月刊",
+        "group": "operations",
+        "summary": "将多品牌商品表达，统一为系列海报与动态。",
+        "tags": [
+          "商品视觉",
+          "系列海报"
+        ],
+        "year": "2025",
+        "image": "assets/catalog/new-car.webp",
+        "entry": "projects/aigc/index.html#new-car",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "merchant",
+        "title": "天猫招商 · 网页设计",
+        "group": "operations",
+        "summary": "以品牌语言与信息层次，承接平台招商沟通。",
+        "tags": [
+          "页面视觉",
+          "B2B 招商"
+        ],
+        "year": "2025",
+        "image": "assets/catalog/merchant.webp",
+        "entry": "projects/aigc/index.html#merchant",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "olympics",
+        "title": "巴黎奥运会 · 中国凉方",
+        "group": "operations",
+        "summary": "结合赛事热点与商品场景，形成系列传播视觉。",
+        "tags": [
+          "热点营销",
+          "动态海报"
+        ],
+        "year": "2024",
+        "image": "assets/catalog/olympics.webp",
+        "entry": "projects/aigc/index.html#olympics",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "spring-home",
+        "title": "春日美学家磕 CP",
+        "group": "operations",
+        "summary": "将六类生活方式，转化为可识别的商品场景。",
+        "tags": [
+          "场景创意",
+          "AIGC 应用"
+        ],
+        "year": "2024",
+        "image": "assets/catalog/spring-home.webp",
+        "entry": "projects/aigc/index.html#spring-home",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "football",
+        "title": "天猫 · 足球惠客厅",
+        "group": "operations",
+        "summary": "连接欧洲杯与家生活，建立活动主视觉。",
+        "tags": [
+          "节点营销",
+          "创意 KV"
+        ],
+        "year": "2024",
+        "image": "assets/catalog/football.webp",
+        "entry": "projects/aigc/index.html#football",
+        "featured": false,
+        "filmFirst": false
+      }
+    ]
   },
   {
     "n": 8,
@@ -125,7 +325,205 @@
     "cover": "assets/disc-08.webp",
     "card": "assets/card-08.webp",
     "tab": "assets/tab-08.webp",
-    "category": "AIGC 影像"
+    "category": "IP 与三维",
+    "catalogItems": [
+      {
+        "id": "service-ip",
+        "title": "天猫家享服务 · 品牌 IP 升级",
+        "group": "ip",
+        "summary": "从角色定位到造型规范，建立亲和、专业的服务形象。",
+        "tags": [
+          "角色定位",
+          "三维设计",
+          "应用规范"
+        ],
+        "year": "2024",
+        "image": "assets/catalog/service-ip.webp",
+        "entry": "projects/illustration/index.html#service-ip",
+        "featured": true,
+        "filmFirst": false
+      },
+      {
+        "id": "seeding",
+        "title": "天猫双 11 · 全民种草",
+        "group": "operations",
+        "summary": "以三维商业场景，串联品牌与商品表达。",
+        "tags": [
+          "商业三维",
+          "商品表达"
+        ],
+        "year": "2023",
+        "image": "assets/catalog/seeding.webp",
+        "entry": "projects/illustration/index.html#seeding",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "night-taobao",
+        "title": "夜淘宝 · 主视觉",
+        "group": "operations",
+        "summary": "以夜市场景与灯光，呈现夜间消费氛围。",
+        "tags": [
+          "场景建模",
+          "灯光渲染"
+        ],
+        "year": "2023",
+        "image": "assets/catalog/night-taobao.webp",
+        "entry": "projects/illustration/index.html#night-taobao",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "asian-games",
+        "title": "蚂蚁亚运会 · 剪纸视觉",
+        "group": "ip",
+        "summary": "将已有吉祥物与剪纸语言，演绎为三维场景。",
+        "tags": [
+          "三维执行",
+          "文化表达"
+        ],
+        "year": "2023",
+        "image": "assets/catalog/asian-games.webp",
+        "entry": "projects/illustration/index.html#asian-games",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "fuzi",
+        "title": "天猫双 11 · 福仔换肤场景",
+        "group": "operations",
+        "summary": "以节日角色与三维场景，承接活动页面视觉。",
+        "tags": [
+          "IP 演绎",
+          "运营场景"
+        ],
+        "year": "2023",
+        "image": "assets/catalog/fuzi.webp",
+        "entry": "projects/illustration/index.html#fuzi",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "sofa",
+        "title": "家享生活 · 沙发节",
+        "group": "operations",
+        "summary": "把商品特性，融入富有生活感的系列插画。",
+        "tags": [
+          "商品创意",
+          "插画"
+        ],
+        "year": "2024",
+        "image": "assets/catalog/sofa.webp",
+        "entry": "projects/illustration/index.html#sofa",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "miaosuda-new-year",
+        "title": "喵速达 · 年货节插画",
+        "group": "operations",
+        "summary": "关联年俗、品牌 IP 与商品功能，形成系列海报。",
+        "tags": [
+          "商业插画",
+          "二维至三维"
+        ],
+        "year": "2024",
+        "image": "assets/catalog/miaosuda-new-year.webp",
+        "entry": "projects/illustration/index.html#miaosuda-new-year",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "music",
+        "title": "幻想音乐节",
+        "group": "explore",
+        "summary": "音乐与角色的个人视觉创作。",
+        "tags": [
+          "个人创作",
+          "插画"
+        ],
+        "year": "个人创作",
+        "image": "assets/catalog/music.webp",
+        "entry": "projects/illustration/index.html#music",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "characters",
+        "title": "潮流角色与插画",
+        "group": "explore",
+        "summary": "角色、色彩与场景的风格探索。",
+        "tags": [
+          "个人创作",
+          "角色"
+        ],
+        "year": "个人创作",
+        "image": "assets/catalog/characters.webp",
+        "entry": "projects/illustration/index.html#characters",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "tiger",
+        "title": "国潮虎系列",
+        "group": "explore",
+        "summary": "以传统符号，探索鲜明的图形语言。",
+        "tags": [
+          "图形",
+          "应用延展"
+        ],
+        "year": "个人创作",
+        "image": "assets/catalog/tiger.webp",
+        "entry": "projects/illustration/index.html#tiger",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "mecha",
+        "title": "潮流机甲插画",
+        "group": "explore",
+        "summary": "通过机械形态与高饱和色彩，探索角色表达。",
+        "tags": [
+          "插画",
+          "角色"
+        ],
+        "year": "个人创作",
+        "image": "assets/catalog/mecha.webp",
+        "entry": "projects/illustration/index.html#mecha",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "posters",
+        "title": "字体与图形海报",
+        "group": "explore",
+        "summary": "文字、版式与图形关系的个人实验。",
+        "tags": [
+          "字体",
+          "平面设计"
+        ],
+        "year": "个人创作",
+        "image": "assets/catalog/posters.webp",
+        "entry": "projects/illustration/index.html#posters",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "personal-3d",
+        "title": "个人三维角色",
+        "group": "explore",
+        "summary": "个人角色造型与材质表现探索。",
+        "tags": [
+          "三维",
+          "个人创作"
+        ],
+        "year": "个人创作",
+        "image": "assets/catalog/personal-3d.webp",
+        "entry": "projects/illustration/index.html#personal-3d",
+        "featured": false,
+        "filmFirst": false
+      }
+    ]
   },
   {
     "n": 9,
@@ -137,12 +535,30 @@
     "entry": "projects/churuixue/index.html",
     "template": "sleeve",
     "cover": "assets/disc-churuixue.webp",
-    "category": "AIGC 影像",
+    "category": "品牌影像",
     "films": [
       {
         "label": "完整影片",
         "src": "projects/churuixue/assets/full-film-hd.mp4",
         "poster": "projects/churuixue/assets/cover-redesign.webp"
+      }
+    ],
+    "catalogItems": [
+      {
+        "id": "churuixue",
+        "title": "初瑞雪 · 逆境中开花",
+        "group": "film",
+        "summary": "用八段人生与第一人称视角，讲述成长与承担。",
+        "tags": [
+          "人物传记",
+          "影像叙事",
+          "AIGC"
+        ],
+        "year": "2026",
+        "image": "assets/disc-churuixue.webp",
+        "entry": "projects/churuixue/index.html",
+        "featured": false,
+        "filmFirst": true
       }
     ]
   },
@@ -156,12 +572,30 @@
     "entry": "projects/xinxuan-redesign/index.html",
     "template": "sleeve",
     "cover": "assets/disc-xinxuan-redesign.webp",
-    "category": "AIGC 影像",
+    "category": "品牌影像",
     "films": [
       {
         "label": "完整成片",
         "src": "projects/xinxuan-redesign/media/xinxuan-new-year-film.mp4",
         "poster": "projects/xinxuan-redesign/assets/header-2400.webp"
+      }
+    ],
+    "catalogItems": [
+      {
+        "id": "xinxuan-redesign",
+        "title": "辛选年货为你而来",
+        "group": "film",
+        "summary": "以海陆空远征，转译供应链规模与年货品质。",
+        "tags": [
+          "商业短片",
+          "分镜",
+          "视觉系统"
+        ],
+        "year": "2026",
+        "image": "assets/disc-xinxuan-redesign.webp",
+        "entry": "projects/xinxuan-redesign/index.html",
+        "featured": false,
+        "filmFirst": true
       }
     ]
   },
@@ -175,12 +609,30 @@
     "entry": "projects/a-horse/index.html",
     "template": "sleeve",
     "cover": "assets/disc-a-horse.webp",
-    "category": "AIGC 影像",
+    "category": "品牌影像",
     "films": [
       {
         "label": "完整成片",
         "src": "projects/a-horse/assets/video/film-captioned.mp4",
         "poster": "projects/a-horse/assets/clean_33.80.webp"
+      }
+    ],
+    "catalogItems": [
+      {
+        "id": "a-horse",
+        "title": "许我一匹马吧",
+        "group": "film",
+        "summary": "以人马关系与破界转场，完成新身份预告。",
+        "tags": [
+          "人物包装",
+          "导演分镜",
+          "AIGC"
+        ],
+        "year": "2026",
+        "image": "assets/disc-a-horse.webp",
+        "entry": "projects/a-horse/index.html",
+        "featured": false,
+        "filmFirst": true
       }
     ]
   },
@@ -194,12 +646,30 @@
     "entry": "projects/spring-horse/index.html",
     "template": "sleeve",
     "cover": "assets/disc-spring-horse.webp",
-    "category": "AIGC 影像",
+    "category": "品牌影像",
     "films": [
       {
         "label": "完整成片",
         "src": "projects/spring-horse/assets/film-final-1080.mp4",
         "poster": "projects/spring-horse/assets/hero-final.webp"
+      }
+    ],
+    "catalogItems": [
+      {
+        "id": "spring-horse",
+        "title": "骏马迎春，步步生花",
+        "group": "film",
+        "summary": "从雪原到花城，让新春祝愿成为可见的故事。",
+        "tags": [
+          "品牌短片",
+          "角色设定",
+          "色彩叙事"
+        ],
+        "year": "2026",
+        "image": "assets/disc-spring-horse.webp",
+        "entry": "projects/spring-horse/index.html",
+        "featured": false,
+        "filmFirst": true
       }
     ]
   },
@@ -225,6 +695,24 @@
         "src": "projects/xujie/assets/videos/animated.mp4",
         "poster": "projects/xujie/assets/redesign/cover-animated.webp"
       }
+    ],
+    "catalogItems": [
+      {
+        "id": "xujie",
+        "title": "徐杰拜师 · 整合营销",
+        "group": "integrated",
+        "summary": "让守护与传承，从影像延伸至真实仪式。",
+        "tags": [
+          "AIGC 影像",
+          "视觉资产",
+          "仪式空间"
+        ],
+        "year": "2026",
+        "image": "assets/disc-xujie.webp",
+        "entry": "projects/xujie/index.html",
+        "featured": true,
+        "filmFirst": true
+      }
     ]
   },
   {
@@ -237,12 +725,30 @@
     "entry": "projects/mr-chen/index.html",
     "template": "sleeve",
     "cover": "assets/disc-mr-chen.webp",
-    "category": "AIGC 影像",
+    "category": "品牌影像",
     "films": [
       {
         "label": "1080P 高清成片",
         "src": "projects/mr-chen/assets/film.mp4",
         "poster": "projects/mr-chen/assets/p77.webp"
+      }
+    ],
+    "catalogItems": [
+      {
+        "id": "mr-chen",
+        "title": "陈先生 · 剑成与亮剑",
+        "group": "film",
+        "summary": "以铸剑和万剑响应，呈现初心与信任。",
+        "tags": [
+          "创意概念",
+          "美术风格",
+          "AIGC"
+        ],
+        "year": "2026",
+        "image": "assets/disc-mr-chen.webp",
+        "entry": "projects/mr-chen/index.html",
+        "featured": false,
+        "filmFirst": true
       }
     ]
   },
@@ -256,6 +762,7 @@
     "entry": "projects/xinxuan-views/index.html",
     "template": "sleeve",
     "cover": "assets/disc-xinxuan-views.webp",
-    "category": "角色三视图"
+    "category": "视觉资产",
+    "catalogItems": []
   }
 ]

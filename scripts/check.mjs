@@ -14,7 +14,7 @@ export async function filesIn(dir) {
 export async function check() {
   const root=resolve('dist'),files=await filesIn(root),errors=[],projects=JSON.parse(await readFile('content/projects.json','utf8'));
   if(projects.length<1)throw Error('作品目录为空');
-  const slugs=new Set(),numbers=new Set();
+  const slugs=new Set(),numbers=new Set(),catalogIds=new Set(),catalogGroups=new Set();
   async function localReference(raw,source) {
     raw=raw.replaceAll('&amp;','&');
     if(!raw||raw.startsWith('#')||/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(raw))return;
@@ -45,7 +45,21 @@ export async function check() {
         }
       }
     }
+    for(const item of p.catalogItems||[]) {
+      if(!/^[a-z0-9-]+$/.test(item.id)||catalogIds.has(item.id)||!['integrated','operations','ip','film','explore'].includes(item.group)||!item.title||!item.summary)errors.push(`分类作品字段无效: ${item.id}`);
+      catalogIds.add(item.id);catalogGroups.add(item.group);
+      if(!Array.isArray(item.tags)||!item.tags.length)errors.push(`分类标签为空: ${item.id}`);
+      if(item.filmFirst&&!p.films?.length)errors.push(`分类缺少成片: ${item.id}`);
+      if(item.entry.split('#')[0]!==p.entry)errors.push(`分类作品入口不属于原项目: ${item.id}`);
+      for(const value of [item.title,item.summary,...item.tags])if(/[<>]/.test(value))errors.push(`分类文字不能包含 HTML: ${item.id}`);
+      await localReference(item.image,resolve(root,'index.html'));
+      if(item.entry.includes('#')) {
+        const html=await readFile(resolve(root,p.entry),'utf8');
+        if(!html.includes(`id="${item.entry.split('#')[1]}"`))errors.push(`分类章节不存在: ${item.id}`);
+      }
+    }
   }
+  if(catalogGroups.size!==5)errors.push('五个作品分类必须都有内容');
   let size=0,js=0,html=0;
   for(const file of files) {
     size+=(await stat(file)).size;

@@ -1,10 +1,9 @@
 /* A spring-driven fan of the original project records. No artwork is transformed separately. */
-window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalogMotion,projects,reduced,onSuppressClick}) {
- const title=document.querySelector('#selected-title'),count=document.querySelector('#page-count');
+window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalogMotion,projects,reduced,onSuppressClick,title=document.querySelector('#selected-title'),count=document.querySelector('#page-count'),storageKey='portfolio-directory',onSelectionChange=()=>{}}) {
  const records=[...albums.querySelectorAll('.record')];
  const states=records.map(record=>({record,center:0,y:0,angle:0,scale:1,vy:0,va:0,vs:0,visible:false}));
  let origin=0,cycle=0,pitch=0,position=0,target=0,velocity=0,last=0,ready=false;
- let visible=false,hovered=false,focused=false,drag=null,nativeTouch=false,paused=true,filmOpen=false;
+ let enabled=true,selected=-1,visible=false,hovered=false,focused=false,drag=null,nativeTouch=false,paused=true,filmOpen=false;
  let holdUntil=0,autoAt=0,snapTimer=0,writingScroll=false;
  let wheelPageY=null,wheelActiveUntil=0;
  const wrapValue=value=>((value%cycle)+cycle)%cycle;
@@ -13,7 +12,7 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  function controls() {
   if(!ready)return;
   const i=index();range.value=Math.min(1,wrapValue(position-origin)/Math.max(pitch,cycle-pitch));
-  title.textContent=projects[i].title;count.textContent=`${String(i+1).padStart(2,'0')} / ${projects.length}`;
+  if(selected!==i){selected=i;title.textContent=projects[i].title;onSelectionChange(projects[i],i)}count.textContent=`${String(i+1).padStart(2,'0')} / ${projects.length}`;
  }
  function hold(ms=4500){holdUntil=performance.now()+ms;autoAt=holdUntil+2600}
  function stopSpring(){position=albums.scrollLeft;target=position;velocity=0}
@@ -64,7 +63,7 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  function scheduleSnap(fromTarget=false){clearTimeout(snapTimer);snapTimer=setTimeout(()=>snap(fromTarget),170)}
  function frame(time){
   const dt=last?Math.min(.024,(time-last)/1000):1/60;last=time;
-  if(ready&&visible&&!document.hidden){
+  if(ready&&enabled&&visible&&!document.hidden){
    if(!filmOpen&&!paused&&!hovered&&!focused&&!drag&&!nativeTouch&&time>holdUntil&&time>autoAt){
     go(origin+(Math.round((target-origin)/pitch)+1)*pitch,false);autoAt=time+2900;
    }
@@ -92,7 +91,7 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  });
  albums.addEventListener('focusout',()=>{focused=albums.contains(document.activeElement);hold(300)});
  albums.addEventListener('wheel',e=>{
-  if(!ready||e.ctrlKey||e.metaKey||drag)return;
+  if(!ready||!enabled||e.ctrlKey||e.metaKey||drag)return;
   const unit=e.deltaMode===1?16:e.deltaMode===2?albums.clientHeight:1;
   const delta=(Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY)*unit;
   if(!Number.isFinite(delta)||delta===0)return;
@@ -129,10 +128,10 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  function updateMotion(){catalogMotion.textContent=paused?'自动播放':'暂停播放';catalogMotion.setAttribute('aria-pressed',String(paused));catalogMotion.setAttribute('aria-label',paused?'开启项目自动播放':'暂停项目自动播放')}
  catalogMotion.addEventListener('click',()=>{paused=!paused;hold(0);updateMotion()});
  reduced.addEventListener('change',()=>{paused=true;velocity=0;go(target,false);updateMotion()});
- function rememberDirectory(slug){try{sessionStorage.setItem('portfolio-directory',JSON.stringify({fraction:fraction(),slug,mode:'scroll-spring',paused}))}catch{}}
+ function rememberDirectory(slug){try{sessionStorage.setItem(storageKey,JSON.stringify({fraction:fraction(),slug,mode:'scroll-spring',paused}))}catch{}}
  function restoreDirectory(){
   document.body.classList.remove('is-opening');if(location.hash!=='#catalog'||!ready)return;
-  let state;try{state=JSON.parse(sessionStorage.getItem('portfolio-directory')||'null')}catch{}
+  let state;try{state=JSON.parse(sessionStorage.getItem(storageKey)||'null')}catch{}
   if(state){const i=projects.findIndex(p=>p.slug===state.slug);position=origin+(['spring','scroll-spring'].includes(state.mode)?state.fraction*cycle:Math.max(0,i)*pitch);target=position;velocity=0;writeScroll();hold(6000);render(1/60,true);controls();if(i>=0)title.textContent=projects[i].title;if(state.mode==='scroll-spring'&&typeof state.paused==='boolean'){paused=state.paused||reduced.matches;updateMotion()}}
  }
  new ResizeObserver(measure).observe(albums);
@@ -140,5 +139,5 @@ window.createPortfolioCatalogMotion=function({albums,range,previous,next,catalog
  window.addEventListener('pageshow',restoreDirectory);window.addEventListener('hashchange',restoreDirectory);
  window.addEventListener('portfolio-film-open',()=>{filmOpen=true});window.addEventListener('portfolio-film-close',()=>{filmOpen=false;hold()});
  measure();updateMotion();requestAnimationFrame(frame);
- return {rememberDirectory,restoreDirectory};
+ return {rememberDirectory,restoreDirectory,setActive(value){enabled=value;if(!value){wheelPageY=null;drag=null;nativeTouch=false;albums.classList.remove('is-dragging')}else requestAnimationFrame(measure)},getCurrent(){return projects[index()]}};
 };

@@ -10,12 +10,14 @@
   <link rel="stylesheet" href="style.css?v=20261008-interaction">
   <link rel="stylesheet" href="homepage.css?v=20261009-scroll-spring">
   <link rel="preload" href="assets/cover.webp" as="image" fetchpriority="high">
-  <script src="project-data.js?v=20261010-all-film-hd" defer></script>
-  <script src="catalog-spring.js?v=20261009-film-first" defer></script>
+  <script src="project-data.js?v=20261015-folders" defer></script>
+  <script src="catalog-spring.js?v=20261015-folders" defer></script>
 
   <link rel="stylesheet" href="catalog-films.css?v=20261009-film-first">
   <script src="catalog-films.js?v=20261009-film-first" defer></script>
-  <script src="app.js?v=20261009-film-first" defer></script>
+  <link rel="stylesheet" href="catalog-directory.css?v=20261015-folders">
+  <script src="catalog-directory.js?v=20261015-folders" defer></script>
+  <script src="app.js?v=20261015-folders" defer></script>
   <link rel="stylesheet" href="resume.css?v=20261015-f">
   <script src="resume.js?v=20261015-f" defer></script>
 </head>
@@ -145,20 +147,12 @@ YANG WENXIANG
 05
 </p></div>
     </section>
-    <section class="screen catalog" id="catalog" aria-labelledby="catalog-heading">
-      <div class="artframe catalog-art">
-        <h2 id="catalog-heading">项目经历：</h2>
-        <div class="albums" id="albums" aria-label="项目唱片目录，可左右滑动" tabindex="0"></div>
-        <div class="catalog-controls">
-          <button id="previous" class="album-button" aria-label="上一个项目">上一项</button>
-          <div class="track-control">
-            <div class="selection-label"><span id="selected-title">请选择一张唱片</span><span id="page-count">01—08 / 15</span></div>
-            <input id="album-range" type="range" min="0" max="1" step="0.001" value="0" aria-label="横向浏览项目唱片">
-            <span class="directory-hint"><span class="wheel-hint">上下滚轮 · 左右拖动 · 点击唱片进入项目</span><span class="touch-hint">左右滑动 · 点击唱片进入项目</span></span>
-          </div>
-          <button id="next" class="album-button" aria-label="下一个项目">下一项</button>
-          <button id="catalog-motion" class="album-button" aria-pressed="true">自动播放</button>
-        </div>
+    <section class="screen catalog catalog-directory" id="catalog" aria-labelledby="catalog-heading">
+      <div class="directory-shell">
+        <header class="directory-heading"><div><p class="directory-eyebrow">03 / SELECTED WORKS · 2023—2026</p><h2 id="catalog-heading">作品目录<span>Projects &amp; Practice</span></h2><p class="directory-intro">五个方向 · 点击分类，展开唱片</p></div><a class="directory-resume-link" href="#resume">个人简历 ↗</a></header>
+        <div id="catalog-folders" aria-label="五类作品目录"></div>
+        <p class="directory-footer">商业项目与个人探索，分别归类。<a href="#cover">回到封面 ↑</a></p>
+        <noscript><p>请开启 JavaScript 查看动态分类目录。</p><p><a href="projects/trade-in/index.html">整合营销</a> · <a href="projects/churuixue/index.html">品牌影像</a> · <a href="projects/aigc/index.html">运营视觉</a> · <a href="projects/illustration/index.html">IP、三维与探索</a></p></noscript>
       </div>
     </section>
   </main>

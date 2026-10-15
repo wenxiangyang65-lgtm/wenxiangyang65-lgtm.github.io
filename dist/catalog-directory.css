@@ -1,0 +1,61 @@
+/* Five quiet folders; the original record motion is revealed only on demand. */
+.homepage .catalog-directory {padding:42px 0 28px;background:linear-gradient(120deg,#eaf4ff 35%,#f5faff 70%,#e4effa);}
+.directory-shell {max-width:1440px;margin:auto;padding:0 4.5%;}
+.directory-heading {display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:24px;}
+.directory-eyebrow {margin:0 0 12px;font:11px/1.4 Arial,sans-serif;letter-spacing:.15em;color:#7490a9;}
+.homepage .directory-heading h2 {position:static;margin:0;font-family:'Songti SC','SimSun',serif;font-size:clamp(34px,4vw,52px);font-weight:400;letter-spacing:.04em;display:flex;align-items:baseline;gap:22px;line-height:1.2;}
+.directory-heading h2 span {font:italic 18px/1.3 Georgia,serif;letter-spacing:0;color:#7891a7;}
+.directory-intro {font-size:13px;color:#7088a0;letter-spacing:.06em;margin:14px 0 0;}
+.directory-resume-link {font-size:13px;text-decoration:none;color:#4c6c89;padding:10px 0;white-space:nowrap;}
+.directory-resume-link:hover {color:#123e69;}
+.catalog-folder {border-top:1px solid #a0b9cf65;scroll-margin-top:18px;}
+.catalog-folder:last-child {border-bottom:1px solid #a0b9cf65;}
+.catalog-folder h3 {margin:0;}
+.folder-toggle {width:100%;min-height:104px;display:grid;grid-template-columns:40px minmax(0,1fr) 170px 66px 28px;align-items:center;gap:22px;padding:18px 4px;border:0;background:transparent;color:#1c3c5c;text-align:left;border-radius:0;transition:background .25s,color .25s;}
+.folder-toggle:hover,.folder-toggle:focus-visible {background:#dcebf87d;}
+.folder-code {font:italic 20px Georgia,serif;color:#88a4bc;align-self:center;}
+.folder-title strong {display:block;font-family:'Songti SC','SimSun',serif;font-size:clamp(22px,2.4vw,30px);font-weight:400;line-height:1.3;letter-spacing:.025em;}
+.folder-title > span {display:block;font-size:12px;line-height:1.5;font-weight:400;margin-top:7px;color:#7890a5;}
+.folder-mini {display:flex;align-items:center;justify-content:flex-end;gap:0;padding:0 10px;}
+.folder-mini-disc {width:61px;height:61px;margin-left:-16px;border-radius:50%;overflow:hidden;position:relative;box-shadow:0 2px 6px #173d591a;transform:rotate(-8deg);transition:transform .45s cubic-bezier(.2,.8,.2,1.2);background:#dce8f3;flex:none;}
+.folder-mini-disc:nth-child(2) {transform:translateY(-3px) rotate(4deg);}.folder-mini-disc:nth-child(3){transform:rotate(13deg);}
+.folder-mini-disc img {width:100%;height:100%;object-fit:cover;display:block;}
+.folder-mini-disc.from-card img {position:absolute;left:-17.52%;top:-6.7%;width:133.12%;height:auto;max-width:none;}
+.folder-toggle:hover .folder-mini-disc {transform:translateY(-5px) rotate(-3deg);}
+.folder-count {font:22px/1.1 Arial,sans-serif;font-weight:300;color:#5c7c99;text-align:right;}
+.folder-count > span {display:block;font:10px/1.3 PortfolioSans,sans-serif;margin-top:7px;letter-spacing:.03em;color:#839aae;}
+.folder-plus {font-size:26px;font-weight:300;justify-self:end;color:#6584a1;transition:transform .3s;}
+.is-open .folder-plus {transform:rotate(45deg);}
+.is-open > h3 .folder-title strong {color:#163e66;}
+.catalog-panel {padding:10px 0 34px;animation:folder-reveal .4s cubic-bezier(.2,.7,.2,1);}
+.catalog-panel[hidden] {display:none!important;}
+.folder-stage {margin:0 -4.95%;overflow:hidden;}
+.homepage .catalog-panel .albums {--card-width:clamp(280px,29vw,420px);padding-top:46px;padding-bottom:110px;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);}
+.folder-controls {display:flex;align-items:center;gap:18px;padding-top:16px;border-top:1px solid #a0b9cf55;}
+.folder-controls .track-control {min-width:0;}
+.folder-controls .selection-label {font-size:22px;align-items:baseline;line-height:1.45;gap:18px;}
+.folder-controls .selection-title {white-space:normal!important;overflow:visible!important;text-overflow:clip!important;color:#294d6e;}
+.page-count {font-size:11px;color:#7d97ad;letter-spacing:.07em;white-space:nowrap;}
+.selection-summary {font-size:13px;line-height:1.75;color:#758ca1;margin:9px 0 9px;}
+.selection-tags {display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+.selection-tags span {font-size:10px;color:#7890a5;letter-spacing:.05em;}
+.selection-tags span + span:before {content:'·';margin-right:10px;}
+.album-range {appearance:none;display:block;width:100%;height:5px;margin:10px 0 11px;background:linear-gradient(90deg,#a4b9cc,#faffff,#a9bccd);border:1px solid #c2d1df;border-radius:0;cursor:ew-resize;}
+.album-range::-webkit-slider-thumb {appearance:none;width:36px;height:13px;border-radius:2px;border:1px solid #8a9dab;background:linear-gradient(#fafcfe,#a3b5c5);box-shadow:0 2px 3px #37527033;}
+.album-range::-moz-range-thumb {width:36px;height:13px;border-radius:2px;border:1px solid #8a9dab;background:linear-gradient(#fafcfe,#a3b5c5);}
+.folder-controls .directory-hint {font-size:11px;letter-spacing:.03em;line-height:1.5;}
+.homepage .catalog-panel .record-title {max-height:88%;overflow:hidden;text-orientation:mixed;white-space:nowrap;}
+.homepage .catalog-panel .record-category {position:absolute;right:1.5%;bottom:11%;background:#dde2e7;color:#7b858c;padding:1px 5px;border-radius:4px;font-size:2.4cqw;text-align:center;max-width:22%;line-height:1.2;z-index:4;}
+.homepage .catalog-panel .small-records {padding:20px 0 76px;cursor:default;mask-image:none;overflow:visible;max-width:900px;margin:0 auto;}
+.homepage .small-records .album-page {width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px;}
+.homepage .small-records .record {width:100%;margin:0;transform:translateY(0);transition:transform .45s cubic-bezier(.2,.8,.2,1.2);}
+.homepage .small-records .record:hover,.homepage .small-records .record:focus-visible {transform:translateY(-7px) scale(1.02);}
+.small-record-label {display:block;position:absolute;top:calc(100% + 15px);left:0;right:0;font-size:17px;text-align:center;line-height:1.5;color:#365773;}
+.folder-small .folder-controls > button,.folder-small .album-range,.folder-small .selection-summary,.folder-small .selection-tags {display:none;}
+.folder-small .selection-label {font-size:14px;color:#7089a0;}
+.directory-footer {display:flex;justify-content:space-between;gap:20px;color:#8198ac;font-size:11px;line-height:1.5;margin:22px 0 0;}
+.directory-footer a {text-decoration:none;white-space:nowrap;}
+@keyframes folder-reveal {from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1000px){.folder-toggle{grid-template-columns:30px minmax(0,1fr) 128px 52px 22px;gap:15px;min-height:94px;padding:16px 2px}.folder-mini-disc{width:51px;height:51px;margin-left:-18px}.folder-title strong{font-size:25px}.folder-title >span{font-size:11px}.folder-controls{gap:12px}.folder-controls .album-button{font-size:12px;padding:10px}.folder-controls .selection-label{font-size:19px}.folder-controls .selection-summary{font-size:12px}}
+@media(max-width:650px){.homepage .catalog-directory{padding-top:30px}.directory-shell{padding:0 5%}.directory-heading{gap:12px;align-items:flex-start;margin-bottom:23px}.homepage .directory-heading h2{font-size:34px;display:block}.directory-heading h2 span{display:block;font-size:14px;margin-top:7px}.directory-eyebrow{font-size:8px;letter-spacing:.1em}.directory-intro{font-size:11px;margin-top:12px}.directory-resume-link{font-size:11px;padding-top:4px}.folder-toggle{grid-template-columns:24px minmax(0,1fr) 38px 18px;gap:9px;min-height:95px;padding:15px 0}.folder-code{font-size:17px}.folder-title strong{font-size:21px}.folder-title>span{font-size:11px;max-width:225px;line-height:1.6;margin-top:6px}.folder-mini{display:none}.folder-count{font-size:19px}.folder-count>span{font-size:8px}.folder-plus{font-size:24px}.folder-stage{margin:0 -5.56%}.homepage .catalog-panel .albums{--card-width:min(68vw,330px);padding-top:32px;padding-bottom:84px}.folder-controls{flex-wrap:wrap;gap:10px;padding-top:16px}.folder-controls .track-control{order:-1;flex-basis:100%}.folder-controls .album-button{flex:1;min-height:40px;font-size:12px}.folder-controls .selection-label{font-size:20px}.selection-summary{font-size:12px;line-height:1.8}.selection-tags span{font-size:10px}.homepage .catalog-panel .small-records{padding:10px 5% 84px}.homepage .small-records .album-page{gap:18px}.small-record-label{font-size:13px;top:calc(100% + 12px)}.folder-small .selection-label{font-size:12px}.directory-footer{font-size:10px;gap:12px}.catalog-folder{scroll-margin-top:10px;}}
+@media(prefers-reduced-motion:reduce){.catalog-panel{animation:none}.folder-toggle,.folder-mini-disc,.folder-plus,.homepage .small-records .record{transition:none!important}}
