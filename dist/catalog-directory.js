@@ -19,11 +19,12 @@ window.createPortfolioDirectory=function({projects,filmPreview,reduced,onSuppres
  function openProject(event,item,record){
   if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;
   event.preventDefault();if(performance.now()<window.portfolioSuppressClickUntil)return;
-  opener=record;if(location.hash!=='#catalog')history.replaceState(history.state,'','#catalog');remember(item);const p=entry(item);if(filmPreview.open(p,record))return;
+  opener=folders.get(active)?.motion?.selectProject(item.id)||record;if(location.hash!=='#catalog')history.replaceState(history.state,'','#catalog');remember(item);const p=entry(item);if(filmPreview.open(p,opener))return;
   if(reduced.matches){location.href=item.entry;return}document.querySelector('.transition-curtain img').src=p.cover;document.body.classList.add('is-opening');setTimeout(()=>location.href=item.entry,180);
  }
  function build(folder){
-  const {panel,list,group}=folder;panel.innerHTML=`<div class="folder-stage"><div class="albums${list.length<3?' small-records':''}" aria-label="${escape(group.name)}唱片目录" tabindex="0"></div></div><div class="folder-controls"><button class="album-button folder-previous" type="button" aria-label="上一个${group.short}项目">上一项</button><div class="track-control"><div class="selection-label"><span class="selection-title"></span><span class="page-count"></span></div><p class="selection-summary"></p><div class="selection-tags"></div><input class="album-range" type="range" min="0" max="1" step="0.001" value="0" aria-label="横向浏览${escape(group.name)}唱片"><span class="directory-hint">上下滚轮 · 左右滑动 · 点击唱片${list.some(i=>i.filmFirst)?'先看成片':'进入项目'}</span></div><button class="album-button folder-next" type="button" aria-label="下一个${group.short}项目">下一项</button><button class="album-button folder-motion" type="button" aria-pressed="true">自动播放</button></div>`;
+  const {panel,list,group}=folder;panel.innerHTML=`<header class="folder-panel-heading"><div><h3>${escape(group.name)}</h3><p>${list.length} 组作品 · ${escape(group.note)}</p></div><button class="folder-close" type="button" aria-label="收起${escape(group.name)}">收起分类 <span aria-hidden="true">×</span></button></header><div class="folder-stage"><div class="albums${list.length<3?' small-records':''}" aria-label="${escape(group.name)}唱片目录" tabindex="0"></div></div><div class="folder-controls"><button class="album-button folder-previous" type="button" aria-label="上一个${group.short}项目">上一项</button><div class="track-control"><div class="selection-label"><span class="selection-title"></span><span class="page-count"></span></div><p class="selection-summary"></p><div class="selection-tags"></div><input class="album-range" type="range" min="0" max="1" step="0.001" value="0" aria-label="横向浏览${escape(group.name)}唱片"><span class="directory-hint">上下滚轮 · 左右滑动 · 点击唱片${list.some(i=>i.filmFirst)?'先看成片':'进入项目'}</span></div><button class="album-button folder-next" type="button" aria-label="下一个${group.short}项目">下一项</button><button class="album-button folder-motion" type="button" aria-pressed="true">自动播放</button></div>`;
+  panel.querySelector('.folder-close').addEventListener('click',()=>{toggle(group.id);folder.button.focus({preventScroll:true});folder.section.scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'center'})});
   const albums=panel.querySelector('.albums'),title=panel.querySelector('.selection-title'),count=panel.querySelector('.page-count'),range=panel.querySelector('.album-range'),previous=panel.querySelector('.folder-previous'),next=panel.querySelector('.folder-next'),catalogMotion=panel.querySelector('.folder-motion');
   const views=list.map(entry),small=list.length<3;
   for(let cycle=small?0:-1;cycle<= (small?0:1);cycle++){
@@ -36,21 +37,47 @@ window.createPortfolioDirectory=function({projects,filmPreview,reduced,onSuppres
   else {panel.classList.add('folder-small');title.textContent='两个项目 · 品牌 IP 与三维表达';count.textContent='02 组作品';panel.querySelector('.directory-hint').textContent='点击唱片 · 查看对应作品';}
   folder.built=true;
  }
+ function placePanel(folder){
+  // Keep the original reading order and expand beneath the selected visual row.
+  const focused=folder.panel.contains(document.activeElement)?document.activeElement:null;
+  folder.panel.hidden=true;
+  const rowTop=folder.section.offsetTop;
+  const row=[...folders.values()].filter(f=>Math.abs(f.section.offsetTop-rowTop)<2);
+  const end=row.at(-1)?.section||folder.section;
+  end.after(folder.panel);folder.panel.hidden=false;focused?.focus({preventScroll:true});
+ }
  function toggle(id,{restore=false}={}){
   const old=folders.get(active);if(old){old.motion?.setActive(false);old.panel.hidden=true;old.button.setAttribute('aria-expanded','false');old.section.classList.remove('is-open')}
   if(active===id&&!restore){active=null;remember();return}
   active=id;const folder=folders.get(id);if(!folder){active=null;return}
-  folder.panel.hidden=false;folder.button.setAttribute('aria-expanded','true');folder.section.classList.add('is-open');if(!folder.built)build(folder);else folder.motion?.setActive(true);
-  if(!restore){folder.section.scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'start'});remember()}
+  placePanel(folder);folder.button.setAttribute('aria-expanded','true');folder.section.classList.add('is-open');if(!folder.built)build(folder);else folder.motion?.setActive(true);
+  if(!restore){folder.panel.scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'start'});remember()}
  }
  for(const [i,group] of groups.entries()){
   const list=items.filter(item=>item.group===group.id),section=document.createElement('section');section.className='catalog-folder';section.dataset.category=group.id;
   const thumbs=list.slice(0,3).map(item=>{const p=entry(item),fromCard=p.cover.split('?')[0]===p.card?.split('?')[0];return `<span class="folder-mini-disc${fromCard?' from-card':''}"><img src="${escape(p.cover)}" alt="" loading="lazy" draggable="false"></span>`}).join('');
-  section.innerHTML=`<h3><button type="button" class="folder-toggle" id="folder-${group.id}" aria-expanded="false" aria-controls="panel-${group.id}"><span class="folder-code">${String(i+1).padStart(2,'0')}</span><span class="folder-title"><strong>${group.name}</strong><span>${group.note}</span></span><span class="folder-mini" aria-hidden="true">${thumbs}</span><span class="folder-count">${String(list.length).padStart(2,'0')}<span>组作品</span></span><span class="folder-plus" aria-hidden="true">+</span></button></h3><div class="catalog-panel" id="panel-${group.id}" role="region" aria-labelledby="folder-${group.id}" hidden></div>`;
-  const button=section.querySelector('button'),panel=section.querySelector('.catalog-panel');button.addEventListener('click',()=>toggle(group.id));root.append(section);folders.set(group.id,{section,button,panel,list,group,built:false,motion:null});
+  section.innerHTML=`<h3><button type="button" class="folder-toggle" id="folder-${group.id}" aria-expanded="false" aria-controls="panel-${group.id}"><span class="folder-code">${String(i+1).padStart(2,'0')} / ${escape(group.en)}</span><span class="folder-mini" aria-hidden="true">${thumbs}</span><span class="folder-copy"><span class="folder-title"><strong>${group.name}</strong><span>${group.note}</span></span><span class="folder-count">${String(list.length).padStart(2,'0')}<span>组作品</span></span></span></button></h3>`;
+  const button=section.querySelector('button'),panel=document.createElement('div');panel.className='catalog-panel';panel.id='panel-'+group.id;panel.setAttribute('role','region');panel.setAttribute('aria-labelledby','folder-'+group.id);panel.hidden=true;
+  button.addEventListener('click',()=>toggle(group.id));root.append(section,panel);folders.set(group.id,{section,button,panel,list,group,built:false,motion:null});
  }
- root.addEventListener('keydown',event=>{if(!event.target.classList.contains('folder-toggle'))return;const buttons=[...root.querySelectorAll('.folder-toggle')],i=buttons.indexOf(event.target);let next;if(event.key==='ArrowDown')next=(i+1)%buttons.length;else if(event.key==='ArrowUp')next=(i+buttons.length-1)%buttons.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=buttons.length-1;else return;event.preventDefault();buttons[next].focus()});
+ document.querySelector('#directory-total').textContent=`${String(groups.length).padStart(2,'0')} DIRECTIONS / ${items.length} WORKS`;
+ root.addEventListener('keydown',event=>{
+  if(!event.target.classList.contains('folder-toggle'))return;
+  const buttons=[...root.querySelectorAll('.folder-toggle')],i=buttons.indexOf(event.target);let next;
+  if(event.key==='ArrowRight')next=(i+1)%buttons.length;
+  else if(event.key==='ArrowLeft')next=(i+buttons.length-1)%buttons.length;
+  else if(event.key==='Home')next=0;
+  else if(event.key==='End')next=buttons.length-1;
+  else if(event.key==='ArrowUp'||event.key==='ArrowDown'){
+   const current=buttons[i].getBoundingClientRect(),direction=event.key==='ArrowDown'?1:-1;
+   const candidates=buttons.map((button,index)=>({index,r:button.getBoundingClientRect()})).filter(v=>(v.r.top-current.top)*direction>4);
+   candidates.sort((a,b)=>Math.abs(a.r.top-current.top)-Math.abs(b.r.top-current.top)||Math.abs(a.r.left+a.r.width/2-current.left-current.width/2)-Math.abs(b.r.left+b.r.width/2-current.left-current.width/2));next=candidates[0]?.index;
+  }else return;
+  event.preventDefault();if(next!==undefined)buttons[next].focus();
+ });
+ let resizeFrame=0;
+ window.addEventListener('resize',()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{const folder=folders.get(active);if(folder){placePanel(folder);folder.motion?.setActive(true)}})});
  function restore(){document.body.classList.remove('is-opening');if(location.hash!=='#catalog')return;let state;try{state=JSON.parse(sessionStorage.getItem(storageKey)||'null')}catch{}if(!state?.open||!folders.has(state.open))return;restoring=true;toggle(state.open,{restore:true});requestAnimationFrame(()=>requestAnimationFrame(()=>{folders.get(state.open).motion?.restoreDirectory();window.scrollTo({top:state.y||0,behavior:'instant'});restoring=false}));}
- window.addEventListener('pageshow',event=>{if(event.persisted){const d=document.querySelector('#catalog-film-dialog');if(d.open)d.close();restore()}});restore();
+ window.addEventListener('pageshow',event=>{if(event.persisted){const d=document.querySelector('#catalog-film-dialog');if(d.open)d.close()}restore()});restore();
  return {rememberCurrent(){remember()},getActive(){return active},opener:()=>opener};
 };
