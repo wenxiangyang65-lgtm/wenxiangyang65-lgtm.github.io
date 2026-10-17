@@ -220,12 +220,12 @@
     "catalogItems": [
       {
         "id": "outdoor",
-        "title": "天猫千星计划 · 户外新势力邀请函",
+        "title": "天猫千星计划 · 户外新势力",
         "group": "operations",
-        "summary": "活动识别与信息层级，延展为系列动态邀请。",
+        "summary": "以千星识别符号，设计户外新势力品牌闭门会邀请函及动态制作流程。",
         "tags": [
-          "邀请函",
-          "动态传播"
+          "邀请函设计",
+          "动态流程"
         ],
         "year": "2025",
         "image": "assets/catalog/outdoor.webp",
@@ -235,12 +235,12 @@
       },
       {
         "id": "new-car",
-        "title": "天猫汽车 · 超级月刊",
+        "title": "天猫汽车 · 超新月刊",
         "group": "operations",
-        "summary": "将多品牌商品表达，统一为系列海报与动态。",
+        "summary": "围绕汽车与摩托车商品，展示系列海报、场景生成与动态制作流程。",
         "tags": [
-          "商品视觉",
-          "系列海报"
+          "系列海报",
+          "动态流程"
         ],
         "year": "2025",
         "image": "assets/catalog/new-car.webp",
@@ -252,10 +252,10 @@
         "id": "merchant",
         "title": "天猫招商 · 网页设计",
         "group": "operations",
-        "summary": "以品牌语言与信息层次，承接平台招商沟通。",
+        "summary": "展示天猫招商网页的视觉提案、动态制作过程及电脑端与手机端效果。",
         "tags": [
-          "页面视觉",
-          "B2B 招商"
+          "网页设计",
+          "动态流程"
         ],
         "year": "2025",
         "image": "assets/catalog/merchant.webp",
@@ -267,7 +267,7 @@
         "id": "olympics",
         "title": "巴黎奥运会 · 中国凉方",
         "group": "operations",
-        "summary": "结合赛事热点与商品场景，形成系列传播视觉。",
+        "summary": "结合巴黎奥运会与清凉家电，展示创意提案、系列海报及动态制作流程。",
         "tags": [
           "热点营销",
           "动态海报"
@@ -280,11 +280,11 @@
       },
       {
         "id": "spring-home",
-        "title": "春日美学家磕 CP",
+        "title": "天猫家享 · 春日美学磕 CP",
         "group": "operations",
-        "summary": "将六类生活方式，转化为可识别的商品场景。",
+        "summary": "围绕六类家居风格，展示 AIGC 场景生成、设计优化与系列海报。",
         "tags": [
-          "场景创意",
+          "家居场景",
           "AIGC 应用"
         ],
         "year": "2024",
@@ -295,9 +295,9 @@
       },
       {
         "id": "football",
-        "title": "天猫 · 足球惠客厅",
+        "title": "天猫家享 · 足球惠客厅",
         "group": "operations",
-        "summary": "连接欧洲杯与家生活，建立活动主视觉。",
+        "summary": "围绕欧洲杯与客厅生活，展示创意草图、场景探索及主视觉海报。",
         "tags": [
           "节点营销",
           "创意 KV"
@@ -347,7 +347,7 @@
         "id": "seeding",
         "title": "天猫双 11 · 全民种草",
         "group": "operations",
-        "summary": "以三维商业场景，串联品牌与商品表达。",
+        "summary": "以品牌商品构建三维建筑群，展示双 11 主视觉与三张分会场海报。",
         "tags": [
           "商业三维",
           "商品表达"
@@ -362,7 +362,7 @@
         "id": "night-taobao",
         "title": "夜淘宝 · 主视觉",
         "group": "operations",
-        "summary": "以夜市场景与灯光，呈现夜间消费氛围。",
+        "summary": "展示夜市场景主视觉、手机端应用，以及白模、材质与灯光效果。",
         "tags": [
           "场景建模",
           "灯光渲染"
@@ -392,7 +392,7 @@
         "id": "fuzi",
         "title": "天猫双 11 · 福仔换肤场景",
         "group": "operations",
-        "summary": "以节日角色与三维场景，承接活动页面视觉。",
+        "summary": "展示福仔节日换肤、三维场景与双 11 活动页面应用。",
         "tags": [
           "IP 演绎",
           "运营场景"
@@ -407,7 +407,7 @@
         "id": "sofa",
         "title": "家享生活 · 沙发节",
         "group": "operations",
-        "summary": "把商品特性，融入富有生活感的系列插画。",
+        "summary": "围绕沙发商品与生活情绪，展示四张系列插画海报。",
         "tags": [
           "商品创意",
           "插画"
@@ -420,9 +420,9 @@
       },
       {
         "id": "miaosuda-new-year",
-        "title": "喵速达 · 年货节插画",
+        "title": "喵速达 · 年货节海报插画",
         "group": "operations",
-        "summary": "关联年俗、品牌 IP 与商品功能，形成系列海报。",
+        "summary": "展示相机、游戏机与冰箱主题插画，以及二维设计转为三维视觉的过程。",
         "tags": [
           "商业插画",
           "二维至三维"
