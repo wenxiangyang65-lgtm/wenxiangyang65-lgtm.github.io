@@ -10,7 +10,7 @@
 - 服务器部署账号：`portfolio-deploy`，没有 sudo 权限；管理员仍使用原来的 `ubuntu` 账号。
 - 当前没有绑定自有域名。腾讯云入口先使用 HTTP 公网 IP；原 GitHub 入口继续提供 HTTPS。
 
-这是完整静态网站，含已经导出的 Next.js AWE 页面和其余独立项目页面。服务器只需要 Nginx、Python 3 和 rsync；不需要 Node 常驻进程、PM2 或数据库。构建由 GitHub 完成，没有第三方 npm 依赖。
+这是完整静态网站，含已经导出的 Next.js AWE 页面和其余独立项目页面。服务器只需要 Nginx、Python 3 和 rsync；不需要 Node 常驻进程、PM2 或数据库。构建由 GitHub 完成，图片编码使用锁定版本的 sharp 开发依赖。
 
 ## 本地项目与服务器目录
 
@@ -49,7 +49,7 @@ Nginx 已配置开机启动。`current` 软链接在重启后仍然指向完整�
 
 推送 `main` 后，`Publish to Tencent Cloud` 工作流自动执行：
 
-1. 安装锁定依赖（当前无外部依赖），运行发布保护测试。
+1. 安装锁定依赖，运行发布保护测试。
 2. 检查所有项目入口、HTML 与 CSS 的本地资源引用、JS 语法、JSON 和敏感文件。
 3. 把 `dist/` 打包到 `build/`，生成目录配置和包含每个文件大小、SHA-256 的清单。
 4. 经 SSH 上传至新的 `.incoming/<提交号-运行号-尝试号>/`。按文件内容校验变化，未改变的素材从当前版本创建硬链接，只传修改的文件。更新后的文件写到新文件中，不会改旧版本的共享素材。
@@ -159,3 +159,7 @@ ssh portfolio-tencent 'python3 /usr/local/lib/portfolio-deploy.py rollback'
 新增运营项目后，构建会对发布目录内较大的静态 WebP 进行编码优化。`dist/` 原图和所有视频保持不变，像素尺寸和透明通道必须一致；动画 WebP 跳过。发布编码默认质量 90，仅在体积超标时对部分大图逐级使用质量 86、82、78，始终从源文件编码。详情记入构建产物 `image-optimisation.json`。
 
 该步骤使用锁定的 sharp 开发依赖，随 `npm ci` 安装。`.publish-image-cache/` 是可删除的本地构建缓存，不提交。最后的发布清单对实际优化后的文件重新计算摘要。构建验证发布包小于 1 GB；超过时停止构建，不更新线上。GitHub Pages 大小限制见 [官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)。
+
+## 已发布图片复用（2026-10-21）
+
+`content/published-images.json` 记录源图和已发布图片的 SHA-256、字节数及编码质量。源图摘要一致时，构建可从原腾讯云地址复用已发布的图片；下载后同时核对摘要、尺寸、透明通道和静态页数。无法下载或不匹配时自动从原图编码，不依赖远端文件的可信度。未改动的图片避免重复编码，原稿和全部视频保持不变。

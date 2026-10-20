@@ -23,6 +23,34 @@ export async function optimisePublishedImages(output) {
   await mkdir(cache,{recursive:true});
   const candidates=sizes.filter(([p,n])=>p.endsWith('.webp')&&n>256*1024);
   const selected=new Map(),eligible=[];
+  let publishedPlan={images:{}};
+  try {publishedPlan=JSON.parse(await readFile('content/published-images.json','utf8'));}catch(error){if(error.code!=='ENOENT')throw error;}
+  let reused=0;
+  async function reusePublished(path,bytes,metadata) {
+    const name=relative(output,path),entry=publishedPlan.images[name];
+    if(!entry)return false;
+    const digest=data=>createHash('sha256').update(data).digest('hex');
+    if(digest(await readFile(path))!==entry.sourceSha256)return false;
+    if(entry.sourceSha256===entry.publishedSha256)return true;
+    const cached=resolve(cache,'published-'+entry.publishedSha256+'.webp');
+    let data;
+    try {
+      try {data=await readFile(cached);}catch {
+        const response=await fetch(new URL(name,publishedPlan.origin),{signal:AbortSignal.timeout(90000)});
+        if(!response.ok)return false;
+        data=Buffer.from(await response.arrayBuffer());
+      }
+      if(data.length!==entry.publishedBytes||digest(data)!==entry.publishedSha256)return false;
+      const check=await sharp(data).metadata();
+      if(check.width!==metadata.width||check.height!==metadata.height||Boolean(check.hasAlpha)!==Boolean(metadata.hasAlpha)||(check.pages||1)!==1)return false;
+      await writeFile(cached,data);
+      await writeFile(path,data);
+      total+=data.length-bytes;
+      selected.set(path,{path:name,before:bytes,after:data.length,quality:entry.quality,width:metadata.width,height:metadata.height});
+      reused++;
+      return true;
+    }catch {return false;}
+  }
   async function encode(path,quality,metadata) {
     const source=resolve('dist',relative(output,path)),input=await readFile(source);
     const key=createHash('sha256').update(input).update(`webp-${quality}-effort6-sharp0344`).digest('hex');
@@ -38,6 +66,10 @@ export async function optimisePublishedImages(output) {
       const [path,bytes]=candidates[cursor++],metadata=await sharp(path).metadata();
       if((metadata.pages||1)>1)continue;
       const candidate={path,bytes,metadata};eligible.push(candidate);
+      if(await reusePublished(path,bytes,metadata)) {
+        if(++done%50===0)console.log(`发布图片检查 ${done}/${candidates.length}`);
+        continue;
+      }
       const data=await encode(path,90,metadata);
       if(data.length<bytes*.85) {await writeFile(path,data);total+=data.length-bytes;selected.set(path,{path:relative(output,path),before:bytes,after:data.length,quality:90,width:metadata.width,height:metadata.height});}
       if(++done%50===0)console.log(`发布图片检查 ${done}/${candidates.length}`);
@@ -57,5 +89,6 @@ export async function optimisePublishedImages(output) {
   await writeFile(resolve(output,'image-optimisation.json'),JSON.stringify(report,null,2)+'\n');
   if(total>LIMIT-2_000_000)throw Error(`发布包仍超过 GitHub Pages 体积上限: ${(total/1048576).toFixed(1)} MB`);
   console.log(`发布包图片优化：${(before/1048576).toFixed(1)} → ${(total/1048576).toFixed(1)} MB，${selected.size} 张原尺寸静态图；原稿和视频未改动。`);
+  if(reused)console.log(`复用 ${reused} 张已核验发布图片；源图和发布图均通过 SHA-256 校验。`);
   return report;
 }
