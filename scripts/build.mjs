@@ -4,12 +4,14 @@ import { relative, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { check, filesIn } from './check.mjs';
 import { compileContent } from './content.mjs';
+import { optimisePublishedImages } from './publish-images.mjs';
 
 await check();
 const output=resolve('build');
 await rm(output,{recursive:true,force:true});
 await cp('dist',output,{recursive:true,filter:path=>!path.endsWith('.DS_Store')});
 const projects=await compileContent(output);
+await optimisePublishedImages(output);
 const commit=process.env.GITHUB_SHA||execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
 const created=new Date().toISOString();
 await writeFile(resolve(output,'deployment-health.json'),JSON.stringify({status:'ok',commit,created,projects:projects.length})+'\n');

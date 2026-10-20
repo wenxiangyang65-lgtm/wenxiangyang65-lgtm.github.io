@@ -217,96 +217,402 @@
     "card": "assets/card-07.webp",
     "tab": "assets/tab-07.webp",
     "category": "运营视觉",
+    "catalogItems": []
+  },
+  {
+    "n": 16,
+    "slug": "operations-outdoor",
+    "title": "天猫千星计划 · 户外新势力",
+    "label": "天猫千星计划 · 户外新势力",
+    "year": 2025,
+    "description": "让千星符号进入运动场景，把一封邀请串成连续的户外体验。",
+    "entry": "projects/operations-outdoor/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/01-outdoor.webp",
+    "category": "运营视觉",
     "catalogItems": [
       {
         "id": "outdoor",
         "title": "天猫千星计划 · 户外新势力",
         "group": "operations",
-        "summary": "以千星识别符号，设计户外新势力品牌闭门会邀请函及动态制作流程。",
+        "summary": "让千星符号进入运动场景，把一封邀请串成连续的户外体验。",
         "tags": [
           "邀请函设计",
           "动态流程"
         ],
         "year": "2025",
-        "image": "assets/catalog/outdoor.webp",
-        "entry": "projects/aigc/index.html#outdoor",
+        "image": "assets/catalog/operations-covers/01-outdoor.webp",
+        "entry": "projects/operations-outdoor/index.html",
         "featured": false,
-        "filmFirst": false
-      },
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 17,
+    "slug": "operations-new-car",
+    "title": "天猫汽车 · 超新月刊",
+    "label": "天猫汽车 · 超新月刊",
+    "year": 2025,
+    "description": "用月刊建立阅读秩序，让商品动态成为每一期的焦点。",
+    "entry": "projects/operations-new-car/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/02-new-car.webp",
+    "category": "运营视觉",
+    "catalogItems": [
       {
         "id": "new-car",
         "title": "天猫汽车 · 超新月刊",
         "group": "operations",
-        "summary": "围绕汽车与摩托车商品，展示系列海报、场景生成与动态制作流程。",
+        "summary": "用月刊建立阅读秩序，让商品动态成为每一期的焦点。",
         "tags": [
           "系列海报",
           "动态流程"
         ],
         "year": "2025",
-        "image": "assets/catalog/new-car.webp",
-        "entry": "projects/aigc/index.html#new-car",
+        "image": "assets/catalog/operations-covers/02-new-car.webp",
+        "entry": "projects/operations-new-car/index.html",
         "featured": false,
-        "filmFirst": false
-      },
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 18,
+    "slug": "operations-merchant",
+    "title": "天猫招商 · 网页设计",
+    "label": "天猫招商 · 网页设计",
+    "year": 2025,
+    "description": "将“在天猫开店”转译为可感知的品牌空间，让视觉与信息共同服务入驻沟通。",
+    "entry": "projects/operations-merchant/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/03-merchant.webp",
+    "category": "运营视觉",
+    "catalogItems": [
       {
         "id": "merchant",
         "title": "天猫招商 · 网页设计",
         "group": "operations",
-        "summary": "展示天猫招商网页的视觉提案、动态制作过程及电脑端与手机端效果。",
+        "summary": "将“在天猫开店”转译为可感知的品牌空间，让视觉与信息共同服务入驻沟通。",
         "tags": [
           "网页设计",
           "动态流程"
         ],
         "year": "2025",
-        "image": "assets/catalog/merchant.webp",
-        "entry": "projects/aigc/index.html#merchant",
-        "featured": false,
-        "filmFirst": false
-      },
+        "image": "assets/catalog/operations-covers/03-merchant.webp",
+        "entry": "projects/operations-merchant/index.html",
+        "featured": true,
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 19,
+    "slug": "operations-olympics",
+    "title": "巴黎奥运会 · 中国凉方",
+    "label": "巴黎奥运会 · 中国凉方",
+    "year": 2024,
+    "description": "为巴黎降温，以地标与艺术符号的冰感转译建立系列记忆。",
+    "entry": "projects/operations-olympics/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/04-olympics.webp",
+    "category": "运营视觉",
+    "catalogItems": [
       {
         "id": "olympics",
         "title": "巴黎奥运会 · 中国凉方",
         "group": "operations",
-        "summary": "结合巴黎奥运会与清凉家电，展示创意提案、系列海报及动态制作流程。",
+        "summary": "为巴黎降温，以地标与艺术符号的冰感转译建立系列记忆。",
         "tags": [
           "热点营销",
           "动态海报"
         ],
         "year": "2024",
-        "image": "assets/catalog/olympics.webp",
-        "entry": "projects/aigc/index.html#olympics",
-        "featured": false,
-        "filmFirst": false
-      },
+        "image": "assets/catalog/operations-covers/04-olympics.webp",
+        "entry": "projects/operations-olympics/index.html",
+        "featured": true,
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 20,
+    "slug": "operations-spring-home",
+    "title": "天猫家享 · 春日美学磕 CP",
+    "label": "天猫家享 · 春日美学磕 CP",
+    "year": 2024,
+    "description": "让商品在生活方式中组成 CP，以风格帮助用户理解搭配。",
+    "entry": "projects/operations-spring-home/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/05-spring-home.webp",
+    "category": "运营视觉",
+    "catalogItems": [
       {
         "id": "spring-home",
         "title": "天猫家享 · 春日美学磕 CP",
         "group": "operations",
-        "summary": "围绕六类家居风格，展示 AIGC 场景生成、设计优化与系列海报。",
+        "summary": "让商品在生活方式中组成 CP，以风格帮助用户理解搭配。",
         "tags": [
           "家居场景",
           "AIGC 应用"
         ],
         "year": "2024",
-        "image": "assets/catalog/spring-home.webp",
-        "entry": "projects/aigc/index.html#spring-home",
-        "featured": false,
-        "filmFirst": false
-      },
+        "image": "assets/catalog/operations-covers/05-spring-home.webp",
+        "entry": "projects/operations-spring-home/index.html",
+        "featured": true,
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 21,
+    "slug": "operations-football",
+    "title": "天猫家享 · 足球惠客厅",
+    "label": "天猫家享 · 足球惠客厅",
+    "year": 2024,
+    "description": "把主场搬进客厅，让赛事热情进入家生活。",
+    "entry": "projects/operations-football/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/06-football.webp",
+    "category": "运营视觉",
+    "catalogItems": [
       {
         "id": "football",
         "title": "天猫家享 · 足球惠客厅",
         "group": "operations",
-        "summary": "围绕欧洲杯与客厅生活，展示创意草图、场景探索及主视觉海报。",
+        "summary": "把主场搬进客厅，让赛事热情进入家生活。",
         "tags": [
           "节点营销",
           "创意 KV"
         ],
         "year": "2024",
-        "image": "assets/catalog/football.webp",
-        "entry": "projects/aigc/index.html#football",
+        "image": "assets/catalog/operations-covers/06-football.webp",
+        "entry": "projects/operations-football/index.html",
         "featured": false,
-        "filmFirst": false
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 22,
+    "slug": "operations-seeding",
+    "title": "天猫双 11 · 全民种草",
+    "label": "天猫双 11 · 全民种草",
+    "year": 2023,
+    "description": "让好物成为城市的构件，用一座商品城市组织多品牌。",
+    "entry": "projects/operations-seeding/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/07-seeding.webp",
+    "category": "运营视觉",
+    "catalogItems": [
+      {
+        "id": "seeding",
+        "title": "天猫双 11 · 全民种草",
+        "group": "operations",
+        "summary": "让好物成为城市的构件，用一座商品城市组织多品牌。",
+        "tags": [
+          "商业三维",
+          "商品表达"
+        ],
+        "year": "2023",
+        "image": "assets/catalog/operations-covers/07-seeding.webp",
+        "entry": "projects/operations-seeding/index.html",
+        "featured": false,
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 23,
+    "slug": "operations-night-taobao",
+    "title": "夜淘宝 · 主视觉",
+    "label": "夜淘宝 · 主视觉",
+    "year": 2023,
+    "description": "把夜生活装进一座微缩街区，让店铺与霓虹建立想逛的感受。",
+    "entry": "projects/operations-night-taobao/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/08-night-taobao.webp",
+    "category": "运营视觉",
+    "catalogItems": [
+      {
+        "id": "night-taobao",
+        "title": "夜淘宝 · 主视觉",
+        "group": "operations",
+        "summary": "把夜生活装进一座微缩街区，让店铺与霓虹建立想逛的感受。",
+        "tags": [
+          "场景建模",
+          "灯光渲染"
+        ],
+        "year": "2023",
+        "image": "assets/catalog/operations-covers/08-night-taobao.webp",
+        "entry": "projects/operations-night-taobao/index.html",
+        "featured": true,
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 24,
+    "slug": "operations-fuzi",
+    "title": "天猫双 11 · 福仔换肤场景",
+    "label": "天猫双 11 · 福仔换肤场景",
+    "year": 2023,
+    "description": "为福仔建立一个与装扮一致的小世界。",
+    "entry": "projects/operations-fuzi/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/09-fuzi.webp",
+    "category": "运营视觉",
+    "catalogItems": [
+      {
+        "id": "fuzi",
+        "title": "天猫双 11 · 福仔换肤场景",
+        "group": "operations",
+        "summary": "为福仔建立一个与装扮一致的小世界。",
+        "tags": [
+          "IP 演绎",
+          "运营场景"
+        ],
+        "year": "2023",
+        "image": "assets/catalog/operations-covers/09-fuzi.webp",
+        "entry": "projects/operations-fuzi/index.html",
+        "featured": false,
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 25,
+    "slug": "operations-sofa",
+    "title": "家享生活 · 沙发节",
+    "label": "家享生活 · 沙发节",
+    "year": 2024,
+    "description": "以沙发为生活的发生地，让不同情绪围绕商品展开。",
+    "entry": "projects/operations-sofa/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/10-sofa.webp",
+    "category": "运营视觉",
+    "catalogItems": [
+      {
+        "id": "sofa",
+        "title": "家享生活 · 沙发节",
+        "group": "operations",
+        "summary": "以沙发为生活的发生地，让不同情绪围绕商品展开。",
+        "tags": [
+          "商品创意",
+          "插画"
+        ],
+        "year": "2024",
+        "image": "assets/catalog/operations-covers/10-sofa.webp",
+        "entry": "projects/operations-sofa/index.html",
+        "featured": false,
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 26,
+    "slug": "operations-miaosuda-new-year",
+    "title": "喵速达 · 年货节海报插画",
+    "label": "喵速达 · 年货节海报插画",
+    "year": 2024,
+    "description": "让商品参与过年，用记录、团聚与生活准备连接不同品类。",
+    "entry": "projects/operations-miaosuda-new-year/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/11-miaosuda-new-year.webp",
+    "category": "运营视觉",
+    "catalogItems": [
+      {
+        "id": "miaosuda-new-year",
+        "title": "喵速达 · 年货节海报插画",
+        "group": "operations",
+        "summary": "让商品参与过年，用记录、团聚与生活准备连接不同品类。",
+        "tags": [
+          "商业插画",
+          "二维至三维"
+        ],
+        "year": "2024",
+        "image": "assets/catalog/operations-covers/11-miaosuda-new-year.webp",
+        "entry": "projects/operations-miaosuda-new-year/index.html",
+        "featured": false,
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "n": 27,
+    "slug": "operations-jiyoujia",
+    "title": "极有家 · 不在家腔调家居展",
+    "label": "极有家 · 不在家腔调家居展",
+    "year": 2024,
+    "description": "以民宿场景、地图导览、取景框与商品挂牌，串联家居灵感与线上浏览。",
+    "entry": "projects/operations-jiyoujia/index.html",
+    "template": "sleeve",
+    "cover": "assets/catalog/operations-covers/12-jiyoujia.webp",
+    "category": "运营视觉",
+    "catalogItems": [
+      {
+        "id": "jiyoujia",
+        "title": "极有家 · 腔调家居展",
+        "group": "operations",
+        "summary": "以民宿场景、地图导览、取景框与商品挂牌，串联家居灵感与线上浏览。",
+        "tags": [
+          "场景营销",
+          "视觉系统",
+          "动态传播"
+        ],
+        "year": "2024",
+        "image": "assets/catalog/operations-covers/12-jiyoujia.webp",
+        "entry": "projects/operations-jiyoujia/index.html",
+        "featured": true,
+        "filmFirst": false,
+        "imageFocus": [
+          50,
+          50
+        ]
       }
     ]
   },
@@ -344,36 +650,6 @@
         "filmFirst": false
       },
       {
-        "id": "seeding",
-        "title": "天猫双 11 · 全民种草",
-        "group": "operations",
-        "summary": "以品牌商品构建三维建筑群，展示双 11 主视觉与三张分会场海报。",
-        "tags": [
-          "商业三维",
-          "商品表达"
-        ],
-        "year": "2023",
-        "image": "assets/catalog/seeding.webp",
-        "entry": "projects/illustration/index.html#seeding",
-        "featured": false,
-        "filmFirst": false
-      },
-      {
-        "id": "night-taobao",
-        "title": "夜淘宝 · 主视觉",
-        "group": "operations",
-        "summary": "展示夜市场景主视觉、手机端应用，以及白模、材质与灯光效果。",
-        "tags": [
-          "场景建模",
-          "灯光渲染"
-        ],
-        "year": "2023",
-        "image": "assets/catalog/night-taobao.webp",
-        "entry": "projects/illustration/index.html#night-taobao",
-        "featured": false,
-        "filmFirst": false
-      },
-      {
         "id": "asian-games",
         "title": "蚂蚁亚运会 · 剪纸视觉",
         "group": "ip",
@@ -385,51 +661,6 @@
         "year": "2023",
         "image": "assets/catalog/asian-games.webp",
         "entry": "projects/illustration/index.html#asian-games",
-        "featured": false,
-        "filmFirst": false
-      },
-      {
-        "id": "fuzi",
-        "title": "天猫双 11 · 福仔换肤场景",
-        "group": "operations",
-        "summary": "展示福仔节日换肤、三维场景与双 11 活动页面应用。",
-        "tags": [
-          "IP 演绎",
-          "运营场景"
-        ],
-        "year": "2023",
-        "image": "assets/catalog/fuzi.webp",
-        "entry": "projects/illustration/index.html#fuzi",
-        "featured": false,
-        "filmFirst": false
-      },
-      {
-        "id": "sofa",
-        "title": "家享生活 · 沙发节",
-        "group": "operations",
-        "summary": "围绕沙发商品与生活情绪，展示四张系列插画海报。",
-        "tags": [
-          "商品创意",
-          "插画"
-        ],
-        "year": "2024",
-        "image": "assets/catalog/sofa.webp",
-        "entry": "projects/illustration/index.html#sofa",
-        "featured": false,
-        "filmFirst": false
-      },
-      {
-        "id": "miaosuda-new-year",
-        "title": "喵速达 · 年货节海报插画",
-        "group": "operations",
-        "summary": "展示相机、游戏机与冰箱主题插画，以及二维设计转为三维视觉的过程。",
-        "tags": [
-          "商业插画",
-          "二维至三维"
-        ],
-        "year": "2024",
-        "image": "assets/catalog/miaosuda-new-year.webp",
-        "entry": "projects/illustration/index.html#miaosuda-new-year",
         "featured": false,
         "filmFirst": false
       },

@@ -152,3 +152,10 @@ ssh portfolio-tencent 'python3 /usr/local/lib/portfolio-deploy.py rollback'
 采用用户选定的第 06 套静态方案：居中标题、透明文件夹、大图预览，电脑和 818px 窗口按上三下二排列，窄平板为两列，手机为一列。分类仍来自 `catalogItems`，不更改项目归类或资源。
 
 分类面板位于文件夹网格的同级，在所选文件夹所在视觉行下方展开；改变窗口宽度时重新定位，保持作品选择。收起按钮返回对应文件夹，键盘支持方向键与 Home/End。点击唱片先将其对齐到原始唱片组，再保存位置并打开影片或详情，保证循环边缘的重复唱片也能正确返回和恢复焦点。原弹簧参数、轮播、媒体与正文不变。
+
+
+## 发布图片编码与体积检查（2026-10-20）
+
+新增运营项目后，构建会对发布目录内较大的静态 WebP 进行编码优化。`dist/` 原图和所有视频保持不变，像素尺寸和透明通道必须一致；动画 WebP 跳过。发布编码默认质量 90，仅在体积超标时对部分大图逐级使用质量 86、82、78，始终从源文件编码。详情记入构建产物 `image-optimisation.json`。
+
+该步骤使用锁定的 sharp 开发依赖，随 `npm ci` 安装。`.publish-image-cache/` 是可删除的本地构建缓存，不提交。最后的发布清单对实际优化后的文件重新计算摘要。构建验证发布包小于 1 GB；超过时停止构建，不更新线上。GitHub Pages 大小限制见 [官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)。

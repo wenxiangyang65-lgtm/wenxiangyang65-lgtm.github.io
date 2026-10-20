@@ -8,3 +8,5 @@ __pycache__/
 *.pem
 *.key
 *.zip
+
+.publish-image-cache/

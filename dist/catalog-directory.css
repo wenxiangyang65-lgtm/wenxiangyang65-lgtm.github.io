@@ -70,7 +70,18 @@
 @media(max-width:520px){.directory-shell{width:90%}.homepage .catalog-directory{padding-top:34px}.directory-heading{margin-bottom:50px}.homepage .directory-heading h2{font-size:26px}.directory-eyebrow{font-size:9px;letter-spacing:.12em}.directory-heading h2 span{font-size:11px}.directory-intro{font-size:11px}.catalog-folder{width:100%;max-width:340px}.folder-toggle{height:345px;padding:22px 23px}.folder-code{font-size:11px}.folder-title strong{font-size:18px}.folder-title>span{font-size:10px}.folder-count{font-size:20px}.folder-mini-disc{border-width:4px}.catalog-panel{padding:18px 14px 24px}.folder-panel-heading{align-items:flex-start}.folder-panel-heading h3{font-size:17px}.folder-panel-heading p{font-size:10px;max-width:210px}.folder-close{font-size:10px;padding:7px 9px}.folder-close span{margin-left:4px}.folder-stage{margin:0 -5.56%}.homepage .catalog-panel .albums{--card-width:min(68vw,330px);padding-top:32px;padding-bottom:84px}.folder-controls{flex-wrap:wrap;gap:10px;padding-top:16px}.folder-controls .track-control{order:-1;flex-basis:100%}.folder-controls .album-button{flex:1;min-height:40px;font-size:12px}.folder-controls .selection-label{font-size:18px}.selection-summary{font-size:12px;line-height:1.8}.selection-tags span{font-size:10px}.homepage .catalog-panel .small-records{padding:10px 5% 90px}.homepage .small-records .album-page{gap:18px}.small-record-label{font-size:12px;top:calc(100% + 12px)}.folder-small .selection-label{font-size:12px}.directory-footer{font-size:9px}.directory-footer-links{gap:12px}}
 @media(prefers-reduced-motion:reduce){.catalog-panel{animation:none}.catalog-folder,.folder-toggle,.folder-mini-disc,.homepage .small-records .record{transition:none!important}.catalog-folder:hover{transform:none}}
 
-/* Numbered work index makes the 11 operations projects and current selection explicit. */
+/* Operations covers use one full-bleed artwork per disc, with a consistent CD rim and hub. */
+.homepage .folder-operations .albums {--card-width:clamp(330px,33vw,480px);padding-top:56px;padding-bottom:126px;}
+.homepage .folder-operations .record-disc {background:#d8e4ef;}
+.homepage .folder-operations .record-disc img {object-fit:cover;padding:0;}
+.folder-operations .record-disc:after {content:'';position:absolute;inset:0;border:.65cqw solid #d5e1ea;border-radius:50%;box-shadow:inset 0 0 0 .16cqw #faffff,inset 0 0 6px #18334d55;pointer-events:none;z-index:3;}
+.folder-operations .record-hole {width:10.5%;z-index:4;background:conic-gradient(from 30deg,#eef8ff,#8ba1b7 22%,#fafcff 40%,#a8bdce 60%,#f8fcff 80%,#8da1b4);box-shadow:0 0 0 1px #f5faffbb,0 1px 5px #162a3b60;}
+.folder-operations .record-hole:after {content:'';position:absolute;inset:36%;border-radius:50%;background:#294155;box-shadow:0 0 0 1px #8a9dac,inset 0 1px 2px #0008;}
+.folder-operations .record .record-glint {opacity:.08;}
+.folder-operations .record:hover .record-glint,.folder-operations .record:focus-visible .record-glint {opacity:.18;}
+@media(max-width:520px){.homepage .folder-operations .albums{--card-width:min(76vw,370px);padding-top:40px;padding-bottom:104px;}}
+
+/* Numbered work index follows the operations projects and current selection. */
 .operations-index {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:5px 0 12px;}
 .operations-index button {display:flex;gap:9px;align-items:baseline;min-width:0;min-height:43px;padding:9px 10px;text-align:left;border:1px solid #c3d4e480;border-radius:5px;background:#f9fcff66;color:#52718b;font:12px/1.6 PortfolioSans,'PingFang SC',sans-serif;cursor:pointer;}
 .operations-index button>span:first-child {flex:none;color:#829caf;font-size:10px;font-variant-numeric:tabular-nums;}
