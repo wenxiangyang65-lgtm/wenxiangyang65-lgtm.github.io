@@ -183,3 +183,20 @@ img{height:auto}
 
 /* User-supplied landscape cover, shown in full at its native proportions. */
 .pdf-hero.landscape-hero .pdf-cover{width:100%;max-width:1600px;height:auto;aspect-ratio:4217/2372;object-fit:contain}
+
+/* A centered overview and original portrait compositions for the five concept excerpts. */
+.brief-body{display:flex;flex-direction:column;align-items:center;gap:26px;max-width:880px;margin:0 auto;text-align:center}
+.brief-body .lead{margin:0;line-height:1.75}
+.brief-body>div{width:100%;max-width:760px}
+.brief-body>div>p{margin:0;line-height:2}
+.brief-body .project-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:30px}
+.brief-body .project-facts>div{display:block;padding:18px 0}
+.brief-body .project-facts dt{margin-bottom:7px}
+.concept-media{display:block;position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:#101111;outline:1px solid var(--line);outline-offset:-1px}
+.concept-media>img,.concept-media>video{display:block;width:100%;height:100%;object-fit:contain}
+.concept-media>video{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .3s}
+.concept-media>video.is-playing{opacity:1}
+.concept-card[aria-pressed=true] .concept-media,.concept-card:hover .concept-media{outline-color:var(--gold)}
+.concept-playback{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:14px;color:var(--muted);font-size:10px}
+.concept-playback button{font:inherit;color:var(--gold);padding:8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+@media(max-width:720px){.brief-body{gap:22px}.brief-body .project-facts{gap:0 18px}.concept-playback{font-size:10px}}
