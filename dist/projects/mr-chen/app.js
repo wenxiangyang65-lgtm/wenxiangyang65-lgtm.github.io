@@ -8,24 +8,65 @@ const acts=[
 let actIndex=0, galleryItems=[], galleryIndex=0, motionEnabled=!matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
 const time=t=>`${String(Math.floor(t/60)).padStart(2,'0')}:${(t%60).toFixed(1).padStart(4,'0')}`;
-function frameMarkup(f,idx,featured=false){return `<button class="frame-card" data-gallery="${idx}" aria-label="查看高清：${f[1]}"><div class="frame-media"><img src="${A}p${f[0]}.webp" srcset="${A}p${f[0]}.webp 1x, ${A}p${f[0]}-hd.webp 2x" alt="${f[1]}" loading="lazy" width="900" height="1600">${featured?`<video class="act-loop" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-src="${A}${acts[actIndex].clip||`act-${actIndex+1}.mp4`}"></video>`:''}<span class="frame-overlay">查看高清画面 ＋</span></div><div class="frame-meta"><span>${time(f[2])}</span><span>${f[1]}</span></div></button>`}
-function renderAct(i){actIndex=i;const act=acts[i];$('.story').style.setProperty('--accent',act.color);galleryItems=[act.main,...act.frames];$$('[data-act]').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});const panel=$('#act-panel');panel.setAttribute('aria-labelledby',`tab-${i}`);panel.innerHTML=`<div class="act-original-heading"><p class="act-label"><img src="${A}titles/act${i+1}-label-original.webp" alt="第${['一','二','三','四'][i]}幕"></p><h3 class="art-heading"><img src="${A}titles/act${i+1}-clean.webp" alt="${act.name}"></h3></div><div class="act-intro"><p>${act.intro}</p><button class="primary" data-film="${act.start}"><span class="play-small">▶</span> 观看第${['一','二','三','四'][i]}幕</button></div><div class="frame-grid"><div class="feature-frame">${frameMarkup(act.main,0,true)}<div class="stage-controls"><span>${act.previewDuration?`${act.previewDuration} 秒 · 黄沙至风雪`:'6 秒动态片段'}</span><button class="motion-switch" aria-pressed="${motionEnabled}">动态预览</button></div></div><div class="support-frames">${act.frames.map((f,j)=>frameMarkup(f,j+1)).join('')}</div></div>`;panel.style.animation='none';void panel.offsetWidth;panel.style.animation='';observeStage();}
-let stageObserver;
-function observeStage(){if(stageObserver)stageObserver.disconnect();stageObserver=new IntersectionObserver(entries=>{for(const e of entries){const v=$('.act-loop');if(!v)return;if(e.isIntersecting&&motionEnabled&&!document.querySelector('dialog[open]')){if(!v.src)v.src=v.dataset.src;v.play().then(()=>v.parentElement.classList.add('motion-visible')).catch(()=>{});}else{v.pause();v.parentElement.classList.remove('motion-visible');}}},{threshold:.15});stageObserver.observe($('.feature-frame'));}
-function showGallery(items,index){$('.act-loop')?.pause();pauseConceptVideos();galleryItems=items;galleryIndex=index;updateGallery();$('#gallery-dialog').showModal();document.body.classList.add('dialog-open');}
+function frameMarkup(f,idx,featured=false,act=0){return `<button class="frame-card" data-gallery="${idx}" data-gallery-act="${act}" aria-label="查看高清：${f[1]}"><div class="frame-media"><img src="${A}p${f[0]}.webp" srcset="${A}p${f[0]}.webp 1x, ${A}p${f[0]}-hd.webp 2x" alt="${f[1]}" loading="lazy" width="900" height="1600">${featured?`<video class="act-loop" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-src="${A}${acts[act].clip||`act-${act+1}.mp4`}"></video>`:''}<span class="frame-overlay">查看高清画面 ＋</span></div><div class="frame-meta"><span>${time(f[2])}</span><span>${f[1]}</span></div></button>`}
+function setActiveAct(i){
+ actIndex=i;$('.story').style.setProperty('--accent',acts[i].color);
+ $$('[data-act]').forEach((button,index)=>{if(index===i)button.setAttribute('aria-current','step');else button.removeAttribute('aria-current');});
+}
+function renderActs(){
+ $('#act-panel').innerHTML=acts.map((act,i)=>`<article id="story-act-${i}" class="story-act" data-story-act="${i}" aria-labelledby="story-act-title-${i}" style="--accent:${act.color}"><div class="act-original-heading"><p class="act-label"><img src="${A}titles/act${i+1}-label-original.webp" alt="第${['一','二','三','四'][i]}幕" width="580" height="${[172,180,168,176][i]}" loading="lazy"></p><h3 id="story-act-title-${i}" class="art-heading"><img src="${A}titles/act${i+1}-clean.webp" alt="${act.name}" width="${i===0?1200:2020}" height="${[157,264,268,268][i]}" loading="lazy"></h3></div><div class="act-intro"><p>${act.intro}</p><button class="primary" data-film="${act.start}"><span class="play-small">▶</span> 观看第${['一','二','三','四'][i]}幕</button></div><div class="frame-grid"><div class="feature-frame">${frameMarkup(act.main,0,true,i)}<div class="stage-controls"><span>${act.previewDuration?`${act.previewDuration} 秒 · 黄沙至风雪`:'6 秒动态片段'}</span><button class="motion-switch" aria-pressed="${motionEnabled}">动态预览</button></div></div><div class="support-frames">${act.frames.map((f,j)=>frameMarkup(f,j+1,false,i)).join('')}</div></div></article>`).join('');
+ galleryItems=[acts[0].main,...acts[0].frames];setActiveAct(0);observeStage();
+}
+const stageVisible=new Set();let stageObserver;
+function pauseActVideos(){$$('.act-loop').forEach(v=>v.pause());}
+function syncActVideos(){
+ $$('.motion-switch').forEach(button=>button.setAttribute('aria-pressed',String(motionEnabled)));
+ $$('.act-loop').forEach(v=>{
+  if(!stageVisible.has(v)||!motionEnabled||document.hidden||document.querySelector('dialog[open]')){v.pause();v.parentElement.classList.remove('motion-visible');return;}
+  if(!v.getAttribute('src')){v.src=v.dataset.src;v.load();}
+  v.muted=true;v.play().then(()=>{if(!v.paused)v.parentElement.classList.add('motion-visible');}).catch(()=>{});
+ });
+}
+function observeStage(){
+ if(!stageObserver){
+  stageObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{const v=e.target;if(e.isIntersecting)stageVisible.add(v);else stageVisible.delete(v);});syncActVideos();},{threshold:.15});
+  $$('.act-loop').forEach(video=>stageObserver.observe(video));
+ }
+ syncActVideos();
+}
+function actScrollOffset(){return $('.site-header').getBoundingClientRect().height+$('.act-tabs').getBoundingClientRect().height+24;}
+function jumpToAct(i){
+ const panel=$(`#story-act-${i}`);if(!panel)return;
+ window.scrollTo({top:scrollY+panel.getBoundingClientRect().top-actScrollOffset(),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+}
+let storyScrollQueued=false;
+function syncStoryChapter(){
+ storyScrollQueued=false;if(document.querySelector('dialog[open]'))return;
+ const panels=$$('.story-act'),offset=actScrollOffset();
+ const lead=Math.min(Math.max(32,(innerHeight-offset)*.28),Math.min(...panels.map(panel=>panel.getBoundingClientRect().height))*.8);
+ const line=offset+lead;let active=0;
+ panels.forEach((panel,i)=>{if(panel.getBoundingClientRect().top<=line)active=i;});
+ if(scrollY+innerHeight>=document.documentElement.scrollHeight-16)active=acts.length-1;
+ if(active!==actIndex)setActiveAct(active);
+}
+function queueStoryChapter(){if(!storyScrollQueued){storyScrollQueued=true;requestAnimationFrame(syncStoryChapter);}}
+window.addEventListener('scroll',queueStoryChapter,{passive:true});
+window.addEventListener('resize',queueStoryChapter);
+window.addEventListener('pageshow',queueStoryChapter);
+function showGallery(items,index){pauseActVideos();pauseConceptVideos();galleryItems=items;galleryIndex=index;updateGallery();$('#gallery-dialog').showModal();document.body.classList.add('dialog-open');}
 function updateGallery(){const f=galleryItems[galleryIndex];$('#gallery-image').src=`${A}p${f[0]}-hd.webp`;$('#gallery-image').alt=f[1];$('#gallery-title').textContent=f[1];$('#gallery-caption').textContent=f[3]||'';$('#gallery-index').textContent=`${String(galleryIndex+1).padStart(2,'0')} / ${String(galleryItems.length).padStart(2,'0')}${f[2]!=null?' · '+time(f[2]):''}`;$('#gallery-play').hidden=f[2]==null;$('.gallery-image-wrap').classList.remove('zoomed');$('#gallery-zoom').setAttribute('aria-pressed','false');$('#gallery-zoom').textContent='放大细节';}
-function openFilm(t=0){$('.act-loop')?.pause();pauseConceptVideos();const gallery=$('#gallery-dialog');if(gallery.open)gallery.close();const d=$('#film-dialog');if(!d.open)d.showModal();document.body.classList.add('dialog-open');const v=$('#full-film'),source=v.querySelector('source');if(!source.getAttribute('src'))source.src=source.dataset.src;const seek=()=>{v.currentTime=t;v.play().catch(()=>{});};if(v.readyState>=1)seek();else{v.addEventListener('loadedmetadata',seek,{once:true});v.load();}}
+function openFilm(t=0){pauseActVideos();pauseConceptVideos();const gallery=$('#gallery-dialog');if(gallery.open)gallery.close();const d=$('#film-dialog');if(!d.open)d.showModal();document.body.classList.add('dialog-open');const v=$('#full-film'),source=v.querySelector('source');if(!source.getAttribute('src'))source.src=source.dataset.src;const seek=()=>{v.currentTime=t;v.play().catch(()=>{});};if(v.readyState>=1)seek();else{v.addEventListener('loadedmetadata',seek,{once:true});v.load();}}
 function closeDialog(d){d.close();if(d.id==='film-dialog')$('#full-film').pause();document.body.classList.remove('dialog-open');}
-document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b)return;if(b.dataset.act!==undefined)renderAct(+b.dataset.act);if(b.dataset.gallery!==undefined)showGallery([acts[actIndex].main,...acts[actIndex].frames],+b.dataset.gallery);if(b.dataset.film!==undefined)openFilm(+b.dataset.film);if(b.dataset.seek!==undefined)openFilm(+b.dataset.seek);if(b.classList.contains('close-dialog'))closeDialog(b.closest('dialog'));if(b.classList.contains('motion-switch')){motionEnabled=!motionEnabled;b.setAttribute('aria-pressed',motionEnabled);observeStage();}});
+document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b)return;if(b.dataset.act!==undefined)jumpToAct(+b.dataset.act);if(b.dataset.gallery!==undefined){const act=acts[Number(b.dataset.galleryAct)];showGallery([act.main,...act.frames],+b.dataset.gallery);}if(b.dataset.film!==undefined)openFilm(+b.dataset.film);if(b.dataset.seek!==undefined)openFilm(+b.dataset.seek);if(b.classList.contains('close-dialog'))closeDialog(b.closest('dialog'));if(b.classList.contains('motion-switch')){motionEnabled=!motionEnabled;b.setAttribute('aria-pressed',motionEnabled);observeStage();}});
 $$('dialog').forEach(d=>{d.addEventListener('cancel',e=>{e.preventDefault();closeDialog(d)});d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog(d);}})});
 $('#gallery-prev').onclick=()=>{galleryIndex=(galleryIndex-1+galleryItems.length)%galleryItems.length;updateGallery()};$('#gallery-next').onclick=()=>{galleryIndex=(galleryIndex+1)%galleryItems.length;updateGallery()};$('#gallery-play').onclick=()=>openFilm(galleryItems[galleryIndex][2]);$('#gallery-zoom').onclick=()=>{const z=$('.gallery-image-wrap').classList.toggle('zoomed');$('#gallery-zoom').setAttribute('aria-pressed',z);$('#gallery-zoom').textContent=z?'适应窗口':'放大细节'};
-document.addEventListener('keydown',e=>{if($('#gallery-dialog').open){if(e.key==='ArrowLeft')$('#gallery-prev').click();if(e.key==='ArrowRight')$('#gallery-next').click();}else if(e.target.matches('[data-act]')&&['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const i=e.key==='Home'?0:e.key==='End'?3:(actIndex+(e.key==='ArrowRight'?1:3))%4;renderAct(i);$(`#tab-${i}`).focus();}});
+document.addEventListener('keydown',e=>{if($('#gallery-dialog').open){if(e.key==='ArrowLeft')$('#gallery-prev').click();if(e.key==='ArrowRight')$('#gallery-next').click();}else if(e.target.matches('[data-act]')&&['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const current=Number(e.target.dataset.act),i=e.key==='Home'?0:e.key==='End'?3:(current+(e.key==='ArrowRight'?1:3))%4;$(`#tab-${i}`).focus({preventScroll:true});jumpToAct(i);}});
 $('#full-film').addEventListener('timeupdate',()=>{const t=$('#full-film').currentTime;$$('[data-seek]').forEach((b,i)=>b.classList.toggle('active',t>=acts[i].start&&(i===3||t<acts[i+1].start)));});
 function setupReveal(){if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.body.classList.add('js-motion');const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.08});$$('.reveal').forEach(el=>observer.observe(el));}
 window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;$('.reading-progress').style.width=`${max?scrollY/max*100:0}%`;},{passive:true});
 const navObserver=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){$$('.site-header nav a').forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id));}})},{rootMargin:'-15% 0px -65% 0px'});
 function setupNavigation(){$$('main section[id]').forEach(s=>navObserver.observe(s))}
-renderAct(0);setupReveal();setupNavigation();
+renderActs();setupReveal();setupNavigation();queueStoryChapter();
 const conceptItems=[[87,'行业内卷与乱象',null,'从狂沙、冰川到断剑残坊，用自然环境的压迫感替代对行业乱象的直接说教。'],[41,'坚守初心',null,'逆风中的侠客，与亲手铸剑的匠人共同构成人物叙事，让坚持变成行动。'],[42,'去伪存真',null,'用水下淬火、黑壳剥落和金色显露的材质变化，讲述去伪存真。'],[43,'粉丝凝聚力',null,'将辛选图腾嵌入叙事，让灵石、熔火、阵纹与万剑形成递进的视觉线索。'],[44,'品牌宣战',null,'以一半人物、一半雄狮的终帧，收束回归、聚力与亮剑的品牌宣言。']];
 const swords=[[45,'矿石原石',null,'灵岩嵌辛选图腾，孕育第一缕光，初心未凿。'],[46,'石质剑坯',null,'粗坯初见锋芒，千锤造形。'],[48,'黑金重剑',null,'黑金回纹百炼，锋芒初显。'],[47,'金纹神剑',null,'鎏金铭文 545818，众心铸锋。']];
 const characters=[[93,'风雪侠客',null,'斗笠与黑袍，在冷调环境中建立苦行者形象。'],[71,'面部设定',null,'保留人物面部识别，建立稳定的影像人物形象。'],[82,'服装正面',null,'以深色层叠服装与披风统一人物造型。'],[60,'背部视图',null,'黑袍与斗笠构成清晰的轮廓锚点。']];
@@ -37,8 +78,8 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
 $('#concept-view').onclick=()=>showGallery(conceptItems,conceptIndex);$('#sword-image-button').onclick=()=>showGallery(swords,swordIndex);$('#character-image-button').onclick=()=>showGallery(characters,characterIndex);
 const countsObserver=new IntersectionObserver(entries=>{for(const e of entries){if(!e.isIntersecting)continue;countsObserver.unobserve(e.target);if(matchMedia('(prefers-reduced-motion: reduce)').matches)continue;const start=performance.now();const items=[...e.target.querySelectorAll('[data-count]')];function tick(now){const x=Math.min(1,(now-start)/1600),ease=1-Math.pow(1-x,3);items.forEach(el=>el.textContent=(+el.dataset.count*ease).toFixed(+el.dataset.decimals||0));if(x<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}},{threshold:.35});countsObserver.observe($('.results-grid'));setupReveal();setupNavigation();
 let touchStartX=0;$('.gallery-image-wrap').addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].clientX},{passive:true});$('.gallery-image-wrap').addEventListener('touchend',e=>{if($('.gallery-image-wrap').classList.contains('zoomed'))return;const dx=e.changedTouches[0].clientX-touchStartX;if(Math.abs(dx)>70)(dx<0?$('#gallery-next'):$('#gallery-prev')).click()},{passive:true});
-document.addEventListener('visibilitychange',()=>{const v=$('.act-loop');if(!v)return;if(document.hidden){v.pause()}else if(motionEnabled&&!document.querySelector('dialog[open]'))observeStage()});
-$$('dialog').forEach(d=>d.addEventListener('close',()=>{document.body.classList.remove('dialog-open');observeStage()}));
+document.addEventListener('visibilitychange',syncActVideos);
+$$('dialog').forEach(d=>d.addEventListener('close',()=>{document.body.classList.remove('dialog-open');observeStage();queueStoryChapter()}));
 
 // Load only visible excerpts; retain the original still if autoplay is unavailable.
 const conceptReduced=matchMedia('(prefers-reduced-motion: reduce)'),conceptVideos=$$('.concept-video'),conceptVisible=new Set();
