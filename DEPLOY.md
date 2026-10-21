@@ -163,3 +163,9 @@ ssh portfolio-tencent 'python3 /usr/local/lib/portfolio-deploy.py rollback'
 ## 已发布图片复用（2026-10-21）
 
 `content/published-images.json` 记录源图和已发布图片的 SHA-256、字节数及编码质量。源图摘要一致时，构建可从原腾讯云地址复用已发布的图片；下载后同时核对摘要、尺寸、透明通道和静态页数。无法下载或不匹配时自动从原图编码，不依赖远端文件的可信度。未改动的图片避免重复编码，原稿和全部视频保持不变。
+
+## 故事片段与旧素材保留（2026-10-21）
+
+骏马迎春的九段故事视频由原始 1080p 成片截取，时间范围保存在该项目的 chapters.json，并同步到 offline-data.js。发布用 H.264 静音短片位于 assets/story-clips/；完整成片和原图片继续保留。
+
+content/publish-exclusions.json 仅列出该项目已不再引用的旧版静态图。构建跳过这些文件，原图仍完整保存在 dist/ 中，为高清视频留出发布空间。测试会阻止当前页面重新引用排除文件。

@@ -35,17 +35,45 @@ if('IntersectionObserver'in window&&!reduced.matches){
  $$('.reveal').forEach(el=>observer.observe(el));
 }
 const imageDialog=$('#image-dialog'),filmDialog=$('#film-dialog'),video=filmDialog.querySelector('video');
-function openImage(src,caption){$('#dialog-image').src=src;$('#dialog-image').alt=caption;$('#image-dialog-caption').textContent=caption;document.body.classList.add('dialog-open');imageDialog.showModal();}
+function openImage(src,caption){$('#dialog-image').src=src;$('#dialog-image').alt=caption;$('#image-dialog-caption').textContent=caption;document.body.classList.add('dialog-open');imageDialog.showModal();syncStoryPlayback();}
 $$('[data-image]').forEach(b=>b.addEventListener('click',()=>openImage(b.dataset.image,b.dataset.caption||b.parentElement.querySelector('img').alt)));
 [imageDialog,filmDialog].forEach(dialog=>{
  dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
  dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
- dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');if(dialog===filmDialog)video.pause();});
+ dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');if(dialog===filmDialog)video.pause();syncStoryPlayback();});
 });
-$$('[data-open-film]').forEach(b=>b.addEventListener('click',()=>{document.body.classList.add('dialog-open');filmDialog.showModal();video.play().catch(()=>{});}));
+$$('[data-open-film]').forEach(b=>b.addEventListener('click',()=>{document.body.classList.add('dialog-open');filmDialog.showModal();syncStoryPlayback();video.play().catch(()=>{});}));
 video.addEventListener('error',()=>$('.video-error').hidden=false);
 let acts=[];
 let storyAct=0,frames=[],frameIndex=0,frameAct='all',pendingAct=null;
+
+const storyVideo=$('#story-video'),storyPlayToggle=$('#story-play-toggle'),storyVideoStatus=$('#story-video-status');
+let storyVisible=false,storyPaused=reduced.matches;
+function showStoryPlayback(){
+ const playing=!storyVideo.paused&&!storyVideo.ended;
+ storyPlayToggle.textContent=playing?'暂停片段':'播放片段';
+ storyPlayToggle.setAttribute('aria-pressed',String(playing));
+}
+function syncStoryPlayback(){
+ if(!storyVisible||document.hidden||storyPaused||filmDialog.open||imageDialog.open){storyVideo.pause();showStoryPlayback();return;}
+ const src=storyVideo.dataset.clip;if(!src)return;
+ if(storyVideo.getAttribute('src')!==src){storyVideo.src=src;storyVideo.load();}
+ storyVideo.muted=true;storyVideo.defaultMuted=true;
+ storyVideo.play().catch(error=>{if(error.name!=='AbortError')showStoryPlayback();});
+}
+storyPlayToggle.addEventListener('click',()=>{
+ storyPaused=!storyVideo.paused;
+ if(!storyPaused){storyVideoStatus.hidden=true;if(storyVideo.error){storyVideo.load();}}
+ syncStoryPlayback();
+});
+['play','pause','ended'].forEach(name=>storyVideo.addEventListener(name,showStoryPlayback));
+storyVideo.addEventListener('error',()=>{storyVideoStatus.hidden=false;showStoryPlayback();});
+if('IntersectionObserver'in window){
+ new IntersectionObserver(entries=>{storyVisible=entries[0].isIntersecting;syncStoryPlayback();},{threshold:.1}).observe(storyVideo);
+}else{storyVisible=true;}
+document.addEventListener('visibilitychange',syncStoryPlayback);
+reduced.addEventListener('change',()=>{if(reduced.matches){storyPaused=true;syncStoryPlayback();}});
+
 function changeImage(img,src,alt){
  img.alt=alt;img.classList.add('is-changing');img.src=src;
  const show=()=>{if(img.getAttribute('src')===src)img.classList.remove('is-changing');};
@@ -55,7 +83,12 @@ function setStory(index){
  const a=acts[index];if(!a)return;storyAct=index;
  $$('.act-tabs button').forEach((b,i)=>{b.setAttribute('aria-selected',String(i===index));b.tabIndex=i===index?0:-1;});
  $('#story-panel').setAttribute('aria-labelledby',`story-tab-${index}`);
- changeImage($('#story-image'),a.image,a.image_alt||`${a.title}：${a.voice}`);
+ storyVideo.pause();
+ storyVideo.poster=a.image;storyVideo.setAttribute('aria-label',a.image_alt||a.title);
+ if(storyVideo.dataset.clip!==a.clip){storyVideo.removeAttribute('src');storyVideo.load();storyPaused=reduced.matches;}
+ storyVideo.dataset.clip=a.clip;storyVideoStatus.hidden=true;
+ $('#story-clip-range').textContent=`高清片段 · ${a.clip_time} · 1080p`;
+ syncStoryPlayback();
  $('#story-number').textContent=`${String(index+1).padStart(2,'0')} / ${a.title}`;$('#story-french').textContent=a.subtitle;
  $('#story-animal').src=`assets/animal-${a.actor}.webp?revision=20261009-spring-horse`;$('#story-animal').alt=actors[a.actor];$('#story-speaker').textContent=`${actors[a.actor]}的旁白`;$('#story-voice').textContent=a.voice;
 }

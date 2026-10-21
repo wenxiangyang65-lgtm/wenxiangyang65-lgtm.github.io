@@ -1,0 +1,30 @@
+{
+  "reason": "Superseded spring-horse stills remain in dist as original backups; the current page does not load them. Leave room for the matching 1080p story excerpts.",
+  "paths": [
+    "projects/spring-horse/assets/animal-panda-scene.webp",
+    "projects/spring-horse/assets/brief.webp",
+    "projects/spring-horse/assets/city-petals.webp",
+    "projects/spring-horse/assets/city.webp",
+    "projects/spring-horse/assets/cold.webp",
+    "projects/spring-horse/assets/context-snow.webp",
+    "projects/spring-horse/assets/encounter-detail.webp",
+    "projects/spring-horse/assets/encounter.webp",
+    "projects/spring-horse/assets/eye.webp",
+    "projects/spring-horse/assets/flower-3.webp",
+    "projects/spring-horse/assets/flower-6.webp",
+    "projects/spring-horse/assets/foxes.webp",
+    "projects/spring-horse/assets/gold.webp",
+    "projects/spring-horse/assets/hero.webp",
+    "projects/spring-horse/assets/horse-detail.webp",
+    "projects/spring-horse/assets/horse.webp",
+    "projects/spring-horse/assets/lion.webp",
+    "projects/spring-horse/assets/palette-gold.webp",
+    "projects/spring-horse/assets/pink.webp",
+    "projects/spring-horse/assets/role-squirrel-female.webp",
+    "projects/spring-horse/assets/spring.webp",
+    "projects/spring-horse/assets/story-winter.webp",
+    "projects/spring-horse/assets/symbols.webp",
+    "projects/spring-horse/assets/winter-landscape.webp",
+    "projects/spring-horse/assets/winter.webp"
+  ]
+}
