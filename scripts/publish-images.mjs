@@ -1,11 +1,12 @@
-import { readFile, writeFile, readdir, stat, mkdir } from 'node:fs/promises';
-import { createHash } from 'node:crypto';
+import { readFile, writeFile, readdir, stat, mkdir, rename } from 'node:fs/promises';
+import { createHash, randomUUID } from 'node:crypto';
 import { resolve, relative } from 'node:path';
 import sharp from 'sharp';
 
 // Encode only distribution copies. Source artwork, dimensions, animation and video stay intact.
 const LIMIT = 1_000_000_000;
-const TARGET = 990_000_000;
+// Leave room for small HTML revisions without re-encoding a large source image.
+const TARGET = 995_000_000;
 sharp.concurrency(1);
 sharp.cache({memory:64,files:0,items:0});
 async function allFiles(root) {
@@ -33,17 +34,25 @@ export async function optimisePublishedImages(output) {
     if(digest(await readFile(path))!==entry.sourceSha256)return false;
     if(entry.sourceSha256===entry.publishedSha256)return true;
     const cached=resolve(cache,'published-'+entry.publishedSha256+'.webp');
-    let data;
+    let data,downloaded=false;
     try {
-      try {data=await readFile(cached);}catch {
+      try {
+        data=await readFile(cached);
+        if(data.length!==entry.publishedBytes||digest(data)!==entry.publishedSha256)throw Error('Invalid cached image');
+      }catch {
         const response=await fetch(new URL(name,publishedPlan.origin),{signal:AbortSignal.timeout(90000)});
         if(!response.ok)return false;
         data=Buffer.from(await response.arrayBuffer());
+        downloaded=true;
       }
       if(data.length!==entry.publishedBytes||digest(data)!==entry.publishedSha256)return false;
       const check=await sharp(data).metadata();
       if(check.width!==metadata.width||check.height!==metadata.height||Boolean(check.hasAlpha)!==Boolean(metadata.hasAlpha)||(check.pages||1)!==1)return false;
-      await writeFile(cached,data);
+      if(downloaded) {
+        const temporary=cached+'.'+randomUUID()+'.tmp';
+        await writeFile(temporary,data);
+        await rename(temporary,cached);
+      }
       await writeFile(path,data);
       total+=data.length-bytes;
       selected.set(path,{path:name,before:bytes,after:data.length,quality:entry.quality,width:metadata.width,height:metadata.height});
