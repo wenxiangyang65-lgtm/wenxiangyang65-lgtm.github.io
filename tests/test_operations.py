@@ -20,7 +20,7 @@ class MediaReferences(HTMLParser):
         if tag in ('img', 'video', 'source'):
             self.assets.extend(values[key] for key in ('src', 'poster', 'data-src') if values.get(key))
         if tag == 'script' and values.get('src'):
-            self.scripts.append(values['src'])
+            self.scripts.append(urlsplit(values['src']).path)
 
 
 class OperationsCaseTests(unittest.TestCase):
