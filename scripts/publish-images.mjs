@@ -40,10 +40,21 @@ export async function optimisePublishedImages(output) {
         data=await readFile(cached);
         if(data.length!==entry.publishedBytes||digest(data)!==entry.publishedSha256)throw Error('Invalid cached image');
       }catch {
-        const response=await fetch(new URL(name,publishedPlan.origin),{signal:AbortSignal.timeout(90000)});
-        if(!response.ok)return false;
-        data=Buffer.from(await response.arrayBuffer());
-        downloaded=true;
+        // Actions runners can reach the existing GitHub mirror faster than the China host.
+        // Accept either mirror only after checking the committed byte count and digest.
+        const mirrors=process.env.GITHUB_ACTIONS==='true'
+          ? ['https://wenxiangyang65-lgtm.github.io/',publishedPlan.origin]
+          : [publishedPlan.origin,'https://wenxiangyang65-lgtm.github.io/'];
+        for(const origin of [...new Set(mirrors)]) {
+          try {
+            const response=await fetch(new URL(name,origin),{signal:AbortSignal.timeout(30000)});
+            if(!response.ok)continue;
+            const candidate=Buffer.from(await response.arrayBuffer());
+            if(candidate.length!==entry.publishedBytes||digest(candidate)!==entry.publishedSha256)continue;
+            data=candidate;downloaded=true;break;
+          }catch {/* Try the other verified mirror before expensive source encoding. */}
+        }
+        if(!downloaded)return false;
       }
       if(data.length!==entry.publishedBytes||digest(data)!==entry.publishedSha256)return false;
       const check=await sharp(data).metadata();

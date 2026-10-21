@@ -169,3 +169,5 @@ ssh portfolio-tencent 'python3 /usr/local/lib/portfolio-deploy.py rollback'
 骏马迎春的九段故事视频由原始 1080p 成片截取，时间范围保存在该项目的 chapters.json，并同步到 offline-data.js。发布用 H.264 静音短片位于 assets/story-clips/；完整成片和原图片继续保留。
 
 content/publish-exclusions.json 仅列出该项目已不再引用的旧版静态图。构建跳过这些文件，原图仍完整保存在 dist/ 中，为高清视频留出发布空间。测试会阻止当前页面重新引用排除文件。
+
+发布图片下载会同时支持原腾讯云和原 GitHub Pages 镜像。Actions 优先从 GitHub 获取；网络失败、大小或 SHA-256 不一致时切换到另一镜像，只有全部镜像均未通过校验时才重新编码源图，避免短暂下载失败使发布超时。
