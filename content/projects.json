@@ -619,13 +619,13 @@
   {
     "n": 8,
     "slug": "illustration",
-    "title": "插画与三维设计",
+    "title": "品牌 IP 与个人设计探索",
     "year": 2025,
     "x": 12.74,
     "y": 5.84,
     "size": 75.48,
     "spin": true,
-    "description": "插画、品牌 IP 与三维设计原稿。",
+    "description": "两组品牌 IP 与三维项目、六组个人设计探索。以独立高清素材、角色旋转、白模对比和系列筛选呈现作品。",
     "entry": "projects/illustration/index.html",
     "template": "original",
     "cover": "assets/disc-08.webp",
@@ -681,9 +681,9 @@
       },
       {
         "id": "characters",
-        "title": "潮流角色与插画",
+        "title": "情绪医疗站 · 潮流角色",
         "group": "explore",
-        "summary": "角色、色彩与场景的风格探索。",
+        "summary": "以角色群像、配色和装备，组织情绪主题的系列创作。",
         "tags": [
           "个人创作",
           "角色"
@@ -696,9 +696,9 @@
       },
       {
         "id": "tiger",
-        "title": "国潮虎系列",
+        "title": "五行福虎",
         "group": "explore",
-        "summary": "以传统符号，探索鲜明的图形语言。",
+        "summary": "将虎头、门神与五行元素，转化为五种角色图形。",
         "tags": [
           "图形",
           "应用延展"

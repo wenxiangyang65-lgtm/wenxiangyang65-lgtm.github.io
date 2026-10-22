@@ -4,9 +4,9 @@
   "images": {
     "projects/operations-spring-home/assets/images/4c24f5e5ace28e.webp": {
       "sourceSha256": "f3ee9125ba4078a1b23af2fb86eebeb04dd8da1905d4b38fc5ad6a5113e1fea7",
-      "publishedSha256": "d5ed9cd4dbe620c6e7f831f454ffbbda58146c2f698c64249285c623252a6353",
-      "publishedBytes": 397730,
-      "quality": 82
+      "publishedSha256": "34a6970819323e901c5dcc81177d04355c93ef24f148982bc596c925597c2dcb",
+      "publishedBytes": 339542,
+      "quality": 78
     },
     "projects/operations-spring-home/assets/images/1fe6638b7da885.webp": {
       "sourceSha256": "fd1d4d878ecaddaad739e66624a4d641bb0f22e4c3ddc01ccee891f3195e921e",
@@ -16,15 +16,15 @@
     },
     "projects/operations-spring-home/assets/images/07df314bff3ae6.webp": {
       "sourceSha256": "830f3baa8afc31396098113a9d99025dbb14c9a42177c8351b6c50639df68929",
-      "publishedSha256": "f2f332ecc7b139126c566c7c1589f278d566896db7617a56b7da3a5209ae0ff7",
-      "publishedBytes": 455280,
-      "quality": 82
+      "publishedSha256": "a839d5c5082f80ab3e2e883cbe21dda272d43146d2a601498536b8a46d08a001",
+      "publishedBytes": 391466,
+      "quality": 78
     },
     "projects/operations-spring-home/assets/images/f43c78f1402952.webp": {
       "sourceSha256": "51f14ffcdb31089f1e1a79a8f6abc5fccaa1898a8b15ced96419be7e5c82d01a",
-      "publishedSha256": "22f4f9e1aa3dd0701509b8737a3547631c9fa1c224949b3cad3470543a5f5839",
-      "publishedBytes": 368432,
-      "quality": 82
+      "publishedSha256": "734d0fa53bd24aa312928c5cb2bf9a41ecfa3044f2d6029da18571c63191a984",
+      "publishedBytes": 319432,
+      "quality": 78
     },
     "projects/operations-spring-home/assets/images/07334a7a89ce24.webp": {
       "sourceSha256": "8d72dde4fa7127307a4d0fa6b17e331b36d97d382fd305024c12837c2a833c87",
@@ -34,9 +34,9 @@
     },
     "projects/operations-spring-home/assets/images/52fc091af1a52e.webp": {
       "sourceSha256": "0bac12768c29d0571407a9e4df2eab225e18ec4c571b67ef8b4204eefe31a644",
-      "publishedSha256": "570e0bf31ab4eca7019ecf05baf8e3ab90847b3be5a123352d2f53d70bb90214",
-      "publishedBytes": 365094,
-      "quality": 82
+      "publishedSha256": "b46ba5ec626b9630caabe3a7f765790b459e20ee6848669fdbaeaad51892fb31",
+      "publishedBytes": 312672,
+      "quality": 78
     },
     "projects/operations-football/assets/images/12e1e807880883.webp": {
       "sourceSha256": "6d875b565509571c6f66516ae611a10e6fbe0c172a57d67ebda928b129dee78c",
@@ -106,21 +106,21 @@
     },
     "projects/trade-in/pdf-pages/hd/page-1-03.webp": {
       "sourceSha256": "ce52a823c06e625579de7675e3435f7a56e7ed65fa1d6815ae7b681a09d01ed4",
-      "publishedSha256": "0abcafbad25554a3f8cec160c9febbf4a9860b3c8899cd88adbfba73c3564afb",
-      "publishedBytes": 770478,
-      "quality": 82
+      "publishedSha256": "c18321c1846b202f5c9d2471a8ade9e90cda98c72c212b348afe90e52b0bd858",
+      "publishedBytes": 661242,
+      "quality": 78
     },
     "projects/trade-in/pdf-pages/hd/page-2-04.webp": {
       "sourceSha256": "0fe8aa5aa463e46877117ad12512b49fcf856007b1fc473046d99a780698b003",
-      "publishedSha256": "08d2e7f27cd775446b168f46d071f8fe2d1a46b21e434247f5d8b9dfe50cd1ce",
-      "publishedBytes": 646186,
-      "quality": 82
+      "publishedSha256": "1ddf0ba961ce44e60286e30748089e24089ff086904d6dda09f4aaffe678eaba",
+      "publishedBytes": 582370,
+      "quality": 78
     },
     "projects/trade-in/pdf-pages/hd/page-1-02.webp": {
       "sourceSha256": "dffcc17fcc873bc2b988189e74559de3fcc1e90473d08b6ecd0f0ae559eef383",
-      "publishedSha256": "33fc58fd640e20d6c7aea851d30464a6cc627ad138de900bd812846668563125",
-      "publishedBytes": 830926,
-      "quality": 82
+      "publishedSha256": "f031a60bb02cf106eadef13b912eb4ec727536b6926076e905fbb298e41338dd",
+      "publishedBytes": 724880,
+      "quality": 78
     },
     "projects/trade-in/pdf-pages/hd/page-1-01.webp": {
       "sourceSha256": "3bc057e9f894b8070010fb1f5c77d6de2714f369175c8b78ab8764c22c1be204",
@@ -136,9 +136,9 @@
     },
     "projects/trade-in/pdf-pages/hd/page-3-01.webp": {
       "sourceSha256": "c7f7e939424fae26509c189c7e50522fbcfc173f3243ff81ce8ac0174f893a03",
-      "publishedSha256": "d9bd3713baa06ae57bc4712a61de0ad9f758f29b5a6ffbec77cec626cd7f8c9e",
-      "publishedBytes": 687740,
-      "quality": 82
+      "publishedSha256": "db6ec98a4039cf434484b7a19a219885778f7bf1b1b6d000c59cc0d5b3293cdd",
+      "publishedBytes": 623428,
+      "quality": 78
     },
     "projects/trade-in/static/full/100.webp": {
       "sourceSha256": "268f310073c044e509bdbe3869c5312d8ba5a594a98d7da40492d5a68044fcc3",
@@ -148,9 +148,9 @@
     },
     "projects/trade-in/static/full/045.webp": {
       "sourceSha256": "5c43ee89d99c07b760e549302c0e29c3a37c65528d03156b8cef42c8832087c8",
-      "publishedSha256": "077f6b338d3d223881a693716e319fcd019b0e30ff0646110cfc75cf6ef6f663",
-      "publishedBytes": 641558,
-      "quality": 82
+      "publishedSha256": "ba49db02c6864261f3171865633b4066c02cb216dd88352050928764e0717af1",
+      "publishedBytes": 562630,
+      "quality": 78
     },
     "projects/trade-in/static/full/013.webp": {
       "sourceSha256": "c671f5209dd01c37f81f2815c08bf29d5a1bf7baaec84a6cb4903693a4bb92a9",
@@ -292,9 +292,9 @@
     },
     "projects/operations-outdoor/assets/images/3fe8fbb72b5767.webp": {
       "sourceSha256": "5eeaedf6e349f02b733c41b105a5f36642be90def27a8b9f3775319d60b4a9bd",
-      "publishedSha256": "9e4b6fd2d7d9126f8cdfa7a72c39ea154349d0bf1f71dfd28b00d5559e319248",
-      "publishedBytes": 447026,
-      "quality": 82
+      "publishedSha256": "591eee6c1b2a03c666f323fdd52016c01bb770bd3db0f03545b441b12f6f700a",
+      "publishedBytes": 392736,
+      "quality": 78
     },
     "projects/operations-outdoor/assets/images/f684e7f5cd1c5e.webp": {
       "sourceSha256": "a35b251bf5218e712136fc349f5e48c33fdc2f66ccfcbba35e1c6521aa935ea0",
@@ -316,9 +316,9 @@
     },
     "projects/operations-outdoor/assets/images/f80cf4c22f04cd.webp": {
       "sourceSha256": "e1e0e805f081a81a96e31950871291f4799ab7376611d9183085c8468869c059",
-      "publishedSha256": "c2637bca163107c0c234ddc654147d6bc501fbcc6a74b6dbf79d007be5b17a91",
-      "publishedBytes": 353320,
-      "quality": 82
+      "publishedSha256": "a8977113cb44a584b9910ef76d7503c8c79c6cdb81d5a28b965265ec91c29714",
+      "publishedBytes": 307966,
+      "quality": 78
     },
     "projects/new-year/assets/poster-layue24-hi.webp": {
       "sourceSha256": "759944b657c037b1d2b4c19aaedce8e68e32daf09cb731221121b246c02cfe2d",
@@ -376,9 +376,9 @@
     },
     "projects/new-year/assets/kv-sketch-main.webp": {
       "sourceSha256": "0c0423a714bd0e61dec4d409e1e797b7e4e51cad79b85409ffaa344f42542636",
-      "publishedSha256": "ae03acf20d510e597c8db4bf2c7d0f04efa69fbf9b8882f1935a601cffa7ecb7",
-      "publishedBytes": 286532,
-      "quality": 82
+      "publishedSha256": "7a3f8e9d7c082f14b9c9e967c0eabb607fa5decd94f8138e2dfb79ad5b7b6377",
+      "publishedBytes": 243454,
+      "quality": 78
     },
     "projects/new-year/assets/online-complete.webp": {
       "sourceSha256": "1c780fc6548c340c870922f0d1b66925aef0c06d95e424953be3b3940e9e4f8f",
@@ -388,9 +388,9 @@
     },
     "projects/new-year/assets/outcome-venue.webp": {
       "sourceSha256": "ab12a6ec96a2040f3b8e858dbbaaec5a7e98c4c0563d0fbe93c88d3f5930662b",
-      "publishedSha256": "b068e1a9af1a1dd8cbc428422054b50bb64fc5272d6938bb9003b7e9765d58f5",
-      "publishedBytes": 612188,
-      "quality": 82
+      "publishedSha256": "f341d6727b333dfe78a4c6b09f2ea52f295ff8cf1c1cd09094b0d5f07cdda191",
+      "publishedBytes": 522740,
+      "quality": 78
     },
     "projects/new-year/assets/sketch-lantern.webp": {
       "sourceSha256": "28ba551919ef7733ed32d623aa6b3ba15837a0c2adb62cafbfe262f117764703",
@@ -454,9 +454,9 @@
     },
     "projects/new-year/assets/sketch-day1.webp": {
       "sourceSha256": "1c70118c641df9015f07e97e2cc602cd6f65b46493dcb976ccf171b89337a82f",
-      "publishedSha256": "9285ebfe73a9241030574200a208defff4a88fc26b6a763197e19d2d6a3b4e87",
-      "publishedBytes": 276850,
-      "quality": 82
+      "publishedSha256": "c0101cce6f2dacc492ad1d9cab43a8c19af012fff8a80d4a8af9bc2018970b0b",
+      "publishedBytes": 235892,
+      "quality": 78
     },
     "projects/new-year/assets/sketch-day28.webp": {
       "sourceSha256": "f34dfcd384bf2e2dd17dc0f78a983f4814f2b578bc2777fa71f4db4c59bc527b",
@@ -472,9 +472,9 @@
     },
     "projects/new-year/assets/type-system.webp": {
       "sourceSha256": "136f15115772933e8eeb7c98671d23b527a3ea3d8cfa24248a07ee7f99896463",
-      "publishedSha256": "7b53e7f5c620e2e2d9cce4d52833e5aa35d1b299872eed7a32f1fd28dd770a6f",
-      "publishedBytes": 315978,
-      "quality": 82
+      "publishedSha256": "f1787a378ffa9d94347addf81a5ea5f45321de8275f65d06ae6dd992d5d5829d",
+      "publishedBytes": 281220,
+      "quality": 78
     },
     "projects/new-year/assets/final-day1.webp": {
       "sourceSha256": "c7e4e4b8120d4e24f7125ddd940aa0fbc25bc436ac0a3be651adbb6b0c47d8b0",
@@ -490,9 +490,9 @@
     },
     "projects/new-year/assets/offline-complete.webp": {
       "sourceSha256": "9d1e9d4c8ab705bdbfe7ae98f593e06213b147d05871be72fb35a9354dc489fe",
-      "publishedSha256": "63ce289859c1bca3b2ee44c379c27f1ecd3a7f0f89bba29c61d69ef7a29fb7b2",
-      "publishedBytes": 823030,
-      "quality": 82
+      "publishedSha256": "5405f30b3dffafbb925354aa5473fb89078522533ac5c68444e3a79b4cf747c1",
+      "publishedBytes": 700970,
+      "quality": 78
     },
     "projects/new-year/assets/kv-sketch-a.webp": {
       "sourceSha256": "fe6aecd850ce4bace65a03b4a1148d4f54f3289ca34171a0d157e9aede4fb394",
@@ -532,9 +532,9 @@
     },
     "projects/awe/assets/awe/full/03/007-02.webp": {
       "sourceSha256": "d2b393ff0d0d809616c3b3301a882e4c2dfd345e2acd47949e692e7c5ab3d696",
-      "publishedSha256": "d7ea76fa67dc094e3801e02a4d858305aebea72b0101d3b2f35496f4d4fd45e8",
-      "publishedBytes": 382132,
-      "quality": 82
+      "publishedSha256": "7c157df4ff9cd0eb503cc25fda14339979545bca4b01cf84f43aba1de6429f22",
+      "publishedBytes": 333100,
+      "quality": 78
     },
     "projects/awe/assets/awe/full/04/001-asset.webp": {
       "sourceSha256": "d8b5285fe4e13da9e700ec7d4d0b31e3b6fbe0cd6091783258e28f4ee6ccb5f7",
@@ -598,21 +598,21 @@
     },
     "projects/awe/assets/awe/full/07/005-04.webp": {
       "sourceSha256": "dbf4d029eb9215665fad4e61b1f55d7c97a3c2298d94284a187e5613953c3880",
-      "publishedSha256": "56f0f4b03f0bfdbd567687e4dfbceb2a0715fe8233ec2b3856e97c481f73af37",
-      "publishedBytes": 577770,
-      "quality": 82
+      "publishedSha256": "53f604c3ceff640bc5128c3c4be1c4542a8c7425668f1cdbda22c51fa19081f7",
+      "publishedBytes": 494106,
+      "quality": 78
     },
     "projects/awe/assets/awe/full/09/005-4.webp": {
       "sourceSha256": "9b0a6eac08451caee96250548bddef0a9abc902b537267157c927200bcbbed43",
-      "publishedSha256": "41294f5bad5db20541c2b6729e193e506e889e9ff2101785c03de80e0b4abb8d",
-      "publishedBytes": 640042,
-      "quality": 82
+      "publishedSha256": "eb9948b2c1ff2d07e5de5ade128761f2929837b5385e91e9d8948f42d2dc4bd6",
+      "publishedBytes": 548086,
+      "quality": 78
     },
     "projects/awe/assets/awe/full/01/002-asset.webp": {
       "sourceSha256": "ef19db98dbcb6d6ab07789c5d912e5138113413c49d7ec0c622e347706042fd3",
-      "publishedSha256": "d0f10e217e1fd2ae61b70998c8ac88de69ccae9edcf74125f2cec15425cf694f",
-      "publishedBytes": 389868,
-      "quality": 82
+      "publishedSha256": "4776fb361ebd88d0e3f3e019703dc9d0f237f7b379d32f8a947381e173442b47",
+      "publishedBytes": 340266,
+      "quality": 78
     },
     "projects/awe/assets/awe/full/12/002-01-27-6x.webp": {
       "sourceSha256": "5f5638a602c27a5cb46fc754e0eb6f43fa43f2990c05fdf59f149676f74bda06",
@@ -622,9 +622,9 @@
     },
     "projects/awe/assets/awe/full/13/002-02.webp": {
       "sourceSha256": "e4c4e77530fc4948b82b106504c8599c586c023b23c97dd3681c08d048155a0e",
-      "publishedSha256": "8c58dd96489d20db3f484834b3562c0877c9846e8f166b4ec3c1ff658c08034a",
-      "publishedBytes": 768296,
-      "quality": 82
+      "publishedSha256": "9365e9b9ff7feb644320d172d1f5af690e49172d22bdcfdba9a444e16bf09b48",
+      "publishedBytes": 663564,
+      "quality": 78
     },
     "projects/a-horse/assets/transform-after-display.webp": {
       "sourceSha256": "1739df92e94982ff234242173a50f62ae009909adf8904a1aa06ca442f15a91d",
@@ -652,9 +652,9 @@
     },
     "projects/a-horse/assets/portrait-display.webp": {
       "sourceSha256": "b941864277e96a1bae754eb436b863d2979bad9df697064af50547fccd75fea2",
-      "publishedSha256": "8cd91380c8e1ba4080bd47d2bf1702598bbf555adc765c32a3a1b2e7f505865c",
-      "publishedBytes": 193456,
-      "quality": 82
+      "publishedSha256": "1f945ced42dc087a5a406ccdf3b0f3a9e1008e69a1f974c311bee7e51e9099a4",
+      "publishedBytes": 160598,
+      "quality": 78
     },
     "projects/a-horse/assets/v69.webp": {
       "sourceSha256": "01d670519ab6092e95f72f8db38c6439e5d53ee2e45a51ade39c13a9d6cb5087",
@@ -706,9 +706,9 @@
     },
     "projects/a-horse/assets/transform-cross-display.webp": {
       "sourceSha256": "7d9607657c34b13a8aefb7bef85df31897994887b8079afda97b206637f60544",
-      "publishedSha256": "94094f590596c78e68c103437ad90e6c993da2ec7155c199187b778192d28cae",
-      "publishedBytes": 256194,
-      "quality": 82
+      "publishedSha256": "a9db679d845a741a7b9c239536e55221c298fbb5d44b72a43ad061909dec979c",
+      "publishedBytes": 217306,
+      "quality": 78
     },
     "projects/a-horse/assets/v73.webp": {
       "sourceSha256": "bc55cf0b45191755acf48e1d9c9bc21e39455b4c70a02daec3f7d95c711a4213",
@@ -724,9 +724,9 @@
     },
     "projects/a-horse/assets/horse-butterfly-display.webp": {
       "sourceSha256": "6e70c8c5929b6da11de21a7b6936dc12dc4657432a2e12507bf94f68988e850f",
-      "publishedSha256": "6e3fe9dc2f7ae5f35f272951115ce01c347761c60cf1dd94c5b7adcaf9ad0fc0",
-      "publishedBytes": 168908,
-      "quality": 82
+      "publishedSha256": "84babf378c40c379006dd5b99a175958fe5b7d6c3279040181e098bd18e4660c",
+      "publishedBytes": 139872,
+      "quality": 78
     },
     "projects/a-horse/assets/sea-display.webp": {
       "sourceSha256": "9ae26e0e68319b6d5911950039e3a8dfdd99de4bfb8fe6154b6141287b5fdd93",
@@ -754,9 +754,9 @@
     },
     "projects/a-horse/assets/opening-gaze-display.webp": {
       "sourceSha256": "6aecf030a649dcf063eb86bd1584903b7fb338dc7e3ab4060bc088937b47e4e3",
-      "publishedSha256": "4201325b64cc188d5e35aa1ff258c3c654e669769b673face53fb9fa88792bb1",
-      "publishedBytes": 201662,
-      "quality": 82
+      "publishedSha256": "4efba6dfa6fe384f61c48159dcd43c137617c96129e46516e21bfd14cd75ea84",
+      "publishedBytes": 168594,
+      "quality": 78
     },
     "projects/a-horse/assets/v48.webp": {
       "sourceSha256": "d4991563f5c862e343de1c98793b3ded552a7e5be6b84260b7a9565b9fac74e2",
@@ -796,9 +796,9 @@
     },
     "projects/a-horse/assets/riding-white-display.webp": {
       "sourceSha256": "c78d0067fb9114782200b1d23a356426fd710b73acc29c60fa2b70163902bd07",
-      "publishedSha256": "f2f367a623b40f1c6c496aca0f5341eea587b940515aac93b82108e7027b1233",
-      "publishedBytes": 100962,
-      "quality": 82
+      "publishedSha256": "5fc6d97c060ec627b98c648185f1b95426f33352cccb97f02db0bbf44e1f7b37",
+      "publishedBytes": 82962,
+      "quality": 78
     },
     "projects/a-horse/assets/riding-break-native.webp": {
       "sourceSha256": "6487e405a42e66b26c29c539d4f0ec09bc42985cb8dca46f4f6972cf65371e55",
@@ -874,9 +874,9 @@
     },
     "projects/a-horse/assets/horse-touch-display.webp": {
       "sourceSha256": "e48f8544ac78d19d533fc97be9428d70b2ecbc5bab0b7f3ed68fc14ef69d7e68",
-      "publishedSha256": "6695366ce0c1251e13a339d0adf99599221abc5e308f0ac5076e74b250b22a2a",
-      "publishedBytes": 246218,
-      "quality": 82
+      "publishedSha256": "b319afd4a050760b3d6e0a6c75c80a8d79aa7c1f8e18e44f11dcba5f5062752c",
+      "publishedBytes": 196748,
+      "quality": 78
     },
     "projects/a-horse/assets/v03.webp": {
       "sourceSha256": "739013968fa98536f4e8258609b821e769cad9fcc5bf62504b780f62da5275d4",
@@ -904,9 +904,9 @@
     },
     "projects/a-horse/assets/opening-close-display.webp": {
       "sourceSha256": "e1cf7b8f6b1f5f6ca469c19ad8f326602e953ea9ba5076404be7fa30cd7fc951",
-      "publishedSha256": "fcf0965c66ca3a7a2f08bdaecc8112d1f493e1182770d60038d24df02fd09849",
-      "publishedBytes": 202826,
-      "quality": 82
+      "publishedSha256": "a534ac8e470ef156355410a668a6c7828a63b9d485c772ab64341825ec4f7ce1",
+      "publishedBytes": 162784,
+      "quality": 78
     },
     "projects/a-horse/assets/sea-native.webp": {
       "sourceSha256": "7a3f855832969dc5f407fee47937e11419a14bab593baae60fb4b2585f17856b",
@@ -946,9 +946,9 @@
     },
     "projects/a-horse/assets/riding-break-display.webp": {
       "sourceSha256": "7d9607657c34b13a8aefb7bef85df31897994887b8079afda97b206637f60544",
-      "publishedSha256": "94094f590596c78e68c103437ad90e6c993da2ec7155c199187b778192d28cae",
-      "publishedBytes": 256194,
-      "quality": 82
+      "publishedSha256": "a9db679d845a741a7b9c239536e55221c298fbb5d44b72a43ad061909dec979c",
+      "publishedBytes": 217306,
+      "quality": 78
     },
     "projects/a-horse/assets/v56.webp": {
       "sourceSha256": "3974c76fcc52638297214e805fef579179af3c2eb7ddfaf7797323215f57f482",
@@ -1024,9 +1024,9 @@
     },
     "projects/a-horse/assets/hero-portrait-display.webp": {
       "sourceSha256": "b941864277e96a1bae754eb436b863d2979bad9df697064af50547fccd75fea2",
-      "publishedSha256": "8cd91380c8e1ba4080bd47d2bf1702598bbf555adc765c32a3a1b2e7f505865c",
-      "publishedBytes": 193456,
-      "quality": 82
+      "publishedSha256": "1f945ced42dc087a5a406ccdf3b0f3a9e1008e69a1f974c311bee7e51e9099a4",
+      "publishedBytes": 160598,
+      "quality": 78
     },
     "projects/a-horse/assets/hoof-display.webp": {
       "sourceSha256": "b8956ebf984a33be1747bffd3c1a38494f246a6c6972b207323676534408d1f8",
@@ -1096,15 +1096,15 @@
     },
     "projects/operations-miaosuda-new-year/assets/images/b8684e02b063c3.webp": {
       "sourceSha256": "18a3dcbb4ed0a2689aa7ea47fb32b519f0634534a1c79e3c8fc24da4a9ce0f6d",
-      "publishedSha256": "acf65eb4367337ec944917bf2e881182fef2744a11335b69d991a8e8e1b9eaab",
-      "publishedBytes": 326760,
-      "quality": 82
+      "publishedSha256": "e491df99ef323ff60667d002232ccb1346af0f06c521dd885ef8ab2b32b670ba",
+      "publishedBytes": 283206,
+      "quality": 78
     },
     "projects/operations-miaosuda-new-year/assets/images/695eb163d6ea3b.webp": {
       "sourceSha256": "e9dfaab1199e085d16896d73127e1315b73743c520cce7f40c87e6cca1a8c43f",
-      "publishedSha256": "80683fc0f0c7aba39124d56ee99cc68e58b740790398a6754d4e22c73a11a3b1",
-      "publishedBytes": 487392,
-      "quality": 82
+      "publishedSha256": "35cf67301ce9595e63ce3101b8e73cda614ab9860c995cb8c4a4abda7ba75a98",
+      "publishedBytes": 427376,
+      "quality": 78
     },
     "projects/operations-miaosuda-new-year/assets/images/836e9696e175d7.webp": {
       "sourceSha256": "0f40a2e5da3eb59d6ca8f1c28a48d7280d31ebbcf0e7258e94e2ccf8e7c516cd",
@@ -1132,21 +1132,21 @@
     },
     "projects/operations-miaosuda-new-year/assets/images/849652718ad3f4.webp": {
       "sourceSha256": "fcfcc845a30b1c3a1a2e3f935372191a821e6f749d5aba5fee1a590558212008",
-      "publishedSha256": "78e1a834346894e0808d26d7e3e06a325111671a9c00bcf1e2ccc74f84c0f701",
-      "publishedBytes": 371656,
-      "quality": 82
+      "publishedSha256": "06569034e72383b84af9ccc33580a47bcadeceec37b4e8132f87c9325edc10ff",
+      "publishedBytes": 321786,
+      "quality": 78
     },
     "projects/operations-miaosuda-new-year/assets/images/6fec6792971fbe.webp": {
       "sourceSha256": "2dedef26e8b2316325ba0c8401b9e46590aaf574f22b895f218a9f954b25e7d5",
-      "publishedSha256": "ec81d9f66ccd13da3909e5b4b7b478e147287561f41650c8a374ce09d6d29805",
-      "publishedBytes": 368038,
-      "quality": 82
+      "publishedSha256": "9c70a4ba7452099f6eea834ff9ca76360f37232a3d8b375922ee188aadfd2ea9",
+      "publishedBytes": 326526,
+      "quality": 78
     },
     "projects/operations-miaosuda-new-year/assets/images/4743bfb00656eb.webp": {
       "sourceSha256": "1e499e8bd6e1a85ca9cd6a2d52868d682fda898062f884ccc14b7cd3d3b9a236",
-      "publishedSha256": "373b301fe099fd77ab531e6bb40d988af2ec05a975c20a46c920213085c9c2f5",
-      "publishedBytes": 345384,
-      "quality": 82
+      "publishedSha256": "01edfa91db1da01d32a3e92cd735d63f5b09bac2b72fd0bf780bdbe1ccaa6be0",
+      "publishedBytes": 302340,
+      "quality": 78
     },
     "projects/churuixue/assets/frame-088.5-hd.webp": {
       "sourceSha256": "fddaca829825b784473cca5a95d28dfa8ed3bf10f81aaebe4c27ffefcd949294",
@@ -1222,9 +1222,9 @@
     },
     "projects/operations-olympics/assets/images/147ad7d4bca9a1.webp": {
       "sourceSha256": "af6a4799f8aab25ba4ca2f4268b6f2705c224f24e60f4712345d51ae95e5706c",
-      "publishedSha256": "a13ea0c88108eb2ae2444639db8d95613bf7655bd7daa2ae2fdb43b80b5dc2f5",
-      "publishedBytes": 347786,
-      "quality": 82
+      "publishedSha256": "e33ced96f6d41b70fd2ae76efacd48b61118b88b4925b0c9dd10f4e479767632",
+      "publishedBytes": 303580,
+      "quality": 78
     },
     "projects/operations-olympics/assets/images/35e3ec10765a8b.webp": {
       "sourceSha256": "17a8adb263e93ead2c9e7bf4218d1bdc8c6468f35e57f48001781e198196dd3e",
@@ -1252,9 +1252,9 @@
     },
     "projects/operations-olympics/assets/images/5adcc736753109.webp": {
       "sourceSha256": "d65e54bc14c8c6969c19ba2667cbd750636b08cbf0fc4814743f5ebeb2af37a9",
-      "publishedSha256": "2ce546b3efe85936479155004c19245adeedbe394e1a7502e33430d2781d311c",
-      "publishedBytes": 394990,
-      "quality": 82
+      "publishedSha256": "b121e19317ca4e6cffa46534d5bd9f71eb161d15926542d9830ff27d3ab02f59",
+      "publishedBytes": 345196,
+      "quality": 78
     },
     "projects/operations-olympics/assets/images/a7530b3b7b58d1.webp": {
       "sourceSha256": "ba821706edc62b0b45235cc1e2fb33e7ecbc7e8104e9bd94b7270279a2055871",
@@ -1276,9 +1276,9 @@
     },
     "projects/xinxuan-redesign/assets/cargoModel-3200.webp": {
       "sourceSha256": "e14ba3ff946068e747ca4a2d3e4309f412bb6cea39bffd0e562ce8b36b7a638d",
-      "publishedSha256": "fdf459d2efb7677c6b4974bbdb792996ef1c26b4c40648f588c84598a42537b8",
-      "publishedBytes": 526928,
-      "quality": 82
+      "publishedSha256": "63684573e7000196bfce30bcdcec67f321910d30901fc498ccf3eb8bf9c533e6",
+      "publishedBytes": 441540,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-ship-1280.webp": {
       "sourceSha256": "b82d700f0178bdc6ef279a3150934cd5f81d1eaac5f81b28ac539d5f3c7376fb",
@@ -1318,9 +1318,9 @@
     },
     "projects/xinxuan-redesign/assets/header-3840.webp": {
       "sourceSha256": "106bca1965d04ef99c651b1f675b98ac30c6d0affd3d3b55ad2e441a837c5ea9",
-      "publishedSha256": "b46a8c2b098f040aae07bb845738fe0e9b8508fa775b402907fd42242b0610f9",
-      "publishedBytes": 579342,
-      "quality": 82
+      "publishedSha256": "91a0d94a12853b6a255258d732644ddaeb97f794b36570912bddd8eb7da57c69",
+      "publishedBytes": 485318,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-ship-3072.webp": {
       "sourceSha256": "fb168c295b39ba29e7896e79483aee27e39992e4063372838bac345297c2b2a6",
@@ -1390,9 +1390,9 @@
     },
     "projects/xinxuan-redesign/assets/truckRear-2400.webp": {
       "sourceSha256": "d624aa8040ad2144028b0a5ae32c466af17387d7e32b1a4a9c9fb3ac4c5f86f7",
-      "publishedSha256": "96f719a41d4369094d8533ce6c5ffcc53baf45c84a40eb5d5eb19a88e1b6308b",
-      "publishedBytes": 347588,
-      "quality": 82
+      "publishedSha256": "d292cfc4103ec9fc3deeeab2c4a38ef25ac59b2eb32bc48921227a453e1b44d4",
+      "publishedBytes": 284840,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-hub-4588.webp": {
       "sourceSha256": "4ed7ad649d8bcfb7d6d5155881e961f95fb418fbfa8395057f5d11fef5613a58",
@@ -1426,9 +1426,9 @@
     },
     "projects/xinxuan-redesign/assets/master-storm-1280.webp": {
       "sourceSha256": "d75797cc206eb75593b22c91d57ba7a900cc710f053923ee41c7cf855940ba5c",
-      "publishedSha256": "cf8fcdf423e7181bbc652b79ec618eb963c3ea3b700a6ddc7e0fb3f41ba9df36",
-      "publishedBytes": 210914,
-      "quality": 82
+      "publishedSha256": "775e3076ec229dad916207106e2895e4148814e21ea2c776737fd0afc2417024",
+      "publishedBytes": 171694,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-container-3200.webp": {
       "sourceSha256": "4d7e467efae86302b669862e163cc57933f3caa278cc9f6576466cfe0907e262",
@@ -1510,9 +1510,9 @@
     },
     "projects/xinxuan-redesign/assets/master-fresh-1280.webp": {
       "sourceSha256": "6ba28d2da348af903e7a162045385ace10666fa179a58e4737ea48d1328070cd",
-      "publishedSha256": "3ae0526855acf658534a774ac834f8d1d4e2e99f67b67cc948ac4cc14fcf07b1",
-      "publishedBytes": 343570,
-      "quality": 82
+      "publishedSha256": "b0399e3ee61f4b35eea32558207a3b281d616ecf021725cfc37c4e971f7a8f6a",
+      "publishedBytes": 294574,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-wineClose-1280.webp": {
       "sourceSha256": "32dc4f4e0d191ac7d52d5e42a933123540c31c0b389ff1b10ab4fdcf6a70e87a",
@@ -1534,9 +1534,9 @@
     },
     "projects/xinxuan-redesign/assets/cargoModel-2400.webp": {
       "sourceSha256": "e2cae3f167a1ff522fb5c94d169633ba79fc49596f398bb1d303ae2dd210725e",
-      "publishedSha256": "4ca02d9772015aafb8745dcb72a6af7ee498a068ed7d93d9d60cd2be49e48996",
-      "publishedBytes": 360038,
-      "quality": 82
+      "publishedSha256": "b6ab42c5279bc89869e3b3a86f4032d1d9342047e6970acd711efe71ca9d7b31",
+      "publishedBytes": 294042,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-port-2400.webp": {
       "sourceSha256": "ecd498e477eeed0ce2fedcdd1116fbbd381202409b38cee39e00ddbd576fb07d",
@@ -1546,9 +1546,9 @@
     },
     "projects/xinxuan-redesign/assets/master-globe-2400.webp": {
       "sourceSha256": "07f6122f34e9f21e08a59ef3523f87d5c1ec2e4d052a8d6d6a0d5a13873d5177",
-      "publishedSha256": "89cdbfedee8759013c98aef3007fc396c4685ab5be926ede6d6be6db8c189628",
-      "publishedBytes": 247820,
-      "quality": 82
+      "publishedSha256": "06cd16e481311b43880e9814485f51be176ee73b337cd69d1963748a2f1b1ca0",
+      "publishedBytes": 212062,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-wineFormation-2400.webp": {
       "sourceSha256": "af70ced6c86e6dacba3dd1787238ae8af86da134f9a585038706bb9be902cf41",
@@ -1588,9 +1588,9 @@
     },
     "projects/xinxuan-redesign/assets/master-operator-2400.webp": {
       "sourceSha256": "472fb0d9eb75d2f85cda99ecc0167a46646997c9ccbbdfcf44c3e0c8cd82b4bf",
-      "publishedSha256": "3a5c25b84ef9962a17cbb3eb137467cfe9f7150eaea98d139eb7c16307625eb9",
-      "publishedBytes": 215364,
-      "quality": 82
+      "publishedSha256": "15b77ce0c69a116df87a8e89a79e9eb42cc763c4b33e084e83b69f75ae712fa9",
+      "publishedBytes": 182946,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-filmOpening-2400.webp": {
       "sourceSha256": "94cd27aebf0bef19fe4f5884770d86224c5653e9395672c6a5dfcff3c81d7c96",
@@ -1618,9 +1618,9 @@
     },
     "projects/xinxuan-redesign/assets/master-hub-1280.webp": {
       "sourceSha256": "d32a7831b7f205a4fe4ba78b05386d2328c4eacb2339abbe6e2137772fbf2e94",
-      "publishedSha256": "2f660482caf5e6dc333b5ec2b9b479eda0afa3199a65a3d291db545bf9a7ab3e",
-      "publishedBytes": 354256,
-      "quality": 82
+      "publishedSha256": "2a2ecb84bdb28208919266961c5d63ddd1d8a95383f378ff0f472f7d56e3a42b",
+      "publishedBytes": 289790,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-globe-3072.webp": {
       "sourceSha256": "23db8fa08b779d68d8bfbce78e6687095d5f605294d07ebdc54ae455ac6ba4ad",
@@ -1654,9 +1654,9 @@
     },
     "projects/xinxuan-redesign/assets/cargoSide-3200.webp": {
       "sourceSha256": "0ea32446e50b09aeb17aee5594b4c7cc063ced36021d82e74ede63a7c910db35",
-      "publishedSha256": "f5dc972c5e6876cbf6c6520e950752eb883caeea52c2f8320eb5c174aebf62fc",
-      "publishedBytes": 417992,
-      "quality": 82
+      "publishedSha256": "e0ea4bd927066355abe62a0b232c7995c9d12fd6f2b63998972c75d0d75a6196",
+      "publishedBytes": 351778,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-sunrise-1280.webp": {
       "sourceSha256": "1a54e281fa790416474661459f30bd857123c4385e184b925937da2d6c4e8eb7",
@@ -1666,9 +1666,9 @@
     },
     "projects/xinxuan-redesign/assets/fleet-2400.webp": {
       "sourceSha256": "fcbe97b23dd542b840526663823dc0854eb29346635668d97361795f84698408",
-      "publishedSha256": "423574290976e4b7dc4fcfc9a3cf2d5ff85103e06a4b6651ba53dba10e39eca1",
-      "publishedBytes": 330224,
-      "quality": 82
+      "publishedSha256": "5ef5e99bff5d7de5f2ef0ad9698c98e73f48ab3e89ec3b6089b9b9ae37e06a55",
+      "publishedBytes": 272848,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-operator-3072.webp": {
       "sourceSha256": "52b7c439f516eec455c78fc200367844f051c6381dd25de38860e9901cd22823",
@@ -1702,9 +1702,9 @@
     },
     "projects/xinxuan-redesign/assets/master-port-1280.webp": {
       "sourceSha256": "b9d9061df88919d53f209912758f720ea2466d44d4def625f75eb73870f29ceb",
-      "publishedSha256": "cff7e07cea8dead97f84cf8ca4bf96286427e890562ef72161b9a6d96dd648a6",
-      "publishedBytes": 235072,
-      "quality": 82
+      "publishedSha256": "ebf4851156f9845e58264947c778ecd4bd26c1d99d8b63b44094ff03654bf6cd",
+      "publishedBytes": 198316,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-forestTruck-4588.webp": {
       "sourceSha256": "6358c22b750abc7845fdec36691901464141f2786a8c21f7ed48d068f5b7639b",
@@ -1792,9 +1792,9 @@
     },
     "projects/xinxuan-redesign/assets/master-rocket-2400.webp": {
       "sourceSha256": "28e60e020e53d2c2b4be02aa6cee362da33be5a3002c91dde4af7c71842cb104",
-      "publishedSha256": "fc23453d141951d28dc668169f8c91b2b36b6fd48de7fbe4a3c53b3ef9b60170",
-      "publishedBytes": 186418,
-      "quality": 82
+      "publishedSha256": "35842ed680928249511b446b1412bd212a543a654da1ef9c8681a4ab44813d9c",
+      "publishedBytes": 156536,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-storm-3200.webp": {
       "sourceSha256": "635032bfcdef09e1129ba2f7396ac2732f288d263aaa700ab63fad3ff6b6ed74",
@@ -1810,15 +1810,15 @@
     },
     "projects/xinxuan-redesign/assets/master-container-1280.webp": {
       "sourceSha256": "ac76ac839389f8918562c99c981de65df4bdabb2ac62d6196ed8cb7d2373e959",
-      "publishedSha256": "eb12d83d7e4046f13d713e11ec53a06b9431981df4fdde7ba30aa45d1dd563e9",
-      "publishedBytes": 212812,
-      "quality": 82
+      "publishedSha256": "667d7789908d63d93d77ec5bb1b24acf31a8dcb83dbf9bcb38b963f2ad026237",
+      "publishedBytes": 172844,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/cargoTop-1280.webp": {
       "sourceSha256": "7dfa7c9cb914867a00d26ecec4fea87fb952f7142e034afe332b6209f3db27ca",
-      "publishedSha256": "ed6871c5c45b4e7bafa12e8b3ee639adea7ed06c6812b9d0363ea6306b88c112",
-      "publishedBytes": 567362,
-      "quality": 82
+      "publishedSha256": "d1b3358dd98ee952d86e8866e9bfdd1bdfb0313b70d247cb887f9434034019ce",
+      "publishedBytes": 471808,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/redrawn-wine-640.webp": {
       "sourceSha256": "88ad1d8dbbc7ab0ed1e1a35d2699fd9673c7df310f38cb7e80058c9423d40137",
@@ -1834,9 +1834,9 @@
     },
     "projects/xinxuan-redesign/assets/master-net-1280.webp": {
       "sourceSha256": "75a6a652bc1eff9bcff68a45c9ee78f175548ebcd36e3167d040c90d7b2396e9",
-      "publishedSha256": "2fd9901f5efcccab588a5d9a46d1fff1c5487c90bf09363f134e49821b7d26c7",
-      "publishedBytes": 373252,
-      "quality": 82
+      "publishedSha256": "630bbbcd1a34e8541598b3c9f83232fc87a65ccb3847d401da1a84cf07b41214",
+      "publishedBytes": 328112,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/truckRear-1280.webp": {
       "sourceSha256": "f4ac7f5bcda58fa485584469eeab7f258cfbe925e7016b07d7d047191662254b",
@@ -1846,9 +1846,9 @@
     },
     "projects/xinxuan-redesign/assets/master-formation-1280.webp": {
       "sourceSha256": "854ec4b6dae8db095ede1dcd901efec63aad940cbab3225f21fab036c90de57b",
-      "publishedSha256": "e34275334ddc68376eee631296401239b2a3096b6384434f14388d483b60050f",
-      "publishedBytes": 355770,
-      "quality": 82
+      "publishedSha256": "50e87602e4afc2275cf43fc879098fc4513f712284fdf475f54cd427e267bc59",
+      "publishedBytes": 287360,
+      "quality": 78
     },
     "projects/xinxuan-redesign/assets/master-storm-4588.webp": {
       "sourceSha256": "c9ee4808f500a287e7108ad09f641917d81911e41df82d616305b5c441c13b30",
@@ -1882,27 +1882,27 @@
     },
     "projects/operations-seeding/assets/images/3a63d3ae7b1c73.webp": {
       "sourceSha256": "d9b8f571ea702bb2a7487edc3eb1bea96db5d228ad143f2617b85f6a3a1d894e",
-      "publishedSha256": "21cff589e7a16f03b4b40a8dfc3e6011fa797b1c91d1540f5b6ab549c380df4b",
-      "publishedBytes": 356138,
-      "quality": 82
+      "publishedSha256": "2aa904232189846af9cfbd8be636da86481da1b0e09ab1aa8d97be10d20cd712",
+      "publishedBytes": 309156,
+      "quality": 78
     },
     "projects/operations-seeding/assets/images/1acb5dd19ce31f.webp": {
       "sourceSha256": "ce4373c4982740acc1a4d857e0c5844b3a6441b56ea8f22013ffd66fee8ecd7a",
-      "publishedSha256": "9a9317385074a035288ea24cb0b71eb66d1d1f589649b06d15b9a136dd3a6ff2",
-      "publishedBytes": 342118,
-      "quality": 82
+      "publishedSha256": "66d55fd716b25c86118a3007de1bd76ad44511e5d9107213105b33616e4c2fbf",
+      "publishedBytes": 296618,
+      "quality": 78
     },
     "projects/operations-seeding/assets/images/ddeaccadf94912.webp": {
       "sourceSha256": "8080e3ff5505f389db6cb0bf07e426c6c961e60b2bd90b909190104c8a042e51",
-      "publishedSha256": "5abe7a1638aeeebb43aa1b28a9e7c9f9fff7555a690d8fb1ea571fb38db8257c",
-      "publishedBytes": 388408,
-      "quality": 82
+      "publishedSha256": "4843e442a8cdb7820c5f0a47dd5778f273f43c6f368755d05fc03deffdca7e7f",
+      "publishedBytes": 336142,
+      "quality": 78
     },
     "projects/operations-seeding/assets/images/e7f9fdf3405b3b.webp": {
       "sourceSha256": "cf5dde006939b6bfb3439409615364e208195b7ac1d29e96ed2e9e1b45c616a6",
-      "publishedSha256": "8efab0e872245be597f42150a6264c4ae7c415f72d3d482955eefe326975ff5e",
-      "publishedBytes": 304684,
-      "quality": 82
+      "publishedSha256": "9717a077399f7bf79eafe9e2872ec4982b822aa01f7713227fa32427768cafca",
+      "publishedBytes": 261896,
+      "quality": 78
     },
     "projects/spring-horse/assets/balloon-setting.webp": {
       "sourceSha256": "47d70649988624cf7f70679694e8ed669a6c3c5635e14ef6219907d9651a13ef",
@@ -1930,9 +1930,9 @@
     },
     "projects/spring-horse/assets/role-fox.webp": {
       "sourceSha256": "69d12af853ec0435c243402169cf56699170267a18aaa5262ca4ce390994af64",
-      "publishedSha256": "6efef86291b004f11882f5641a05301280c5e435293dad3dec916f92cbcc84ec",
-      "publishedBytes": 293490,
-      "quality": 82
+      "publishedSha256": "aff59c2905b554c19ece6fc1c3125d581f0bcacc64ee6fc737feeb6936a95dc3",
+      "publishedBytes": 243684,
+      "quality": 78
     },
     "projects/spring-horse/assets/balloon.webp": {
       "sourceSha256": "45a659543d73419a22d51bf32b3d813cbe4584400cc8065d9e019468fc3dc8d6",
@@ -1942,15 +1942,15 @@
     },
     "projects/spring-horse/assets/role-rabbit.webp": {
       "sourceSha256": "9abe7ce8f0bd5b974ef057d49825584fee396388806acf1ddf949c3531c72a17",
-      "publishedSha256": "7148f449386460a5dfd3a376c8e0226454604eb3446bf3e294b06937a1d2e803",
-      "publishedBytes": 339218,
-      "quality": 82
+      "publishedSha256": "db9fffad2a704798b9f625530f7bbc3bb201d19b7ce02fa744c5e2fa880b0e74",
+      "publishedBytes": 284694,
+      "quality": 78
     },
     "projects/spring-horse/assets/role-panda.webp": {
       "sourceSha256": "c48e6b7f831e93191a9f524172e0bdc9ce5b2123b2d841e57b94b2c6b9bdc419",
-      "publishedSha256": "994a633284ebdf49c983dfc00379bc29d4551d63137af442a5741886a9c6c15b",
-      "publishedBytes": 389414,
-      "quality": 82
+      "publishedSha256": "1058adcf4464002d5d19309bc8620c80559e7aeee3a74616a57a474b1ad569d3",
+      "publishedBytes": 317104,
+      "quality": 78
     },
     "projects/spring-horse/assets/role-tiger.webp": {
       "sourceSha256": "a1392248ef042be56a1387d2bcab1933cdffcad26f2dc56d47846d55a5619d49",
@@ -2044,9 +2044,9 @@
     },
     "projects/spring-horse/assets/bus-setting.webp": {
       "sourceSha256": "643e616c85b2b685d8eb06846b0b55cdc26001c63d855527e15574ee784b489e",
-      "publishedSha256": "9b2971bc59920a6d62ea288fff1c54d2677b6ce358215144807a8523c50a83d2",
-      "publishedBytes": 341234,
-      "quality": 82
+      "publishedSha256": "d64885fc34c22227f1723bb0e9b2819ccc08940ce50f6954eb2c354411cec493",
+      "publishedBytes": 295644,
+      "quality": 78
     },
     "projects/spring-horse/assets/story-static-01.webp": {
       "sourceSha256": "a946bd7b347021af657bfa721ea21d151ab37a63e0eb9625b96dbd7ebb287645",
@@ -2086,15 +2086,15 @@
     },
     "projects/spring-horse/assets/role-dog.webp": {
       "sourceSha256": "4db63c90b455b287d006999ea70f42473979c75380c308fb8a6d224830d20c55",
-      "publishedSha256": "2daa73286d0e8d2da5aed418221b728adb223f6197f96cce165fd86b6b2ff1c7",
-      "publishedBytes": 386368,
-      "quality": 82
+      "publishedSha256": "e3702e81f4785c477a72b7da72e91f530519b0b44f14e65e5d06d05eed04e288",
+      "publishedBytes": 323258,
+      "quality": 78
     },
     "projects/spring-horse/assets/palette-blue.webp": {
       "sourceSha256": "48c69eb23f20676dcccd893804b3a18ccad0c1e22f8fd75dd833883d6832b8ea",
-      "publishedSha256": "438f8f0146aa8511a24b08dde7b7b53e0c56b7d7976671d7969a44372169137e",
-      "publishedBytes": 358668,
-      "quality": 82
+      "publishedSha256": "25ff209cb1c6d08d2ef6d3d7f6c495ea9d89ba0848c36c6f5bef64252dabb7eb",
+      "publishedBytes": 305084,
+      "quality": 78
     },
     "projects/spring-horse/assets/architecture.webp": {
       "sourceSha256": "b9e98ccc33ad5b78116d3f69a95f60b9bff63ea53d3afd746f57dfdfa33d1b8c",
@@ -2104,9 +2104,9 @@
     },
     "projects/spring-horse/assets/palette-gold-refined.webp": {
       "sourceSha256": "ae3c9eae01ce71e8418a2a9c0b9d9d7a03d3a31e63dce1a60c53fa722e90b4a4",
-      "publishedSha256": "59b48cbd760342254fc07667ec3a2157760dd89f815a76db9b331fd692585336",
-      "publishedBytes": 303940,
-      "quality": 82
+      "publishedSha256": "2b71c180cadb6b554a4a73b98fd92837a2e63a207d7dac1ea9dcfed9a316b761",
+      "publishedBytes": 253270,
+      "quality": 78
     },
     "projects/spring-horse/assets/passengers.webp": {
       "sourceSha256": "2cfc7257b70ef0babdfe414cebb9c852058ab73d727bb361bafeca8006eb0e25",
@@ -2152,15 +2152,15 @@
     },
     "projects/spring-horse/assets/hero-final.webp": {
       "sourceSha256": "afacceaedabddb21b9daa43d91e0b83a6437439036c40ec62aced7ed98582150",
-      "publishedSha256": "4735106f867074385bbc9205013cb96ca72d0d74a767d3c026538f2467fdccca",
-      "publishedBytes": 253358,
-      "quality": 82
+      "publishedSha256": "2ce354924eed853141b432d1c69ea764f278d40ffa7cf920921531695b6d5751",
+      "publishedBytes": 217502,
+      "quality": 78
     },
     "projects/spring-horse/assets/palette-pink.webp": {
       "sourceSha256": "cb2dc3ab4b2b68c68b395c214da709fd55d2d20a30437fa551613550e64f293c",
-      "publishedSha256": "3a4970645e68c9f78150b1472d0b3549841f02ee77c34af399aaefee570237f0",
-      "publishedBytes": 442798,
-      "quality": 82
+      "publishedSha256": "96ec3ef5142b070842b04ee56568b3f01c3f0257009e060c50471d5fc3d59333",
+      "publishedBytes": 389300,
+      "quality": 78
     },
     "projects/spring-horse/assets/animal-rabbit-scene.webp": {
       "sourceSha256": "caff71a40450f80bbefa7863dcc158a31ea1b12d0fea120d53bbb3edf7070883",
@@ -2182,9 +2182,9 @@
     },
     "projects/spring-horse/assets/role-squirrel.webp": {
       "sourceSha256": "4e12935597935c3a0adfad49acf3c6c5b66cc5caab54d60c96e0f8980d5f0f0a",
-      "publishedSha256": "ef4134c4fe2634e970388f8563b7c2a65ed2edcd1f7e4761250b60a58ba72c19",
-      "publishedBytes": 357420,
-      "quality": 82
+      "publishedSha256": "95d0fa5b2a8ba8429cb2f27bf90ae36bac380a19c152207f756e38a227746537",
+      "publishedBytes": 303222,
+      "quality": 78
     },
     "projects/spring-horse/assets/key-visual.webp": {
       "sourceSha256": "1ea21c0e261ed7334a36e2fc85f29d9f36e5d3e6b5255d11e2100df9d2977dc6",
@@ -2224,15 +2224,15 @@
     },
     "projects/spring-horse/assets/bus.webp": {
       "sourceSha256": "173bb58618640fc07aa21fc3df18be3aec4cfe564061f315b47249e15dfcf2fa",
-      "publishedSha256": "a7d61412255872512e1404ee8218a3d16bfc590f06cd1c201c665b4b76ae7f84",
-      "publishedBytes": 520728,
-      "quality": 82
+      "publishedSha256": "7aa1664f3096d9a22c014fc5e7ce017e6ac4f76dae6811cf60af7fac08680823",
+      "publishedBytes": 416610,
+      "quality": 78
     },
     "projects/spring-horse/assets/bridge.webp": {
       "sourceSha256": "e14f4890c2d870c8455dcc7318ac19e02111a23721bc58b07a897e4497942423",
-      "publishedSha256": "4e9f436db0b2940f534f1e4f4342e1214f5047833ccf4ffa6ae546214180563b",
-      "publishedBytes": 435970,
-      "quality": 82
+      "publishedSha256": "25ac0705e2a79e44ba9303a6da8a153a8473d5c00dce87c5a659e04bee16fb70",
+      "publishedBytes": 355144,
+      "quality": 78
     },
     "projects/spring-horse/assets/gold.webp": {
       "sourceSha256": "2a6212662bebfe9c5950d5b383a46ac10944dfcd47e0adb299f8b39ff29e3eca",
@@ -2254,9 +2254,9 @@
     },
     "projects/spring-horse/assets/role-bear.webp": {
       "sourceSha256": "14ce4fccad8fa91c5bf470c37946d12640aedac34e8f004641380ad9ba24d1a5",
-      "publishedSha256": "5310e861b535de15a74f5ed9e821fb83465bbd44fec0c0847e21d30c989a0fa9",
-      "publishedBytes": 426938,
-      "quality": 82
+      "publishedSha256": "9273c907edce137ccec3c99e34a30976f7400fc944c74fd3153de109c84bc661",
+      "publishedBytes": 357612,
+      "quality": 78
     },
     "projects/spring-horse/assets/story-static-05.webp": {
       "sourceSha256": "0dbc3a08d05187c4b45d3e404ed597b883e227dd4930c7ecff6011ec2e67117d",
@@ -2278,9 +2278,9 @@
     },
     "projects/new-world/assets/badge-photos.webp": {
       "sourceSha256": "0687eeda8f9d4abf460126074550e4445880f0c42a496f0d9d1080f848893a32",
-      "publishedSha256": "4c7e113316db8ffb8359d61451b37ef3ae3b70e3d2be06b9669994d29d96de00",
-      "publishedBytes": 336722,
-      "quality": 82
+      "publishedSha256": "90a0b9ab086b69cd3c7b94d6a2b1145e91062fc5bcb80936584ca83dcef1b679",
+      "publishedBytes": 277828,
+      "quality": 78
     },
     "projects/new-world/assets/bee-concept-motion.webp": {
       "sourceSha256": "8d8b75389775496a90f877e851f833ba5812d7b3298ee2c407ec69849da4f89f",
@@ -2314,9 +2314,9 @@
     },
     "projects/new-world/assets/source-23220712.webp": {
       "sourceSha256": "15018ed2f53d5a38e960dec21cd28c742ce7f2373f55c1a488911fc8d62a5b81",
-      "publishedSha256": "1a625c6a9b7cd0ba5ace652c733d199950fc34760731f4b4f7d0a032adac3b47",
-      "publishedBytes": 411880,
-      "quality": 82
+      "publishedSha256": "5378db7ef27beff14b855c155bb09e368414d56e22dafd3417089cf6da82eaf1",
+      "publishedBytes": 357038,
+      "quality": 78
     },
     "projects/new-world/assets/sticker-pack.webp": {
       "sourceSha256": "70a2f8f44e8612659982eba0a21a1b78d7a8500fb05f3dea17a0f37885505216",
@@ -2332,9 +2332,9 @@
     },
     "projects/new-world/assets/source-23220717.webp": {
       "sourceSha256": "71a5dcf5c95f248083e0b5ad642bfd96fc0b672a170d8bc4ed4352407587cf5e",
-      "publishedSha256": "821b69899f343104d00feccd6b689f56e167b985414de380911592e6d2f4be08",
-      "publishedBytes": 401560,
-      "quality": 82
+      "publishedSha256": "b963ea09eff4c2f28dc82b3324e80e0338d5e2685e100720971ce34e7d5e3773",
+      "publishedBytes": 345798,
+      "quality": 78
     },
     "projects/mr-chen/assets/p73-hd.webp": {
       "sourceSha256": "efa4b564dfa65a483a17d146244046d216c634c57d7ef8d84a5b8452b8025f7e",
@@ -2380,15 +2380,15 @@
     },
     "projects/dunhuang/embedded/embedded-6d6e3645f6ef6579.webp": {
       "sourceSha256": "e24e2492045c2c8c394239de1704777b8e78d43967ea37db737e9ee60f89cce1",
-      "publishedSha256": "ade2288fc472024ca96e06247b4ba1965cb9099aed1d05d7f7d4b1f02c2d8450",
-      "publishedBytes": 420592,
-      "quality": 82
+      "publishedSha256": "faf289cbc4280cf7fd4334a4019aee18494c550d37c66a72c85a5259a9c60023",
+      "publishedBytes": 372550,
+      "quality": 78
     },
     "projects/dunhuang/embedded/embedded-e266a10501e7eb67.webp": {
       "sourceSha256": "dcc501f2828aac845e529ec398c5457453842dedd3e1c5b8105db2f1a2effa73",
-      "publishedSha256": "3edb52f5b7e15351ba3ad9ccd1756a813ee2eb96a50d7b1e9d7c537d770f5878",
-      "publishedBytes": 450954,
-      "quality": 82
+      "publishedSha256": "c5e39c89d6a7a2709926d2bedf081a014b0367ae54553a523e5a3613d694874e",
+      "publishedBytes": 384666,
+      "quality": 78
     },
     "projects/dunhuang/embedded/embedded-c376250c063e65ee.webp": {
       "sourceSha256": "d2b5e49e96a0291cde75f201e69534f577c50c07a96fdd786165418cb3a614d6",
@@ -2440,9 +2440,9 @@
     },
     "projects/dunhuang/embedded/embedded-6fb26c159ea38e4a.webp": {
       "sourceSha256": "746192e248a8058f9cce2d6c621166de31e641ae579042435352450f9c955c17",
-      "publishedSha256": "0420cf400f7ae016a55282f6b8dca16bdcfb2a5a30551dbf9266aabcca1b4da2",
-      "publishedBytes": 416246,
-      "quality": 82
+      "publishedSha256": "a717c8a9dc613fa6381a2e31e8bc8f0d31bfece119b17a6d7691d10945ef3689",
+      "publishedBytes": 349752,
+      "quality": 78
     },
     "projects/dunhuang/embedded/embedded-5afc909cddf88bb9.webp": {
       "sourceSha256": "2864cd9770bb94fc81f746ff409f241389b4e2e97c2bbc450e98b55b2b15a290",
@@ -2530,15 +2530,15 @@
     },
     "projects/operations-night-taobao/assets/images/13e0e092ff54ab.webp": {
       "sourceSha256": "c034d160c56dcc96cdddc823f7878b1cbf84f720b75046856e6d4ec569c94810",
-      "publishedSha256": "c21a3096a99c90ceb1cb093e9f79518ba18ea9d37d3bc6f9930e03b53e520f79",
-      "publishedBytes": 278550,
-      "quality": 82
+      "publishedSha256": "925375918b17624f1ef40ea40e200445f02d4e075ebc996d8fd837b5f53c791e",
+      "publishedBytes": 238994,
+      "quality": 78
     },
     "projects/operations-night-taobao/assets/images/d102ccd3ac7e03.webp": {
       "sourceSha256": "9563f765625a8074c5fe7f1a60f9c6142203a60cf3f72399bbdf1781fe4bbcc4",
-      "publishedSha256": "60dd2678d746dfeae498764c48eae481ba6881c2cc4616bfa2b179952f009706",
-      "publishedBytes": 321382,
-      "quality": 82
+      "publishedSha256": "d60b14a89bbcc3c5c1d2fbd57da83f94fc32d51738e349c10a78af1dea23d714",
+      "publishedBytes": 284128,
+      "quality": 78
     },
     "projects/miaosuda/embedded/embedded-f2dff432513cfcec.webp": {
       "sourceSha256": "ba1e1aecb8009c16b72c518defbcecf942062aa793431b80cdd8b66edc4db420",
@@ -2548,9 +2548,9 @@
     },
     "assets/resume.webp": {
       "sourceSha256": "9682c6e7b907321189a6402ab909fbd5439f1a9bbcad1133c84050ab093e7c8d",
-      "publishedSha256": "08b27ba922302cf838fb2e15732ccb4e2c890cc249c90b2bf488af55d3bf5f0f",
-      "publishedBytes": 310816,
-      "quality": 82
+      "publishedSha256": "c48575ea34a3466eafea7b8161348c88c8e5d8dcbde5fa22fff67aa6d2f29f4e",
+      "publishedBytes": 279090,
+      "quality": 78
     },
     "assets/disc-xujie.webp": {
       "sourceSha256": "19d895ea37c7452b7ccdda08fd2f2df78f73732082222b109d44fe1affbea6d4",
@@ -2602,9 +2602,9 @@
     },
     "assets/catalog/operations-covers/11-miaosuda-new-year.webp": {
       "sourceSha256": "e1005abe6973ea970560cadab63ada29df5aecba3d3f2a10820ef40f8417d448",
-      "publishedSha256": "6c3cd0c7444ac984008c3fceaf56670b2dc3ea4842a4c03de8ef55c6e926021b",
-      "publishedBytes": 326966,
-      "quality": 82
+      "publishedSha256": "796d3324b5bb239b3009e219ccaedfaf42b3743082ef1e62610f95a05bf5982a",
+      "publishedBytes": 279682,
+      "quality": 78
     },
     "assets/catalog/operations-covers/09-fuzi.webp": {
       "sourceSha256": "9a70fe027e3255df7460ccb23b4cc6bec6a131eefb8cf36d8ea00d9f636b93db",
