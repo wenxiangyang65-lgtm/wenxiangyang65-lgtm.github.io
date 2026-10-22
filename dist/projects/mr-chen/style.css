@@ -207,3 +207,25 @@ img{height:auto}
 .story-scroll-hint{font-size:11px!important;letter-spacing:1px;color:var(--gold)!important;margin-top:12px!important}
 @media(max-width:720px){.story-act+.story-act{margin-top:58px;padding-top:42px}.story-scroll-hint{font-size:10px!important}}
 .story-heading>p:not(.eyebrow){max-width:660px;margin-left:auto;margin-right:auto}
+
+/* Center each concept and keep its explanation attached to the visible card. */
+.concept-grid{--concept-card-width:clamp(250px,24vw,380px);padding-left:calc((100% - var(--concept-card-width))/2);padding-right:calc((100% - var(--concept-card-width))/2);scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#55422d #101111}
+.concept-card{flex:0 0 var(--concept-card-width);width:var(--concept-card-width);scroll-snap-align:center}
+.concept-focus{display:flex;flex-direction:column;justify-content:center;gap:16px;text-align:center;padding:25px 20px;min-height:140px}
+.concept-focus p{max-width:740px}
+.color-workbench{align-items:start}
+.color-scene{position:sticky;top:110px;height:610px;background:#050606}
+.color-scene img{object-fit:contain}
+#color-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .2s}
+#color-video.is-playing{opacity:1;z-index:1}
+.color-scene-caption{z-index:2;pointer-events:none}
+#color-motion-toggle{position:absolute;right:14px;top:14px;z-index:3;font-size:10px;padding:7px 10px;background:#090a0bc9;border:1px solid var(--line);color:var(--gold)}
+.color-options button{min-height:280px;scroll-margin-top:150px}
+.color-scroll-hint{font-size:11px;color:var(--gold);margin-bottom:22px}
+.results-grid>div{display:grid;grid-template-rows:64px auto;align-items:start;text-align:center;min-width:0}
+.results-grid .metric-value{display:flex;justify-content:center;align-items:baseline;gap:7px;height:64px;white-space:nowrap}
+.results-grid strong{font:400 40px/1 Arial,'PingFang SC',sans-serif;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.results-grid .metric-value>span{font:400 16px/1 'PingFang SC',sans-serif;margin:0;color:var(--gold)}
+.results-grid>div>p{font:400 12px/1.7 'PingFang SC',sans-serif;margin:0;padding-top:10px}
+@media(max-width:720px){.concept-grid{--concept-card-width:74vw}.color-workbench{display:grid;grid-template-columns:1fr 1fr;gap:18px}.color-scene{top:85px;height:430px}.color-options button{min-height:220px;gap:8px}.color-options span{font-size:12px}.color-options small{font-size:8px}.color-intro{font-size:13px}.results-grid strong{font-size:36px}}
+.color-script{padding-bottom:210px}

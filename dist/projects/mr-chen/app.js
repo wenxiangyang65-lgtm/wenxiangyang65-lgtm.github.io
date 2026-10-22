@@ -53,9 +53,9 @@ function queueStoryChapter(){if(!storyScrollQueued){storyScrollQueued=true;reque
 window.addEventListener('scroll',queueStoryChapter,{passive:true});
 window.addEventListener('resize',queueStoryChapter);
 window.addEventListener('pageshow',queueStoryChapter);
-function showGallery(items,index){pauseActVideos();pauseConceptVideos();galleryItems=items;galleryIndex=index;updateGallery();$('#gallery-dialog').showModal();document.body.classList.add('dialog-open');}
+function showGallery(items,index){pauseActVideos();pauseConceptVideos();pauseColorVideo();galleryItems=items;galleryIndex=index;updateGallery();$('#gallery-dialog').showModal();document.body.classList.add('dialog-open');}
 function updateGallery(){const f=galleryItems[galleryIndex];$('#gallery-image').src=`${A}p${f[0]}-hd.webp`;$('#gallery-image').alt=f[1];$('#gallery-title').textContent=f[1];$('#gallery-caption').textContent=f[3]||'';$('#gallery-index').textContent=`${String(galleryIndex+1).padStart(2,'0')} / ${String(galleryItems.length).padStart(2,'0')}${f[2]!=null?' · '+time(f[2]):''}`;$('#gallery-play').hidden=f[2]==null;$('.gallery-image-wrap').classList.remove('zoomed');$('#gallery-zoom').setAttribute('aria-pressed','false');$('#gallery-zoom').textContent='放大细节';}
-function openFilm(t=0){pauseActVideos();pauseConceptVideos();const gallery=$('#gallery-dialog');if(gallery.open)gallery.close();const d=$('#film-dialog');if(!d.open)d.showModal();document.body.classList.add('dialog-open');const v=$('#full-film'),source=v.querySelector('source');if(!source.getAttribute('src'))source.src=source.dataset.src;const seek=()=>{v.currentTime=t;v.play().catch(()=>{});};if(v.readyState>=1)seek();else{v.addEventListener('loadedmetadata',seek,{once:true});v.load();}}
+function openFilm(t=0){pauseActVideos();pauseConceptVideos();pauseColorVideo();const gallery=$('#gallery-dialog');if(gallery.open)gallery.close();const d=$('#film-dialog');if(!d.open)d.showModal();document.body.classList.add('dialog-open');const v=$('#full-film'),source=v.querySelector('source');if(!source.getAttribute('src'))source.src=source.dataset.src;const seek=()=>{v.currentTime=t;v.play().catch(()=>{});};if(v.readyState>=1)seek();else{v.addEventListener('loadedmetadata',seek,{once:true});v.load();}}
 function closeDialog(d){d.close();if(d.id==='film-dialog')$('#full-film').pause();document.body.classList.remove('dialog-open');}
 document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b)return;if(b.dataset.act!==undefined)jumpToAct(+b.dataset.act);if(b.dataset.gallery!==undefined){const act=acts[Number(b.dataset.galleryAct)];showGallery([act.main,...act.frames],+b.dataset.gallery);}if(b.dataset.film!==undefined)openFilm(+b.dataset.film);if(b.dataset.seek!==undefined)openFilm(+b.dataset.seek);if(b.classList.contains('close-dialog'))closeDialog(b.closest('dialog'));if(b.classList.contains('motion-switch')){motionEnabled=!motionEnabled;b.setAttribute('aria-pressed',motionEnabled);observeStage();}});
 $$('dialog').forEach(d=>{d.addEventListener('cancel',e=>{e.preventDefault();closeDialog(d)});d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog(d);}})});
@@ -74,7 +74,7 @@ const motifs=[[50,'雄狮 · 王者',null,'巨像与狮首剑格，承载原力�
 const colors=[[87,'废土黄沙','孤独 · 隐忍 · 逆风'],[50,'幽冥冰川','敬畏 · 孤寒 · 蓄势'],[63,'暗夜熔炉','炽热 · 专注 · 淬炼'],[73,'青铜熔脉','聚势 · 同心 · 觉醒'],[72,'破晓金光','破壁 · 出锋 · 锋芒']];
 let conceptIndex=0,swordIndex=0,characterIndex=0;
 function swapImage(el,path,alt){el.style.animation='none';el.src=path;el.srcset=path.endsWith('.webp')&&!path.includes('-hd')?`${path} 1x, ${path.replace('.webp','-hd.webp')} 2x`:path;el.alt=alt;void el.offsetWidth;el.style.animation='';}
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.concept!==undefined){conceptIndex=+b.dataset.concept;$$('[data-concept]').forEach((el,i)=>el.setAttribute('aria-pressed',i===conceptIndex));$('#concept-focus-text').textContent=conceptItems[conceptIndex][3];$('.focus-label').textContent=`视觉转译 / 0${conceptIndex+1}`;}if(b.dataset.sword!==undefined){swordIndex=+b.dataset.sword;const f=swords[swordIndex];$$('[data-sword]').forEach((el,i)=>el.setAttribute('aria-pressed',i===swordIndex));swapImage($('#sword-image'),`${A}p${f[0]}.webp`,f[1]);$('#sword-image-button').setAttribute('aria-label','查看高清：'+f[1]);$('#sword-name').textContent=f[1];$('#sword-description').textContent=f[3];}if(b.dataset.character!==undefined){characterIndex=+b.dataset.character;const f=characters[characterIndex];$$('[data-character]').forEach((el,i)=>el.setAttribute('aria-pressed',i===characterIndex));swapImage($('#character-image'),`${A}p${f[0]}.webp`,f[1]);$('#character-image-button').setAttribute('aria-label','查看高清：'+f[1]);$('#character-image-button').dataset.characterView=characterIndex;$('#character-view-number').textContent=`0${characterIndex+1} / 04`;$('#character-name').textContent=f[1];$('#character-description').textContent=f[3];}if(b.dataset.motif!==undefined)showGallery(motifs,+b.dataset.motif);if(b.dataset.type!==undefined)showGallery([[94,'剑成 · 书法',null,'朱红书法，用于片名与情绪转场。'],[92,'亮剑 · 书法',null,'白色书法压题，完成最终亮剑。']],+b.dataset.type);if(b.dataset.color!==undefined){const i=+b.dataset.color;const f=colors[i];$$('[data-color]').forEach((el,j)=>el.setAttribute('aria-pressed',j===i));swapImage($('#color-image'),`${A}p${f[0]}.webp`,f[1]);$('#color-phase').textContent=`0${i+1} / ${f[1]}`;$('#color-emotion').textContent=f[2];}});
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.concept!==undefined)selectConcept(+b.dataset.concept,true);if(b.dataset.sword!==undefined){swordIndex=+b.dataset.sword;const f=swords[swordIndex];$$('[data-sword]').forEach((el,i)=>el.setAttribute('aria-pressed',i===swordIndex));swapImage($('#sword-image'),`${A}p${f[0]}.webp`,f[1]);$('#sword-image-button').setAttribute('aria-label','查看高清：'+f[1]);$('#sword-name').textContent=f[1];$('#sword-description').textContent=f[3];}if(b.dataset.character!==undefined){characterIndex=+b.dataset.character;const f=characters[characterIndex];$$('[data-character]').forEach((el,i)=>el.setAttribute('aria-pressed',i===characterIndex));swapImage($('#character-image'),`${A}p${f[0]}.webp`,f[1]);$('#character-image-button').setAttribute('aria-label','查看高清：'+f[1]);$('#character-image-button').dataset.characterView=characterIndex;$('#character-view-number').textContent=`0${characterIndex+1} / 04`;$('#character-name').textContent=f[1];$('#character-description').textContent=f[3];}if(b.dataset.motif!==undefined)showGallery(motifs,+b.dataset.motif);if(b.dataset.type!==undefined)showGallery([[94,'剑成 · 书法',null,'朱红书法，用于片名与情绪转场。'],[92,'亮剑 · 书法',null,'白色书法压题，完成最终亮剑。']],+b.dataset.type);if(b.dataset.color!==undefined)jumpToColor(+b.dataset.color);});
 $('#concept-view').onclick=()=>showGallery(conceptItems,conceptIndex);$('#sword-image-button').onclick=()=>showGallery(swords,swordIndex);$('#character-image-button').onclick=()=>showGallery(characters,characterIndex);
 const countsObserver=new IntersectionObserver(entries=>{for(const e of entries){if(!e.isIntersecting)continue;countsObserver.unobserve(e.target);if(matchMedia('(prefers-reduced-motion: reduce)').matches)continue;const start=performance.now();const items=[...e.target.querySelectorAll('[data-count]')];function tick(now){const x=Math.min(1,(now-start)/1600),ease=1-Math.pow(1-x,3);items.forEach(el=>el.textContent=(+el.dataset.count*ease).toFixed(+el.dataset.decimals||0));if(x<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}},{threshold:.35});countsObserver.observe($('.results-grid'));setupReveal();setupNavigation();
 let touchStartX=0;$('.gallery-image-wrap').addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].clientX},{passive:true});$('.gallery-image-wrap').addEventListener('touchend',e=>{if($('.gallery-image-wrap').classList.contains('zoomed'))return;const dx=e.changedTouches[0].clientX-touchStartX;if(Math.abs(dx)>70)(dx<0?$('#gallery-next'):$('#gallery-prev')).click()},{passive:true});
@@ -104,3 +104,50 @@ document.addEventListener('visibilitychange',syncConceptVideos);
 conceptReduced.addEventListener('change',()=>{conceptMotion=!conceptReduced.matches;syncConceptVideos();});
 $$('dialog').forEach(d=>d.addEventListener('close',syncConceptVideos));
 syncConceptVideos();
+
+// The centered concept card owns the explanation below the carousel.
+const conceptTrack=$('.concept-grid'),conceptCards=$$('[data-concept]');let conceptScrollQueued=false;
+function selectConcept(index,center=false){
+ conceptIndex=index;conceptCards.forEach((card,i)=>card.setAttribute('aria-pressed',String(i===index)));
+ $('#concept-focus-text').textContent=conceptItems[index][3];$('.focus-label').textContent=`视觉转译 / 0${index+1}`;
+ if(center){const card=conceptCards[index].getBoundingClientRect(),track=conceptTrack.getBoundingClientRect();conceptTrack.scrollTo({left:conceptTrack.scrollLeft+card.left+card.width/2-track.left-track.width/2,behavior:conceptReduced.matches?'instant':'smooth'});}
+}
+conceptTrack.addEventListener('scroll',()=>{if(conceptScrollQueued)return;conceptScrollQueued=true;requestAnimationFrame(()=>{conceptScrollQueued=false;const track=conceptTrack.getBoundingClientRect(),center=track.left+track.width/2;let nearest=0,distance=Infinity;conceptCards.forEach((card,i)=>{const r=card.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-center);if(d<distance){distance=d;nearest=i;}});if(nearest!==conceptIndex)selectConcept(nearest);});},{passive:true});
+conceptCards.forEach((card,index)=>card.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const i=e.key==='Home'?0:e.key==='End'?4:Math.max(0,Math.min(4,index+(e.key==='ArrowRight'?1:-1)));conceptCards[i].focus({preventScroll:true});selectConcept(i,true);}));
+
+// A single original-resolution film supplies five matching color passages.
+const colorVideo=$('#color-video'),colorScene=$('.color-scene'),colorBench=$('.color-workbench'),colorButtons=$$('[data-color]');
+const colorRanges=[[0,2.4],[9,11.4],[31.2,33.6],[48.2,50.6],[68,70.4]];
+let colorIndex=0,colorVisible=false,colorMotion=!conceptReduced.matches,colorScrollQueued=false;
+function pauseColorVideo(){colorVideo.pause();}
+function seekColorVideo(){if(colorVideo.readyState>=1){colorVideo.classList.remove('is-playing');colorVideo.currentTime=colorRanges[colorIndex][0];}}
+function syncColorVideo(){
+ $('#color-motion-toggle').textContent=colorMotion?'暂停动态':'播放动态';$('#color-motion-toggle').setAttribute('aria-pressed',String(colorMotion));
+ if(!colorVisible||!colorMotion||document.hidden||document.querySelector('dialog[open]')){pauseColorVideo();return;}
+ if(!colorVideo.getAttribute('src')){colorVideo.src=$('#full-film source').dataset.src;colorVideo.load();}
+ colorVideo.muted=true;colorVideo.play().catch(()=>{});
+}
+function setColor(i){
+ colorIndex=i;const f=colors[i];colorButtons.forEach((button,j)=>button.setAttribute('aria-pressed',String(j===i)));
+ swapImage($('#color-image'),`${A}p${f[0]}.webp`,f[1]);colorVideo.poster=`${A}p${f[0]}.webp`;
+ $('#color-phase').textContent=`0${i+1} / ${f[1]}`;$('#color-emotion').textContent=f[2];seekColorVideo();syncColorVideo();
+}
+function jumpToColor(i){const row=colorButtons[i].getBoundingClientRect(),scene=colorScene.getBoundingClientRect();window.scrollTo({top:scrollY+row.top+row.height/2-parseFloat(getComputedStyle(colorScene).top)-scene.height/2,behavior:conceptReduced.matches?'instant':'smooth'});setColor(i);}
+function followColor(){
+ colorScrollQueued=false;if(document.querySelector('dialog[open]'))return;const bench=colorBench.getBoundingClientRect();if(bench.bottom<100||bench.top>innerHeight)return;
+ const scene=colorScene.getBoundingClientRect(),line=scene.top+scene.height/2;let nearest=0,distance=Infinity;
+ colorButtons.forEach((button,i)=>{const row=button.getBoundingClientRect(),d=Math.abs(row.top+row.height/2-line);if(d<distance){distance=d;nearest=i;}});
+ if(nearest!==colorIndex)setColor(nearest);
+}
+function queueColor(){if(!colorScrollQueued){colorScrollQueued=true;requestAnimationFrame(followColor);}}
+window.addEventListener('scroll',queueColor,{passive:true});window.addEventListener('resize',queueColor);
+colorVideo.addEventListener('loadedmetadata',seekColorVideo);
+colorVideo.addEventListener('seeking',()=>colorVideo.classList.remove('is-playing'));
+function revealColor(){if(!colorVideo.seeking&&!colorVideo.paused)colorVideo.classList.add('is-playing');}
+colorVideo.addEventListener('playing',revealColor);colorVideo.addEventListener('seeked',revealColor);
+colorVideo.addEventListener('error',()=>colorVideo.classList.remove('is-playing'));
+colorVideo.addEventListener('timeupdate',()=>{if(colorVideo.seeking)return;const[start,end]=colorRanges[colorIndex];if(colorVideo.currentTime>=end-.06||colorVideo.currentTime<start-.1)seekColorVideo();});
+new IntersectionObserver(entries=>{colorVisible=entries[0].isIntersecting;syncColorVideo();},{threshold:.1}).observe(colorVideo);
+$('#color-motion-toggle').addEventListener('click',()=>{colorMotion=!colorMotion;syncColorVideo();});
+document.addEventListener('visibilitychange',syncColorVideo);$$('dialog').forEach(d=>d.addEventListener('close',syncColorVideo));
+conceptReduced.addEventListener('change',()=>{colorMotion=!conceptReduced.matches;syncColorVideo();});
