@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2350dd8c'/%3E%3Cpath d='M14 14h25v37H14z' fill='%23ffe36c' stroke='%23000' stroke-width='3'/%3E%3Cpath d='M39 14l12 7v29l-12 1z' fill='%23f2c819' stroke='%23000' stroke-width='3'/%3E%3Ccircle cx='28' cy='33' r='3'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js?v=20261010-hd" defer></script>
-</head>
+<link rel="stylesheet" href="/scroll-motion.css?v=20261023"></head>
 <body>
   <div class="site" id="top">
     <div class="top-strip" aria-hidden="true"></div>
@@ -217,7 +217,7 @@
           <div><p class="eyebrow">2024 ✦<br>THE MAIN VISUAL EXTENSION</p><h2 id="extension-title">主视觉延展 <span>⟶</span></h2></div>
           <p class="section-number">#04-7<br>PROJECT</p>
         </div>
-        <div class="extension-card black-card reveal">
+        <div class="extension-card black-card reveal motion-extension" id="poster-motion"><p class="white-pill">动态海报 · 长屏延展</p><div class="motion-extension-grid"><figure><div class="scroll-motion poster-motion-frame"><img class="motion-still" src="assets/motion/poster-motion.webp" alt="串门发现新世界动态海报静态封面" loading="lazy"><video data-motion-src="assets/motion/poster-motion.mp4?v=20261023" muted loop playsinline preload="none" aria-label="串门发现新世界海报动画"></video></div><figcaption>海报动态</figcaption></figure><figure><div id="wide-screen-motion" class="scroll-motion wide-motion-frame"><img class="motion-still" src="assets/motion/wide-screen-motion.webp" alt="串门发现新世界长屏动画静态封面" loading="lazy"><video data-motion-src="assets/motion/wide-screen-motion.mp4?v=20261023" muted loop playsinline preload="none" aria-label="串门发现新世界长屏动画"></video></div><figcaption>长屏动态延展</figcaption></figure></div></div><div class="extension-card black-card reveal">
           <p class="white-pill">工作证</p>
           <div class="badge-grid">
             <button class="image-button" type="button" data-zoom="assets/badge-photos.webp?v=20261010-hd" aria-label="放大查看工作证实物照片"><img src="assets/badge-photos.webp?v=20261010-hd" alt="工作证实物应用" loading="lazy" data-preview-aspect="1200 / 780"></button>
@@ -252,5 +252,5 @@
     <img id="lightbox-image" alt="">
     <p id="lightbox-caption"></p>
   </dialog>
-<script src="/project-navigation.js" defer></script></body>
+<script src="/project-navigation.js" defer></script><button class="motion-toggle" data-motion-toggle type="button" aria-pressed="true">暂停动态</button><script src="/scroll-motion.js?v=20261023" defer></script></body>
 </html>

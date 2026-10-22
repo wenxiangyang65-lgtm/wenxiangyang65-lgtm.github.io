@@ -101,3 +101,7 @@
 .operations-worklist summary span {font-size:16px;transition:transform .2s;}
 .operations-worklist[open] summary span {transform:rotate(45deg);}
 .operations-worklist summary:focus-visible {outline:2px solid #567e9e;outline-offset:3px;}
+
+/* Keep CJK glyphs and every directory label at one regular weight. */
+#catalog.catalog-directory{font-family:'PingFang SC','Microsoft YaHei',Arial,sans-serif;font-weight:400;font-synthesis:none}
+#catalog :is(h2,h3,h4,p,span,strong,small,em,b,a,button,label,summary){font-family:inherit;font-weight:400;font-synthesis:none}

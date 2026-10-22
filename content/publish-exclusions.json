@@ -1,5 +1,5 @@
 {
-  "reason": "Unreferenced legacy exports remain in dist as original backups; current pages do not load them. Leave room for original-resolution story excerpts.",
+  "reason": "Unreferenced legacy exports and superseded static story plates remain in dist as original backups; current pages do not load them. Reserve publishing space for the original story excerpts and new poster motion.",
   "paths": [
     "projects/spring-horse/assets/animal-panda-scene.webp",
     "projects/spring-horse/assets/brief.webp",
@@ -61,6 +61,27 @@
     "projects/mr-chen/assets/titles/motifs.svg",
     "projects/mr-chen/assets/titles/concept.svg",
     "projects/mr-chen/assets/titles/color.svg",
-    "projects/mr-chen/assets/titles/color-original.webp"
+    "projects/mr-chen/assets/titles/color-original.webp",
+    "projects/spring-horse/assets/story-static-06.webp",
+    "projects/spring-horse/assets/story-static-07.webp",
+    "projects/spring-horse/assets/story-static-01.webp",
+    "projects/spring-horse/assets/story-static-02.webp",
+    "projects/spring-horse/assets/story-static-04.webp",
+    "projects/spring-horse/assets/story-static-08.webp",
+    "projects/spring-horse/assets/story-static-05.webp",
+    "projects/spring-horse/assets/story-lion-original.png",
+    "projects/spring-horse/assets/otters.webp",
+    "projects/spring-horse/assets/animal-rabbit-scene.webp",
+    "projects/a-horse/assets/lava-native.webp",
+    "projects/a-horse/assets/lava-display.webp",
+    "projects/a-horse/assets/horse-detail-native.webp",
+    "projects/a-horse/assets/horse-detail-display.webp",
+    "projects/a-horse/assets/hoof-native.webp",
+    "projects/a-horse/assets/hoof-display.webp",
+    "projects/a-horse/assets/riding-red-native.webp",
+    "projects/a-horse/assets/riding-red-display.webp",
+    "projects/churuixue/assets/hand-complete.woff2",
+    "projects/churuixue/assets/hero-loop.mp4",
+    "projects/churuixue/assets/hero-hand-loop.mp4"
   ]
 }
