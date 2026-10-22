@@ -229,3 +229,21 @@ img{height:auto}
 .results-grid>div>p{font:400 12px/1.7 'PingFang SC',sans-serif;margin:0;padding-top:10px}
 @media(max-width:720px){.concept-grid{--concept-card-width:74vw}.color-workbench{display:grid;grid-template-columns:1fr 1fr;gap:18px}.color-scene{top:85px;height:430px}.color-options button{min-height:220px;gap:8px}.color-options span{font-size:12px}.color-options small{font-size:8px}.color-intro{font-size:13px}.results-grid strong{font-size:36px}}
 .color-script{padding-bottom:210px}
+
+/* Give the four acts more room for original portrait footage and stills. */
+#story .act-original-heading{max-width:440px;margin:18px auto 20px}
+#story .act-intro{margin:18px 0 24px;gap:26px}
+#story .act-intro p{font-size:11.5px;line-height:1.9}
+#story .act-intro .primary{font-size:10.5px;padding:10px 14px}
+#story .frame-grid{grid-template-columns:1fr 1fr;gap:30px}
+#story .feature-frame{--preview-height:clamp(580px,56vw,760px);top:190px}
+#story .support-frames{gap:22px}
+#story .support-frames .frame-media{height:auto!important;aspect-ratio:9/16}
+#story .support-frames .frame-media img{height:100%;width:100%;object-fit:contain;aspect-ratio:auto}
+#story .frame-meta{font-size:10.5px;margin:9px 0 16px;gap:10px}
+#story .frame-meta span:first-child{font-size:9px}
+#story .stage-controls,#story .stage-controls button,#story .frame-overlay{font-size:10px}
+#story .act-tabs strong{font-size:11.5px}
+#story .act-tabs small{font-size:9px}
+#story .story-act+.story-act{margin-top:52px;padding-top:32px}
+@media(max-width:720px){#story .feature-frame{--preview-height:620px}#story .frame-grid{display:block}#story .feature-frame>.frame-card,#story .feature-frame>.stage-controls{max-width:min(100%,349px)}}

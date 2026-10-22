@@ -35,3 +35,22 @@ h2{font-size:var(--title);letter-spacing:.07em;margin-top:12px}h3{font-size:.687
 /* The final-film stage keeps the original wide composition and native video controls. */
 .frame-stage>video{display:block;width:100%;height:100%;object-fit:contain;background:#070b10}
 .frame-controls #frame-zoom{width:auto;padding:0 12px;font:var(--micro) var(--sans);white-space:nowrap}
+
+/* Quiet illustrated speech bubbles share one avatar scale throughout the story. */
+:root{--guide-width:76px;--guide-height:100px}
+.voice{grid-template-columns:var(--guide-width) minmax(0,1fr);gap:20px;max-width:740px}
+.voice-avatar,.voice-avatar img,.hero-guide>img,.story-guide>img,.frame-narrator>img{width:var(--guide-width);height:var(--guide-height);min-height:var(--guide-height);max-width:none;object-fit:contain;flex:0 0 var(--guide-width)}
+.voice-avatar{align-items:center}
+.voice-avatar:after,.hero-guide>.guide-tail,.story-guide>.guide-tail,.frame-narrator>.guide-tail{display:none}
+.voice-copy,.hero-guide .guide-words,.story-guide>div,.frame-narrator>div{position:relative;display:block;min-width:0;padding:16px 20px;border:1px solid #a7b6c14a;border-radius:18px 22px 20px 7px;background:linear-gradient(145deg,#15202bdb,#0b121ae8);box-shadow:0 5px 18px #00000012}
+.voice-copy:before,.hero-guide .guide-words:before,.story-guide>div:before,.frame-narrator>div:before{content:'';position:absolute;width:12px;height:12px;left:-7px;top:30px;transform:rotate(45deg);border-left:1px solid #a7b6c14a;border-bottom:1px solid #a7b6c14a;background:#131d27}
+.voice-label{margin-bottom:9px;flex-wrap:wrap}
+.voice-more{font-size:11px;line-height:1.95}
+.hero-guide,.story-guide,.frame-narrator{gap:20px;align-items:center}
+.hero-guide{bottom:75px;max-width:min(740px,85vw)}
+.hero-title-group{bottom:240px}
+.story-guide>div,.frame-narrator>div{flex:1}
+.story-guide p,.frame-narrator p{max-width:none;white-space:pre-line}
+.frame-narrator p{margin:0}
+.story-caption>.text-link{margin-left:96px}
+@media(max-width:680px){:root{--guide-width:76px;--guide-height:100px}.voice{grid-template-columns:var(--guide-width) minmax(0,1fr);gap:17px}.voice-copy,.hero-guide .guide-words,.story-guide>div,.frame-narrator>div{padding:13px 16px}.hero-guide{bottom:80px}.hero-title-group{bottom:230px}.story-guide,.frame-narrator{gap:17px}}
