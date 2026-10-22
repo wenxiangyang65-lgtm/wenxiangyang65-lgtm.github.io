@@ -163,20 +163,25 @@ frameVideo.addEventListener('timeupdate',()=>{
 $('#story-frame-link').addEventListener('click',()=>{if(frames.length)setFrameAct(storyAct);else pendingAct=storyAct;});
 Promise.all([Promise.resolve(window.SPRING_ATLAS_DATA.chapters),Promise.resolve(window.SPRING_ATLAS_DATA.frames)]).then(([chapters,data])=>{acts=chapters;frames=data;setStory(0);setFrameAct(pendingAct===null?'all':pendingAct);}).catch(()=>{$('.frame-error').hidden=false;$('#frame-prev').disabled=true;$('#frame-next').disabled=true;$('#frame-zoom').disabled=true;});
 
-let roles=[],roleIndex=0;
-function selectRole(index){
- if(!roles.length)return;roleIndex=index;const r=roles[index];
- $('#role-position').textContent=`${String(index+1).padStart(2,'0')} / 10 · 5s`;
- $$('.role-tabs button').forEach((b,i)=>{b.setAttribute('aria-selected',String(i===index));b.tabIndex=i===index?0:-1;});
- $('#role-panel').setAttribute('aria-labelledby',`role-tab-${index}`);
- changeImage($('#role-image'),r.image,`${r.name}正面、侧面与背面的原角色三视图`);
- $('#role-name').textContent=r.name;$('#role-trait').textContent=r.trait;$('#role-description').textContent=r.description;
- $('#role-zoom').setAttribute('aria-label',`放大${r.name}角色设定`);
+let roles=[],rolePairIndex=0;
+function selectRolePair(index){
+ if(!roles.length)return;
+ const total=Math.ceil(roles.length/2);rolePairIndex=(index+total)%total;
+ $('#role-position').textContent=`${String(rolePairIndex+1).padStart(2,'0')} / ${String(total).padStart(2,'0')} 组 · 两位一组 · 5s`;
+ $$('.role-tabs button').forEach((b,i)=>{b.setAttribute('aria-selected',String(i===rolePairIndex));b.tabIndex=i===rolePairIndex?0:-1;});
+ $('#role-panel').setAttribute('aria-labelledby',`role-tab-${rolePairIndex}`);
+ $$('.role-entry').forEach((row,offset)=>{
+  const at=rolePairIndex*2+offset,r=roles[at];row.hidden=!r;if(!r)return;
+  changeImage(row.querySelector('[data-role-image]'),r.image,`${r.name}正面、侧面与背面的原角色三视图`);
+  row.querySelector('[data-role-number]').textContent=`${String(at+1).padStart(2,'0')} / ${String(roles.length).padStart(2,'0')}`;
+  row.querySelector('[data-role-name]').textContent=r.name;row.querySelector('[data-role-trait]').textContent=r.trait;row.querySelector('[data-role-description]').textContent=r.description;
+  row.querySelector('[data-role-zoom]').setAttribute('aria-label',`放大${r.name}角色设定`);
+ });
 }
-$$('.role-tabs button').forEach(b=>b.addEventListener('click',e=>{selectRole(Number(b.dataset.role));if(e.detail>0)roleFocused=false;updateRolePlayback();}));
-tabKeys($$('.role-tabs button'),b=>selectRole(Number(b.dataset.role)));
-$('#role-zoom').addEventListener('click',()=>{const r=roles[roleIndex];if(r)openImage(r.image,`${r.name} / 原角色三视图 / ${r.trait}`);});
-Promise.resolve(window.SPRING_ATLAS_DATA.roles).then(data=>{roles=data;selectRole(0);updateRolePlayback();}).catch(()=>{$('.role-error').hidden=false;$('#role-zoom').disabled=true;});
+$$('.role-tabs button').forEach(b=>b.addEventListener('click',e=>{selectRolePair(Number(b.dataset.rolePair));if(e.detail>0)roleFocused=false;updateRolePlayback();}));
+tabKeys($$('.role-tabs button'),b=>selectRolePair(Number(b.dataset.rolePair)));
+$$('[data-role-zoom]').forEach((b,offset)=>b.addEventListener('click',()=>{const r=roles[rolePairIndex*2+offset];if(r)openImage(r.image,`${r.name} / 原角色三视图 / ${r.trait}`);}));
+Promise.resolve(window.SPRING_ATLAS_DATA.roles).then(data=>{roles=data;selectRolePair(0);updateRolePlayback();}).catch(()=>{$('.role-error').hidden=false;$$('[data-role-zoom]').forEach(b=>b.disabled=true);});
 
 let roleAuto=!reduced.matches,roleVisible=false,roleTimer=null,roleFocused=false;
 const rolePlayback=$('#role-autoplay');
@@ -184,11 +189,11 @@ function updateRolePlayback(){
  if(roleTimer)clearInterval(roleTimer);roleTimer=null;
  rolePlayback.setAttribute('aria-pressed',String(roleAuto));rolePlayback.textContent=roleAuto?'暂停轮播':'开始轮播';
  if(roleAuto&&roleVisible&&roles.length&&!document.hidden){
-  roleTimer=setInterval(()=>{if(!roleFocused&&!imageDialog.open&&!filmDialog.open){selectRole((roleIndex+1)%roles.length);const strip=$('.role-tabs'),tab=strip.children[roleIndex];if(tab)strip.scrollTo({left:Math.max(0,tab.offsetLeft-strip.offsetLeft-strip.clientWidth/2+tab.offsetWidth/2),behavior:reduced.matches?'instant':'smooth'});}},5000);
+  roleTimer=setInterval(()=>{if(!roleFocused&&!imageDialog.open&&!filmDialog.open)selectRolePair(rolePairIndex+1);},5000);
  }
 }
 rolePlayback.addEventListener('click',()=>{roleAuto=!roleAuto;updateRolePlayback();});
-if('IntersectionObserver'in window){new IntersectionObserver(entries=>{roleVisible=entries[0].isIntersecting;updateRolePlayback();},{threshold:.15}).observe($('.role-stage'));}
+if('IntersectionObserver'in window){new IntersectionObserver(entries=>{roleVisible=entries[0].isIntersecting;updateRolePlayback();},{threshold:.05}).observe($('#role-panel'));}
 $('.role-tabs').addEventListener('focusin',e=>roleFocused=e.target.matches(':focus-visible'));$('.role-tabs').addEventListener('focusout',e=>{if(!$('.role-tabs').contains(e.relatedTarget))roleFocused=false;});
 document.addEventListener('visibilitychange',updateRolePlayback);
 reduced.addEventListener('change',()=>{if(reduced.matches){roleAuto=false;updateRolePlayback();}});
