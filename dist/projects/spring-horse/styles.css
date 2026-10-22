@@ -54,3 +54,7 @@ h2{font-size:var(--title);letter-spacing:.07em;margin-top:12px}h3{font-size:.687
 .frame-narrator p{margin:0}
 .story-caption>.text-link{margin-left:96px}
 @media(max-width:680px){:root{--guide-width:76px;--guide-height:100px}.voice{grid-template-columns:var(--guide-width) minmax(0,1fr);gap:17px}.voice-copy,.hero-guide .guide-words,.story-guide>div,.frame-narrator>div{padding:13px 16px}.hero-guide{bottom:80px}.hero-title-group{bottom:230px}.story-guide,.frame-narrator{gap:17px}}
+
+/* Original character plates match the role library without cropping. */
+.role-comparison{gap:28px 3vw;align-items:start}.role-comparison .animal-scene{aspect-ratio:auto;margin:0;padding-bottom:30px}.role-comparison .animal-scene img{height:auto;aspect-ratio:2800/1563;object-fit:contain;mask-image:none}.role-comparison figcaption{margin-top:14px;color:var(--muted);font-size:.5625rem;line-height:1.8}.role-comparison .zoom{bottom:44px}
+@media(max-width:680px){.role-comparison{grid-template-columns:1fr;gap:22px}.role-comparison .animal-scene{aspect-ratio:auto}.role-comparison figcaption{font-size:.5rem}}

@@ -2,13 +2,13 @@
 const $=s=>document.querySelector(s);
 const $$=s=>Array.from(document.querySelectorAll(s));
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
-const actors=['狐狸','狐狸','白马','黑熊','兔子','兔子','熊猫','黑熊'];
+const actors=['狐狸','狐狸','白马','黑熊','兔子','兔子','熊猫','黑熊','雄狮','海豹','小狗','松鼠'];
 let voiceId=0;
 $$('.voice').forEach(el=>{
   const actor=Number(el.dataset.actor),p=el.querySelector('p'),more=el.dataset.more;
   const button=document.createElement('button');button.className='voice-avatar';button.type='button';
   button.setAttribute('aria-label',`${actors[actor]}的旁白：展开设计解说`);button.setAttribute('aria-expanded','false');
-  const avatar=document.createElement('img');avatar.src=`assets/animal-${actor}.webp?revision=20261009-spring-horse`;avatar.alt=actors[actor];avatar.loading='lazy';avatar.width=70;avatar.height=90;button.append(avatar);
+  const avatar=document.createElement('img');avatar.src=`assets/animal-${actor}.webp?revision=20261022-animal-match`;avatar.alt=actors[actor];avatar.loading='lazy';avatar.width=70;avatar.height=90;button.append(avatar);
   const copy=document.createElement('div');copy.className='voice-copy';
   const label=document.createElement('div');label.className='voice-label';label.textContent=`${actors[actor]}的旁白`;
   const hint=document.createElement('em');hint.textContent='点我展开';label.append(hint);copy.append(label,p);
@@ -97,7 +97,7 @@ function setStory(index){
  $('#story-clip-range').textContent=`高清片段 · ${a.clip_time} · 1080p`;
  syncStoryPlayback();
  $('#story-number').textContent=`${String(index+1).padStart(2,'0')} / ${a.title}`;$('#story-french').textContent=a.subtitle;
- $('#story-animal').src=`assets/animal-${a.actor}.webp?revision=20261009-spring-horse`;$('#story-animal').alt=actors[a.actor];$('#story-speaker').textContent=`${actors[a.actor]}的旁白`;$('#story-voice').textContent=a.voice;
+ $('#story-animal').src=`assets/animal-${a.actor}.webp?revision=20261022-animal-match`;$('#story-animal').alt=actors[a.actor];$('#story-speaker').textContent=a.speaker||`${actors[a.actor]}的旁白`;$('#story-voice').textContent=a.voice;
 }
 $$('.act-tabs button').forEach(b=>b.addEventListener('click',()=>setStory(Number(b.dataset.act))));
 function tabKeys(list,select){
@@ -130,7 +130,7 @@ function showFrame(index,center=false,seek=true,second=null){
  if(!frames.length)return;frameIndex=index;const f=frames[index],ids=filteredIndexes(),at=ids.indexOf(index);
  if(seek){if(!frameVideo.getAttribute('src'))frameVideo.poster=f.image;seekFrameVideo(second===null?f.second:second);syncFramePlayback();}
  $('#frame-count').textContent=`${String(f.number).padStart(2,'0')} / 43`;$('#frame-time').textContent=f.time;$('#frame-title').textContent=f.title;$('#frame-description').textContent=f.description;$('#frame-voice').textContent=f.voice;
- $('#frame-animal').src=`assets/animal-${f.actor}.webp?revision=20261009-spring-horse`;$('#frame-animal').alt=actors[f.actor];$('#frame-speaker').textContent=`${actors[f.actor]}的旁白`;
+ $('#frame-animal').src=`assets/animal-${f.actor}.webp?revision=20261022-animal-match`;$('#frame-animal').alt=actors[f.actor];$('#frame-speaker').textContent=f.speaker||`${actors[f.actor]}的旁白`;
  $('#frame-zoom').setAttribute('aria-label',`放大播放：${f.title}`);
  $('#frame-prev').disabled=at<=0;$('#frame-next').disabled=at>=ids.length-1;
  $$('#filmstrip button').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.index)===index)));
