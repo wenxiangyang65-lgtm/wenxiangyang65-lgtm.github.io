@@ -16,18 +16,18 @@
   <link rel="stylesheet" href="catalog-films.css?v=20261009-film-first">
   <script src="catalog-films.js?v=20261009-film-first" defer></script>
   <link rel="stylesheet" href="catalog-directory.css?v=20261023-uniform-weight">
-  <script src="catalog-directory.js?v=20261020-disc" defer></script>
-  <script src="app.js?v=20261015-folders" defer></script>
+  <script src="catalog-directory.js?v=20261023-performance" defer></script>
+  <script src="app.js?v=20261023-performance" defer></script>
   <link rel="stylesheet" href="resume.css?v=20261015-f">
   <script src="resume.js?v=20261015-f" defer></script>
-</head>
+<script src="/portfolio-performance.js?v=20261023-1" defer></script></head>
 <body class="homepage">
   <a class="skip-link" href="#catalog">进入项目目录</a>
   <main>
     <section class="screen cover" id="cover" aria-labelledby="cover-heading">
       <h1 id="cover-heading" class="sr-only">杨文祥 · 创意视觉设计师 · AI Visual Portfolio</h1>
       <div class="artframe cover-art">
-        <img class="original-art" src="assets/cover.webp" width="2880" height="1620" alt="银蓝唱片与金属字体的 AI Visual Portfolio 封面，杨文祥的创意视觉设计作品集。">
+        <img class="original-art" fetchpriority="high" src="assets/cover.webp" width="2880" height="1620" alt="银蓝唱片与金属字体的 AI Visual Portfolio 封面，杨文祥的创意视觉设计作品集。" loading="eager" decoding="async">
         <video id="cover-video" class="cover-video" muted loop playsinline preload="none" poster="assets/cover.webp" aria-hidden="true" data-src="assets/cover-motion.mp4"></video>
         <a class="hotspot invitation" href="#resume" aria-label="请留步，请观赏：查看个人简历"><span class="tooltip">查看个人简历</span></a>
         <a class="hotspot email" href="mailto:2042311533@qq.com" aria-label="邮件联系杨文祥：2042311533@qq.com"><span class="tooltip">邮件联系</span></a>
@@ -40,12 +40,12 @@
       <h2 id="resume-heading" class="sr-only">杨文祥 · 营销视觉设计师与 AIGC 创意视频 · 简历</h2>
       <div class="artframe resume-art">
         <div class="resume-page">
-          <img class="original-art desktop-resume" src="assets/resume.webp?v=20261015-f" width="4032" height="1728" alt="新版简历第一页面：杨文祥，营销视觉设计师、AIGC 创意视频方向。个人信息、教育、关于我和四段工作经历；辛选集团任职时间为 2025.10 至今。" loading="lazy">
+          <img class="original-art desktop-resume" src="assets/resume.webp?v=20261015-f" width="4032" height="1728" alt="新版简历第一页面：杨文祥，营销视觉设计师、AIGC 创意视频方向。个人信息、教育、关于我和四段工作经历；辛选集团任职时间为 2025.10 至今。" loading="lazy" decoding="async">
           <button class="resume-open" type="button" data-resume-open="0" aria-label="放大查看简历第一页"><span class="sr-only">放大查看个人信息与工作经历</span></button>
           <a class="resume-works-link" href="#catalog" aria-label="查看杨文祥作品目录">作品：查看目录 ↗</a>
         </div>
         <div class="resume-page">
-          <img class="original-art" src="assets/resume-projects.webp?v=20261015-f" width="4032" height="1728" alt="新版简历第二页面：赵梦澈年货节、国家家电以旧换新、天猫 AWE、许我一匹马吧、敦煌奇境五个精选项目，以及获奖与技能。" loading="lazy">
+          <img class="original-art" src="assets/resume-projects.webp?v=20261015-f" width="4032" height="1728" alt="新版简历第二页面：赵梦澈年货节、国家家电以旧换新、天猫 AWE、许我一匹马吧、敦煌奇境五个精选项目，以及获奖与技能。" loading="lazy" decoding="async">
           <button class="resume-open" type="button" data-resume-open="1" aria-label="放大查看简历第二页"><span class="sr-only">放大查看精选项目、获奖与技能</span></button>
         </div>
       </div>
@@ -161,7 +161,7 @@ YANG WENXIANG
     <a href="#resume" aria-label="简历"><span>简历</span></a>
     <a href="#catalog" aria-label="项目目录"><span>目录</span></a>
   </nav>
-  <div class="transition-curtain" aria-hidden="true"><img src="assets/disc-01.webp" alt="" data-preview-aspect="900 / 900"><span>正在打开作品</span></div>
+  <div class="transition-curtain" aria-hidden="true"><img src="assets/disc-01.webp" alt="" data-preview-aspect="900 / 900" loading="lazy" decoding="async" width="900" height="900"><span>正在打开作品</span></div>
   <div class="sr-only" id="directory-status" role="status" aria-live="polite"></div>
   <dialog id="catalog-film-dialog" class="catalog-film-dialog" aria-labelledby="catalog-film-title">
     <header class="catalog-film-header"><div><p>AI FILM / 作品成片</p><h2 id="catalog-film-title"></h2></div><button type="button" id="catalog-film-close" class="catalog-film-close" aria-label="关闭影片，返回唱片目录">关闭 ×</button></header>

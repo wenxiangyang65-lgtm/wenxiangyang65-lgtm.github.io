@@ -10,7 +10,7 @@
     "content": "node scripts/content.mjs",
     "check": "node scripts/check.mjs",
     "build": "node scripts/build.mjs",
-    "test": "python3 -m unittest discover -s tests -v && node --test tests/published-images.test.mjs"
+    "test": "python3 -m unittest discover -s tests -v && node --test tests/*.test.mjs"
   },
   "devDependencies": {
     "sharp": "0.34.4"

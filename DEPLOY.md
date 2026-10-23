@@ -171,3 +171,13 @@ ssh portfolio-tencent 'python3 /usr/local/lib/portfolio-deploy.py rollback'
 content/publish-exclusions.json 仅列出该项目已不再引用的旧版静态图。构建跳过这些文件，原图仍完整保存在 dist/ 中，为高清视频留出发布空间。测试会阻止当前页面重新引用排除文件。
 
 发布图片下载会同时支持原腾讯云和原 GitHub Pages 镜像。Actions 优先从 GitHub 获取；网络失败、大小或 SHA-256 不一致时切换到另一镜像，只有全部镜像均未通过校验时才重新编码源图，避免短暂下载失败使发布超时。
+
+## 无损加载优化与服务器缓存
+
+`portfolio-performance.js` 只延迟原稿 SVG 中远离视口的外链图片；不改原图、裁切、坐标或遮罩。原稿的大图窗口会先恢复所选模块全部图片，再打开和导出。普通页面使用原生图片懒加载和异步解码。
+
+构建通过 `scripts/delivery.mjs` 为本地 CSS/JS 引用写入内容摘要版本，并生成 HTML/CSS/JS/JSON 的 `.gz` 无损传输副本。图片、视频、字体不生成替代品；已有发布图片同时核对固定 SHA-256，不一致即停止发布。
+
+新版 `deploy/nginx-portfolio.conf` 只对带 16 位内容摘要 `v` 参数的 CSS/JS 使用长期缓存，HTML、健康检查和无内容摘要的代码保持重新验证。图片和视频沿用原缓存时长，避免旧版作品滞留。GitHub Pages 的响应头仍由平台管理。
+
+Nginx 配置需管理员安装；网站发布账号没有该权限。将本目录的 `nginx-portfolio.conf` 与 `apply-performance-config.sh` 放在同一服务器文件夹，在管理员终端运行 `sudo bash /所在文件夹/apply-performance-config.sh`。脚本备份现有专属站点配置，先执行 `nginx -t`，通过后才重载；失败会恢复原配置。不修改其他站点、域名或图片视频资源。

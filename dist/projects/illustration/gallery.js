@@ -7,12 +7,6 @@ const menu=document.getElementById('work-menu');
 const box=document.getElementById('lightbox');
 let current='',lastZoom=null;
 const baseTitle='品牌 IP 与个人设计探索 · 杨文祥';
-const preloaded=new Set();
-function preloadProject(work){
- const paths=[...work.querySelectorAll('[data-asset]')].map(t=>t.dataset.asset);
- if(work.id==='asian-games')for(const id of ['chenchen','congcong','lianlian'])paths.push(`assets/asian-${id}.avif`,`assets/asian-${id}-clay.avif`);
- paths.forEach(src=>{if(preloaded.has(src))return;preloaded.add(src);const im=new Image();im.src=src;});
-}
 const header=document.querySelector('.site-head');
 function sizeHeader(){document.documentElement.style.setProperty('--head-h',header.offsetHeight+'px');}
 sizeHeader();if('ResizeObserver'in window)new ResizeObserver(sizeHeader).observe(header);
@@ -25,7 +19,6 @@ function route(){
  works.forEach(w=>{w.hidden=w!==next;});hub.hidden=Boolean(next);
  current=next?.id||'';
  document.body.classList.toggle('service-original-view',current==='service-ip');sizeHeader();
- if(next)preloadProject(next);
  document.title=next?next.querySelector('h1').textContent+' · 杨文祥':baseTitle;
  document.getElementById('head-category').textContent=next?(next.id==='service-ip'||next.id==='asian-games'?'BRAND IP / 3D DESIGN':'PERSONAL / VISUAL EXPLORATION'):'IP / VISUAL EXPLORATION';
  if(changed){window.scrollTo({top:0,behavior:'instant'});(next?.querySelector('h1')||hub.querySelector('h1')).setAttribute('tabindex','-1');}

@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { check, filesIn } from './check.mjs';
 import { compileContent } from './content.mjs';
 import { optimisePublishedImages } from './publish-images.mjs';
+import { prepareDelivery } from './delivery.mjs';
 
 await check();
 const output=resolve('build');
@@ -13,6 +14,8 @@ const excluded=new Set(JSON.parse(await readFile('content/publish-exclusions.jso
 await cp('dist',output,{recursive:true,filter:path=>!path.endsWith('.DS_Store')&&!excluded.has(relative(resolve('dist'),path))});
 const projects=await compileContent(output);
 await optimisePublishedImages(output);
+const delivery=await prepareDelivery(output);
+console.log(`加载优化：${delivery.versionedReferences} 个代码引用按内容更新版本；${delivery.compressedFiles} 个文本文件生成无损传输副本；作品媒体不重新编码。`);
 const commit=process.env.GITHUB_SHA||execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
 const created=new Date().toISOString();
 await writeFile(resolve(output,'deployment-health.json'),JSON.stringify({status:'ok',commit,created,projects:projects.length})+'\n');
