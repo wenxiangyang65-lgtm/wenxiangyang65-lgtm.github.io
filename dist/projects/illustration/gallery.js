@@ -24,6 +24,7 @@ function route(){
  if(box.open)box.close();if(menu.open)menu.close();
  works.forEach(w=>{w.hidden=w!==next;});hub.hidden=Boolean(next);
  current=next?.id||'';
+ document.body.classList.toggle('service-original-view',current==='service-ip');sizeHeader();
  if(next)preloadProject(next);
  document.title=next?next.querySelector('h1').textContent+' · 杨文祥':baseTitle;
  document.getElementById('head-category').textContent=next?(next.id==='service-ip'||next.id==='asian-games'?'BRAND IP / 3D DESIGN':'PERSONAL / VISUAL EXPLORATION'):'IP / VISUAL EXPLORATION';
@@ -103,41 +104,28 @@ filters.addEventListener('click',ev=>{
  let count=0;document.querySelectorAll('[data-poster-category]').forEach(item=>{item.hidden=filter!=='all'&&item.dataset.posterCategory!==filter;if(!item.hidden)count++;});
  document.querySelector('.gallery-count').textContent=count+' 张海报';
 });
-// Genuine source turntable frames. Dragging changes the angle; scrolling remains native.
-const turn=document.getElementById('service-turntable'),turnImage=turn.querySelector('img'),range=document.getElementById('turn-range'),play=document.getElementById('turn-play');
-let turnVisible=false,turnEnabled=!reduced.matches,turnTimer=null,turnIndex=0,frames=null,drag=null;
-function loadFrames(){
- if(frames)return;frames=Array.from({length:24},(_,i)=>{const im=new Image();im.src=`assets/service-turn-${String(i).padStart(2,'0')}.avif`;return im;});
- turn.dataset.ready='true';
-}
-function setAngle(i){
- loadFrames();i=(i+24)%24;const frame=frames[i];
- if(!frame.complete||!frame.naturalWidth){frame.addEventListener('load',()=>{if(turnIndex===i)turnImage.src=frame.src;},{once:true});}
- else turnImage.src=frame.src;
- turnIndex=i;range.value=String(i);range.setAttribute('aria-valuetext',i*15+'度');document.getElementById('turn-degree').textContent=String(i*15).padStart(3,'0')+'°';
-}
+// Real source animations occupy their original Illustrator rectangles.
+const serviceVideos=[...document.querySelectorAll('[data-service-motion]')];
+const motionToggle=document.getElementById('service-motion-toggle');
+let motionEnabled=!reduced.matches;
 function syncTurn(){
- clearInterval(turnTimer);turnTimer=null;
- play.textContent=turnEnabled?'暂停旋转':'播放旋转';play.setAttribute('aria-pressed',String(turnEnabled));
- if(current==='service-ip'&&turnVisible&&turnEnabled&&!document.hidden&&!box.open){loadFrames();turnTimer=setInterval(()=>setAngle(turnIndex+1),125);}
+ motionToggle.textContent=motionEnabled?'暂停动态':'播放动态';motionToggle.setAttribute('aria-pressed',String(motionEnabled));
+ serviceVideos.forEach(video=>{
+  const shouldPlay=current==='service-ip'&&video.dataset.visible==='true'&&motionEnabled&&!document.hidden&&!box.open;
+  if(!shouldPlay){video.pause();return;}
+  const source=video.querySelector('source');
+  if(!source.src){source.src=source.dataset.src;video.load();}
+  video.muted=true;video.play().catch(()=>{});
+ });
 }
-function manualAngle(i){turnEnabled=false;syncTurn();setAngle(i);}
-play.addEventListener('click',()=>{turnEnabled=!turnEnabled;syncTurn();});
-range.addEventListener('input',ev=>manualAngle(Number(ev.target.value)));
-document.querySelectorAll('[data-turn]').forEach(button=>button.addEventListener('click',()=>manualAngle(Number(button.dataset.turn))));
-turn.addEventListener('keydown',ev=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(ev.key))return;ev.preventDefault();manualAngle(ev.key==='Home'?0:ev.key==='End'?23:turnIndex+(ev.key==='ArrowRight'?1:-1));});
-turn.addEventListener('pointerdown',ev=>{if(ev.button!==0)return;drag={x:ev.clientX,y:ev.clientY,i:turnIndex,started:false};});
-turn.addEventListener('pointermove',ev=>{
- if(!drag)return;const dx=ev.clientX-drag.x,dy=ev.clientY-drag.y;
- if(!drag.started&&Math.abs(dy)>Math.abs(dx)+6){drag=null;return;}
- if(!drag.started&&Math.abs(dx)>8){drag.started=true;turn.setPointerCapture(ev.pointerId);turn.classList.add('dragging');}
- if(drag.started)manualAngle(drag.i+Math.round(dx/12));
-});
-function stopDrag(){drag=null;turn.classList.remove('dragging');}
-turn.addEventListener('pointerup',stopDrag);turn.addEventListener('pointercancel',stopDrag);
-if('IntersectionObserver'in window)new IntersectionObserver(entries=>{turnVisible=entries[0].isIntersecting&&entries[0].intersectionRatio>=.15;syncTurn();},{threshold:[0,.15]}).observe(turn);else turnVisible=true;
+serviceVideos.forEach(video=>video.addEventListener('playing',()=>{video.dataset.playing='true';}));
+if('IntersectionObserver'in window){
+ const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{entry.target.dataset.visible=String(entry.isIntersecting);});syncTurn();},{threshold:0});
+ serviceVideos.forEach(video=>observer.observe(video));
+}else serviceVideos.forEach(video=>video.dataset.visible='true');
+motionToggle.addEventListener('click',()=>{motionEnabled=!motionEnabled;syncTurn();});
 document.addEventListener('visibilitychange',syncTurn);box.addEventListener('close',syncTurn);box.addEventListener('toggle',syncTurn);
-reduced.addEventListener('change',()=>{if(reduced.matches)turnEnabled=false;syncTurn();});
+reduced.addEventListener('change',()=>{motionEnabled=!reduced.matches;syncTurn();});
 // Highlight the current chapter without pinning or replacing the user's scroll position.
 let scrollTick=false;
 function spy(){
