@@ -12,3 +12,5 @@
   const hint=document.createElement('span');hint.className='portfolio-source-hint';hint.textContent='点击画面 · 放大阅读';document.body.append(hint);
  }
 })();
+
+(()=>{const footer=document.createElement('footer');footer.setAttribute('aria-label','网站备案信息');footer.style.cssText='position:relative;clear:both;padding:22px 16px;text-align:center;font:12px/1.8 sans-serif;color:inherit;background:transparent';const link=document.createElement('a');link.href='https://beian.miit.gov.cn/';link.target='_blank';link.rel='noopener noreferrer';link.textContent='鲁ICP备2026063344号-1';link.style.cssText='color:inherit;text-decoration:none';footer.append(link);document.body.append(footer);})();
