@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1"><script src="desktop-preview.js?v=20261008-marquee"></script>
+  <script>
+    document.documentElement.classList.add('intro-enabled');
+    document.documentElement.classList.toggle('intro-open', !location.hash || location.hash === '#cover');
+  </script>
   <meta name="theme-color" content="#eaf4ff">
   <title>杨文祥 · AI Visual Portfolio</title>
   <meta name="description" content="杨文祥的创意视觉设计作品集。AI 影视创意、品牌视觉、电商视觉、视觉识别系统与 IP 视觉设计。">
@@ -23,21 +27,21 @@
 <script src="/portfolio-performance.js?v=20261023-1" defer></script></head>
 <body class="homepage">
   <a class="skip-link" href="#catalog">进入项目目录</a>
+  <section class="screen cover" id="cover" aria-labelledby="cover-heading">
+    <h1 id="cover-heading" class="sr-only">杨文祥 · 创意视觉设计师 · AI Visual Portfolio</h1>
+    <div class="artframe cover-art">
+      <img class="original-art" fetchpriority="high" src="assets/cover-intro-20261106.webp" width="2560" height="1440" alt="" loading="eager" decoding="async">
+      <video id="cover-video" class="cover-video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/cover-intro-20261106.mp4"></video>
+    </div>
+    <div class="cover-contacts">
+      <a href="mailto:2042311533@qq.com">邮件联系</a>
+      <a href="tel:15725399952">电话联系</a>
+    </div>
+    <button class="cover-playback" id="motion-toggle" type="button" aria-label="暂停封面动态">暂停动态</button>
+    <a class="scroll-cue" href="#resume"><span>下滑 · 简历</span><i aria-hidden="true"></i></a>
+  </section>
   <main>
-    <section class="screen cover" id="cover" aria-labelledby="cover-heading">
-      <h1 id="cover-heading" class="sr-only">杨文祥 · 创意视觉设计师 · AI Visual Portfolio</h1>
-      <div class="artframe cover-art">
-        <img class="original-art" fetchpriority="high" src="assets/cover-intro-20261106.webp" width="2560" height="1440" alt="" loading="eager" decoding="async">
-        <video id="cover-video" class="cover-video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/cover-intro-20261106.mp4"></video>
-      </div>
-      <div class="cover-contacts">
-        <a href="mailto:2042311533@qq.com">邮件联系</a>
-        <a href="tel:15725399952">电话联系</a>
-      </div>
-      <button class="cover-playback" id="motion-toggle" type="button" aria-label="暂停封面动态">暂停动态</button>
-      <a class="scroll-cue" href="#resume"><span>下滑 · 简历</span><i aria-hidden="true"></i></a>
-    </section>
-    <section class="screen resume" id="resume" aria-labelledby="resume-heading">
+    <section class="screen resume" id="resume" tabindex="-1" aria-labelledby="resume-heading">
       <h2 id="resume-heading" class="sr-only">杨文祥 · 营销视觉设计师与 AIGC 创意视频 · 简历</h2>
       <div class="artframe resume-art">
         <div class="resume-page">

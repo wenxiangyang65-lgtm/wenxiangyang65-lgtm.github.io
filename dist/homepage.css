@@ -54,7 +54,7 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
 .homepage .hotspot{min-width:0;min-height:0}
 .homepage .resume-power:before{left:-20px;right:0;top:-18px;bottom:-18px}
 
-/* The intro stays in the normal page flow, so wheel and touch scrolling carry it away. */
+/* Keep the video at viewport scale, with the complete frame on portrait screens. */
 .homepage #cover {
   height: 100vh;
   height: 100svh;
@@ -127,15 +127,26 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
     bottom: calc(max(16px, env(safe-area-inset-bottom)) + 54px);
   }
 }
-@supports (animation-timeline: scroll(root block)) {
-  @media (prefers-reduced-motion: no-preference) {
-    .homepage #cover .cover-art {
-      animation: cover-exit linear both;
-      animation-timeline: scroll(root block);
-      animation-range: 0px 100svh;
-    }
-    @keyframes cover-exit {
-      to { opacity: .7; }
-    }
-  }
+/* Cover is a separate level above the inner page. */
+html.intro-open,
+html.intro-exiting {
+  overflow-y: hidden;
+}
+.intro-enabled .homepage #cover {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  height: 100%;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: transform .62s cubic-bezier(.32, .72, .22, 1), visibility 0s .62s;
+  touch-action: pinch-zoom;
+}
+.intro-open .homepage #cover {
+  visibility: visible;
+  transform: none;
+  transition: none;
+}
+.intro-open .page-dots {
+  visibility: hidden;
 }
