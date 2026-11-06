@@ -54,15 +54,18 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
 .homepage .hotspot{min-width:0;min-height:0}
 .homepage .resume-power:before{left:-20px;right:0;top:-18px;bottom:-18px}
 
-/* Keep the video at viewport scale, with the complete frame on portrait screens. */
+/* Frame the opening video with space for the controls below it. */
 .homepage #cover {
   height: 100vh;
   height: 100svh;
   overflow: hidden;
-  background: #182639;
+  --cover-space: clamp(36px, 6svh, 50px);
+  background: linear-gradient(160deg, #f2f7fd, #dce8f5);
 }
 .homepage #cover .cover-art {
-  height: 100%;
+  position: absolute;
+  inset: var(--cover-space) 0;
+  width: auto;
   aspect-ratio: auto;
   border: 0;
 }
@@ -71,7 +74,7 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
   position: absolute;
   inset: 0;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 .homepage #cover .cover-video {
   transition-duration: .3s;
@@ -80,7 +83,7 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
 .cover-contacts,
 .cover-playback {
   position: absolute;
-  bottom: max(16px, env(safe-area-inset-bottom));
+  bottom: max(calc((var(--cover-space) - 32px) / 2), env(safe-area-inset-bottom));
 }
 .cover-contacts {
   left: 16px;
@@ -94,7 +97,7 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
 .cover-playback {
   display: inline-grid;
   place-items: center;
-  min-height: 40px;
+  min-height: 32px;
   padding: 5px 10px;
   border: 1px solid #ffffff4d;
   border-radius: 3px;
@@ -108,21 +111,10 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
   background: #172436;
 }
 .homepage #cover .scroll-cue {
-  min-height: 40px;
+  min-height: 32px;
   white-space: nowrap;
 }
 @media (max-aspect-ratio: 3/4) {
-  .homepage #cover .cover-art::before {
-    content: "";
-    position: absolute;
-    inset: -36px;
-    background: url("assets/cover-intro-20261106.webp") center / cover;
-    filter: blur(30px) brightness(.58);
-  }
-  .homepage #cover .original-art,
-  .homepage #cover .cover-video {
-    object-fit: contain;
-  }
   .homepage #cover .scroll-cue {
     bottom: calc(max(16px, env(safe-area-inset-bottom)) + 54px);
   }
