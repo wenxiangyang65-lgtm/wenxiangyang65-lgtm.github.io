@@ -145,8 +145,11 @@ html.intro-exiting {
 .intro-open .homepage #cover {
   visibility: visible;
   transform: none;
-  transition: none;
+  transition: transform .62s cubic-bezier(.32, .72, .22, 1);
 }
 .intro-open .page-dots {
   visibility: hidden;
+}
+html.portfolio-homepage {
+  overscroll-behavior-y: none;
 }

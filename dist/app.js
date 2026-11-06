@@ -105,27 +105,42 @@ function enterInnerPage() {
 
 let wheelDistance = 0;
 let lastWheelTime = 0;
-intro.addEventListener('wheel', event => {
-  if (event.ctrlKey || event.deltaY <= 0 || event.deltaY < Math.abs(event.deltaX)) return;
+document.addEventListener('wheel', event => {
+  const open = root.classList.contains('intro-open');
+  if (event.ctrlKey || root.classList.contains('intro-exiting') ||
+      Math.abs(event.deltaY) < Math.abs(event.deltaX) ||
+      (open ? event.deltaY <= 0 : event.deltaY >= 0 || window.scrollY > 1)) {
+    wheelDistance = 0;
+    return;
+  }
   const now = performance.now();
   if (now - lastWheelTime > 180) wheelDistance = 0;
   lastWheelTime = now;
-  wheelDistance += event.deltaMode ? event.deltaY * 24 : event.deltaY;
+  wheelDistance += Math.abs(event.deltaY) * (event.deltaMode ? 24 : 1);
   if (wheelDistance >= 24) {
     wheelDistance = 0;
-    enterInnerPage();
+    if (open) enterInnerPage();
+    else location.hash = 'cover';
   }
 }, {passive: true});
 
 let touchStart;
-intro.addEventListener('touchstart', event => {
-  touchStart = event.touches.length === 1 ? event.touches[0].clientY : undefined;
+let touchStartsOnCover;
+document.addEventListener('touchstart', event => {
+  touchStartsOnCover = root.classList.contains('intro-open');
+  const canSwitchLevel = touchStartsOnCover ||
+    (window.scrollY <= 1 && !root.classList.contains('intro-exiting'));
+  touchStart = canSwitchLevel && event.touches.length === 1
+    ? event.touches[0].clientY : undefined;
 }, {passive: true});
-intro.addEventListener('touchend', event => {
-  if (touchStart !== undefined && touchStart - event.changedTouches[0].clientY > 45) {
-    enterInnerPage();
-  }
+document.addEventListener('touchend', event => {
+  if (touchStart === undefined) return;
+  const distance = touchStart - event.changedTouches[0].clientY;
   touchStart = undefined;
+  if (touchStartsOnCover && distance > 45) enterInnerPage();
+  else if (!touchStartsOnCover && distance < -45 && window.scrollY <= 1) {
+    location.hash = 'cover';
+  }
 }, {passive: true});
 document.addEventListener('keydown', event => {
   if (!root.classList.contains('intro-open') || event.ctrlKey || event.metaKey ||
