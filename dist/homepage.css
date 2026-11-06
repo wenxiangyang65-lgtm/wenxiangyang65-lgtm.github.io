@@ -53,3 +53,89 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
 .homepage .power:hover .tooltip,.homepage .power:focus-visible .tooltip,.homepage .resume-power:hover .tooltip,.homepage .resume-power:focus-visible .tooltip{transform:translateY(0)}
 .homepage .hotspot{min-width:0;min-height:0}
 .homepage .resume-power:before{left:-20px;right:0;top:-18px;bottom:-18px}
+
+/* The intro stays in the normal page flow, so wheel and touch scrolling carry it away. */
+.homepage #cover {
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: #182639;
+}
+.homepage #cover .cover-art {
+  height: 100%;
+  aspect-ratio: auto;
+  border: 0;
+}
+.homepage #cover .original-art,
+.homepage #cover .cover-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  object-fit: cover;
+}
+.homepage #cover .cover-video {
+  transition-duration: .3s;
+}
+.homepage #cover .scroll-cue,
+.cover-contacts,
+.cover-playback {
+  position: absolute;
+  bottom: max(16px, env(safe-area-inset-bottom));
+}
+.cover-contacts {
+  left: 16px;
+  display: flex;
+  gap: 6px;
+}
+.cover-playback {
+  right: 22px;
+}
+.cover-contacts a,
+.cover-playback {
+  display: inline-grid;
+  place-items: center;
+  min-height: 40px;
+  padding: 5px 10px;
+  border: 1px solid #ffffff4d;
+  border-radius: 3px;
+  background: #172436d9;
+  color: #fff;
+  font-size: 12px;
+  text-decoration: none;
+}
+.cover-contacts a:hover,
+.cover-playback:hover {
+  background: #172436;
+}
+.homepage #cover .scroll-cue {
+  min-height: 40px;
+  white-space: nowrap;
+}
+@media (max-aspect-ratio: 3/4) {
+  .homepage #cover .cover-art::before {
+    content: "";
+    position: absolute;
+    inset: -36px;
+    background: url("assets/cover-intro-20261106.webp") center / cover;
+    filter: blur(30px) brightness(.58);
+  }
+  .homepage #cover .original-art,
+  .homepage #cover .cover-video {
+    object-fit: contain;
+  }
+  .homepage #cover .scroll-cue {
+    bottom: calc(max(16px, env(safe-area-inset-bottom)) + 54px);
+  }
+}
+@supports (animation-timeline: scroll(root block)) {
+  @media (prefers-reduced-motion: no-preference) {
+    .homepage #cover .cover-art {
+      animation: cover-exit linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0px 100svh;
+    }
+    @keyframes cover-exit {
+      to { opacity: .7; }
+    }
+  }
+}

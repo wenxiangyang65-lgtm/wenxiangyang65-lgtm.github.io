@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css?v=20261008-interaction">
   <link rel="stylesheet" href="homepage.css?v=20261009-scroll-spring">
-  <link rel="preload" href="assets/cover.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/cover-intro-20261106.webp" as="image" fetchpriority="high">
   <script src="project-data.js?v=20261023-ip-explore" defer></script>
   <script src="catalog-spring.js?v=20261017-glass" defer></script>
 
@@ -27,13 +27,14 @@
     <section class="screen cover" id="cover" aria-labelledby="cover-heading">
       <h1 id="cover-heading" class="sr-only">杨文祥 · 创意视觉设计师 · AI Visual Portfolio</h1>
       <div class="artframe cover-art">
-        <img class="original-art" fetchpriority="high" src="assets/cover.webp" width="2880" height="1620" alt="银蓝唱片与金属字体的 AI Visual Portfolio 封面，杨文祥的创意视觉设计作品集。" loading="eager" decoding="async">
-        <video id="cover-video" class="cover-video" muted loop playsinline preload="none" poster="assets/cover.webp" aria-hidden="true" data-src="assets/cover-motion.mp4"></video>
-        <a class="hotspot invitation" href="#resume" aria-label="请留步，请观赏：查看个人简历"><span class="tooltip">查看个人简历</span></a>
-        <a class="hotspot email" href="mailto:2042311533@qq.com" aria-label="邮件联系杨文祥：2042311533@qq.com"><span class="tooltip">邮件联系</span></a>
-        <a class="hotspot phone" href="tel:15725399952" aria-label="致电杨文祥：15725399952"><span class="tooltip">电话联系</span></a>
-        <button class="hotspot power" id="motion-toggle" aria-label="暂停封面动态" aria-pressed="false"><span class="tooltip">暂停动态</span></button>
+        <img class="original-art" fetchpriority="high" src="assets/cover-intro-20261106.webp" width="2560" height="1440" alt="" loading="eager" decoding="async">
+        <video id="cover-video" class="cover-video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/cover-intro-20261106.mp4"></video>
       </div>
+      <div class="cover-contacts">
+        <a href="mailto:2042311533@qq.com">邮件联系</a>
+        <a href="tel:15725399952">电话联系</a>
+      </div>
+      <button class="cover-playback" id="motion-toggle" type="button" aria-label="暂停封面动态">暂停动态</button>
       <a class="scroll-cue" href="#resume"><span>下滑 · 简历</span><i aria-hidden="true"></i></a>
     </section>
     <section class="screen resume" id="resume" aria-labelledby="resume-heading">
