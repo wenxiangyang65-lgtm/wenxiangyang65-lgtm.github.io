@@ -1,18 +1,18 @@
 /* The original artwork is the visual system; sections now follow its natural height. */
 html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x:hidden}
-.homepage{overflow-x:hidden;background:#eaf4ff}
+.homepage{overflow-x:hidden;background:#fff}
 .homepage .screen{display:block;min-height:0!important;height:auto;padding:0;scroll-snap-align:none}
 .homepage .artframe{width:100%;aspect-ratio:16/9;min-height:0;container-type:inline-size}
-.homepage .cover{background:#eaf4ff}
+.homepage .cover{background:#fff}
 .homepage .cover-art{border-bottom:1px solid #afc6df35}
-.homepage .resume{padding:20px 0 0;background:linear-gradient(#dceaf7,#eaf4ff 32px)}
+.homepage .resume{padding:20px 0 0;background:#fff}
 .homepage .desktop-resume,.homepage .resume-power{display:block}
 .homepage .mobile-resume{display:none}
 .homepage .resume>.scroll-cue{display:none}
 .homepage .scroll-cue{bottom:12px;font-size:14px;padding:6px 12px;z-index:5}
 .homepage .hotspot:before{content:'';position:absolute;inset:-9px}
-.homepage .catalog{padding:30px 0 28px;background:#eaf4ff;overflow-anchor:none}
-.homepage .catalog-art{aspect-ratio:auto;padding:0;width:100%;overflow:visible;background:linear-gradient(110deg,#eaf4ff 38%,#f4faff 68%,#e4f0fc)}
+.homepage .catalog{padding:30px 0 28px;background:#fff;overflow-anchor:none}
+.homepage .catalog-art{aspect-ratio:auto;padding:0;width:100%;overflow:visible;background:#fff}
 .homepage .catalog-art:before{display:none}
 .homepage .catalog h2{position:relative;inset:auto;margin:0 4.55% 8px;font-size:clamp(28px,3.2vw,46px);line-height:1.3}
 .homepage .albums{--card-width:clamp(280px,29vw,420px);position:relative;inset:auto;width:100%;height:auto;min-height:0;display:flex;padding:46px 4.55% 110px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:none;scroll-padding:0;scroll-behavior:auto;touch-action:pan-x pan-y;cursor:grab;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
@@ -26,10 +26,11 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
 .homepage .record-disc img{width:100%;height:100%;max-width:none;object-fit:cover;aspect-ratio:1;border-radius:50%;clip-path:circle(50% at 50% 50%);backface-visibility:hidden}
 .homepage .catalog-controls{position:relative;inset:auto;display:flex;gap:16px;flex-wrap:nowrap;margin:0 4.55%;padding:12px 0 0;border-top:1px solid #9fb7d23d}
 .homepage .track-control{order:0;flex:1;flex-basis:auto}
-.homepage .album-button{order:0;flex:0 0 auto;padding:10px 14px;font-size:14px}
+.homepage .album-button{background:#fff;order:0;flex:0 0 auto;padding:10px 14px;font-size:14px}
 .homepage .selection-label{font-size:14px}
 .homepage .directory-hint{font-size:12px;letter-spacing:.05em}
 .homepage .touch-hint{display:none}
+.homepage .transition-curtain,.homepage .page-dots span{background:#fff}
 .homepage .page-dots{right:8px}
 .homepage .page-dots a{width:24px;height:24px}
 @media(max-width:800px){
@@ -60,7 +61,7 @@ html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x
   height: 100svh;
   overflow: hidden;
   --cover-space: clamp(36px, 6svh, 50px);
-  background: linear-gradient(160deg, #f2f7fd, #dce8f5);
+  background: #fff;
 }
 .homepage #cover .cover-art {
   position: absolute;
