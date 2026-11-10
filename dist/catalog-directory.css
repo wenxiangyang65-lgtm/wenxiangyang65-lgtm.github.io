@@ -10,6 +10,9 @@
 .catalog-index,
 .catalog-gallery {
   position: relative;
+}
+.catalog-index,
+.catalog-gallery {
   min-height: min(100svh, 960px);
 }
 .catalog-letter-cover {
@@ -75,13 +78,13 @@
 }
 .catalog-index {
   display: grid;
-  align-items: center;
-  padding: 56px max(20px, 4vw);
+  align-items: start;
+  padding: clamp(36px, 5svh, 56px) max(20px, 4vw) 56px;
 }
 .catalog-typeset {
   width: max-content;
   max-width: 100%;
-  margin: auto;
+  margin: 0 auto;
 }
 .catalog-trace {
   display: block;
@@ -215,10 +218,13 @@ html.catalog-gallery-open {
   transform-style: preserve-3d;
   transform: translate3d(
     calc(-50% + var(--x) + var(--drag-x, 0px)), calc(-50% + var(--y)), var(--depth)
-  ) rotateZ(var(--rotation)) rotateX(var(--pitch)) rotateY(var(--yaw)) scale(var(--size));
+  ) rotateZ(calc(var(--rotation) + var(--hover-roll, 0deg)))
+    rotateX(calc(var(--pitch) + var(--hover-pitch, 0deg)))
+    rotateY(calc(var(--yaw) + var(--hover-yaw, 0deg))) scale(var(--size));
   transition: transform .55s cubic-bezier(.2,.75,.24,1);
   -webkit-user-drag: none;
 }
+.gallery-disc.is-tilting { transition-duration: .24s; }
 .gallery-stage.is-dragging .gallery-disc { transition-duration: .08s; }
 .gallery-disc[data-slot='active'] {
   --x: 3vw;
@@ -371,7 +377,7 @@ html.catalog-gallery-open {
 .directory-footer-links { display: flex; gap: 14px; }
 .directory-footer a { text-decoration: none; }
 @media (max-width: 650px) {
-  .catalog-letter-cover, .catalog-index { min-height: 90svh; }
+  .catalog-index { min-height: 90svh; }
   .catalog-letter-cover { padding-top: clamp(90px, 16svh, 155px); }
   .catalog-letter-art { height: max(176px, 60vw); }
   .catalog-category { font-size: clamp(16px, 5vw, 28px); }

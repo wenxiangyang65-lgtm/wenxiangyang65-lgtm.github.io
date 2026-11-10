@@ -85,7 +85,7 @@ window.initializeCatalogGlyphs = function (reduced) {
     const exit = reduced.matches ? 0 : Math.max(0, Math.min(1, -rect.top / (rect.height * .68)));
     const settled = progress * (2 - progress);
     const follow = updateLens(exit);
-    const radius = Math.max(42, Math.min(112, width * .117));
+    const radius = Math.max(42, Math.min(112, width * .117)) * .4;
     const radiusSquared = radius * radius;
     context.clearRect(0, 0, width, height);
     for (const dot of dots) {

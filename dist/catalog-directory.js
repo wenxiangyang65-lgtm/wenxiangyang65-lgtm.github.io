@@ -9,8 +9,8 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   ];
   const items = projects.flatMap(parent => (parent.catalogItems || []).map(item => ({
     ...item,
-    cover: item.id === parent.slug ? parent.cover : item.image,
-    isCard: item.id === parent.slug && parent.cover === parent.card,
+    cover: item.image,
+    isCard: item.image === parent.card,
     films: item.filmFirst ? parent.films : null
   })));
   const index = document.querySelector('#catalog-index');
@@ -35,6 +35,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   let wheelDirection = 0;
   let wheelStepped = false;
   let drag = null;
+  let tiltedDisc = null;
   let suppressClickUntil = 0;
 
   function remember() {
@@ -93,6 +94,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   }
 
   function select(position, announce = true) {
+    clearDiscTilt();
     const length = discs.length;
     if (!length) return;
     selected = (position + length) % length;
@@ -146,6 +148,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
     group = null;
     discs = [];
     gallery.hidden = true;
+    clearDiscTilt();
     gallery.classList.remove('is-entering');
     stage.replaceChildren();
     drag = null;
@@ -239,12 +242,50 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
     stage.focus({preventScroll: true});
   });
 
+  function clearDiscTilt() {
+    if (!tiltedDisc) return;
+    tiltedDisc.classList.remove('is-tilting');
+    for (const axis of ['pitch', 'yaw', 'roll']) tiltedDisc.style.removeProperty('--hover-' + axis);
+    tiltedDisc = null;
+  }
+
+  function tiltDisc(event) {
+    if (event.pointerType !== 'mouse' || reduced.matches || gallery.classList.contains('is-entering')) return;
+    const disc = event.target.closest('.gallery-disc');
+    if (!disc) {
+      clearDiscTilt();
+      return;
+    }
+    const rect = disc.getBoundingClientRect();
+    const x = 2 * (event.clientX - rect.left) / rect.width - 1;
+    const y = 2 * (event.clientY - rect.top) / rect.height - 1;
+    if (Math.hypot(x, y) > 1.08) {
+      clearDiscTilt();
+      return;
+    }
+    if (tiltedDisc !== disc) {
+      clearDiscTilt();
+      tiltedDisc = disc;
+      disc.classList.add('is-tilting');
+    }
+    disc.style.setProperty('--hover-pitch', `${(-y * 5).toFixed(2)}deg`);
+    disc.style.setProperty('--hover-yaw', `${(x * 6.5).toFixed(2)}deg`);
+    disc.style.setProperty('--hover-roll', `${(x * 2).toFixed(2)}deg`);
+  }
+
+  stage.addEventListener('pointerleave', clearDiscTilt);
+  reduced.addEventListener('change', clearDiscTilt);
   stage.addEventListener('pointerdown', event => {
     if (event.button !== 0 || !event.isPrimary) return;
+    clearDiscTilt();
     drag = {id: event.pointerId, x: event.clientX, y: event.clientY, moving: false};
   });
   stage.addEventListener('pointermove', event => {
-    if (drag?.id !== event.pointerId) return;
+    if (!drag) {
+      tiltDisc(event);
+      return;
+    }
+    if (drag.id !== event.pointerId) return;
     const dx = event.clientX - drag.x;
     const dy = event.clientY - drag.y;
     if (!drag.moving && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
