@@ -141,8 +141,10 @@
   inset: 0;
   display: grid;
   place-items: center;
-  color: #515151;
-  font: 600 .61em/1 ui-monospace, Menlo, monospace;
+  color: #3a3a3a;
+  font: 600 clamp(3px, .14em, 6px)/1.1 ui-monospace, Menlo, monospace;
+  white-space: pre;
+  text-align: center;
   opacity: 0;
   pointer-events: none;
 }
@@ -159,8 +161,8 @@
   100% { color: inherit; }
 }
 @keyframes code-resolve {
-  0%, 24% { opacity: 1; transform: translateY(-.12em); }
-  100% { opacity: 0; transform: translateY(.12em); }
+  0%, 24% { opacity: 1; transform: translateY(-1px); }
+  100% { opacity: 0; transform: translateY(1px); }
 }
 .catalog-category-bits {
   position: absolute;

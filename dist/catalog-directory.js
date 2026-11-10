@@ -175,6 +175,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   }
 
   const hoverGlyphs = '01{10}/01[0]';
+  const codeStrip = hoverGlyphs.repeat(2);
   groups.forEach((entry, i) => {
     const button = document.createElement('button');
     button.type = 'button';
@@ -195,7 +196,11 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
       const letter = document.createElement('span');
       letter.className = 'catalog-category-letter';
       letter.textContent = character;
-      letter.dataset.code = hoverGlyphs[(position + i) % hoverGlyphs.length];
+      const columns = character.codePointAt(0) > 127 ? 8 : 4;
+      letter.dataset.code = Array.from({length: 5}, (_, line) => {
+        const start = (position * 3 + i + line * 5) % hoverGlyphs.length;
+        return codeStrip.slice(start, start + columns - Math.abs(line - 2));
+      }).join('\n');
       letter.style.setProperty('--resolve-delay', `${30 + 24 * position}ms`);
       label.append(letter);
     });
