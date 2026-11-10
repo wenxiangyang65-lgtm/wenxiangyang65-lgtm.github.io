@@ -7,9 +7,10 @@ function initializeDirectory(){
  directory=window.createPortfolioDirectory({projects,filmPreview,reduced});
  window.initializeCatalogGlyphs(reduced);
 }
-if(location.hash==='#catalog'||!('IntersectionObserver'in window))initializeDirectory();
+function hasCatalogRoute() { return location.hash.startsWith('#catalog') || location.hash.startsWith('#gallery-'); }
+if(hasCatalogRoute()||!('IntersectionObserver'in window))initializeDirectory();
 else{const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){initializeDirectory();observer.disconnect();}},{rootMargin:'500px 0px'});observer.observe(document.querySelector('#catalog'));}
-window.addEventListener('hashchange',()=>{if(location.hash==='#catalog')initializeDirectory();});
+window.addEventListener('hashchange',()=>{if(hasCatalogRoute())initializeDirectory();});
 const sections=[...document.querySelectorAll('.screen')],dots=document.querySelectorAll('.page-dots a');let sectionRAF=0;
 function sectionMarker(){const anchor=scrollY+innerHeight*.25;let current=sections[0];for(const section of sections)if(section.offsetTop<=anchor)current=section;dots.forEach(a=>{const active=a.hash==='#'+current.id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}
 addEventListener('scroll',()=>{cancelAnimationFrame(sectionRAF);sectionRAF=requestAnimationFrame(sectionMarker)},{passive:true});addEventListener('resize',sectionMarker);sectionMarker();
@@ -106,6 +107,7 @@ function enterInnerPage() {
 let wheelDistance = 0;
 let lastWheelTime = 0;
 document.addEventListener('wheel', event => {
+  if (event.defaultPrevented || root.classList.contains('catalog-gallery-open')) return;
   const open = root.classList.contains('intro-open');
   if (event.ctrlKey || root.classList.contains('intro-exiting') ||
       Math.abs(event.deltaY) < Math.abs(event.deltaX) ||
@@ -127,6 +129,7 @@ document.addEventListener('wheel', event => {
 let touchStart;
 let touchStartsOnCover;
 document.addEventListener('touchstart', event => {
+  if (root.classList.contains('catalog-gallery-open')) { touchStart = undefined; return; }
   touchStartsOnCover = root.classList.contains('intro-open');
   const canSwitchLevel = touchStartsOnCover ||
     (window.scrollY <= 1 && !root.classList.contains('intro-exiting'));

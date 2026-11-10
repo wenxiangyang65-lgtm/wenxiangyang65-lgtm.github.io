@@ -19,6 +19,8 @@ window.initializeCatalogGlyphs = function (reduced) {
   let queued = 0;
   let started = false;
   let pointer = null;
+  const hover = {clientX: 0, clientY: 0, inside: false};
+  const lens = {x: 0, y: 0, amount: 0};
 
   function drawTitle(text, family, weight, baseline, size, share) {
     ink.font = `${weight} ${size}px ${family}`;
@@ -43,10 +45,10 @@ window.initializeCatalogGlyphs = function (reduced) {
     mask.width = width;
     mask.height = height;
     ink.fillStyle = '#000';
-    drawTitle('AI Visual', 'Georgia, serif', 700, .49, height * .48, .95);
-    drawTitle('Portfolio', '"Snell Roundhand", "Segoe Script", cursive', 600, .83, height * .57, .94);
+    drawTitle('AI Visual', 'Georgia, serif', 700, .47, height * .52, .96);
+    drawTitle('Portfolio', '"Snell Roundhand", "Segoe Script", cursive', 600, .79, height * .63, .94);
     const pixels = ink.getImageData(0, 0, width, height).data;
-    const pitch = Math.max(4, Math.round(width / 160));
+    const pitch = Math.max(3, Math.round(width / 184));
     dots = [];
     for (let y = pitch; y < height - pitch; y += pitch) {
       for (let x = pitch; x < width - pitch; x += pitch * .72) {
@@ -64,7 +66,7 @@ window.initializeCatalogGlyphs = function (reduced) {
     }
     if (!dots.length) return;
     context.setTransform(density, 0, 0, density, 0, 0);
-    context.font = `${pitch * .96}px ui-monospace, Menlo, monospace`;
+    context.font = `600 ${pitch * .96}px ui-monospace, Menlo, monospace`;
     context.textBaseline = 'middle';
     context.fillStyle = '#111';
     art.classList.add('has-glyphs');
@@ -76,9 +78,15 @@ window.initializeCatalogGlyphs = function (reduced) {
     queued = 0;
     if (!width || !dots.length) return;
     const rect = cover.getBoundingClientRect();
-    if (rect.bottom <= 0 || rect.top > innerHeight) return;
+    if (rect.bottom <= 0 || rect.top > innerHeight || !rect.height) {
+      lens.amount = 0;
+      return;
+    }
     const exit = reduced.matches ? 0 : Math.max(0, Math.min(1, -rect.top / (rect.height * .68)));
     const settled = progress * (2 - progress);
+    const follow = updateLens(exit);
+    const radius = Math.max(42, Math.min(112, width * .117));
+    const radiusSquared = radius * radius;
     context.clearRect(0, 0, width, height);
     for (const dot of dots) {
       // At rest the dots make a legible wordmark. On exit, the grid breaks into short streams.
@@ -87,9 +95,44 @@ window.initializeCatalogGlyphs = function (reduced) {
       context.globalAlpha = Math.min(1, opacity);
       const x = dot.sx + (dot.x - dot.sx) * settled + (dot.seed - .5) * width * exit * .28;
       const y = dot.sy + (dot.y - dot.sy) * settled + (dot.seed - .24) * height * exit * .6;
-      context.fillText(dot.glyph, x, y);
+      const dx = x - lens.x;
+      const dy = y - lens.y;
+      const distanceSquared = dx * dx + dy * dy;
+      if (lens.amount > .015 && distanceSquared < radiusSquared) {
+        const falloff = 1 - distanceSquared / radiusSquared;
+        const strength = lens.amount * falloff * falloff;
+        const magnification = 1 + 1.45 * strength;
+        context.save();
+        context.translate(x + dx * strength * .66, y + dy * strength * .66);
+        context.scale(magnification, magnification);
+        context.fillText(dot.glyph, 0, 0);
+        context.restore();
+      } else context.fillText(dot.glyph, x, y);
     }
     context.globalAlpha = 1;
+    if (follow) queueDraw();
+  }
+
+  function updateLens(exit) {
+    const active = hover.inside && !pointer && !reduced.matches && progress >= .97 && exit < .35;
+    const target = active ? 1 : 0;
+    let followsPointer = false;
+    if (active) {
+      const rect = art.getBoundingClientRect();
+      const x = hover.clientX - rect.left;
+      const y = hover.clientY - rect.top;
+      if (lens.amount < .015) {
+        lens.x = x;
+        lens.y = y;
+      } else {
+        lens.x += (x - lens.x) * .23;
+        lens.y += (y - lens.y) * .23;
+      }
+      followsPointer = Math.abs(x - lens.x) + Math.abs(y - lens.y) > .3;
+    }
+    lens.amount += (target - lens.amount) * .18;
+    if (Math.abs(target - lens.amount) < .015) lens.amount = target;
+    return followsPointer || target !== lens.amount;
   }
 
   function queueDraw() {
@@ -121,6 +164,17 @@ window.initializeCatalogGlyphs = function (reduced) {
     observer.disconnect();
   }, {threshold: .18}).observe(cover);
   window.addEventListener('scroll', queueDraw, {passive: true});
+  art.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse' || reduced.matches) return;
+    hover.inside = true;
+    hover.clientX = event.clientX;
+    hover.clientY = event.clientY;
+    queueDraw();
+  });
+  art.addEventListener('pointerleave', () => {
+    hover.inside = false;
+    queueDraw();
+  });
   compose.addEventListener('click', () => finish());
   compose.addEventListener('pointerdown', event => {
     if (event.button !== 0 || !event.isPrimary || progress >= 1) return;

@@ -16,7 +16,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   const index = document.querySelector('#catalog-index');
   const directory = document.querySelector('#catalog-folders');
   const gallery = document.querySelector('#catalog-gallery');
-  const down = document.querySelector('.catalog-down');
+  const root = document.documentElement;
   const stage = gallery.querySelector('.gallery-stage');
   const title = gallery.querySelector('.gallery-title');
   const count = gallery.querySelector('.gallery-count');
@@ -29,13 +29,13 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   let group = null;
   let discs = [];
   let selected = 0;
-  let opening = false;
+  let openTimer = 0;
+  let wheelTime = -Infinity;
+  let wheelDistance = 0;
+  let wheelDirection = 0;
+  let wheelStepped = false;
   let drag = null;
   let suppressClickUntil = 0;
-
-  function scrollTo(element, instant = false) {
-    element.scrollIntoView({block: 'start', behavior: instant || reduced.matches ? 'instant' : 'smooth'});
-  }
 
   function remember() {
     try {
@@ -48,7 +48,6 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey ||
         event.shiftKey || event.altKey) return;
     event.preventDefault();
-    if (location.hash !== '#catalog') history.replaceState(history.state, '', '#catalog');
     remember();
     if (filmPreview.open(item, trigger)) return;
     if (!reduced.matches) {
@@ -75,7 +74,10 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
       image.style.objectPosition = item.imageFocus.map(value => Math.max(0, Math.min(100, value)) + '%').join(' ');
     }
     art.append(image);
-    link.append(art);
+    const rim = document.createElement('span');
+    rim.className = 'gallery-disc-rim';
+    rim.setAttribute('aria-hidden', 'true');
+    link.append(rim, art);
     link.addEventListener('click', event => {
       if (performance.now() < suppressClickUntil) {
         event.preventDefault();
@@ -120,34 +122,53 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
     }
   }
 
-  function showGallery(nextGroup, itemId = null, restore = false) {
+  const routeFor = entry => '#gallery-' + entry.id;
+
+  function showGallery(nextGroup, itemId = null, animate = false) {
+    const projectsInGroup = items.filter(item => item.group === nextGroup.id);
+    if (!projectsInGroup.length) return;
     group = nextGroup;
-    discs = items.filter(item => item.group === group.id).map(createDisc);
-    if (!discs.length) return;
-    index.hidden = true;
-    gallery.hidden = false;
-    down.href = '#' + gallery.id;
+    discs = projectsInGroup.map(createDisc);
+    wheelTime = -Infinity;
     gallery.querySelector('#gallery-category').textContent = group.name;
     stage.replaceChildren(...discs.map(disc => disc.link));
-    select(Math.max(0, discs.findIndex(disc => disc.item.id === itemId)), !restore);
-    gallery.classList.toggle('is-entering', !restore && !reduced.matches);
-    scrollTo(gallery, restore);
-    if (!restore) back.focus({preventScroll: true});
+    gallery.hidden = false;
+    root.classList.add('catalog-gallery-open');
+    buttons.get(group.id).setAttribute('aria-expanded', 'true');
+    select(Math.max(0, discs.findIndex(disc => disc.item.id === itemId)));
+    gallery.classList.toggle('is-entering', animate && !reduced.matches);
+    back.focus({preventScroll: true});
+  }
+
+  function hideGallery() {
+    if (!group) return;
+    buttons.get(group.id).setAttribute('aria-expanded', 'false');
+    group = null;
+    discs = [];
+    gallery.hidden = true;
+    gallery.classList.remove('is-entering');
+    stage.replaceChildren();
+    drag = null;
+    stage.classList.remove('is-dragging');
+    stage.style.removeProperty('--drag-x');
+    root.classList.remove('catalog-gallery-open');
+    const film = document.querySelector('#catalog-film-dialog');
+    if (film.open) film.close();
   }
 
   function openGroup(nextGroup, button) {
-    if (opening || group) return;
-    if (reduced.matches) {
-      showGallery(nextGroup);
-      return;
-    }
-    opening = true;
-    button.classList.add('is-dissolving');
-    setTimeout(() => {
-      showGallery(nextGroup);
+    if (openTimer || group) return;
+    function enter() {
+      openTimer = 0;
       button.classList.remove('is-dissolving');
-      opening = false;
-    }, 240);
+      history.pushState(history.state, '', routeFor(nextGroup));
+      showGallery(nextGroup, null, true);
+    }
+    if (reduced.matches) enter();
+    else {
+      button.classList.add('is-dissolving');
+      openTimer = setTimeout(enter, 240);
+    }
   }
 
   groups.forEach((entry, i) => {
@@ -156,6 +177,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
     button.className = 'catalog-category';
     button.id = 'folder-' + entry.id;
     button.setAttribute('aria-controls', gallery.id);
+    button.setAttribute('aria-expanded', 'false');
     const label = document.createElement('span');
     label.className = 'catalog-category-label';
     label.textContent = `${number(i + 1)} ${entry.name}`;
@@ -170,19 +192,40 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   });
   document.querySelector('#directory-total').textContent = `${number(groups.length)} DIRECTIONS / ${items.length} WORKS`;
 
-  back.addEventListener('click', () => {
+  function returnToIndex() {
+    if (!group) return;
     const button = buttons.get(group.id);
-    group = null;
-    discs = [];
-    gallery.hidden = true;
-    gallery.classList.remove('is-entering');
-    stage.replaceChildren();
-    index.hidden = false;
-    down.href = '#' + index.id;
+    history.replaceState(history.state, '', '#' + index.id);
+    hideGallery();
     remember();
-    scrollTo(index, true);
+    index.scrollIntoView({block: 'start', behavior: 'instant'});
     button.focus({preventScroll: true});
+  }
+
+  back.addEventListener('click', returnToIndex);
+  gallery.addEventListener('keydown', event => {
+    if (event.key === 'Escape') returnToIndex();
   });
+  gallery.addEventListener('wheel', event => {
+    if (event.ctrlKey) return;
+    const delta = Math.abs(event.deltaY) >= Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
+    if (!delta) return;
+    event.preventDefault();
+    const now = performance.now();
+    const direction = Math.sign(delta);
+    if (now - wheelTime > 145 || direction !== wheelDirection) {
+      wheelDistance = 0;
+      wheelStepped = false;
+    }
+    wheelTime = now;
+    wheelDirection = direction;
+    if (wheelStepped) return;
+    wheelDistance += Math.abs(delta) * (event.deltaMode ? 24 : 1);
+    if (wheelDistance < 42) return;
+    wheelStepped = true;
+    select(selected + direction);
+  }, {passive: false});
+
   gallery.addEventListener('animationend', event => {
     if (event.animationName === 'disc-arrive') gallery.classList.remove('is-entering');
   });
@@ -190,9 +233,9 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   gallery.querySelector('.gallery-next').addEventListener('click', () => select(selected + 1));
   openLink.addEventListener('click', event => openProject(event, discs[selected].item, openLink));
   stage.addEventListener('keydown', event => {
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
     event.preventDefault();
-    select(selected + (event.key === 'ArrowRight' ? 1 : -1));
+    select(selected + (['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : -1));
     stage.focus({preventScroll: true});
   });
 
@@ -228,14 +271,31 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
 
   function restore() {
     document.body.classList.remove('is-opening');
-    if (location.hash !== '#catalog' || group) return;
-    try {
-      const saved = JSON.parse(sessionStorage.getItem(storageKey));
+    clearTimeout(openTimer);
+    openTimer = 0;
+    directory.querySelector('.is-dissolving')?.classList.remove('is-dissolving');
+    let saved = null;
+    try { saved = JSON.parse(sessionStorage.getItem(storageKey)); } catch {}
+    const route = groups.find(entry => location.hash === routeFor(entry));
+    if (route) {
+      if (group?.id !== route.id) {
+        hideGallery();
+        showGallery(route, saved?.open === route.id ? saved.item : null);
+      }
+      return;
+    }
+    if (group) {
+      hideGallery();
+      return;
+    }
+    const cameFromProject = document.referrer.startsWith(location.origin + '/projects/');
+    if (location.hash === '#catalog' && cameFromProject) {
       const previous = groups.find(entry => entry.id === saved?.open);
-      if (previous) requestAnimationFrame(() => {
-        if (location.hash === '#catalog' && !group && !opening) showGallery(previous, saved.item, true);
-      });
-    } catch {}
+      if (previous) {
+        history.replaceState(history.state, '', routeFor(previous));
+        showGallery(previous, saved.item);
+      }
+    }
   }
   window.addEventListener('pageshow', restore);
   window.addEventListener('hashchange', restore);
