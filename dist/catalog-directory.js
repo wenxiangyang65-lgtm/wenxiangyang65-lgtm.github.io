@@ -35,7 +35,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   let wheelDirection = 0;
   let wheelStepped = false;
   let drag = null;
-  let tiltedDisc = null;
+  let tilt = null;
   let suppressClickUntil = 0;
 
   function remember() {
@@ -243,72 +243,85 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
   });
 
   function clearDiscTilt() {
-    if (!tiltedDisc) return;
-    tiltedDisc.classList.remove('is-tilting');
-    for (const axis of ['pitch', 'yaw', 'roll']) tiltedDisc.style.removeProperty('--hover-' + axis);
-    tiltedDisc = null;
+    if (!tilt) return;
+    tilt.disc.classList.remove('is-tilting');
+    for (const axis of ['pitch', 'yaw', 'roll']) tilt.disc.style.removeProperty('--hover-' + axis);
+    tilt = null;
   }
 
-  function tiltDisc(event) {
-    if (event.pointerType !== 'mouse' || reduced.matches || gallery.classList.contains('is-entering')) return;
-    const disc = event.target.closest('.gallery-disc');
-    if (!disc) {
+  function tiltDisc(disc, event, held = false) {
+    if (reduced.matches || gallery.classList.contains('is-entering')) return;
+    if (!disc || disc.hidden) {
       clearDiscTilt();
       return;
     }
-    const rect = disc.getBoundingClientRect();
+    // Keep the original pointer area stable while the disc rotates underneath it.
+    const rect = tilt?.disc === disc ? tilt.bounds : disc.getBoundingClientRect();
     const x = 2 * (event.clientX - rect.left) / rect.width - 1;
     const y = 2 * (event.clientY - rect.top) / rect.height - 1;
-    if (Math.hypot(x, y) > 1.08) {
+    if (!held && Math.hypot(x, y) > 1.08) {
       clearDiscTilt();
       return;
     }
-    if (tiltedDisc !== disc) {
+    if (tilt?.disc !== disc) {
       clearDiscTilt();
-      tiltedDisc = disc;
+      tilt = {disc, bounds: rect};
       disc.classList.add('is-tilting');
     }
-    disc.style.setProperty('--hover-pitch', `${(-y * 5).toFixed(2)}deg`);
-    disc.style.setProperty('--hover-yaw', `${(x * 6.5).toFixed(2)}deg`);
-    disc.style.setProperty('--hover-roll', `${(x * 2).toFixed(2)}deg`);
+    const horizontal = Math.max(-1, Math.min(1, x));
+    const vertical = Math.max(-1, Math.min(1, y));
+    const strength = held ? 1.6 : 1;
+    disc.style.setProperty('--hover-pitch', `${(-vertical * 14 * strength).toFixed(2)}deg`);
+    disc.style.setProperty('--hover-yaw', `${(horizontal * 16 * strength).toFixed(2)}deg`);
+    disc.style.setProperty('--hover-roll', `${(horizontal * 5 * strength).toFixed(2)}deg`);
   }
 
-  stage.addEventListener('pointerleave', clearDiscTilt);
+  stage.addEventListener('pointerleave', () => {
+    if (!drag) clearDiscTilt();
+  });
   reduced.addEventListener('change', clearDiscTilt);
   stage.addEventListener('pointerdown', event => {
-    if (event.button !== 0 || !event.isPrimary) return;
-    clearDiscTilt();
-    drag = {id: event.pointerId, x: event.clientX, y: event.clientY, moving: false};
+    if (drag || event.button !== 0 || !event.isPrimary) return;
+    const disc = reduced.matches ? null : event.target.closest('.gallery-disc');
+    drag = {id: event.pointerId, x: event.clientX, y: event.clientY, disc, moving: false};
+    if (!disc) clearDiscTilt();
+    else if (event.pointerType !== 'mouse') tiltDisc(disc, event);
   });
   stage.addEventListener('pointermove', event => {
     if (!drag) {
-      tiltDisc(event);
+      if (event.pointerType === 'mouse') tiltDisc(event.target.closest('.gallery-disc'), event);
       return;
     }
     if (drag.id !== event.pointerId) return;
     const dx = event.clientX - drag.x;
     const dy = event.clientY - drag.y;
-    if (!drag.moving && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+    const moved = drag.disc ? Math.hypot(dx, dy) > 5 : Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy);
+    if (!drag.moving && moved) {
       drag.moving = true;
       stage.setPointerCapture(event.pointerId);
       stage.classList.add('is-dragging');
     }
-    if (drag.moving) stage.style.setProperty('--drag-x', `${Math.max(-100, Math.min(100, dx * .45))}px`);
+    if (!drag.moving) return;
+    if (drag.disc) tiltDisc(drag.disc, event, true);
+    else stage.style.setProperty('--drag-x', `${Math.max(-100, Math.min(100, dx * .45))}px`);
   });
   function endDrag(event) {
     if (drag?.id !== event.pointerId) return;
     if (drag.moving) {
       suppressClickUntil = performance.now() + 250;
       const dx = event.clientX - drag.x;
-      if (event.type === 'pointerup' && Math.abs(dx) > 36) select(selected + (dx < 0 ? 1 : -1));
+      if (!drag.disc && event.type === 'pointerup' && Math.abs(dx) > 36) select(selected + (dx < 0 ? 1 : -1));
     }
     drag = null;
+    clearDiscTilt();
     stage.classList.remove('is-dragging');
     stage.style.removeProperty('--drag-x');
   }
   stage.addEventListener('pointerup', endDrag);
   stage.addEventListener('pointercancel', endDrag);
-  stage.addEventListener('lostpointercapture', endDrag);
+  stage.addEventListener('lostpointercapture', event => {
+    if (event.target === stage) endDrag(event);
+  });
 
   function restore() {
     document.body.classList.remove('is-opening');
