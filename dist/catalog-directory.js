@@ -174,16 +174,31 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
     }
   }
 
+  const hoverGlyphs = '01{10}/01[0]';
   groups.forEach((entry, i) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'catalog-category';
     button.id = 'folder-' + entry.id;
+    const labelText = `${number(i + 1)} ${entry.name}`;
+    button.setAttribute('aria-label', labelText);
     button.setAttribute('aria-controls', gallery.id);
     button.setAttribute('aria-expanded', 'false');
     const label = document.createElement('span');
     label.className = 'catalog-category-label';
-    label.textContent = `${number(i + 1)} ${entry.name}`;
+    label.setAttribute('aria-hidden', 'true');
+    Array.from(labelText).forEach((character, position) => {
+      if (character === ' ') {
+        label.append(character);
+        return;
+      }
+      const letter = document.createElement('span');
+      letter.className = 'catalog-category-letter';
+      letter.textContent = character;
+      letter.dataset.code = hoverGlyphs[(position + i) % hoverGlyphs.length];
+      letter.style.setProperty('--resolve-delay', `${30 + 24 * position}ms`);
+      label.append(letter);
+    });
     const bits = document.createElement('span');
     bits.className = 'catalog-category-bits';
     bits.textContent = `${number(i + 1)} / 0101 { 01 } · 1010`;

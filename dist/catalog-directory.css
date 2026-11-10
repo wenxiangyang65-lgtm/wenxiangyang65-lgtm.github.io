@@ -134,6 +134,34 @@
 .catalog-category:hover::before,
 .catalog-category:focus-visible::before { opacity: 1; }
 .catalog-category-label { display: block; }
+.catalog-category-letter { position: relative; }
+.catalog-category-letter::before {
+  content: attr(data-code);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #515151;
+  font: 600 .61em/1 ui-monospace, Menlo, monospace;
+  opacity: 0;
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .catalog-category:hover:not(.is-dissolving) .catalog-category-letter {
+    animation: letter-resolve .24s ease-out var(--resolve-delay) both;
+  }
+  .catalog-category:hover:not(.is-dissolving) .catalog-category-letter::before {
+    animation: code-resolve .24s ease-out var(--resolve-delay) both;
+  }
+}
+@keyframes letter-resolve {
+  0%, 32% { color: transparent; }
+  100% { color: inherit; }
+}
+@keyframes code-resolve {
+  0%, 24% { opacity: 1; transform: translateY(-.12em); }
+  100% { opacity: 0; transform: translateY(.12em); }
+}
 .catalog-category-bits {
   position: absolute;
   inset: 0;
