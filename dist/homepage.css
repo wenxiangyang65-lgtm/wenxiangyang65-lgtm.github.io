@@ -1,5 +1,5 @@
 /* The original artwork is the visual system; sections now follow its natural height. */
-html.portfolio-homepage{scroll-snap-type:none;scroll-padding-top:16px;overflow-x:hidden}
+html.portfolio-homepage{background:#fff;scroll-snap-type:none;scroll-padding-top:16px;overflow-x:hidden}
 .homepage{overflow-x:hidden;background:#fff}
 .homepage .screen{display:block;min-height:0!important;height:auto;padding:0;scroll-snap-align:none}
 .homepage .artframe{width:100%;aspect-ratio:16/9;min-height:0;container-type:inline-size}

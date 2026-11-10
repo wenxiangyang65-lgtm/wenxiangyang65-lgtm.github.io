@@ -15,12 +15,12 @@
   <link rel="stylesheet" href="homepage.css?v=20261009-scroll-spring">
   <link rel="preload" href="assets/cover-intro-20261106.webp" as="image" fetchpriority="high">
   <script src="project-data.js?v=20261023-ip-explore" defer></script>
-  <script src="catalog-spring.js?v=20261017-glass" defer></script>
 
   <link rel="stylesheet" href="catalog-films.css?v=20261009-film-first">
   <script src="catalog-films.js?v=20261009-film-first" defer></script>
   <link rel="stylesheet" href="catalog-directory.css?v=20261023-uniform-weight">
-  <script src="catalog-directory.js?v=20261023-performance" defer></script>
+  <script src="catalog-glyphs.js" defer></script>
+  <script src="catalog-directory.js" defer></script>
   <script src="app.js?v=20261023-performance" defer></script>
   <link rel="stylesheet" href="resume.css?v=20261015-f">
   <script src="resume.js?v=20261015-f" defer></script>
@@ -154,10 +154,36 @@ YANG WENXIANG
     </section>
     <section class="screen catalog catalog-directory" id="catalog" aria-labelledby="catalog-heading">
       <div class="directory-shell">
-        <header class="directory-heading">
-          <h2 id="catalog-heading">作品</h2>
+        <header class="catalog-letter-cover">
+          <span class="catalog-signature">杨文祥</span>
+          <div class="catalog-letter-art">
+            <h2 id="catalog-heading">AI Visual <em>Portfolio</em></h2>
+            <canvas aria-hidden="true"></canvas>
+            <button type="button" class="catalog-compose" aria-label="聚合字符封面" hidden></button>
+          </div>
+          <a class="catalog-down" href="#catalog-index" aria-label="向下看作品">↓</a>
         </header>
-        <div id="catalog-folders" aria-label="五类作品目录"></div>
+        <section id="catalog-index" class="catalog-index" aria-labelledby="catalog-index-heading">
+          <div class="catalog-typeset">
+            <span class="catalog-trace" aria-hidden="true">01　010　101　/　05</span>
+            <h3 id="catalog-index-heading">作品</h3>
+            <div id="catalog-folders" aria-label="五类作品目录"></div>
+          </div>
+        </section>
+        <section id="catalog-gallery" class="catalog-gallery" aria-labelledby="gallery-category" hidden>
+          <div class="gallery-stage" tabindex="0" aria-label="左右拖动或用方向键切换唱片"></div>
+          <header class="gallery-info">
+            <button type="button" class="gallery-back">← 作品</button>
+            <p class="gallery-count"></p>
+            <h3 id="gallery-category"></h3>
+            <p class="gallery-title"></p>
+            <a class="gallery-open">查看项目 ↗</a>
+          </header>
+          <div class="gallery-controls" aria-label="切换唱片">
+            <button type="button" class="gallery-previous" aria-label="上一张唱片">←</button>
+            <button type="button" class="gallery-next" aria-label="下一张唱片">→</button>
+          </div>
+        </section>
         <p class="directory-footer"><span>YANG WENXIANG · CREATIVE VISUAL DESIGNER</span><span class="directory-footer-links"><span id="directory-total">05 DIRECTIONS / 32 WORKS</span><a href="#resume">个人简历 ↗</a></span></p>
         <p style="margin:20px 0 0;text-align:center;font:12px/1.8 sans-serif;color:#587692"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鲁ICP备2026063344号-1</a></p>
         <noscript><p>请开启 JavaScript 查看动态分类目录。</p><p><a href="projects/trade-in/index.html">整合营销</a> · <a href="projects/churuixue/index.html">品牌影像</a> · <a href="projects/aigc/index.html">运营视觉</a> · <a href="projects/illustration/index.html">IP、三维与探索</a></p></noscript>

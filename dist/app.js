@@ -1,11 +1,11 @@
 const projects=window.PORTFOLIO_PROJECTS;
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
-window.portfolioSuppressClickUntil=0;
 const filmPreview=window.createPortfolioFilmPreview({onOpen:()=>{window.dispatchEvent(new Event('portfolio-film-open'));document.querySelector('#cover-video').pause()},onClose:()=>window.dispatchEvent(new Event('portfolio-film-close'))});
 let directory=null;
 function initializeDirectory(){
  if(directory)return;
- directory=window.createPortfolioDirectory({projects,filmPreview,reduced,onSuppressClick:time=>{window.portfolioSuppressClickUntil=time}});
+ directory=window.createPortfolioDirectory({projects,filmPreview,reduced});
+ window.initializeCatalogGlyphs(reduced);
 }
 if(location.hash==='#catalog'||!('IntersectionObserver'in window))initializeDirectory();
 else{const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){initializeDirectory();observer.disconnect();}},{rootMargin:'500px 0px'});observer.observe(document.querySelector('#catalog'));}
