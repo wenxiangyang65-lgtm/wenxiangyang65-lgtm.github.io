@@ -176,6 +176,10 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
 
   const hoverGlyphs = '01{10}/01[0]';
   const codeStrip = hoverGlyphs.repeat(2);
+  const fragmentOffsets = [
+    [-.45, -.39], [.11, -.57], [.46, .17], [-.3, .4], [.13, .46],
+    [.42, -.28], [-.58, -.04], [-.08, .09], [.25, -.11]
+  ];
   groups.forEach((entry, i) => {
     const button = document.createElement('button');
     button.type = 'button';
@@ -196,12 +200,20 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
       const letter = document.createElement('span');
       letter.className = 'catalog-category-letter';
       letter.textContent = character;
-      const columns = character.codePointAt(0) > 127 ? 8 : 4;
-      letter.dataset.code = Array.from({length: 5}, (_, line) => {
-        const start = (position * 3 + i + line * 5) % hoverGlyphs.length;
-        return codeStrip.slice(start, start + columns - Math.abs(line - 2));
-      }).join('\n');
       letter.style.setProperty('--resolve-delay', `${30 + 24 * position}ms`);
+      const wide = character.codePointAt(0) > 127;
+      fragmentOffsets.slice(0, wide ? fragmentOffsets.length : 5).forEach(([x, y], index) => {
+        const fragment = document.createElement('span');
+        fragment.className = 'catalog-category-code';
+        const start = (position * 3 + i + index * 5) % hoverGlyphs.length;
+        fragment.dataset.code = codeStrip.slice(start, start + 1 + (position + index) % 3);
+        const spreadX = (x + (Math.random() - .5) * .24) * (wide ? 1 : .6);
+        const spreadY = y + (Math.random() - .5) * .24;
+        fragment.style.setProperty('--code-x', `${spreadX.toFixed(2)}em`);
+        fragment.style.setProperty('--code-y', `${spreadY.toFixed(2)}em`);
+        fragment.style.setProperty('--code-angle', `${Math.round(Math.random() * 36 - 18)}deg`);
+        letter.append(fragment);
+      });
       label.append(letter);
     });
     const bits = document.createElement('span');
