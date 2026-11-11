@@ -10,9 +10,11 @@ async function request(path,options={}) {
 const release=await (await request('_release.json?probe='+Date.now())).json();
 if(release.commit!==process.env.GITHUB_SHA||release.release_id!==process.env.PORTFOLIO_EXPECTED_RELEASE||!release.verified)throw Error('Public release differs from deployed build');
 await request('');
+await request('resume.css');
+await request('resume.js');
 for(const path of manifest.projects)await request(path);
 const introVideo='assets/cover-intro-20261106.mp4';
-const media=['assets/cover-intro-20261106.webp','assets/resume.webp',introVideo];
+const media=['assets/cover-intro-20261106.webp','assets/resume-portrait.webp',introVideo];
 for(const path of media) {
   const r=await request(path,{method:'HEAD'});
   if(Number(r.headers.get('content-length'))!==manifest.files[path].bytes)throw Error(`Resource size mismatch: ${path}`);
@@ -20,4 +22,4 @@ for(const path of media) {
 const video=await request(introVideo,{headers:{Range:'bytes=0-1023'}});
 if(video.status!==206)throw Error('Video seek/range requests are unavailable');
 await video.arrayBuffer();
-console.log(`公网验证通过：${manifest.projects.length} 个项目、封面与简历图片、视频和视频拖动。${base}`);
+console.log(`公网验证通过：${manifest.projects.length} 个项目、封面与简历资源、视频和视频拖动。${base}`);
