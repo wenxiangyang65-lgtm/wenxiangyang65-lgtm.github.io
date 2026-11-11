@@ -1,16 +1,32 @@
 const projects=window.PORTFOLIO_PROJECTS;
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
 const filmPreview=window.createPortfolioFilmPreview({onOpen:()=>{window.dispatchEvent(new Event('portfolio-film-open'));document.querySelector('#cover-video').pause()},onClose:()=>window.dispatchEvent(new Event('portfolio-film-close'))});
-let directory=null;
-function initializeDirectory(){
- if(directory)return;
- directory=window.createPortfolioDirectory({projects,filmPreview,reduced});
- window.initializeCatalogGlyphs(reduced);
+const restoreProjectGallery = location.hash === '#catalog' &&
+  document.referrer.startsWith(location.origin + '/projects/');
+let directory = null;
+let directoryObserver;
+
+function initializeDirectory() {
+  if (directory) return;
+  directoryObserver?.disconnect();
+  directory = window.createPortfolioDirectory({projects, filmPreview, reduced, restoreProjectGallery});
+  window.initializeCatalogGlyphs(reduced);
 }
-function hasCatalogRoute() { return location.hash.startsWith('#catalog') || location.hash.startsWith('#gallery-'); }
-if(hasCatalogRoute()||!('IntersectionObserver'in window))initializeDirectory();
-else{const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){initializeDirectory();observer.disconnect();}},{rootMargin:'500px 0px'});observer.observe(document.querySelector('#catalog'));}
-window.addEventListener('hashchange',()=>{if(hasCatalogRoute())initializeDirectory();});
+
+function prepareDirectory() {
+  if (directory) return;
+  const hash = location.hash;
+  if (hash.startsWith('#catalog') || hash.startsWith('#gallery-') || !('IntersectionObserver' in window)) {
+    initializeDirectory();
+  } else if (!directoryObserver) {
+    directoryObserver = new IntersectionObserver(entries => {
+      if (!root.classList.contains('intro-open') && entries.some(entry => entry.isIntersecting)) {
+        initializeDirectory();
+      }
+    }, {rootMargin: '500px 0px'});
+    directoryObserver.observe(document.querySelector('#catalog'));
+  }
+}
 const sections=[...document.querySelectorAll('.screen')],dots=document.querySelectorAll('.page-dots a');let sectionRAF=0;
 function sectionMarker(){const anchor=scrollY+innerHeight*.25;let current=sections[0];for(const section of sections)if(section.offsetTop<=anchor)current=section;dots.forEach(a=>{const active=a.hash==='#'+current.id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}
 addEventListener('scroll',()=>{cancelAnimationFrame(sectionRAF);sectionRAF=requestAnimationFrame(sectionMarker)},{passive:true});addEventListener('resize',sectionMarker);sectionMarker();
@@ -94,15 +110,18 @@ function syncIntro() {
   } else if (wasOpen) {
     introExitTimer = setTimeout(() => {
       root.classList.remove('intro-exiting');
-      if (location.hash === '#resume') {
-        document.querySelector('#resume').focus({preventScroll: true});
-      }
+      prepareDirectory();
+      const destination = document.getElementById(location.hash.slice(1));
+      destination?.focus({preventScroll: true});
     }, reduced.matches ? 0 : 620);
+  } else {
+    prepareDirectory();
   }
+  sectionMarker();
 }
 
 function enterInnerPage() {
-  if (root.classList.contains('intro-open')) location.hash = 'resume';
+  if (root.classList.contains('intro-open')) location.hash = 'catalog';
 }
 
 let wheelDistance = 0;

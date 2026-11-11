@@ -1,5 +1,5 @@
 /* The original catalog data drives the type index, disc art and project links. */
-window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
+window.createPortfolioDirectory = function ({projects, filmPreview, reduced, restoreProjectGallery}) {
   const groups = [
     {id: 'integrated', name: '品牌整合与营销设计'},
     {id: 'film', name: '品牌影像与内容设计'},
@@ -365,7 +365,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
     if (event.target === stage) endDrag(event);
   });
 
-  function restore() {
+  function restore(allowProjectReturn = false) {
     document.body.classList.remove('is-opening');
     clearTimeout(openTimer);
     openTimer = 0;
@@ -384,8 +384,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
       hideGallery();
       return;
     }
-    const cameFromProject = document.referrer.startsWith(location.origin + '/projects/');
-    if (location.hash === '#catalog' && cameFromProject) {
+    if (location.hash === '#catalog' && allowProjectReturn) {
       const previous = groups.find(entry => entry.id === saved?.open);
       if (previous) {
         history.replaceState(history.state, '', routeFor(previous));
@@ -393,8 +392,8 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
       }
     }
   }
-  window.addEventListener('pageshow', restore);
-  window.addEventListener('hashchange', restore);
-  restore();
+  window.addEventListener('pageshow', () => restore());
+  window.addEventListener('hashchange', () => restore());
+  restore(restoreProjectGallery);
   return {restore};
 };

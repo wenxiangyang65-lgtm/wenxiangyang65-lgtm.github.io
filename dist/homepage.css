@@ -6,6 +6,7 @@ html.portfolio-homepage{background:#fff;scroll-snap-type:none;scroll-padding-top
 .homepage .cover{background:#fff}
 .homepage .cover-art{border-bottom:1px solid #afc6df35}
 .homepage .resume{padding:20px 0 0;background:#fff}
+.homepage .resume:not(:target){display:none}
 .homepage .desktop-resume,.homepage .resume-power{display:block}
 .homepage .mobile-resume{display:none}
 .homepage .resume>.scroll-cue{display:none}
@@ -140,6 +141,7 @@ html.intro-exiting {
   transform: none;
   transition: transform .62s cubic-bezier(.32, .72, .22, 1);
 }
+.intro-exiting .catalog-letter-art h2,
 .intro-open .page-dots {
   visibility: hidden;
 }
