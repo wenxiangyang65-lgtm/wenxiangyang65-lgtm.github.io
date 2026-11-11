@@ -180,15 +180,11 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
     [-.45, -.39], [.11, -.57], [.46, .17], [-.3, .4], [.13, .46],
     [.42, -.28], [-.58, -.04], [-.08, .09], [.25, -.11]
   ];
-  groups.forEach((entry, i) => {
+  function categoryButton(labelText, i) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'catalog-category';
-    button.id = 'folder-' + entry.id;
-    const labelText = `${number(i + 1)} ${entry.name}`;
     button.setAttribute('aria-label', labelText);
-    button.setAttribute('aria-controls', gallery.id);
-    button.setAttribute('aria-expanded', 'false');
     const label = document.createElement('span');
     label.className = 'catalog-category-label';
     label.setAttribute('aria-hidden', 'true');
@@ -221,10 +217,24 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced}) {
     bits.textContent = `${number(i + 1)} / 0101 { 01 } · 1010`;
     bits.setAttribute('aria-hidden', 'true');
     button.append(label, bits);
+    return button;
+  }
+
+  groups.forEach((entry, i) => {
+    const button = categoryButton(`${number(i + 1)} ${entry.name}`, i);
+    button.id = 'folder-' + entry.id;
+    button.setAttribute('aria-controls', gallery.id);
+    button.setAttribute('aria-expanded', 'false');
     button.addEventListener('click', () => openGroup(entry, button));
     directory.append(button);
     buttons.set(entry.id, button);
   });
+  const resumeButton = categoryButton(`${number(groups.length + 1)} 简历`, groups.length);
+  resumeButton.dataset.resumeOpen = '';
+  resumeButton.setAttribute('aria-haspopup', 'dialog');
+  resumeButton.setAttribute('aria-controls', 'resume-dialog');
+  directory.append(resumeButton);
+
   document.querySelector('#directory-total').textContent = `${number(groups.length)} DIRECTIONS / ${items.length} WORKS`;
 
   function returnToIndex() {

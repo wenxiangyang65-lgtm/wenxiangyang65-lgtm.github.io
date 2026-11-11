@@ -123,6 +123,7 @@
 .catalog-category:nth-child(3) { margin-left: clamp(4px, 2.5vw, 38px); }
 .catalog-category:nth-child(4) { margin-left: clamp(16px, 10.8vw, 161px); }
 .catalog-category:nth-child(5) { margin-left: clamp(7px, 4.6vw, 69px); }
+.catalog-category:nth-child(6) { margin-left: clamp(12px, 8.3vw, 124px); }
 .catalog-category::before {
   content: '↘';
   position: absolute;
@@ -186,6 +187,7 @@
 .catalog-category:nth-child(3) { --assemble-delay: 70ms; }
 .catalog-category:nth-child(4) { --assemble-delay: 105ms; }
 .catalog-category:nth-child(5) { --assemble-delay: 140ms; }
+.catalog-category:nth-child(6) { --assemble-delay: 175ms; }
 .catalog-typeset.is-reassembled .catalog-category:not(.is-dissolving) .catalog-category-label {
   animation: label-assemble .54s cubic-bezier(.18,.76,.24,1) var(--assemble-delay, 0ms) both;
 }

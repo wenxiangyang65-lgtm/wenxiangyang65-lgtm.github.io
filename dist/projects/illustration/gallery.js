@@ -86,7 +86,7 @@ asianTabs.addEventListener('click',ev=>{
  const id=tab.dataset.asian,[name,desc]=asianNames[id];
  asianTabs.querySelectorAll('[data-asian]').forEach(t=>{t.setAttribute('aria-selected',String(t===tab));t.tabIndex=t===tab?0:-1;});
  const clay=document.getElementById('compare-clay'),final=document.getElementById('compare-final');
- clay.src=`assets/asian-${id}-clay.avif`;clay.alt=name+' · 白模';final.src=`assets/asian-${id}.avif`;final.alt=name+' · 材质与灯光成稿';
+ clay.src=`assets/asian-clay-${id}.avif`;clay.alt=name+' · 白模';final.src=`assets/asian-${id}.avif`;final.alt=name+' · 材质与灯光成稿';
  document.getElementById('compare-name').textContent=name;document.getElementById('compare-description').textContent=desc;
 });keyboardTabs(asianTabs,'[data-asian]');
 // Filtering changes only the selected collection; image dialogs retain the full artwork.

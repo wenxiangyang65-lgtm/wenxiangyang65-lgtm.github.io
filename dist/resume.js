@@ -1,5 +1,4 @@
 (() => {
-  const trigger = document.querySelector('.resume-open');
   const dialog = document.querySelector('#resume-dialog');
   const viewport = dialog.querySelector('.resume-dialog-body');
   const zoom = dialog.querySelector('[data-resume-zoom]');
@@ -10,7 +9,9 @@
     zoom.textContent = value ? '适合屏幕' : '放大阅读';
   }
 
-  trigger.addEventListener('click', () => {
+  document.addEventListener('click', event => {
+    const trigger = event.target.closest('[data-resume-open]');
+    if (!trigger) return;
     trigger.focus({ preventScroll: true });
     setZoom(matchMedia('(max-width: 800px)').matches);
     dialog.showModal();
