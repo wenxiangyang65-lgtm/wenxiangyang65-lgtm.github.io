@@ -81,7 +81,10 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
     const rim = document.createElement('span');
     rim.className = 'gallery-disc-rim';
     rim.setAttribute('aria-hidden', 'true');
-    link.append(rim, art);
+    const body = document.createElement('span');
+    body.className = 'gallery-disc-body';
+    body.append(rim, art);
+    link.append(body);
     link.addEventListener('click', event => {
       if (performance.now() < suppressClickUntil) {
         event.preventDefault();
