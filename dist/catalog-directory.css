@@ -1,5 +1,6 @@
 /* The three catalog views share one white field and quiet black type. */
 .homepage .catalog-directory {
+  position: relative;
   padding: 0 0 28px;
   overflow: clip;
   background: #fff;
@@ -135,6 +136,8 @@
 .catalog-category:hover::before,
 .catalog-category:focus-visible::before { opacity: 1; }
 .catalog-category-label { display: block; }
+.catalog-category-label, .catalog-typeset h3 { opacity: var(--catalog-row-ink, 1); }
+.catalog-category:focus-visible .catalog-category-label { opacity: 1; }
 .catalog-category-letter { position: relative; }
 .catalog-category-code {
   position: absolute;
@@ -182,26 +185,12 @@
 .catalog-category.is-dissolving .catalog-category-bits {
   animation: bits-disperse .24s ease-out both;
 }
-/* A short burst of characters resolves into each staggered row. */
-.catalog-category:nth-child(2) { --assemble-delay: 35ms; }
-.catalog-category:nth-child(3) { --assemble-delay: 70ms; }
-.catalog-category:nth-child(4) { --assemble-delay: 105ms; }
-.catalog-category:nth-child(5) { --assemble-delay: 140ms; }
-.catalog-category:nth-child(6) { --assemble-delay: 175ms; }
-.catalog-typeset.is-reassembled .catalog-category:not(.is-dissolving) .catalog-category-label {
-  animation: label-assemble .54s cubic-bezier(.18,.76,.24,1) var(--assemble-delay, 0ms) both;
-}
-.catalog-typeset.is-reassembled .catalog-category:not(.is-dissolving) .catalog-category-bits {
-  animation: bits-assemble .54s ease-out var(--assemble-delay, 0ms) both;
-}
-@keyframes label-assemble {
-  0%, 25% { opacity: 0; transform: translate(18px, -18px); }
-  100% { opacity: 1; transform: translate(0); }
-}
-@keyframes bits-assemble {
-  0% { opacity: 0; transform: translate(22px, -20px); }
-  26% { opacity: .65; }
-  80%, 100% { opacity: 0; transform: translate(0); }
+.catalog-transfer {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  width: 100%;
+  pointer-events: none;
 }
 @keyframes title-break {
   to { opacity: 0; transform: translateY(-5px); letter-spacing: .07em; }
@@ -272,7 +261,6 @@ html.catalog-gallery-open {
   z-index: 2;
 }
 .gallery-disc[data-slot='previous'] {
-  --disc-blur: clamp(3.5px, .62vw, 8px);
   --x: -37vw;
   --y: 33svh;
   --depth: -60px;
@@ -282,7 +270,6 @@ html.catalog-gallery-open {
   --yaw: 6deg;
 }
 .gallery-disc[data-slot='next'] {
-  --disc-blur: clamp(3.5px, .62vw, 8px);
   --x: 43vw;
   --y: -29svh;
   --depth: 10px;
@@ -299,12 +286,6 @@ html.catalog-gallery-open {
   inset: 0;
   display: block;
   border-radius: 50%;
-}
-.gallery-disc-art,
-.gallery-disc-rim::before,
-.gallery-disc-rim::after {
-  filter: blur(var(--disc-blur, 0px));
-  transition: filter .55s cubic-bezier(.2,.75,.24,1);
 }
 .gallery-disc-rim {
   transform-style: preserve-3d;
@@ -354,6 +335,19 @@ html.catalog-gallery-open {
 }
 @keyframes disc-arrive {
   from { opacity: .22; transform: translate3d(-47%, -43%, -90px) rotateZ(-49deg) rotateX(79deg) rotateY(-20deg) scale(.86); }
+}
+.catalog-gallery::before {
+  --focus-falloff: radial-gradient(ellipse 68% 65% at 53% 56%,
+    transparent 0 42%, #0003 60%, #0009 82%, #000 100%);
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(clamp(2px, .36vw, 3.8px));
+  backdrop-filter: blur(clamp(2px, .36vw, 3.8px));
+  -webkit-mask-image: var(--focus-falloff);
+  mask-image: var(--focus-falloff);
 }
 .gallery-code-trail {
   position: absolute;
@@ -457,6 +451,10 @@ html.catalog-gallery-open {
   .catalog-category:nth-child(4) { margin-left: 10vw; }
 }
 @media (max-width: 520px) {
+  .catalog-gallery::before {
+    --focus-falloff: radial-gradient(ellipse 77% 57% at 50% 60%,
+      transparent 0 40%, #0003 59%, #0009 82%, #000 100%);
+  }
   .gallery-info { width: min(70%, 255px); top: 20px; }
   .gallery-disc { top: 57%; width: min(76vw, 60svh); }
   .gallery-disc[data-slot='active'] { --x: 0vw; --y: 3svh; }

@@ -1,6 +1,9 @@
 /* Sample the title silhouettes onto a grid of real text glyphs. */
 window.initializeCatalogGlyphs = function (reduced) {
-  const cover = document.querySelector('.catalog-letter-cover');
+  const catalog = document.querySelector('#catalog');
+  const cover = catalog.querySelector('.catalog-letter-cover');
+  const typeset = catalog.querySelector('.catalog-typeset');
+  const rows = [...typeset.querySelectorAll('h3, .catalog-category-label')];
   const art = cover.querySelector('.catalog-letter-art');
   const canvas = art.querySelector('canvas');
   const compose = art.querySelector('.catalog-compose');
@@ -8,6 +11,21 @@ window.initializeCatalogGlyphs = function (reduced) {
   const mask = document.createElement('canvas');
   const ink = mask.getContext('2d', {willReadFrequently: true});
   if (!context || !ink) return;
+
+  const transferCanvas = document.createElement('canvas');
+  transferCanvas.className = 'catalog-transfer';
+  transferCanvas.setAttribute('aria-hidden', 'true');
+  const transferContext = transferCanvas.getContext('2d');
+  if (transferContext) catalog.append(transferCanvas);
+
+  const unit = value => Math.max(0, Math.min(1, value));
+  let flights = [];
+  let artOffsetX = 0;
+  let artOffsetY = 0;
+  let transferWidth = 0;
+  let transferHeight = 0;
+  let transferPainted = false;
+  let lastTransfer = -1;
 
   const characters = '01020256{}[]/';
   let dots = [];
@@ -73,25 +91,128 @@ window.initializeCatalogGlyphs = function (reduced) {
     context.fillStyle = '#111';
     art.classList.add('has-glyphs');
     compose.hidden = reduced.matches;
+    sampleDirectory(rect, pitch);
     queueDraw();
+  }
+
+  function sampleDirectory(artRect, pitch) {
+    if (!transferContext) return;
+    const frame = catalog.getBoundingClientRect();
+    const directory = typeset.getBoundingClientRect();
+    artOffsetX = artRect.left - frame.left;
+    artOffsetY = artRect.top - frame.top;
+    transferWidth = Math.ceil(frame.width);
+    transferHeight = Math.ceil(directory.bottom - frame.top + 8);
+    if (!transferWidth || transferHeight <= 0) return;
+
+    const scale = Math.min(density, 1.25);
+    transferCanvas.width = Math.ceil(transferWidth * scale);
+    transferCanvas.height = Math.ceil(transferHeight * scale);
+    transferCanvas.style.height = `${transferHeight}px`;
+    transferContext.setTransform(scale, 0, 0, scale, 0, 0);
+    transferContext.fillStyle = '#111';
+    transferContext.textBaseline = 'middle';
+    transferContext.font = `600 ${Math.max(2.8, pitch * .8)}px ui-monospace, Menlo, monospace`;
+
+    const points = [];
+    const step = Math.max(2, Math.round(pitch * .62));
+    rows.forEach((row, index) => {
+      const letters = row.querySelectorAll('.catalog-category-letter');
+      const range = document.createRange();
+      range.selectNodeContents(row);
+      const bounds = range.getBoundingClientRect();
+      if (!bounds.width || !bounds.height) return;
+      // Measure each DOM letter so the small glyphs settle into the same positions as the live labels.
+      const style = getComputedStyle(row);
+      const font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+      mask.width = Math.ceil(bounds.width) + 4;
+      mask.height = Math.ceil(bounds.height) + 4;
+      ink.font = font;
+      ink.fillStyle = '#000';
+      ink.textBaseline = 'middle';
+      const mid = mask.height / 2;
+      if (letters.length) {
+        for (const letter of letters) {
+          const position = letter.getBoundingClientRect();
+          ink.fillText(letter.firstChild.data, position.left - bounds.left + 2, mid);
+        }
+      } else {
+        ink.fillText(row.textContent, 2, mid);
+      }
+      const pixels = ink.getImageData(0, 0, mask.width, mask.height).data;
+      for (let y = 1; y < mask.height; y += step) {
+        for (let x = 1; x < mask.width; x += step) {
+          if (pixels[(y * mask.width + x) * 4 + 3] < 115) continue;
+          points.push({x: bounds.left - frame.left + x - 2, y: bounds.top - frame.top + y - 2, row: index});
+        }
+      }
+    });
+    const sources = [...dots].sort((a, b) => a.seed - b.seed);
+    const count = Math.min(points.length, sources.length);
+    flights = Array.from({length: count}, (_, i) => {
+      const target = points[Math.floor(i * points.length / count)];
+      const dot = sources[Math.floor(i * sources.length / count)];
+      const delay = target.row * .028 + dot.seed * .11;
+      dot.departure = delay;
+      return {dot, target, delay};
+    });
+    transferPainted = false;
+    lastTransfer = -1;
+  }
+
+  function drawTransfer(transfer, settled) {
+    if (!flights.length) return;
+    if (transfer !== lastTransfer) {
+      rows.forEach((row, i) => {
+        const inkAmount = unit((transfer - .67 - i * .029) / .145);
+        row.style.setProperty('--catalog-row-ink', inkAmount.toFixed(3));
+      });
+      lastTransfer = transfer;
+    }
+    if (transfer <= 0 || transfer >= 1) {
+      if (transferPainted) transferContext.clearRect(0, 0, transferWidth, transferHeight);
+      transferPainted = false;
+      return;
+    }
+    transferContext.clearRect(0, 0, transferWidth, transferHeight);
+    transferPainted = true;
+    for (const {dot, target, delay} of flights) {
+      if (transfer <= delay) continue;
+      const age = unit((transfer - delay) / .63);
+      const fade = 1 - unit((transfer - .68 - target.row * .029) / .15);
+      if (!fade) continue;
+      const eased = age * age * (3 - 2 * age);
+      const wave = Math.sin(age * Math.PI);
+      const sx = artOffsetX + dot.sx + (dot.x - dot.sx) * settled;
+      const sy = artOffsetY + dot.sy + (dot.y - dot.sy) * settled;
+      const x = sx + (target.x - sx) * eased + wave * (dot.seed - .5) * transferWidth * .32;
+      const y = sy + (target.y - sy) * eased + wave * dot.seed * 40;
+      transferContext.globalAlpha = fade * (.42 + age * .44);
+      transferContext.fillText(dot.glyph, x, y);
+    }
+    transferContext.globalAlpha = 1;
   }
 
   function draw() {
     queued = 0;
     if (!width || !dots.length) return;
     const rect = cover.getBoundingClientRect();
+    const settled = progress * (2 - progress);
+    const landing = typeset.getBoundingClientRect().top - rect.top - Math.min(86, innerHeight * .12);
+    const transfer = reduced.matches ? 1 : unit((-rect.top - 12) / Math.max(100, landing - 12));
+    drawTransfer(transfer, settled);
     if (rect.bottom <= 0 || rect.top > innerHeight || !rect.height) {
       lens.amount = 0;
       return;
     }
     const scrollExit = reduced.matches ? 0 : Math.max(0, Math.min(1, -rect.top / (rect.height * .68)));
     const exit = Math.max(scrollExit, returnProgress);
-    const settled = progress * (2 - progress);
     const follow = updateLens(exit);
     const radius = Math.max(42, Math.min(112, width * .117)) * .4;
     const radiusSquared = radius * radius;
     context.clearRect(0, 0, width, height);
     for (const dot of dots) {
+      if (!reduced.matches && dot.departure !== undefined && transfer > dot.departure) continue;
       // At rest the dots make a legible wordmark. On exit, the grid breaks into short streams.
       const opacity = (dot.seed < .06 ? .8 : Math.max(0, (settled - dot.seed * .58) / .42)) * (1 - exit);
       if (opacity < .04) continue;
@@ -182,7 +303,10 @@ window.initializeCatalogGlyphs = function (reduced) {
     if (!reduced.matches) finish(820);
   }
 
-  new ResizeObserver(resample).observe(art);
+  const layout = new ResizeObserver(resample);
+  layout.observe(art);
+  layout.observe(typeset);
+  document.fonts?.ready.then(resample);
   new IntersectionObserver(([entry], observer) => {
     if (!entry.isIntersecting) return;
     queueDraw();
@@ -234,11 +358,5 @@ window.initializeCatalogGlyphs = function (reduced) {
     queueDraw();
   });
 
-  const typeset = document.querySelector('.catalog-typeset');
-  new IntersectionObserver(([entry], observer) => {
-    if (!entry.isIntersecting) return;
-    typeset.classList.add('is-reassembled');
-    observer.disconnect();
-  }, {threshold: .23}).observe(typeset);
   return {disperse, reassemble};
 };
