@@ -18,6 +18,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
   const gallery = document.querySelector('#catalog-gallery');
   const root = document.documentElement;
   const stage = gallery.querySelector('.gallery-stage');
+  const codeTrail = gallery.querySelector('.gallery-code-trail');
   const title = gallery.querySelector('.gallery-title');
   const count = gallery.querySelector('.gallery-count');
   const openLink = gallery.querySelector('.gallery-open');
@@ -37,6 +38,8 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
   let drag = null;
   let tilt = null;
   let suppressClickUntil = 0;
+  let trailIndex = 0;
+  const trailGlyphs = ['01{0}', '1/010', '[10]', '20/1', '{011}', '0]101'];
 
   function remember() {
     try {
@@ -151,6 +154,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
     clearDiscTilt();
     gallery.classList.remove('is-entering');
     stage.replaceChildren();
+    codeTrail.replaceChildren();
     drag = null;
     stage.classList.remove('is-dragging');
     stage.style.removeProperty('--drag-x');
@@ -321,11 +325,45 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
   stage.addEventListener('pointerleave', () => {
     if (!drag) clearDiscTilt();
   });
-  reduced.addEventListener('change', clearDiscTilt);
+  reduced.addEventListener('change', () => {
+    clearDiscTilt();
+    codeTrail.replaceChildren();
+  });
+
+  function drawCodeTrail(event) {
+    if (reduced.matches) return;
+    const dx = event.clientX - drag.trailX;
+    const dy = event.clientY - drag.trailY;
+    const distance = Math.hypot(dx, dy);
+    if (distance < 12) return;
+    const count = Math.min(5, Math.floor(distance / 12));
+    const ux = dx / distance;
+    const uy = dy / distance;
+    const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+    for (let i = 0; i < count; i++) {
+      const index = trailIndex++;
+      const offset = ((index * 7) % 19) - 9;
+      const fraction = (i + 1) / (count + 1);
+      const glyph = document.createElement('span');
+      glyph.textContent = trailGlyphs[index % trailGlyphs.length];
+      glyph.style.setProperty('--trail-x', `${drag.trailX + dx * fraction - uy * offset}px`);
+      glyph.style.setProperty('--trail-y', `${drag.trailY + dy * fraction + ux * offset}px`);
+      glyph.style.setProperty('--trail-dx', `${-ux * 27 - uy * offset}px`);
+      glyph.style.setProperty('--trail-dy', `${-uy * 27 + ux * offset}px`);
+      glyph.style.setProperty('--trail-angle', `${angle + offset * 2}deg`);
+      glyph.addEventListener('animationend', () => glyph.remove(), {once: true});
+      if (codeTrail.childElementCount >= 24) codeTrail.firstElementChild.remove();
+      codeTrail.append(glyph);
+    }
+    drag.trailX = event.clientX;
+    drag.trailY = event.clientY;
+  }
+
   stage.addEventListener('pointerdown', event => {
     if (drag || event.button !== 0 || !event.isPrimary) return;
     const disc = reduced.matches ? null : event.target.closest('.gallery-disc');
-    drag = {id: event.pointerId, x: event.clientX, y: event.clientY, disc, moving: false};
+    drag = {id: event.pointerId, x: event.clientX, y: event.clientY,
+      trailX: event.clientX, trailY: event.clientY, disc, moving: false};
     if (!disc) clearDiscTilt();
     else if (event.pointerType !== 'mouse') tiltDisc(disc, event);
   });
@@ -344,6 +382,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
       stage.classList.add('is-dragging');
     }
     if (!drag.moving) return;
+    drawCodeTrail(event);
     if (drag.disc) tiltDisc(drag.disc, event, true);
     else stage.style.setProperty('--drag-x', `${Math.max(-100, Math.min(100, dx * .45))}px`);
   });

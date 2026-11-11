@@ -272,6 +272,7 @@ html.catalog-gallery-open {
   z-index: 2;
 }
 .gallery-disc[data-slot='previous'] {
+  --disc-blur: clamp(3.5px, .62vw, 8px);
   --x: -37vw;
   --y: 33svh;
   --depth: -60px;
@@ -281,6 +282,7 @@ html.catalog-gallery-open {
   --yaw: 6deg;
 }
 .gallery-disc[data-slot='next'] {
+  --disc-blur: clamp(3.5px, .62vw, 8px);
   --x: 43vw;
   --y: -29svh;
   --depth: 10px;
@@ -297,6 +299,12 @@ html.catalog-gallery-open {
   inset: 0;
   display: block;
   border-radius: 50%;
+}
+.gallery-disc-art,
+.gallery-disc-rim::before,
+.gallery-disc-rim::after {
+  filter: blur(var(--disc-blur, 0px));
+  transition: filter .55s cubic-bezier(.2,.75,.24,1);
 }
 .gallery-disc-rim {
   transform-style: preserve-3d;
@@ -346,6 +354,36 @@ html.catalog-gallery-open {
 }
 @keyframes disc-arrive {
   from { opacity: .22; transform: translate3d(-47%, -43%, -90px) rotateZ(-49deg) rotateX(79deg) rotateY(-20deg) scale(.86); }
+}
+.gallery-code-trail {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+.gallery-code-trail span {
+  position: absolute;
+  top: var(--trail-y);
+  left: var(--trail-x);
+  color: #22354b;
+  font: 600 clamp(7px, .8vw, 11px)/1 ui-monospace, Menlo, monospace;
+  letter-spacing: .06em;
+  white-space: nowrap;
+  text-shadow: 0 0 2px #fff, 0 0 5px #fffd;
+  animation: gallery-code-fade .46s ease-out forwards;
+}
+@keyframes gallery-code-fade {
+  from {
+    transform: translate(-50%, -50%) rotate(var(--trail-angle));
+    opacity: .82;
+    filter: blur(.25px);
+  }
+  to {
+    transform: translate(calc(-50% + var(--trail-dx)), calc(-50% + var(--trail-dy))) rotate(var(--trail-angle));
+    opacity: 0;
+    filter: blur(3px);
+  }
 }
 .gallery-info {
   position: absolute;
@@ -426,6 +464,7 @@ html.catalog-gallery-open {
   .gallery-disc[data-slot='next'] { --x: 64vw; --y: -19svh; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .gallery-code-trail { display: none; }
   :is(.catalog-directory, .catalog-gallery) *,
   :is(.catalog-directory, .catalog-gallery) *::before { animation: none !important; transition: none !important; }
 }

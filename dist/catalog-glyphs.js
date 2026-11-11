@@ -18,6 +18,8 @@ window.initializeCatalogGlyphs = function (reduced) {
   let animation = 0;
   let queued = 0;
   let started = false;
+  let returning = false;
+  let returnProgress = 0;
   let pointer = null;
   const hover = {clientX: 0, clientY: 0, inside: false};
   const lens = {x: 0, y: 0, amount: 0};
@@ -82,7 +84,8 @@ window.initializeCatalogGlyphs = function (reduced) {
       lens.amount = 0;
       return;
     }
-    const exit = reduced.matches ? 0 : Math.max(0, Math.min(1, -rect.top / (rect.height * .68)));
+    const scrollExit = reduced.matches ? 0 : Math.max(0, Math.min(1, -rect.top / (rect.height * .68)));
+    const exit = Math.max(scrollExit, returnProgress);
     const settled = progress * (2 - progress);
     const follow = updateLens(exit);
     const radius = Math.max(42, Math.min(112, width * .117)) * .4;
@@ -94,7 +97,8 @@ window.initializeCatalogGlyphs = function (reduced) {
       if (opacity < .04) continue;
       context.globalAlpha = Math.min(1, opacity);
       const x = dot.sx + (dot.x - dot.sx) * settled + (dot.seed - .5) * width * exit * .28;
-      const y = dot.sy + (dot.y - dot.sy) * settled + (dot.seed - .24) * height * exit * .6;
+      const scatterY = (dot.seed - .24) * scrollExit * .6 - (dot.seed + .22) * returnProgress * .46;
+      const y = dot.sy + (dot.y - dot.sy) * settled + height * scatterY;
       const dx = x - lens.x;
       const dy = y - lens.y;
       const distanceSquared = dx * dx + dy * dy;
@@ -114,7 +118,7 @@ window.initializeCatalogGlyphs = function (reduced) {
   }
 
   function updateLens(exit) {
-    const active = hover.inside && !pointer && !reduced.matches && progress >= .97 && exit < .35;
+    const active = hover.inside && !pointer && !reduced.matches && progress >= .97 && !returning && exit < .35;
     const target = active ? 1 : 0;
     let followsPointer = false;
     if (active) {
@@ -141,7 +145,7 @@ window.initializeCatalogGlyphs = function (reduced) {
 
   function finish(duration = 420) {
     cancelAnimationFrame(animation);
-    if (progress >= 1) return;
+    if (returning || progress >= 1) return;
     const from = progress;
     const start = performance.now();
     function tick(now) {
@@ -151,6 +155,31 @@ window.initializeCatalogGlyphs = function (reduced) {
       if (amount < 1) animation = requestAnimationFrame(tick);
     }
     animation = requestAnimationFrame(tick);
+  }
+
+  function disperse(duration) {
+    const rect = art.getBoundingClientRect();
+    if (!dots.length || rect.bottom <= 0 || rect.top >= innerHeight) return false;
+    cancelAnimationFrame(animation);
+    returning = true;
+    const start = performance.now();
+    function tick(now) {
+      const elapsed = Math.max(0, Math.min(1, (now - start) / duration));
+      returnProgress = elapsed * (2 - elapsed);
+      queueDraw();
+      if (elapsed < 1) animation = requestAnimationFrame(tick);
+    }
+    animation = requestAnimationFrame(tick);
+    return true;
+  }
+
+  function reassemble() {
+    cancelAnimationFrame(animation);
+    returning = false;
+    returnProgress = 0;
+    progress = reduced.matches ? 1 : 0;
+    queueDraw();
+    if (!reduced.matches) finish(820);
   }
 
   new ResizeObserver(resample).observe(art);
@@ -177,7 +206,7 @@ window.initializeCatalogGlyphs = function (reduced) {
   });
   compose.addEventListener('click', () => finish());
   compose.addEventListener('pointerdown', event => {
-    if (event.button !== 0 || !event.isPrimary || progress >= 1) return;
+    if (event.button !== 0 || !event.isPrimary || returning || progress >= 1) return;
     cancelAnimationFrame(animation);
     pointer = {id: event.pointerId, x: event.clientX, start: progress};
     compose.setPointerCapture(event.pointerId);
@@ -197,6 +226,8 @@ window.initializeCatalogGlyphs = function (reduced) {
   reduced.addEventListener('change', () => {
     if (reduced.matches) {
       cancelAnimationFrame(animation);
+      returning = false;
+      returnProgress = 0;
       progress = 1;
     }
     compose.hidden = reduced.matches;
@@ -209,4 +240,5 @@ window.initializeCatalogGlyphs = function (reduced) {
     typeset.classList.add('is-reassembled');
     observer.disconnect();
   }, {threshold: .23}).observe(typeset);
+  return {disperse, reassemble};
 };

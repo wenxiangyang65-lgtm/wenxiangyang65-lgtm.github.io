@@ -6,14 +6,14 @@
   function setZoom(value) {
     dialog.classList.toggle('is-zoomed', value);
     zoom.setAttribute('aria-pressed', String(value));
-    zoom.textContent = value ? '适合屏幕' : '放大阅读';
+    zoom.textContent = value ? '恢复字号' : '放大阅读';
   }
 
   document.addEventListener('click', event => {
     const trigger = event.target.closest('[data-resume-open]');
     if (!trigger) return;
     trigger.focus({ preventScroll: true });
-    setZoom(matchMedia('(max-width: 800px)').matches);
+    setZoom(false);
     dialog.showModal();
     viewport.scrollTo(0, 0);
   });

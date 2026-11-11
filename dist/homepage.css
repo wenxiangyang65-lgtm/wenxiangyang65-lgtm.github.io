@@ -123,7 +123,8 @@ html.portfolio-homepage{background:#fff;scroll-snap-type:none;scroll-padding-top
 }
 /* Cover is a separate level above the inner page. */
 html.intro-open,
-html.intro-exiting {
+html.intro-exiting,
+html.intro-returning {
   overflow-y: hidden;
 }
 .intro-enabled .homepage #cover {

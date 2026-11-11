@@ -5,12 +5,13 @@ const restoreProjectGallery = location.hash === '#catalog' &&
   document.referrer.startsWith(location.origin + '/projects/');
 let directory = null;
 let directoryObserver;
+let glyphTitle;
 
 function initializeDirectory() {
   if (directory) return;
   directoryObserver?.disconnect();
   directory = window.createPortfolioDirectory({projects, filmPreview, reduced, restoreProjectGallery});
-  window.initializeCatalogGlyphs(reduced);
+  glyphTitle = window.initializeCatalogGlyphs(reduced);
 }
 
 function prepareDirectory() {
@@ -39,6 +40,7 @@ const root = document.documentElement;
 const innerPage = document.querySelector('main');
 const resumeDialog = document.querySelector('#resume-dialog');
 let introExitTimer = 0;
+let introReturnTimer = 0;
 let unloadTimer = 0;
 
 function startVideo() {
@@ -99,6 +101,12 @@ function syncIntro() {
   const open = !location.hash || location.hash === '#cover';
   const wasOpen = root.classList.contains('intro-open');
   clearTimeout(introExitTimer);
+  if (introReturnTimer) {
+    clearTimeout(introReturnTimer);
+    introReturnTimer = 0;
+    if (!open) glyphTitle?.reassemble();
+  }
+  root.classList.remove('intro-returning');
   root.classList.toggle('intro-exiting', wasOpen && !open && !reduced.matches);
   root.classList.toggle('intro-open', open);
   intro.inert = !open;
@@ -110,6 +118,7 @@ function syncIntro() {
   } else if (wasOpen) {
     introExitTimer = setTimeout(() => {
       root.classList.remove('intro-exiting');
+      if (location.hash === '#catalog') glyphTitle?.reassemble();
       prepareDirectory();
       const destination = document.getElementById(location.hash.slice(1));
       destination?.focus({preventScroll: true});
@@ -122,6 +131,20 @@ function syncIntro() {
 
 function enterInnerPage() {
   if (root.classList.contains('intro-open')) location.hash = 'catalog';
+}
+
+function returnToCover() {
+  if (introReturnTimer) return;
+  const duration = 360;
+  if (reduced.matches || !glyphTitle?.disperse(duration)) {
+    location.hash = 'cover';
+    return;
+  }
+  root.classList.add('intro-returning');
+  introReturnTimer = setTimeout(() => {
+    introReturnTimer = 0;
+    location.hash = 'cover';
+  }, duration);
 }
 
 let wheelDistance = 0;
@@ -142,7 +165,7 @@ document.addEventListener('wheel', event => {
   if (wheelDistance >= 24) {
     wheelDistance = 0;
     if (open) enterInnerPage();
-    else location.hash = 'cover';
+    else returnToCover();
   }
 }, {passive: true});
 
@@ -162,7 +185,7 @@ document.addEventListener('touchend', event => {
   touchStart = undefined;
   if (touchStartsOnCover && distance > 45) enterInnerPage();
   else if (!touchStartsOnCover && distance < -45 && window.scrollY <= 1) {
-    location.hash = 'cover';
+    returnToCover();
   }
 }, {passive: true});
 document.addEventListener('keydown', event => {
