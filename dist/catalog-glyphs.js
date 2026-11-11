@@ -37,6 +37,7 @@ window.initializeCatalogGlyphs = function (reduced) {
   let queued = 0;
   let started = false;
   let returning = false;
+  let directoryScroll;
   let returnProgress = 0;
   let pointer = null;
   const hover = {clientX: 0, clientY: 0, inside: false};
@@ -320,10 +321,37 @@ window.initializeCatalogGlyphs = function (reduced) {
   cover.querySelector('.catalog-down').addEventListener('click', event => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
+    directoryScroll?.abort();
     const index = document.getElementById('catalog-index');
-    location.hash = index.id;
+    const route = '#' + index.id;
+    if (location.hash === '#resume') location.hash = route;
+    else if (location.hash !== route) history.pushState(history.state, '', route);
+
     requestAnimationFrame(() => {
-      index.scrollIntoView({block: 'start', behavior: reduced.matches ? 'instant' : 'smooth'});
+      const from = scrollY;
+      const to = from + index.getBoundingClientRect().top - 16;
+      if (reduced.matches) {
+        window.scrollTo({top: to, behavior: 'instant'});
+        return;
+      }
+      const start = performance.now();
+      const input = new AbortController();
+      directoryScroll = input;
+      for (const name of ['wheel', 'touchstart', 'keydown']) {
+        window.addEventListener(name, () => input.abort(), {passive: true, signal: input.signal});
+      }
+      function step(now) {
+        if (input.signal.aborted || location.hash !== route) {
+          input.abort();
+          return;
+        }
+        const time = unit((now - start) / 650);
+        const eased = time * time * (3 - 2 * time);
+        window.scrollTo({top: from + (to - from) * eased, behavior: 'instant'});
+        if (time < 1) requestAnimationFrame(step);
+        else input.abort();
+      }
+      requestAnimationFrame(step);
     });
   });
   art.addEventListener('pointermove', event => {
