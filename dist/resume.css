@@ -1,25 +1,109 @@
-.homepage .resume .resume-art, .resume-read-hint {width:min(calc(100% - 28px), 900px);margin-inline:auto;}
-.homepage .resume .resume-art {aspect-ratio:auto;}
-.resume-page {position:relative;width:100%;}
-.homepage .resume-page .original-art {width:100%;height:auto;display:block;}
-.resume-open {position:absolute;inset:0;width:100%;border:0;background:transparent;cursor:zoom-in;}
-.resume-open:focus-visible {outline:2px solid #1b617a;outline-offset:-4px;}
-.resume-works-link {position:absolute;left:56.28%;top:3.86%;width:16.84%;height:1.32%;z-index:2;}
-.resume-works-link:hover,.resume-works-link:focus-visible {outline:1px solid #1b617a;outline-offset:2px;}
-.resume-read-hint {margin-block:0 8px;color:#57718b;font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:20px;}
-.resume-read-hint a {text-decoration:none;color:inherit;}
-.resume-read-hint a:hover {text-decoration:underline;}
-.resume-dialog {width:calc(100vw - 24px);max-width:960px;height:calc(100dvh - 24px);max-height:calc(100dvh - 24px);margin:auto;padding:0;border:1px solid #abc0d5;border-radius:12px;background:#fff;color:#13283f;overflow:hidden;}
-.resume-dialog::backdrop {background:#0b203bc9;backdrop-filter:blur(5px);}
-.resume-dialog[open] {display:flex;flex-direction:column;}
-.resume-dialog header {display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid #abc0d566;flex:0 0 auto;}
-.resume-dialog header p {margin:0;font-size:13px;}
-.resume-dialog-controls {display:flex;gap:8px;align-items:center;}
-.resume-dialog button {font:inherit;font-size:13px;padding:7px 10px;border:1px solid #abc0d5;background:#fff;color:inherit;border-radius:4px;cursor:pointer;}
-.resume-dialog button:disabled {opacity:.4;cursor:default;}
-.resume-dialog button:focus-visible {outline:2px solid #1b617a;}
-.resume-dialog-body {overflow:auto;flex:1;min-height:0;overscroll-behavior:contain;}
-.resume-dialog-body img {display:block;width:100%;height:auto;max-width:none;}
-.resume-dialog-page {position:relative;width:100%;}
-.resume-dialog.is-zoomed .resume-dialog-page {width:max(115%, 820px);}
-@media(max-width:800px){.resume-dialog header{padding:8px;gap:6px;flex-wrap:wrap}.resume-dialog-controls{gap:5px}.resume-dialog button{font-size:12px;padding:7px}.resume-read-hint{font-size:11px}}
+.homepage .resume .resume-art { aspect-ratio: auto; }
+.resume-page, .resume-dialog-page { position: relative; width: 100%; container-type: inline-size; }
+.resume-page + .resume-page { margin-top: 14px; }
+.resume-sheet {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 42.86cqw;
+  padding: 1.2cqw 4.4cqw .6cqw;
+  background: #fff;
+  color: #26384a;
+  font: 400 .92cqw/1.43 "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  text-align: left;
+}
+.resume-sheet :is(p, h3, h4, ul, ol, dl, dd) { margin: 0; }
+.resume-sheet ul { padding-left: 1.05cqw; }
+.resume-sheet li + li { margin-top: .16cqw; }
+.resume-identity { display: flex; justify-content: center; align-items: center; gap: 2.1cqw; }
+.resume-identity img { display: block; width: 6.9cqw; height: 8.5cqw; border-radius: .9cqw; object-fit: cover; }
+.resume-sheet .resume-name { font-size: 3.15cqw; font-weight: 600; line-height: 1.08; color: #172839; }
+.resume-role { font-size: 1.14cqw; }
+.resume-sheet .resume-latin { margin-top: .36cqw; color: #788b9d; font-size: 1.45cqw; font-weight: 300; }
+.resume-meta { display: flex; justify-content: center; align-items: center; margin-top: .9cqw; white-space: nowrap; }
+.resume-meta > * + * { border-left: 1px solid #dbe4ed; }
+.resume-meta > * { padding-inline: .95cqw; }
+.resume-works-link { position: relative; z-index: 2; color: inherit; text-decoration: none; }
+.resume-works-link:hover, .resume-works-link:focus-visible { color: #0755ad; text-decoration: underline; }
+.resume-introduction { display: grid; grid-template-columns: 26% 1fr; gap: 1.7cqw; margin-top: 2.1cqw; }
+.resume-introduction > :first-child, .resume-credentials > :first-child { border-right: 1px solid #dbe4ed; padding-right: 1.8cqw; }
+.resume-rule { display: flex; align-items: center; gap: .9cqw; font-size: 1.23cqw; font-weight: 600; color: #172839; }
+.resume-rule::after { content: ""; flex: 1; border-top: 1px solid #dbe4ed; }
+.resume-rule small { color: #536b82; font: 400 .68cqw/1.4 "Helvetica Neue", Arial, sans-serif; }
+.resume-sheet .resume-school { margin: 1cqw 0 .32cqw; font-weight: 600; font-size: 1.04cqw; }
+.resume-strengths { display: grid; grid-template-columns: 1.9fr 1fr; gap: 1.6cqw; margin-top: .5cqw; }
+.resume-strengths > p { border-left: 1px solid #dbe4ed; padding-left: 1.6cqw; align-self: stretch; }
+.resume-strengths p + p { margin-top: .3cqw; }
+.resume-employment { display: grid; grid-template-columns: 1.25fr 1fr; gap: 3.9cqw; margin-top: 2.4cqw; }
+.resume-employment > div:first-child > .resume-job { margin-top: .65cqw; }
+.resume-job header { display: flex; align-items: baseline; justify-content: space-between; gap: .5cqw; }
+.resume-job h4, .resume-projects h4 { font-size: 1cqw; font-weight: 600; line-height: 1.33; color: #172839; }
+.resume-job header p, .resume-subline, .resume-page-number { color: #536b82; font-size: .76cqw; }
+.resume-job header p { white-space: nowrap; }
+.resume-sheet .resume-job .resume-subline { margin: .2cqw 0 .36cqw; }
+.resume-job-history .resume-job + .resume-job { margin-top: .5cqw; padding-top: .5cqw; border-top: 1px solid #dbe4ed; }
+.resume-sheet .resume-page-number { margin-top: auto; padding-top: .6cqw; text-align: right; }
+.resume-identity-compact { text-align: center; margin-bottom: .8cqw; }
+.resume-identity-compact .resume-name { font-size: 2.55cqw; }
+.resume-identity-compact .resume-latin { font-size: 2.02cqw; }
+.resume-identity-compact .resume-role { font-size: .93cqw; }
+.resume-sheet .resume-projects {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.1cqw 2.6cqw;
+  margin-top: 1.1cqw;
+  padding: 0;
+  list-style: none;
+  counter-reset: resume-project;
+}
+.resume-projects > li { position: relative; grid-column: span 2; margin: 0; counter-increment: resume-project; }
+.resume-projects > li:nth-child(-n+2) { grid-column: span 3; }
+.resume-projects > li::before {
+  position: absolute;
+  top: 0;
+  content: counter(resume-project, decimal-leading-zero);
+  color: #7d92a7;
+  font: 300 1.7cqw/1.1 "Helvetica Neue", Arial, sans-serif;
+}
+.resume-projects h4, .resume-projects .resume-subline { padding-left: 2.6cqw; }
+.resume-projects .resume-subline { padding-bottom: .36cqw; margin-top: .15cqw; border-bottom: 1px solid #dbe4ed; }
+.resume-projects .resume-subline + p { margin-top: .36cqw; }
+.resume-credentials { display: grid; grid-template-columns: 42% 1fr; gap: 1.8cqw; margin-top: 1.7cqw; }
+.resume-credentials ul, .resume-credentials dl { margin-top: .5cqw; }
+.resume-credentials dl { display: grid; grid-template-columns: 5.5cqw 1fr; gap: .13cqw .5cqw; }
+.resume-credentials dt { font-weight: 600; }
+.resume-open { position: absolute; inset: 0; width: 100%; border: 0; background: transparent; cursor: zoom-in; }
+.resume-open:focus-visible { outline: 2px solid #1b617a; outline-offset: -4px; }
+.resume-read-hint { margin: 14px 4.5% 0; color: #57718b; font-size: 12px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.resume-read-hint a { text-decoration: none; color: inherit; }
+.resume-read-hint a:hover { text-decoration: underline; }
+.resume-dialog {
+  width: calc(100vw - 24px);
+  max-width: 1600px;
+  height: calc(100dvh - 24px);
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #abc0d5;
+  border-radius: 12px;
+  background: #fff;
+  color: #13283f;
+  overflow: hidden;
+}
+.resume-dialog::backdrop { background: #0b203bc9; backdrop-filter: blur(5px); }
+.resume-dialog[open] { display: flex; flex-direction: column; }
+.resume-dialog > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #abc0d566; }
+.resume-dialog > header p { margin: 0; font-size: 13px; }
+.resume-dialog-controls { display: flex; gap: 8px; align-items: center; }
+.resume-dialog button { font: inherit; font-size: 13px; padding: 7px 10px; border: 1px solid #abc0d5; background: #fff; color: inherit; border-radius: 4px; cursor: pointer; }
+.resume-dialog button:disabled { opacity: .4; cursor: default; }
+.resume-dialog button:focus-visible { outline: 2px solid #1b617a; }
+.resume-dialog-body { overflow: auto; flex: 1; min-height: 0; overscroll-behavior: contain; }
+.resume-dialog.is-zoomed .resume-dialog-page { width: max(115%, 1200px); }
+@media (max-width: 800px) {
+  .resume-dialog > header { padding: 8px; gap: 6px; flex-wrap: wrap; }
+  .resume-dialog-controls { gap: 5px; }
+  .resume-dialog button { font-size: 12px; padding: 7px; }
+  .resume-read-hint { font-size: 11px; margin-top: 10px; }
+  .resume-page + .resume-page { margin-top: 8px; }
+}

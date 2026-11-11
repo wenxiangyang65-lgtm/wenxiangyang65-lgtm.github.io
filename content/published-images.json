@@ -2546,22 +2546,10 @@
       "publishedBytes": 284228,
       "quality": null
     },
-    "assets/resume.webp": {
-      "sourceSha256": "b75b61c7d51dcc3a42c73a6be9b4c1d7e8c94f1052dce4e8a2900f74f4c9ad0c",
-      "publishedSha256": "b75b61c7d51dcc3a42c73a6be9b4c1d7e8c94f1052dce4e8a2900f74f4c9ad0c",
-      "publishedBytes": 809946,
-      "quality": 75
-    },
     "assets/disc-xujie.webp": {
       "sourceSha256": "19d895ea37c7452b7ccdda08fd2f2df78f73732082222b109d44fe1affbea6d4",
       "publishedSha256": "7cc0dd5e08396e6c899258cfd8ad0a51311cce631eeb582726d6762d6693ce6c",
       "publishedBytes": 201780,
-      "quality": 82
-    },
-    "assets/resume-projects.webp": {
-      "sourceSha256": "ba0cd09be01d7812ca781e233c56743a13d4892df82d9f68a54429356fb719d9",
-      "publishedSha256": "4d513d82384554ead58e35fd6db337e4c6c1b56a54d181e674195abc2ce6b5ca",
-      "publishedBytes": 225650,
       "quality": 82
     },
     "assets/catalog/operations-covers/10-sofa.webp": {
