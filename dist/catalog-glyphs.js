@@ -317,6 +317,15 @@ window.initializeCatalogGlyphs = function (reduced) {
     observer.disconnect();
   }, {threshold: .18}).observe(cover);
   window.addEventListener('scroll', queueDraw, {passive: true});
+  cover.querySelector('.catalog-down').addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const index = document.getElementById('catalog-index');
+    location.hash = index.id;
+    requestAnimationFrame(() => {
+      index.scrollIntoView({block: 'start', behavior: reduced.matches ? 'instant' : 'smooth'});
+    });
+  });
   art.addEventListener('pointermove', event => {
     if (event.pointerType !== 'mouse' || reduced.matches) return;
     hover.inside = true;
