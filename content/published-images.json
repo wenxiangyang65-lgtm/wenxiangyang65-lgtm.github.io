@@ -2547,10 +2547,10 @@
       "quality": null
     },
     "assets/resume.webp": {
-      "sourceSha256": "9682c6e7b907321189a6402ab909fbd5439f1a9bbcad1133c84050ab093e7c8d",
-      "publishedSha256": "c48575ea34a3466eafea7b8161348c88c8e5d8dcbde5fa22fff67aa6d2f29f4e",
-      "publishedBytes": 279090,
-      "quality": 78
+      "sourceSha256": "b75b61c7d51dcc3a42c73a6be9b4c1d7e8c94f1052dce4e8a2900f74f4c9ad0c",
+      "publishedSha256": "b75b61c7d51dcc3a42c73a6be9b4c1d7e8c94f1052dce4e8a2900f74f4c9ad0c",
+      "publishedBytes": 809946,
+      "quality": 75
     },
     "assets/disc-xujie.webp": {
       "sourceSha256": "19d895ea37c7452b7ccdda08fd2f2df78f73732082222b109d44fe1affbea6d4",

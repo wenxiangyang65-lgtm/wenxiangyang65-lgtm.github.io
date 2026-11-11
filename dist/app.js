@@ -21,6 +21,7 @@ let coverVisible = false;
 const intro = document.querySelector('#cover');
 const root = document.documentElement;
 const innerPage = document.querySelector('main');
+const resumeDialog = document.querySelector('#resume-dialog');
 let introExitTimer = 0;
 let unloadTimer = 0;
 
@@ -107,7 +108,7 @@ function enterInnerPage() {
 let wheelDistance = 0;
 let lastWheelTime = 0;
 document.addEventListener('wheel', event => {
-  if (event.defaultPrevented || root.classList.contains('catalog-gallery-open')) return;
+  if (event.defaultPrevented || resumeDialog?.open || root.classList.contains('catalog-gallery-open')) return;
   const open = root.classList.contains('intro-open');
   if (event.ctrlKey || root.classList.contains('intro-exiting') ||
       Math.abs(event.deltaY) < Math.abs(event.deltaX) ||
@@ -129,7 +130,7 @@ document.addEventListener('wheel', event => {
 let touchStart;
 let touchStartsOnCover;
 document.addEventListener('touchstart', event => {
-  if (root.classList.contains('catalog-gallery-open')) { touchStart = undefined; return; }
+  if (resumeDialog?.open || root.classList.contains('catalog-gallery-open')) { touchStart = undefined; return; }
   touchStartsOnCover = root.classList.contains('intro-open');
   const canSwitchLevel = touchStartsOnCover ||
     (window.scrollY <= 1 && !root.classList.contains('intro-exiting'));
