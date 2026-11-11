@@ -2611,6 +2611,48 @@
       "publishedSha256": "bc50e8649272346f6a8d89546a2a200848dc8ccadc1d3064d7f01b50f8e54613",
       "publishedBytes": 122678,
       "quality": 82
+    },
+    "projects/xujie/assets/redesign/hero-3840.webp": {
+      "sourceSha256": "a157c193dfe9320cf1461302e36ea82ead171f0e5cf4a06249718742ef85f7c5",
+      "publishedSha256": "a157c193dfe9320cf1461302e36ea82ead171f0e5cf4a06249718742ef85f7c5",
+      "publishedBytes": 869716,
+      "quality": 93
+    },
+    "projects/mr-chen/assets/landscape-cover-1920.webp": {
+      "sourceSha256": "958f1da2c9785a6e9927509666dac10cae596ae00b35248aa39de05dfdc567ed",
+      "publishedSha256": "958f1da2c9785a6e9927509666dac10cae596ae00b35248aa39de05dfdc567ed",
+      "publishedBytes": 328098,
+      "quality": 91
+    },
+    "projects/mr-chen/assets/landscape-cover-3840.webp": {
+      "sourceSha256": "ed51acdeecef8d213715d322bfd9ce5b986de2aa9ca6bad77b83b0ce13de3737",
+      "publishedSha256": "ed51acdeecef8d213715d322bfd9ce5b986de2aa9ca6bad77b83b0ce13de3737",
+      "publishedBytes": 936836,
+      "quality": 91
+    },
+    "projects/aigc/page-1-00000.webp": {
+      "sourceSha256": "a109f7304f431ce4e0f78172e030cba17aa60cc1e78f8929281daeaeb2c3b2ba",
+      "publishedSha256": "a109f7304f431ce4e0f78172e030cba17aa60cc1e78f8929281daeaeb2c3b2ba",
+      "publishedBytes": 269666,
+      "quality": 90
+    },
+    "projects/aigc/page-1-00000-3840.webp": {
+      "sourceSha256": "2fadf675bb523af052bcfa0526edc6e526114204990b2bc7b58bb9b4bfaa84ce",
+      "publishedSha256": "2fadf675bb523af052bcfa0526edc6e526114204990b2bc7b58bb9b4bfaa84ce",
+      "publishedBytes": 613564,
+      "quality": 90
+    },
+    "projects/operations-fuzi/assets/images/c713ffe52b1fb1.webp": {
+      "sourceSha256": "37538ac9a11f1c4567930cb4bb1e12aae1065278d3b5e6321f8c26a235c722a6",
+      "publishedSha256": "37538ac9a11f1c4567930cb4bb1e12aae1065278d3b5e6321f8c26a235c722a6",
+      "publishedBytes": 288220,
+      "quality": 89
+    },
+    "projects/miaosuda/embedded/embedded-8352b1cfb4dd6d1c.webp": {
+      "sourceSha256": "53216a8610e7945641280d5014adea858459266faf0a3ba4b761b32ae1a2467d",
+      "publishedSha256": "53216a8610e7945641280d5014adea858459266faf0a3ba4b761b32ae1a2467d",
+      "publishedBytes": 417644,
+      "quality": 93
     }
   }
 }
