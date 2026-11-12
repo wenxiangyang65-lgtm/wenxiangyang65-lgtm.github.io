@@ -366,7 +366,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
     if (drag || event.button !== 0 || !event.isPrimary) return;
     const disc = reduced.matches ? null : event.target.closest('.gallery-disc');
     drag = {id: event.pointerId, x: event.clientX, y: event.clientY,
-      trailX: event.clientX, trailY: event.clientY, disc, moving: false};
+      trailX: event.clientX, trailY: event.clientY, disc, intent: null};
     if (!disc) clearDiscTilt();
     else if (event.pointerType !== 'mouse') tiltDisc(disc, event);
   });
@@ -378,23 +378,28 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
     if (drag.id !== event.pointerId) return;
     const dx = event.clientX - drag.x;
     const dy = event.clientY - drag.y;
-    const moved = drag.disc ? Math.hypot(dx, dy) > 5 : Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy);
-    if (!drag.moving && moved) {
-      drag.moving = true;
+    if (!drag.intent) {
+      const horizontal = Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.15;
+      const swipe = horizontal && (!drag.disc || event.pointerType === 'touch');
+      const tilt = drag.disc && (event.pointerType === 'touch'
+        ? Math.abs(dy) > 10 && Math.abs(dy) >= Math.abs(dx)
+        : Math.hypot(dx, dy) > 5);
+      if (!swipe && !tilt) return;
+      drag.intent = swipe ? 'browse' : 'tilt';
+      if (swipe) clearDiscTilt();
       stage.setPointerCapture(event.pointerId);
       stage.classList.add('is-dragging');
     }
-    if (!drag.moving) return;
     drawCodeTrail(event);
-    if (drag.disc) tiltDisc(drag.disc, event, true);
+    if (drag.intent === 'tilt') tiltDisc(drag.disc, event, true);
     else stage.style.setProperty('--drag-x', `${Math.max(-100, Math.min(100, dx * .45))}px`);
   });
   function endDrag(event) {
     if (drag?.id !== event.pointerId) return;
-    if (drag.moving) {
+    if (drag.intent) {
       suppressClickUntil = performance.now() + 250;
       const dx = event.clientX - drag.x;
-      if (!drag.disc && event.type === 'pointerup' && Math.abs(dx) > 36) select(selected + (dx < 0 ? 1 : -1));
+      if (drag.intent === 'browse' && event.type === 'pointerup' && Math.abs(dx) > 36) select(selected + (dx < 0 ? 1 : -1));
     }
     drag = null;
     clearDiscTilt();

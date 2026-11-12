@@ -136,3 +136,7 @@
   .resume-contact a { overflow-wrap: anywhere; }
   .resume-skills { gap: 5px 10px; }
 }
+
+@media (pointer: coarse) {
+  .resume-dialog button { min-height: 44px; min-width: 44px; }
+}

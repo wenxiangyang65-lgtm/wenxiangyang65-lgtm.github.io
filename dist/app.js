@@ -170,24 +170,27 @@ document.addEventListener('wheel', event => {
 }, {passive: true});
 
 let touchStart;
-let touchStartsOnCover;
 document.addEventListener('touchstart', event => {
-  if (resumeDialog?.open || root.classList.contains('catalog-gallery-open')) { touchStart = undefined; return; }
-  touchStartsOnCover = root.classList.contains('intro-open');
-  const canSwitchLevel = touchStartsOnCover ||
-    (window.scrollY <= 1 && !root.classList.contains('intro-exiting'));
-  touchStart = canSwitchLevel && event.touches.length === 1
-    ? event.touches[0].clientY : undefined;
+  touchStart = undefined;
+  if (event.touches.length !== 1 || resumeDialog?.open ||
+      root.classList.contains('catalog-gallery-open') || root.classList.contains('intro-exiting')) return;
+  const onCover = root.classList.contains('intro-open');
+  if (!onCover && window.scrollY > 1) return;
+  const {clientX, clientY, identifier} = event.touches[0];
+  touchStart = {x: clientX, y: clientY, identifier, onCover};
 }, {passive: true});
 document.addEventListener('touchend', event => {
-  if (touchStart === undefined) return;
-  const distance = touchStart - event.changedTouches[0].clientY;
+  if (!touchStart) return;
+  const {x, y, identifier, onCover} = touchStart;
   touchStart = undefined;
-  if (touchStartsOnCover && distance > 45) enterInnerPage();
-  else if (!touchStartsOnCover && distance < -45 && window.scrollY <= 1) {
-    returnToCover();
-  }
+  const end = Array.from(event.changedTouches).find(touch => touch.identifier === identifier);
+  if (!end || event.touches.length) return;
+  const distance = y - end.clientY;
+  if (Math.abs(distance) <= Math.max(45, Math.abs(x - end.clientX) * 1.2)) return;
+  if (onCover && distance > 0) enterInnerPage();
+  else if (!onCover && distance < 0 && window.scrollY <= 1) returnToCover();
 }, {passive: true});
+document.addEventListener('touchcancel', () => { touchStart = undefined; }, {passive: true});
 document.addEventListener('keydown', event => {
   if (!root.classList.contains('intro-open') || event.ctrlKey || event.metaKey ||
       !['ArrowDown', 'PageDown', 'End'].includes(event.key)) return;

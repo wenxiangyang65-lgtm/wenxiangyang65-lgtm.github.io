@@ -121,6 +121,16 @@ html.portfolio-homepage{background:#fff;scroll-snap-type:none;scroll-padding-top
     bottom: calc(max(16px, env(safe-area-inset-bottom)) + 54px);
   }
 }
+@media (pointer: coarse) {
+  .homepage #cover .scroll-cue,
+  .cover-contacts a,
+  .cover-playback { min-height: 44px; }
+  .cover-contacts,
+  .cover-playback { bottom: max(12px, env(safe-area-inset-bottom)); }
+  .cover-contacts { left: max(12px, env(safe-area-inset-left)); }
+  .cover-playback { right: max(12px, env(safe-area-inset-right)); }
+  .homepage #cover .scroll-cue { bottom: calc(max(12px, env(safe-area-inset-bottom)) + 54px); }
+}
 /* Cover is a separate level above the inner page. */
 html.intro-open,
 html.intro-exiting,

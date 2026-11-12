@@ -70,3 +70,19 @@ main.awe-page .awe-section strong {font-size:clamp(42px,5vw,72px);line-height:1.
 #main-kv > .grid > figure {border:0;border-radius:0;background:transparent;box-shadow:none;}
 #main-kv figure > .scanline {background:transparent;}
 #main-kv > figure:last-of-type {max-width:none;width:100%;}
+
+@media (max-width: 620px) {
+  #hero button[aria-label="打开项目标题预览"],
+  #hero button[aria-label="打开未来家空间主视觉预览"] {
+    max-width: 100%;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #hero button[aria-label="打开项目标题预览"],
+  #hero button[aria-label="打开未来家空间主视觉预览"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

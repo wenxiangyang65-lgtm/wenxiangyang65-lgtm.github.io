@@ -475,6 +475,13 @@ html.catalog-gallery-open {
   .gallery-disc[data-slot='previous'] { --x: -61vw; --y: 25svh; }
   .gallery-disc[data-slot='next'] { --x: 64vw; --y: -19svh; }
 }
+@media (pointer: coarse) {
+  .gallery-back, .gallery-open { min-width: 44px; min-height: 44px; }
+  .gallery-controls {
+    right: max(22px, env(safe-area-inset-right));
+    bottom: max(22px, env(safe-area-inset-bottom));
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .gallery-code-trail { display: none; }
   :is(.catalog-directory, .catalog-gallery) *,
