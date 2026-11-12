@@ -17,3 +17,12 @@ body.film-preview-open{overflow:hidden}
 .catalog-film-dialog [hidden]{display:none!important}
 .catalog-film-dialog button:focus-visible,.catalog-film-detail:focus-visible{outline:3px solid #69b3f6;outline-offset:3px}
 @media(max-width:680px){.catalog-film-dialog{width:96vw;max-width:96vw;max-height:96svh}.catalog-film-header{padding:12px 14px;gap:10px}.catalog-film-header h2{font-size:17px}.catalog-film-header p{font-size:9px}.catalog-film-stage{padding:0}#catalog-film-video{max-height:calc(96svh - 210px)}.catalog-film-footer{padding:12px 14px;gap:10px}.catalog-film-detail{flex:1;white-space:nowrap}.catalog-film-variants{width:100%}.catalog-film-variants button{flex:1}}
+
+@media (max-width: 680px), (pointer: coarse) {
+  .catalog-film-dialog {
+    --film-top: max(12px, env(safe-area-inset-top));
+    --film-bottom: max(12px, env(safe-area-inset-bottom));
+    margin: var(--film-top) auto auto;
+    max-height: calc(100dvh - var(--film-top) - var(--film-bottom));
+  }
+}
