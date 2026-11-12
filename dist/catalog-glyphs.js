@@ -11,6 +11,8 @@ window.initializeCatalogGlyphs = function (reduced) {
   const mask = document.createElement('canvas');
   const ink = mask.getContext('2d', {willReadFrequently: true});
   if (!context || !ink) return;
+  const portfolio = new Image();
+  let portfolioBounds = null;
 
   const transferCanvas = document.createElement('canvas');
   transferCanvas.className = 'catalog-transfer';
@@ -55,6 +57,64 @@ window.initializeCatalogGlyphs = function (reduced) {
     ink.restore();
   }
 
+  function makeDot(x, y) {
+    const ix = Math.round(x);
+    const iy = Math.round(y);
+    return {
+      x, y,
+      sx: width * (.1 + ((ix * 61 + iy * 7) % 997) / 1246),
+      sy: height * (.18 + ((ix * 13 + iy * 37) % 991) / 1510),
+      seed: ((ix * 37 + iy * 113) % 997) / 997,
+      glyph: characters[(ix * 7 + iy * 13) % characters.length]
+    };
+  }
+
+  function samplePortfolio(pitch) {
+    const aspect = portfolio.naturalWidth / portfolio.naturalHeight;
+    const artWidth = Math.max(1, Math.round(Math.min(width * .96, height * .57 * aspect)));
+    const artHeight = Math.max(1, Math.round(artWidth / aspect));
+    const left = Math.round((width - artWidth) / 2);
+    const top = Math.round(Math.min(height * .45 - artHeight * .08, height * .99 - artHeight));
+    portfolioBounds = [left, top, artWidth, artHeight];
+
+    // Use patches of the original lettering as particles so the reference digits survive the lens and scatter.
+    mask.width = artWidth;
+    mask.height = artHeight;
+    ink.drawImage(portfolio, 0, 0, artWidth, artHeight);
+    const pixels = ink.getImageData(0, 0, artWidth, artHeight).data;
+    const step = Math.max(2, Math.round(pitch * .72));
+    const scaleX = portfolio.naturalWidth / artWidth;
+    const scaleY = portfolio.naturalHeight / artHeight;
+    for (let y = 0; y < artHeight; y += pitch) {
+      const tileHeight = Math.min(pitch, artHeight - y);
+      for (let x = 0; x < artWidth; x += step) {
+        const tileWidth = Math.min(step, artWidth - x);
+        let hasInk = false;
+        for (let row = y; row < y + tileHeight && !hasInk; row++) {
+          for (let col = x; col < x + tileWidth; col++) {
+            if (pixels[(row * artWidth + col) * 4 + 3] < 9) continue;
+            hasInk = true;
+            break;
+          }
+        }
+        if (!hasInk) continue;
+        const dot = makeDot(left + x + tileWidth / 2, top + y + tileHeight / 2);
+        dot.tile = [x * scaleX, y * scaleY, tileWidth * scaleX, tileHeight * scaleY, tileWidth, tileHeight];
+        dots.push(dot);
+      }
+    }
+  }
+
+  function paintDot(dot, x, y) {
+    if (!dot.tile) {
+      context.fillText(dot.glyph, x, y);
+      return;
+    }
+    const [sourceX, sourceY, sourceWidth, sourceHeight, tileWidth, tileHeight] = dot.tile;
+    context.drawImage(portfolio, sourceX, sourceY, sourceWidth, sourceHeight,
+      x - tileWidth / 2, y - tileHeight / 2, tileWidth, tileHeight);
+  }
+
   function resample() {
     const rect = art.getBoundingClientRect();
     width = Math.round(rect.width);
@@ -67,24 +127,20 @@ window.initializeCatalogGlyphs = function (reduced) {
     mask.height = height;
     ink.fillStyle = '#000';
     drawTitle('AI Visual', 'Georgia, serif', 700, .47, height * .52, .96);
-    drawTitle('Portfolio', '"Snell Roundhand", "Segoe Script", cursive', 600, .79, height * .63, .94);
+    const hasPortfolio = portfolio.complete && portfolio.naturalWidth > 0;
+    if (!hasPortfolio) drawTitle('Portfolio', '"Snell Roundhand", "Segoe Script", cursive', 600, .79, height * .63, .94);
     const pixels = ink.getImageData(0, 0, width, height).data;
     const pitch = Math.max(3, Math.round(width / 184));
     dots = [];
+    portfolioBounds = null;
     for (let y = pitch; y < height - pitch; y += pitch) {
       for (let x = pitch; x < width - pitch; x += pitch * .72) {
         const ix = Math.round(x);
         if (pixels[(y * width + ix) * 4 + 3] < 120) continue;
-        const seed = ((ix * 37 + y * 113) % 997) / 997;
-        dots.push({
-          x, y,
-          sx: width * (.1 + ((ix * 61 + y * 7) % 997) / 1246),
-          sy: height * (.18 + ((ix * 13 + y * 37) % 991) / 1510),
-          seed,
-          glyph: characters[(ix * 7 + y * 13) % characters.length]
-        });
+        dots.push(makeDot(x, y));
       }
     }
+    if (hasPortfolio) samplePortfolio(pitch);
     if (!dots.length) return;
     context.setTransform(density, 0, 0, density, 0, 0);
     context.font = `600 ${pitch * .96}px ui-monospace, Menlo, monospace`;
@@ -212,10 +268,26 @@ window.initializeCatalogGlyphs = function (reduced) {
     const radius = Math.max(42, Math.min(112, width * .117)) * .4;
     const radiusSquared = radius * radius;
     context.clearRect(0, 0, width, height);
+    const intactPortfolio = portfolioBounds && settled === 1 && exit === 0 &&
+      (reduced.matches || transfer === 0);
+    const magnifiedTiles = new Set();
+    if (intactPortfolio) {
+      context.drawImage(portfolio, ...portfolioBounds);
+      if (lens.amount > .015) {
+        for (const dot of dots) {
+          if (!dot.tile || (dot.x - lens.x) ** 2 + (dot.y - lens.y) ** 2 >= radiusSquared) continue;
+          const [, , , , tileWidth, tileHeight] = dot.tile;
+          context.clearRect(dot.x - tileWidth / 2, dot.y - tileHeight / 2, tileWidth, tileHeight);
+          magnifiedTiles.add(dot);
+        }
+      }
+    }
     for (const dot of dots) {
+      if (intactPortfolio && dot.tile && !magnifiedTiles.has(dot)) continue;
       if (!reduced.matches && dot.departure !== undefined && transfer > dot.departure) continue;
       // At rest the dots make a legible wordmark. On exit, the grid breaks into short streams.
-      const opacity = (dot.seed < .06 ? .8 : Math.max(0, (settled - dot.seed * .58) / .42)) * (1 - exit);
+      const opacity = (dot.seed < .06 ? .8 + (dot.tile ? .2 * settled : 0) :
+        Math.max(0, (settled - dot.seed * .58) / .42)) * (1 - exit);
       if (opacity < .04) continue;
       context.globalAlpha = Math.min(1, opacity);
       const x = dot.sx + (dot.x - dot.sx) * settled + (dot.seed - .5) * width * exit * .28;
@@ -231,9 +303,9 @@ window.initializeCatalogGlyphs = function (reduced) {
         context.save();
         context.translate(x + dx * strength * .66, y + dy * strength * .66);
         context.scale(magnification, magnification);
-        context.fillText(dot.glyph, 0, 0);
+        paintDot(dot, 0, 0);
         context.restore();
-      } else context.fillText(dot.glyph, x, y);
+      } else paintDot(dot, x, y);
     }
     context.globalAlpha = 1;
     if (follow) queueDraw();
@@ -305,6 +377,8 @@ window.initializeCatalogGlyphs = function (reduced) {
   }
 
   const layout = new ResizeObserver(resample);
+  portfolio.addEventListener('load', resample, {once: true});
+  portfolio.src = 'assets/catalog-portfolio-wordmark.webp';
   layout.observe(art);
   layout.observe(typeset);
   document.fonts?.ready.then(resample);
