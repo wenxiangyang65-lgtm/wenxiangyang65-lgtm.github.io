@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "aliases": {
+    "projects/xinxuan-campaign/media/horse.mp4": "projects/spring-horse/assets/film-final-1080.mp4",
+    "projects/xinxuan-campaign/media/sword.mp4": "projects/mr-chen/assets/film.mp4",
+    "projects/xinxuan-campaign/media/xujie.mp4": "projects/xujie/assets/videos/realistic.mp4",
+    "projects/xinxuan-campaign/media/snow.mp4": "projects/churuixue/assets/full-film-hd.mp4",
+    "projects/xinxuan-campaign/media/newyear.mp4": "projects/xinxuan-redesign/media/xinxuan-new-year-film.mp4",
+    "projects/xinxuan-campaign/media/wish.mp4": "projects/a-horse/assets/video/film-clean.mp4"
+  }
+}
