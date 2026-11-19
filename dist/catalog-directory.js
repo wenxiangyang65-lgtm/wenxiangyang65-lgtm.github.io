@@ -19,6 +19,12 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
   const root = document.documentElement;
   const stage = gallery.querySelector('.gallery-stage');
   const codeTrail = gallery.querySelector('.gallery-code-trail');
+  const indexTrail = document.createElement('div');
+  indexTrail.className = 'gallery-code-trail directory-code-trail';
+  indexTrail.setAttribute('aria-hidden', 'true');
+  document.body.append(indexTrail);
+  const galleryTrailPointer = {trailX: null, trailY: null, time: 0};
+  const indexTrailPointer = {trailX: null, trailY: null, time: 0};
   const title = gallery.querySelector('.gallery-title');
   const count = gallery.querySelector('.gallery-count');
   const openLink = gallery.querySelector('.gallery-open');
@@ -158,6 +164,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
     gallery.classList.remove('is-entering');
     stage.replaceChildren();
     codeTrail.replaceChildren();
+    indexTrail.replaceChildren();
     drag = null;
     stage.classList.remove('is-dragging');
     stage.style.removeProperty('--drag-x');
@@ -331,35 +338,76 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
   reduced.addEventListener('change', () => {
     clearDiscTilt();
     codeTrail.replaceChildren();
+    indexTrail.replaceChildren();
   });
 
-  function drawCodeTrail(event) {
-    if (reduced.matches) return;
-    const dx = event.clientX - drag.trailX;
-    const dy = event.clientY - drag.trailY;
+  function drawCodeTrail(event, track = drag, layer = codeTrail) {
+    if (reduced.matches || !track) return;
+    if (track.trailX === null) {
+      track.trailX = event.clientX;
+      track.trailY = event.clientY;
+      return;
+    }
+    const now = performance.now();
+    if (now - (track.time || 0) < 30) return;
+    const dx = event.clientX - track.trailX;
+    const dy = event.clientY - track.trailY;
     const distance = Math.hypot(dx, dy);
-    if (distance < 12) return;
-    const count = Math.min(5, Math.floor(distance / 12));
+    if (distance < .75) return;
+    const count = Math.min(4, Math.max(1, Math.ceil(distance / 14)));
     const ux = dx / distance;
     const uy = dy / distance;
     const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+    const bounds = layer.getBoundingClientRect();
     for (let i = 0; i < count; i++) {
       const index = trailIndex++;
       const offset = ((index * 7) % 19) - 9;
       const fraction = (i + 1) / (count + 1);
       const glyph = document.createElement('span');
       glyph.textContent = trailGlyphs[index % trailGlyphs.length];
-      glyph.style.setProperty('--trail-x', `${drag.trailX + dx * fraction - uy * offset}px`);
-      glyph.style.setProperty('--trail-y', `${drag.trailY + dy * fraction + ux * offset}px`);
+      glyph.style.setProperty('--trail-x', `${track.trailX + dx * fraction - uy * offset - bounds.left}px`);
+      glyph.style.setProperty('--trail-y', `${track.trailY + dy * fraction + ux * offset - bounds.top}px`);
       glyph.style.setProperty('--trail-dx', `${-ux * 27 - uy * offset}px`);
       glyph.style.setProperty('--trail-dy', `${-uy * 27 + ux * offset}px`);
       glyph.style.setProperty('--trail-angle', `${angle + offset * 2}deg`);
       glyph.addEventListener('animationend', () => glyph.remove(), {once: true});
-      if (codeTrail.childElementCount >= 24) codeTrail.firstElementChild.remove();
-      codeTrail.append(glyph);
+      if (layer.childElementCount >= 24) layer.firstElementChild.remove();
+      layer.append(glyph);
+      setTimeout(() => glyph.remove(), 900);
     }
-    drag.trailX = event.clientX;
-    drag.trailY = event.clientY;
+    track.trailX = event.clientX;
+    track.trailY = event.clientY;
+    track.time = now;
+  }
+
+  function resetTrails() {
+    for (const track of [galleryTrailPointer, indexTrailPointer]) {
+      track.trailX = null;
+      track.trailY = null;
+      track.time = 0;
+    }
+    codeTrail.replaceChildren();
+    indexTrail.replaceChildren();
+  }
+  window.addEventListener('blur', resetTrails);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) resetTrails(); });
+  reduced.addEventListener('change', resetTrails);
+
+  for (const [surface, track, layer] of [[gallery, galleryTrailPointer, codeTrail], [index, indexTrailPointer, indexTrail]]) {
+    surface.addEventListener('pointermove', event => {
+      if (event.pointerType === 'mouse' || event.pointerType === 'pen') drawCodeTrail(event, track, layer);
+    }, {passive: true});
+    surface.addEventListener('pointerleave', () => { track.trailX = null; });
+  }
+  index.addEventListener('touchstart', event => {
+    indexTrailPointer.trailX = event.touches[0]?.clientX ?? null;
+    indexTrailPointer.trailY = event.touches[0]?.clientY ?? null;
+  }, {passive: true});
+  index.addEventListener('touchmove', event => {
+    if (event.touches.length === 1) drawCodeTrail(event.touches[0], indexTrailPointer, indexTrail);
+  }, {passive: true});
+  for (const type of ['touchend', 'touchcancel']) {
+    index.addEventListener(type, () => { indexTrailPointer.trailX = null; }, {passive: true});
   }
 
   stage.addEventListener('pointerdown', event => {
@@ -390,7 +438,7 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
       stage.setPointerCapture(event.pointerId);
       stage.classList.add('is-dragging');
     }
-    drawCodeTrail(event);
+    if (event.pointerType !== 'mouse') drawCodeTrail(event);
     if (drag.intent === 'tilt') tiltDisc(drag.disc, event, true);
     else stage.style.setProperty('--drag-x', `${Math.max(-100, Math.min(100, dx * .45))}px`);
   });
