@@ -1,0 +1,2 @@
+/* Generated from content/video-sources.json. */
+window.PORTFOLIO_VIDEO_SOURCES={"horse":"/projects/spring-horse/assets/film-final-1080.mp4","sword":"/projects/mr-chen/assets/film.mp4","xujie":"/projects/xujie/assets/videos/realistic.mp4","snow":"/projects/churuixue/assets/full-film-hd.mp4","newyear":"/projects/xinxuan-redesign/media/xinxuan-new-year-film.mp4","wish":"/projects/a-horse/assets/video/film-clean.mp4"};
