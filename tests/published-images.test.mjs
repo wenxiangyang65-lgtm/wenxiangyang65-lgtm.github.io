@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,mkdir,readFile,writeFile,rm} from 'node:fs/promises';
+import {mkdtemp,mkdir,readFile,writeFile,truncate,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {createHash} from 'node:crypto';
@@ -46,6 +46,18 @@ test('network failure on one mirror does not force source re-encoding',async()=>
   globalThis.fetch=async()=>{if(++calls===1)throw new Error('connection timeout');return new Response(published)};
   await optimisePublishedImages(join(directory,'build'));
   assert.equal(calls,2);
+  assert.equal(digest(await readFile(join(directory,'build/scene.webp'))),digest(published));
+ });
+});
+
+// Capacity pressure must reject an oversized release rather than alter live artwork.
+test('capacity pressure keeps verified published image bytes unchanged',async()=>{
+ await fixture(async({directory,published})=>{
+  const padding=join(directory,'build','capacity-padding.bin');
+  await writeFile(padding,'');
+  await truncate(padding,1_000_000_001);
+  globalThis.fetch=async()=>new Response(published);
+  await assert.rejects(optimisePublishedImages(join(directory,'build')),/体积上限/);
   assert.equal(digest(await readFile(join(directory,'build/scene.webp'))),digest(published));
  });
 });

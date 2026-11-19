@@ -85,11 +85,12 @@ export async function optimisePublishedImages(output) {
     while(cursor<candidates.length) {
       const [path,bytes]=candidates[cursor++],metadata=await sharp(path).metadata();
       if((metadata.pages||1)>1)continue;
-      const candidate={path,bytes,metadata};eligible.push(candidate);
+      const candidate={path,bytes,metadata};
       if(await reusePublished(path,bytes,metadata)) {
         if(++done%50===0)console.log(`发布图片检查 ${done}/${candidates.length}`);
         continue;
       }
+      eligible.push(candidate);
       const data=await encode(path,90,metadata);
       if(data.length<bytes*.85) {await writeFile(path,data);total+=data.length-bytes;selected.set(path,{path:relative(output,path),before:bytes,after:data.length,quality:90,width:metadata.width,height:metadata.height});}
       if(++done%50===0)console.log(`发布图片检查 ${done}/${candidates.length}`);
