@@ -9,4 +9,6 @@ __pycache__/
 *.key
 *.zip
 
-.publish-image-cache/
+.publish-image-cache
+
+build-pages/
