@@ -66,6 +66,43 @@
   cursor: ew-resize;
   touch-action: pan-y;
 }
+.catalog-letter-art > canvas { opacity: var(--catalog-glyph-opacity, 1); }
+.catalog-disc-flight {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: clip;
+  pointer-events: none;
+  perspective: var(--flight-perspective, 900px);
+  perspective-origin: 50% 50%;
+}
+.catalog-disc-flight[hidden] { display: none; }
+.catalog-flight-space {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.catalog-flight-disc {
+  --disc-hole-mask: radial-gradient(circle closest-side, transparent 7.5%, #000 8%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--flight-disc-size, 140px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+.catalog-flight-disc .gallery-disc-art { border-width: 1px; }
+.catalog-flight-disc .gallery-disc-rim::before,
+.catalog-flight-disc .gallery-disc-rim::after,
+.catalog-flight-disc .gallery-disc-art {
+  -webkit-mask-image: var(--disc-hole-mask);
+}
+.catalog-letter-art.is-disc-flight .catalog-compose {
+  z-index: 2;
+  cursor: pointer;
+}
 .catalog-down {
   position: absolute;
   right: max(22px, 3.2vw);
@@ -376,7 +413,7 @@ html.catalog-gallery-open {
   top: var(--trail-y);
   left: var(--trail-x);
   color: #22354b;
-  font: 500 clamp(9px, .85vw, 12px)/1 ui-monospace, Menlo, monospace;
+  font: 500 var(--trail-size, 7px)/1 ui-monospace, Menlo, monospace;
   letter-spacing: .06em;
   white-space: nowrap;
   text-shadow: 0 0 2px #fff, 0 0 5px #fffd;
@@ -389,7 +426,7 @@ html.catalog-gallery-open {
     filter: blur(0);
   }
   to {
-    transform: translate(calc(-50% + var(--trail-dx)), calc(-50% + var(--trail-dy))) rotate(var(--trail-angle));
+    transform: translate(calc(-50% + var(--trail-dx)), calc(-50% + var(--trail-dy))) rotate(var(--trail-angle-end));
     opacity: 0;
     filter: blur(1.4px);
   }

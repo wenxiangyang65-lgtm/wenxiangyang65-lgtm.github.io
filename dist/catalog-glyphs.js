@@ -119,9 +119,11 @@ window.initializeCatalogGlyphs = function (reduced) {
   const lens = {x: 0, y: 0, amount: 0};
   let fragments = [];
   let lastFragment = {time: -Infinity, x: -Infinity, y: -Infinity};
+  const discFlight = window.initializeCatalogDiscFlight?.({art, compose, reduced,
+    onFinish() { progress = 0; finish(760, false); }});
 
   function scatterCode(event) {
-    if (reduced.matches || pointer || returning || progress < .97) return;
+    if (reduced.matches || pointer || returning || discFlight?.active || progress < .97) return;
     const rect = art.getBoundingClientRect();
     if (rect.bottom <= 0 || rect.top >= innerHeight) return;
     const x = event.clientX - rect.left, y = event.clientY - rect.top;
@@ -148,7 +150,8 @@ window.initializeCatalogGlyphs = function (reduced) {
       const speed = 52 + Math.random() * 42;
       fragments.push({x: dot.x, y: dot.y, vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed - 20, born: now, life,
-        glyph: dot.glyph, size: 7 + Math.random() * 2});
+        glyph: dot.glyph, size: 4.5 + Math.random() * 1.5,
+        rotation: Math.random() * Math.PI * 2, spin: Math.random() * 1.2 - .6});
     }
     fragments = fragments.slice(-24);
   }
@@ -162,8 +165,12 @@ window.initializeCatalogGlyphs = function (reduced) {
       const seconds = (now - fragment.born) / 1000;
       context.globalAlpha = .8 * (1 - age * age) * (1 - exit);
       context.font = `500 ${fragment.size}px ui-monospace, Menlo, monospace`;
-      context.fillText(fragment.glyph, fragment.x + fragment.vx * seconds,
+      context.save();
+      context.translate(fragment.x + fragment.vx * seconds,
         fragment.y + fragment.vy * seconds + 12 * seconds * seconds);
+      context.rotate(fragment.rotation + fragment.spin * seconds);
+      context.fillText(fragment.glyph, 0, 0);
+      context.restore();
     }
     context.restore();
     return fragments.length > 0;
@@ -413,7 +420,7 @@ window.initializeCatalogGlyphs = function (reduced) {
     if (!queued) queued = requestAnimationFrame(draw);
   }
 
-  function finish(duration = 420) {
+  function finish(duration = 420, playDiscs = true) {
     cancelAnimationFrame(animation);
     if (returning || progress >= 1) return;
     const from = progress;
@@ -423,11 +430,13 @@ window.initializeCatalogGlyphs = function (reduced) {
       progress = from + (1 - from) * amount;
       queueDraw();
       if (amount < 1) animation = requestAnimationFrame(tick);
+      else if (playDiscs) discFlight?.schedule();
     }
     animation = requestAnimationFrame(tick);
   }
 
   function disperse(duration) {
+    discFlight?.cancel();
     const rect = art.getBoundingClientRect();
     if (!dots.length || rect.bottom <= 0 || rect.top >= innerHeight) return false;
     cancelAnimationFrame(animation);
@@ -444,6 +453,7 @@ window.initializeCatalogGlyphs = function (reduced) {
   }
 
   function reassemble() {
+    discFlight?.cancel();
     cancelAnimationFrame(animation);
     returning = false;
     returnProgress = 0;
@@ -467,6 +477,7 @@ window.initializeCatalogGlyphs = function (reduced) {
   }, {threshold: .18}).observe(cover);
   window.addEventListener('scroll', queueDraw, {passive: true});
   cover.querySelector('.catalog-down').addEventListener('click', event => {
+    discFlight?.cancel();
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     directoryScroll?.abort();
@@ -514,7 +525,14 @@ window.initializeCatalogGlyphs = function (reduced) {
     hover.inside = false;
     queueDraw();
   });
-  compose.addEventListener('click', () => finish());
+  compose.addEventListener('click', () => {
+    if (discFlight?.active) discFlight.skip();
+    else if (progress >= 1) discFlight?.start();
+    else finish();
+  });
+  compose.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && discFlight?.active) discFlight.skip();
+  });
   compose.addEventListener('pointerdown', event => {
     if (event.button !== 0 || !event.isPrimary || returning || progress >= 1) return;
     cancelAnimationFrame(animation);

@@ -357,7 +357,6 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
     const count = Math.min(4, Math.max(1, Math.ceil(distance / 14)));
     const ux = dx / distance;
     const uy = dy / distance;
-    const angle = Math.atan2(dy, dx) * 180 / Math.PI;
     const bounds = layer.getBoundingClientRect();
     for (let i = 0; i < count; i++) {
       const index = trailIndex++;
@@ -369,7 +368,10 @@ window.createPortfolioDirectory = function ({projects, filmPreview, reduced, res
       glyph.style.setProperty('--trail-y', `${track.trailY + dy * fraction + ux * offset - bounds.top}px`);
       glyph.style.setProperty('--trail-dx', `${-ux * 27 - uy * offset}px`);
       glyph.style.setProperty('--trail-dy', `${-uy * 27 + ux * offset}px`);
-      glyph.style.setProperty('--trail-angle', `${angle + offset * 2}deg`);
+      const angle = Math.random() * 360 - 180;
+      glyph.style.setProperty('--trail-size', `${(6 + Math.random() * 2).toFixed(2)}px`);
+      glyph.style.setProperty('--trail-angle', `${angle.toFixed(1)}deg`);
+      glyph.style.setProperty('--trail-angle-end', `${(angle + Math.random() * 70 - 35).toFixed(1)}deg`);
       glyph.addEventListener('animationend', () => glyph.remove(), {once: true});
       if (layer.childElementCount >= 24) layer.firstElementChild.remove();
       layer.append(glyph);
