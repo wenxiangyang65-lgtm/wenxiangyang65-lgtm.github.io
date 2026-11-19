@@ -1,58 +1,195 @@
-/* One type and spacing scale for live text; authored artwork stays intact. */
+/* AWE editorial scale. Source artwork and interactive previews remain native. */
 main.awe-page {
- --awe-type-meta:14px;--awe-type-chapter:15px;--awe-type-heading:13px;
- --awe-type-body:11px;--awe-type-caption:10px;--awe-type-control:10px;
- --awe-type-diagram:24px;--awe-type-diagram-sub:12px;--awe-counter-size:40px;
- --awe-space-section:56px;--awe-space-board:36px;--awe-space-content:20px;--awe-space-copy:8px;
- --awe-space-inset:clamp(24px,4vw,58px);
+ --awe-type-meta:14px;--awe-type-chapter:16px;--awe-type-heading:16px;
+ --awe-type-body:14px;--awe-type-caption:12px;--awe-type-control:12px;
+ --awe-type-diagram:24px;--awe-type-diagram-sub:12px;--awe-counter-size:48px;
+ --awe-space-section:64px;--awe-space-board:40px;--awe-space-content:24px;
+ --awe-space-copy:8px;--awe-space-inset:0px;
 }
-@media(max-width:760px){main.awe-page{
- --awe-type-meta:10px;--awe-type-chapter:12px;--awe-type-heading:11px;
- --awe-type-body:9px;--awe-type-caption:9px;--awe-type-control:9px;
- --awe-type-diagram:16px;--awe-type-diagram-sub:9px;--awe-counter-size:24px;
- --awe-space-section:32px;--awe-space-board:24px;--awe-space-content:14px;--awe-space-copy:6px;
- --awe-space-inset:clamp(14px,4vw,28px);
-}}
-@media(max-width:440px){main.awe-page{--awe-type-diagram:13px;--awe-counter-size:18px;}}
-main.awe-page .awe-section{margin-top:var(--awe-space-section);}
-main.awe-page .awe-section p{font-size:var(--awe-type-body);line-height:1.75;font-weight:400;}
-main.awe-page .awe-section :is(h3,h4){font-size:var(--awe-type-heading);line-height:1.4;font-weight:600;}
-main.awe-page .awe-section :is(figcaption,small){font-size:var(--awe-type-caption);line-height:1.5;}
-main.awe-page .awe-section :is(button,a){font-size:var(--awe-type-control);line-height:1.5;}
-main.awe-page .awe-section :is(p.pixel-text,.awe-header-statement,.awe-result-header-subtitle){font-size:var(--awe-type-body)!important;line-height:1.75!important;}
-main.awe-page .awe-section .awe-section-top-meta{gap:var(--awe-space-content);margin:0 0 var(--awe-space-content);align-items:flex-start;}
-main.awe-page .awe-section .awe-section-top-meta p{font-size:var(--awe-type-meta);line-height:1.12;font-weight:400;margin:0;}
+main.awe-page .awe-section {
+ margin:0;padding-block:var(--awe-space-section) 0;
+}
+main.awe-page .awe-section:last-child {padding-bottom:var(--awe-space-section);}
+main.awe-page .awe-section p {font-size:var(--awe-type-body);line-height:1.7;font-weight:400;}
+main.awe-page .awe-section :is(h3,h4) {font-size:var(--awe-type-heading);line-height:1.4;font-weight:600;}
+main.awe-page .awe-section :is(figcaption,small,.awe-hover-caption) {font-size:var(--awe-type-caption);line-height:1.5;}
+main.awe-page .awe-section :is(button,a) {font-size:var(--awe-type-control);line-height:1.5;}
+main.awe-page .awe-section :is(p.pixel-text,.awe-header-statement,.awe-result-header-subtitle) {
+ font-size:var(--awe-type-body)!important;line-height:1.7!important;
+}
+main.awe-page .awe-section strong {
+ font-family:var(--pixel-font)!important;font-size:var(--awe-counter-size)!important;
+ font-weight:400!important;font-synthesis:none;font-variant-numeric:tabular-nums;
+ line-height:1.12!important;letter-spacing:0;white-space:nowrap;
+}
+/* The selected grey year / English / Chinese header is the only chapter tier. */
+main.awe-page .awe-section > header {margin:0 0 var(--awe-space-content);padding:0;text-align:left;}
+main.awe-page .awe-section .awe-section-top-meta {
+ display:flex;justify-content:space-between;align-items:flex-start;gap:var(--awe-space-content);
+ margin:0 0 var(--awe-space-content);padding:0;
+}
+main.awe-page .awe-section .awe-section-top-meta p {
+ font-size:var(--awe-type-meta);line-height:1.15;font-weight:400;margin:0;
+}
 main.awe-page .awe-section .awe-section-top-meta__left,
-main.awe-page .awe-section .awe-section-top-meta__right{gap:4px;}
-main.awe-page .awe-section .awe-section-top-meta p.awe-section-top-meta__cn{font-size:var(--awe-type-chapter);line-height:1.35;font-weight:600;margin-top:3px;}
-main.awe-page .awe-section >header{margin-bottom:var(--awe-space-board);padding-top:0;}
-main.awe-page .awe-section header>.grid{display:block;margin-top:0;}
-main.awe-page .awe-section header>.grid>p{font-size:var(--awe-type-body);line-height:1.75;}
-main.awe-page .awe-section .awe-section-top-meta__right{flex-shrink:0;}
-main.awe-page .awe-section .awe-hover-caption{font-size:var(--awe-type-caption);line-height:1.5;}
-main.awe-page .awe-analysis-main-label{font-size:var(--awe-type-diagram);line-height:1.2;}
-main.awe-page .awe-analysis-sub-label{font-size:var(--awe-type-diagram-sub);line-height:1.2;}
-main.awe-page .awe-analysis-role-label{font-size:var(--awe-type-heading);line-height:1.35;}
-main.awe-page .awe-analysis-title-stack{gap:5px;}
-main.awe-page .awe-analysis-copy{min-height:0;margin-top:var(--awe-space-content);}
-main.awe-page .awe-analysis-copy p+p{margin-top:var(--awe-space-copy);}
-main.awe-page #background>div{padding-block:var(--awe-space-board);padding-inline:var(--awe-space-inset);}
-main.awe-page #background>div>div:has(.awe-analysis-stage),
-main.awe-page #background>div>div:has(img[src*="/02/007-"]){margin-top:var(--awe-space-board);}
-main.awe-page #background .awe-analysis-stage{padding:var(--awe-space-content) 0;}
-main.awe-page #background .awe-analysis-nodes{gap:var(--awe-space-content);}
-main.awe-page #background>div>.group{padding:var(--awe-space-content);}
-main.awe-page #creative>div{padding-block:var(--awe-space-board);}
-main.awe-page #creative>div>.awe-section-top-meta,
-main.awe-page #creative>div>div:nth-child(9){padding-inline:var(--awe-space-inset);}
-main.awe-page #creative>div>div:nth-child(7){margin-top:var(--awe-space-content);}
-main.awe-page #creative>div>div:nth-child(8){padding-inline:var(--awe-space-inset);}
-main.awe-page #creative>div>div:nth-child(8)>button{margin-top:var(--awe-space-content);}
-main.awe-page #creative>div>div:nth-child(8)>div:nth-child(3),
-main.awe-page #creative>div>div:nth-child(8)>div:nth-child(4),
-main.awe-page #creative>div>div:nth-child(9){margin-top:var(--awe-space-board);}
-main.awe-page #creative>div>div:nth-child(8)>div:nth-child(4)>button::before{font-size:var(--awe-type-caption);line-height:1.5;margin-top:var(--awe-space-copy);}
-main.awe-page #visual-language>.relative.grid>div[class*="row-start-3"]::after{font-size:var(--awe-type-caption);line-height:1.5;margin-top:var(--awe-space-copy);}
-main.awe-page #results>.grid article h3{font-size:var(--awe-type-caption);line-height:1.5;margin-top:var(--awe-space-copy);}
-main.awe-page .awe-section >header p:is(.awe-header-statement,.awe-result-header-subtitle){font-size:var(--awe-type-body)!important;line-height:1.75!important;margin-top:var(--awe-space-content);}
-main.awe-page #live-commerce h3{font-size:var(--awe-type-heading);line-height:1.4;}
+main.awe-page .awe-section .awe-section-top-meta__right {display:grid;gap:4px;}
+main.awe-page .awe-section .awe-section-top-meta__right {flex-shrink:0;text-align:right;}
+main.awe-page .awe-section .awe-section-top-meta p.awe-section-top-meta__cn {
+ font-size:var(--awe-type-chapter);line-height:1.4;font-weight:600;margin:2px 0 0;
+}
+main.awe-page .awe-section > header > div:not(.awe-section-top-meta) {display:block;margin:0;}
+main.awe-page .awe-section > header h2.sr-only {position:absolute;}
+main.awe-page .awe-section > header :is(.awe-header-statement,.awe-result-header-subtitle),
+main.awe-page .awe-section > header > div > div > p {margin:var(--awe-space-content) 0 0;max-width:none;text-align:left;}
+/* Remove interface frames and decorative rules, never marks inside the artwork. */
+main.awe-page .awe-section [class*="border-white/"] {border-color:transparent!important;}
+main.awe-page .awe-section :is(header,.awe-panel,figure,article) {border-width:0!important;box-shadow:none;}
+main.awe-page .awe-section :is(span,div)[class~="h-px"] {display:none!important;}
+main.awe-page .awe-section .awe-panel {background:transparent;}
+/* Background, strategy and source boards follow the same chapter gutter. */
+main.awe-page #background > div,
+main.awe-page #creative > div {padding-block:0;padding-inline:0;border:0;border-radius:0;box-shadow:none;}
+main.awe-page #background > div > .group {margin-top:0;padding:var(--awe-space-content);}
+main.awe-page #background > div > div:has(.awe-analysis-stage),
+main.awe-page #background > div > div:has(img[src*="/02/007-"]) {margin-top:var(--awe-space-section);}
+main.awe-page #creative > div > .awe-section-top-meta {padding:0;}
+main.awe-page #creative > div > div:nth-child(7) {margin-top:var(--awe-space-content);}
+main.awe-page #creative > div > div:nth-child(8) > .awe-section-top-meta {margin-bottom:var(--awe-space-content);}
+main.awe-page #creative > div > div:nth-child(8) > button {margin-top:var(--awe-space-content);}
+main.awe-page #creative > div > div:nth-child(8) > div:nth-child(3),
+main.awe-page #creative > div > div:nth-child(8) > div:nth-child(4),
+main.awe-page #creative > div > div:nth-child(9) {margin-top:var(--awe-space-board);}
+main.awe-page #creative > div > div:nth-child(9) {padding-inline:0;}
+main.awe-page #creative > div > div:nth-child(8) > div:nth-child(4) > button::before {
+ font-size:var(--awe-type-caption);line-height:1.5;margin-top:var(--awe-space-copy);
+}
+/* The entire three-sided analysis is a 21:9 board, including supporting copy. */
+main.awe-page #background .awe-analysis-stage {
+ aspect-ratio:21/9;box-sizing:border-box;display:grid;align-items:center;
+ height:auto;min-height:0;padding:12px 0;border:0;border-radius:0;
+}
+main.awe-page #background .awe-analysis-nodes {
+ width:100%;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--awe-space-content);align-items:start;
+}
+main.awe-page #background .awe-analysis-core {width:84%;max-width:280px;}
+main.awe-page .awe-analysis-main-label {font-size:var(--awe-type-diagram);line-height:1.2;}
+main.awe-page .awe-analysis-sub-label {font-size:var(--awe-type-diagram-sub);line-height:1.2;}
+main.awe-page .awe-analysis-role-label {font-size:var(--awe-type-heading);line-height:1.35;}
+main.awe-page .awe-analysis-title-stack {gap:5px;}
+main.awe-page .awe-analysis-copy {min-height:0;margin-top:16px;}
+main.awe-page .awe-analysis-copy p {font-size:var(--awe-type-caption);line-height:1.6;}
+main.awe-page .awe-analysis-copy p+p {margin-top:var(--awe-space-copy);}
+/* Core composition: larger imagery on a 16:9 stage, quieter native title artwork. */
+main.awe-page #visual-language > .relative.grid {
+ aspect-ratio:16/9;box-sizing:border-box;grid-template-columns:1fr 3fr 1fr;
+ grid-template-rows:repeat(2,minmax(0,1fr));gap:16px 20px;padding:0;align-items:center;
+}
+main.awe-page #visual-language > .relative.grid > div {min-width:0;min-height:0;height:100%;}
+main.awe-page #visual-language > .relative.grid > div > figure {height:100%;}
+main.awe-page #visual-language > .relative.grid > div > figure > div.scanline {
+ height:100%!important;aspect-ratio:auto!important;
+}
+main.awe-page #visual-language > .relative.grid > div > figure img {
+ width:100%;height:100%;object-fit:contain;
+}
+main.awe-page #visual-language > .relative.grid > div[class*="row-start-3"]::after {
+ display:block;font-size:var(--awe-type-caption);line-height:1.5;margin-top:8px;
+}
+main.awe-page #visual-language > .relative.grid > div[class*="row-start-3"] > figure {height:calc(100% - 44px);}
+main.awe-page #visual-language > .relative.grid > div[class*="col-start-2"] {
+ display:flex;flex-direction:column;justify-content:center;gap:0;
+}
+main.awe-page #visual-language > .relative.grid > div > button:first-child {
+ flex:1;min-height:0;max-height:calc(100% - 76px);width:100%;aspect-ratio:auto;padding:0;
+}
+main.awe-page #visual-language > .relative.grid > div > button:first-child img {
+ display:block;width:100%;height:100%;max-height:100%;object-fit:contain;
+}
+main.awe-page #visual-language > .relative.grid > div > button:nth-child(2) {
+ flex:none;width:42%;max-width:240px;max-height:76px;margin:0 auto;padding:0;
+}
+main.awe-page #visual-language > .relative.grid > div > button:nth-child(2) img {
+ width:100%;height:auto;max-height:76px;object-fit:contain;
+}
+main.awe-page #visual-language > .mx-auto {margin:var(--awe-space-content) auto 0;padding:0;}
+main.awe-page #visual-language > .mx-auto > p:first-child {font-size:var(--awe-type-caption)!important;}
+main.awe-page #visual-language > .mx-auto > p+p {margin-top:var(--awe-space-copy);}
+/* Full portrait movie and ten frames share a wide 16:9 presentation board. */
+main.awe-page #invitation > div {padding-bottom:0;}
+main.awe-page #invitation > div > .relative.z-10 {padding-inline:0;}
+main.awe-page #invitation > div > .relative.z-10 > div[class*="mt-"] {margin-top:var(--awe-space-board);}
+main.awe-page #invitation > div > .relative.z-10 > div.grid:has(button[aria-label="预览 动态邀请函预览"]) {
+ aspect-ratio:16/9;box-sizing:border-box;grid-template-columns:minmax(0,.3fr) minmax(0,.7fr);
+ gap:var(--awe-space-content);align-items:stretch;
+}
+main.awe-page #invitation > div > .relative.z-10 > div.grid:has(button[aria-label="预览 动态邀请函预览"]) > div {
+ display:flex;flex-direction:column;height:100%;min-width:0;min-height:0;
+}
+main.awe-page #invitation > div > .relative.z-10 > div.grid:has(button[aria-label="预览 动态邀请函预览"]) > div > p {
+ margin:0 0 16px;padding:0;flex:none;align-self:flex-start;background:transparent;color:#ccd2de;box-shadow:none;
+}
+main.awe-page #invitation button[aria-label="预览 动态邀请函预览"] {
+ flex:1;width:100%;height:auto;max-width:none;min-height:0;aspect-ratio:auto;margin:0;padding:0;background:transparent;
+}
+main.awe-page #invitation button[aria-label="预览 动态邀请函预览"] video {
+ position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+}
+main.awe-page #invitation .awe-frame-grid {
+ flex:1;min-height:0;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;
+}
+main.awe-page #invitation .awe-frame-grid button {height:100%;min-height:0;aspect-ratio:auto;background:transparent;}
+main.awe-page #invitation .awe-frame-grid img {width:100%;height:100%;object-fit:contain;}
+/* Align supporting descriptions with their own left-hand titles. */
+main.awe-page #live-commerce div:has(>p.text-right) {flex-direction:column;align-items:flex-start;gap:var(--awe-space-copy);}
+main.awe-page #live-commerce p.text-right {display:block!important;max-width:none;margin:0;text-align:left;}
+main.awe-page #live-commerce > div {padding:0;}
+main.awe-page #live-commerce > div > div[class*="mt-"] {margin-top:var(--awe-space-board);}
+/* Four online application panels share title baselines and image heights. */
+main.awe-page #online {--awe-online-height:clamp(300px,38vw,560px);}
+main.awe-page #online > .mt-14 {margin-top:var(--awe-space-board);}
+main.awe-page #online > .mt-14 > .grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--awe-space-content);align-items:start;}
+main.awe-page #online > .mt-14 > .grid > .relative > p,
+main.awe-page #online > .mt-14 > .grid > .group > div:first-child {
+ box-sizing:border-box;display:flex;align-items:center;height:40px;min-height:40px;
+ margin:0 0 12px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;
+}
+main.awe-page #online > .mt-14 > .grid > .relative > figure > .scanline,
+main.awe-page #online > .mt-14 > .grid .awe-long-scroll {
+ height:var(--awe-online-height)!important;aspect-ratio:auto!important;padding:0;
+}
+main.awe-page #online > .mt-14 > .grid > .relative > figure img {width:100%;height:100%;object-fit:contain;object-position:top;}
+/* Compact hot-search evidence while retaining every topic and full-image preview. */
+main.awe-page #live-commerce > div > div:has(>div.grid>div>button[aria-label="预览 微博热搜话题截图"]) {padding:0;}
+main.awe-page #live-commerce div.grid:has(>div>button[aria-label="预览 微博热搜话题截图"]) {
+ grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--awe-space-content);align-items:start;
+}
+main.awe-page #live-commerce div.grid:has(>div>button[aria-label="预览 微博热搜话题截图"]) > div {padding:0;min-width:0;}
+main.awe-page #live-commerce button[aria-label="预览 微博热搜话题截图"] {height:110px;min-height:0;padding:0;}
+main.awe-page #live-commerce button[aria-label="预览 微博热搜话题截图"] img {height:100%;width:100%;object-fit:contain;}
+main.awe-page #live-commerce div:has(>button[aria-label="预览 微博热搜话题截图"]) > .grid {gap:6px;margin-top:12px;}
+main.awe-page #live-commerce button:has(>span.text-right) {grid-template-columns:minmax(0,1fr) 100px;gap:8px;padding:3px 0;}
+main.awe-page #live-commerce button:has(>span.text-right) > span {font-size:var(--awe-type-caption);line-height:1.45;}
+main.awe-page #live-commerce div:has(>button[aria-label="预览 社媒传播截图矩阵"]) {gap:16px;}
+main.awe-page #live-commerce button[aria-label="预览 社媒传播截图矩阵"] {height:190px;min-height:0;padding:0;}
+main.awe-page #live-commerce button[aria-label="预览 社媒传播截图矩阵"] img {height:100%;width:100%;object-fit:contain;}
+main.awe-page #live-commerce div:has(>button[aria-label="预览 社媒传播截图矩阵"]) > .grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+main.awe-page #live-commerce div:has(>button[aria-label="预览 社媒传播截图矩阵"]) > .grid > button {height:170px;min-height:0;}
+main.awe-page #live-commerce div:has(>button[aria-label="预览 社媒传播截图矩阵"]) > .grid > button img {height:100%;width:100%;object-fit:contain;}
+main.awe-page #live-commerce div.grid:has(>div>button[aria-label="预览 微博热搜话题截图"]) > div:last-child {
+ grid-column:1/-1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;text-align:left;
+}
+main.awe-page #live-commerce div.grid:has(>div>button[aria-label="预览 微博热搜话题截图"]) > div:last-child p {font-size:var(--awe-type-caption);line-height:1.5;}
+main.awe-page #results > .grid article h3 {font-size:var(--awe-type-caption);line-height:1.5;margin-top:12px;}
+@media(max-width:760px){
+ main.awe-page {--awe-space-section:40px;--awe-space-board:28px;--awe-space-content:18px;--awe-counter-size:40px;}
+ /* Wide diagrams retain their requested ratios, with native horizontal access. */
+ main.awe-page #background > div > div:has(.awe-analysis-stage) {overflow-x:auto;}
+ main.awe-page #background .awe-analysis-stage {min-width:720px;}
+ main.awe-page #visual-language {overflow-x:auto;}
+ main.awe-page #visual-language > .relative.grid {min-width:720px;}
+ main.awe-page #invitation > div > .relative.z-10 {overflow-x:auto;}
+ main.awe-page #invitation > div > .relative.z-10 > div.grid:has(button[aria-label="预览 动态邀请函预览"]) {min-width:720px;}
+ main.awe-page #online > .mt-14 > .grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+ main.awe-page #live-commerce div.grid:has(>div>button[aria-label="预览 微博热搜话题截图"]) {grid-template-columns:1fr;}
+ main.awe-page #live-commerce div.grid:has(>div>button[aria-label="预览 微博热搜话题截图"]) > div:last-child {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
