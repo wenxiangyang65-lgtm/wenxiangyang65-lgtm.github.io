@@ -80,3 +80,6 @@
   .results dd { font-size: clamp(21px, 4.5vw, 28px); }
   .results dd span { font-size: 10px; }
 }
+
+/* Actual film stills retain the full camera composition. */
+.real-mosaic .shot-screen img{object-fit:contain;}

@@ -385,39 +385,6 @@
     ]
   },
   {
-    "n": 21,
-    "slug": "operations-football",
-    "title": "天猫家享 · 足球惠客厅",
-    "label": "天猫家享 · 足球惠客厅",
-    "year": 2024,
-    "description": "把主场搬进客厅，让赛事热情进入家生活。",
-    "entry": "projects/operations-football/index.html",
-    "template": "sleeve",
-    "cover": "assets/catalog/operations-covers/06-football.webp",
-    "category": "运营视觉",
-    "catalogItems": [
-      {
-        "id": "football",
-        "title": "天猫家享 · 足球惠客厅",
-        "group": "operations",
-        "summary": "把主场搬进客厅，让赛事热情进入家生活。",
-        "tags": [
-          "节点营销",
-          "创意 KV"
-        ],
-        "year": "2024",
-        "image": "assets/catalog/operations-covers/06-football.webp",
-        "entry": "projects/operations-football/index.html",
-        "featured": false,
-        "filmFirst": false,
-        "imageFocus": [
-          50,
-          50
-        ]
-      }
-    ]
-  },
-  {
     "n": 22,
     "slug": "operations-seeding",
     "title": "天猫双 11 · 全民种草",
@@ -625,7 +592,7 @@
     "y": 5.84,
     "size": 75.48,
     "spin": true,
-    "description": "两组品牌 IP 与三维项目、六组个人设计探索。以独立高清素材、角色旋转、白模对比和系列筛选呈现作品。",
+    "description": "两组品牌 IP 与三维项目，以及海报、插画、三维三类个人设计探索。保留高清作品、系列细节与交互展示。",
     "entry": "projects/illustration/index.html",
     "template": "original",
     "cover": "assets/disc-08.webp",
@@ -665,72 +632,13 @@
         "filmFirst": false
       },
       {
-        "id": "music",
-        "title": "幻想音乐节",
-        "group": "explore",
-        "summary": "音乐与角色的个人视觉创作。",
-        "tags": [
-          "个人创作",
-          "插画"
-        ],
-        "year": "个人创作",
-        "image": "assets/catalog/music.webp",
-        "entry": "projects/illustration/index.html#music",
-        "featured": false,
-        "filmFirst": false
-      },
-      {
-        "id": "characters",
-        "title": "情绪医疗站 · 潮流角色",
-        "group": "explore",
-        "summary": "以角色群像、配色和装备，组织情绪主题的系列创作。",
-        "tags": [
-          "个人创作",
-          "角色"
-        ],
-        "year": "个人创作",
-        "image": "assets/catalog/characters.webp",
-        "entry": "projects/illustration/index.html#characters",
-        "featured": false,
-        "filmFirst": false
-      },
-      {
-        "id": "tiger",
-        "title": "五行福虎",
-        "group": "explore",
-        "summary": "将虎头、门神与五行元素，转化为五种角色图形。",
-        "tags": [
-          "图形",
-          "应用延展"
-        ],
-        "year": "个人创作",
-        "image": "assets/catalog/tiger.webp",
-        "entry": "projects/illustration/index.html#tiger",
-        "featured": false,
-        "filmFirst": false
-      },
-      {
-        "id": "mecha",
-        "title": "潮流机甲插画",
-        "group": "explore",
-        "summary": "通过机械形态与高饱和色彩，探索角色表达。",
-        "tags": [
-          "插画",
-          "角色"
-        ],
-        "year": "个人创作",
-        "image": "assets/catalog/mecha.webp",
-        "entry": "projects/illustration/index.html#mecha",
-        "featured": false,
-        "filmFirst": false
-      },
-      {
         "id": "posters",
-        "title": "字体与图形海报",
+        "title": "海报",
         "group": "explore",
-        "summary": "文字、版式与图形关系的个人实验。",
+        "summary": "字体、图形与拼贴的个人海报系列。",
         "tags": [
           "字体",
+          "图形",
           "平面设计"
         ],
         "year": "个人创作",
@@ -740,13 +648,30 @@
         "filmFirst": false
       },
       {
-        "id": "personal-3d",
-        "title": "个人三维角色",
+        "id": "personal-illustration",
+        "title": "插画",
         "group": "explore",
-        "summary": "个人角色造型与材质表现探索。",
+        "summary": "幻想音乐节、情绪角色、五行福虎与潮流机甲四组插画系列。",
+        "tags": [
+          "插画",
+          "角色",
+          "个人创作"
+        ],
+        "year": "个人创作",
+        "image": "assets/catalog/music.webp",
+        "entry": "projects/illustration/index.html#personal-illustration",
+        "featured": false,
+        "filmFirst": false
+      },
+      {
+        "id": "personal-3d",
+        "title": "三维",
+        "group": "explore",
+        "summary": "个人角色造型、材质与光影探索。",
         "tags": [
           "三维",
-          "个人创作"
+          "角色造型",
+          "材质"
         ],
         "year": "个人创作",
         "image": "assets/catalog/personal-3d.webp",
@@ -943,6 +868,35 @@
         "entry": "projects/xujie/index.html",
         "featured": true,
         "filmFirst": true
+      }
+    ]
+  },
+  {
+    "n": 28,
+    "slug": "xinxuan-campaign",
+    "title": "辛选｜直播电商创意营销视觉",
+    "label": "辛选｜直播电商创意营销视觉",
+    "year": 2026,
+    "description": "收录辛选直播电商的活动视觉、AI 影像、视频包装和设计工作流。",
+    "entry": "projects/xinxuan-campaign/index.html",
+    "template": "sleeve",
+    "cover": "assets/disc-xinxuan-campaign-hero.webp",
+    "category": "整合营销",
+    "catalogItems": [
+      {
+        "id": "xinxuan-campaign",
+        "title": "辛选｜直播电商创意营销视觉",
+        "group": "integrated",
+        "summary": "收录辛选直播电商的活动视觉、AI 影像、视频包装和设计工作流。",
+        "tags": [
+          "活动视觉",
+          "AI 影像",
+          "视频包装"
+        ],
+        "year": "2026",
+        "image": "assets/disc-xinxuan-campaign-hero.webp",
+        "entry": "projects/xinxuan-campaign/index.html",
+        "featured": false
       }
     ]
   },

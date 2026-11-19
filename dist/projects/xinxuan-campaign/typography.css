@@ -1,0 +1,69 @@
+/* Shared type scale for all live page text. Original artwork keeps its own lettering. */
+:root {
+  --type-hero:24px;
+  --type-chapter:18px;
+  --type-section:15px;
+  --type-case:12px;
+  --type-body:11px;
+  --type-caption:10px;
+  --type-control:10px;
+  --type-meta:9px;
+  --type-source:14px;
+  --type-arrow:15px;
+}
+@media(max-width:760px) {
+  :root {
+    --type-hero:16px;
+    --type-chapter:13px;
+    --type-section:12px;
+    --type-case:11px;
+    --type-body:9px;
+    --type-caption:9px;
+    --type-control:9px;
+    --type-meta:8px;
+    --type-source:10px;
+    --type-arrow:14px;
+  }
+}
+#main .hero h1 {font-size:var(--type-hero);line-height:1.3;font-weight:650}
+#main .chapter .source-sectionhead h2 {font-size:var(--type-chapter);line-height:1.3;font-weight:750;letter-spacing:-.025em}
+#main .source-kicker,#main .chapter .source-sectionhead>.source-folio {font-size:var(--type-source);font-weight:400}
+#main :is(.screen-grade-head h3,.subhead h3,.cover-group h3,.panel h3,.appendix-heading strong) {
+  font-size:var(--type-section);line-height:1.35;font-weight:600;letter-spacing:0;
+}
+#main #film-poster-heading,#main #film .story-toolbar h3 {font-size:var(--type-section);line-height:1.35;font-weight:600}
+#main :is(.project-carousel-title,.screen-comparison-heading h4,.screen-grade-head h4,.cover-group h4,.screen-materials h5,.card-media-board h5,.screen-orientation-copy h4,.list-comparison h3,.portrait-wardrobe h4) {
+  font-size:var(--type-case);line-height:1.4;font-weight:550;
+}
+#main #screen-l1 .screen-orientation-copy h4 {font-size:var(--type-case)}
+#main :is(.film-brief,.hero-copy>p,.film-note,.panel>p,.screen-comparison-heading p,.screen-caption p,.clip-summary,.steps span,.list-comparison .shot small,.overview-background-copy) {
+  font-size:var(--type-body);line-height:1.65;font-weight:400;
+}
+#main #film .film-note,#main #film .film-note strong {font-size:var(--type-body);line-height:1.65}
+#main .film-note strong {font-weight:550}
+#main :is(.shot figcaption,.screen-caption h4,.screen-comparison-item h5,.screen-comparison-item>p,.card-media-tile figcaption,.reel-foot p,.source-level-key,.film-cycle-note) {
+  font-size:var(--type-caption);line-height:1.5;font-weight:400;
+}
+#main :is(.cover-grid figcaption,.film-card>.shot figcaption) {font-size:var(--type-case);line-height:1.4;font-weight:500}
+#main :is(.cover-grid figcaption small,.shot figcaption small,.film-card>.shot figcaption small,.reel-foot small,.story-frame-title) {
+  font-size:var(--type-caption);line-height:1.5;font-weight:400;
+}
+#main :is(.story-count,.project-carousel-count,.story-frame-meta,.appendix-heading small,.list-long-hint,.list-long-grid figcaption small,.screen-grade-head b,.screen-grade-index b,.card-materials h6) {
+  font-size:var(--type-meta);line-height:1.5;font-weight:400;
+}
+#main #screen-l1 .screen-orientation-copy dt {font-size:var(--type-caption);line-height:1.5;font-weight:550}
+#main #screen-l1 .screen-orientation-copy dd,#main #screen-l1 .screen-orientation-copy>p {font-size:var(--type-meta);line-height:1.5}
+#main :is(.card-materials .screen-minis .shot figcaption,.card-materials .screen-minis .shot figcaption small,.screen-picks span,.screen-minis .shot small) {
+  font-size:var(--type-meta);line-height:1.45;
+}
+#main :is(.project-carousel-actions button,.cover-rail-controls button,.story-arrow) {font-size:var(--type-arrow);line-height:1.25}
+#main :is(.tabs button,.chip,.cta,.project-carousel-actions .project-carousel-auto,.stage-view-tabs button,.film-trigger,.frame-trigger,.case-link,.screen-extra summary,.archive summary,.list-full-details>summary,.appendix-action,.screen-grade-index a,.source-board-tools button) {
+  font-size:var(--type-control);line-height:1.4;font-weight:400;
+}
+#main #film .film-trigger {font-size:var(--type-control)}
+.top nav a {font-size:var(--type-control);line-height:1.5}
+.wordmark {font-size:12px;line-height:1.5}
+#viewer p,#viewer .source-board-tools button {font-size:var(--type-caption);line-height:1.5}
+@media(max-width:760px){.wordmark{font-size:11px}}
+#main .case-contribution {font-size:var(--type-caption);line-height:1.5}
+#main .case-contribution dt {font-size:var(--type-meta);line-height:1.5}

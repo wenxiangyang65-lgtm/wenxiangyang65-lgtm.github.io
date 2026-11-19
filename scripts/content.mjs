@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 
 export async function compileContent(target='dist') {
   const projects=JSON.parse(await readFile('content/projects.json','utf8'));
+  const videoSources=JSON.parse(await readFile('content/video-sources.json','utf8')).aliases;
+  await writeFile(resolve(target,'shared-video-sources.js'), '/* Generated from content/video-sources.json. */\nwindow.PORTFOLIO_VIDEO_SOURCES='+JSON.stringify(Object.fromEntries(Object.entries(videoSources).map(([alias,source])=>[alias.split('/').pop().replace(/\.mp4$/,''),'/'+source])))+';\n');
   const result=await Promise.all(projects.map(async project=>{
     const p={...project};
     for(const field of ['cover','card','tab']) if(p[field]) {

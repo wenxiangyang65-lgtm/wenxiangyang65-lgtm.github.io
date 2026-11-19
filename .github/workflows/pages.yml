@@ -25,10 +25,12 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm test
       - run: npm run build
+      - name: Prepare complete GitHub mirror with shared original media
+        run: node scripts/build-pages.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: build
+          path: build-pages
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

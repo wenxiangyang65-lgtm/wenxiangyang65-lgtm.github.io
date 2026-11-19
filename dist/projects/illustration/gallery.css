@@ -47,3 +47,43 @@ body.service-original-view{background:#d7d7d7}.service-original-view .site-head{
   .hero-asian { grid-auto-columns: 84%; padding-inline: 7%; }
   #asian-games--brief .section-title h2 { font-size: 16px; }
 }
+/* Personal work is organized as three collections; original series remain available. */
+.personal-hub .hub-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.personal-art-grid{display:grid;gap:16px;align-items:start}
+.personal-art-grid.pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+.personal-art-grid figure{margin:0;min-width:0}
+.personal-art-grid .art-button img{width:100%;height:auto;object-fit:contain}
+.personal-art-grid figcaption{font-size:10px;color:var(--muted);margin-top:7px;line-height:1.5}
+.personal-detail-link{display:inline-block;font-size:10px;margin-top:14px;border-bottom:1px solid #777;padding-bottom:3px}
+.personal-category .work-heading h1{font-size:24px;line-height:1.35}
+.personal-category .work-heading .intro,.personal-category .brief-grid p{font-size:11px;line-height:1.65}
+.personal-category .section-title h2{font-size:18px;line-height:1.4}
+.personal-category .section-title p{font-size:10px;line-height:1.65}
+.personal-category .chapter-nav a{font-size:10px}
+@media(max-width:760px){
+  .personal-hub .hub-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .personal-hub .hub-image{height:32vw}
+  .personal-hub .hub-name{font-size:11px}
+  .personal-hub .hub-grid small{font-size:8px;line-height:1.5}
+  .personal-category .work-heading h1{font-size:16px}
+  .personal-category .work-heading .intro,.personal-category .brief-grid p,.personal-category .section-title p{font-size:9px}
+  .personal-category .section-title h2{font-size:13px}
+  .personal-category .chapter-nav a,.personal-detail-link,.personal-art-grid figcaption{font-size:9px}
+  .personal-art-grid{gap:10px}
+}
+/* Image-led illustration collection: short names, compact spacing, complete originals. */
+.personal-collection .work-head{padding-top:26px;padding-bottom:18px;}
+.personal-collection .work-heading{margin-top:6px;}
+.personal-collection .chapter-nav{margin-top:0;}
+.personal-collection .chapter-nav a{padding-block:11px;}
+.personal-collection .content-section{padding-top:24px;}
+.personal-collection .section-title{margin-bottom:12px;}
+.personal-collection .section-title h2{font-size:14px;line-height:1.4;}
+.personal-collection .personal-art-grid.pair>figure:first-child{grid-column:1/-1;}
+.personal-collection #personal-illustration--mecha .personal-art-grid>figure:first-child{grid-column:auto;}
+@media(max-width:760px){
+ .personal-collection .work-head{padding-top:20px;padding-bottom:14px;}
+ .personal-collection .content-section{padding-top:20px;}
+ .personal-collection .personal-art-grid.pair{grid-template-columns:minmax(0,1fr);}
+ .personal-collection .section-title h2{font-size:11px;}
+}

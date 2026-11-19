@@ -101,3 +101,7 @@ body.memoir-layout { background:#0b0e0d url('assets/cloth.webp?revision=20261009
 .memoir-layout .album-dark .chapter-era,.memoir-layout .album-dark .chapter-watch { color:#c9bc9f; }
 .story-opening small { display:inline-block; margin-top:10px; font-size:13px; opacity:.7; }
 #film-status { padding:0 20px; font-size:14px; }
+
+/* Keep the rotating disclosure mark within its summary line. */
+.memoir-layout .chapter-extra summary > span { flex:none;align-items:center;padding-right:7px; }
+.memoir-layout .chapter-extra summary i { flex:none;width:22px;height:22px;line-height:22px;text-align:center; }

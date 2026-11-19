@@ -2,13 +2,14 @@
 
 ## 实际站点与仓库
 
-- 腾讯云网址：<http://115.159.25.132/>
+- 腾讯云正式网址：<https://yangwenxiang.com/>
+- 腾讯云 IP 备用入口：<http://115.159.25.132/>
 - 原 GitHub Pages 网址保持不变：<https://wenxiangyang65-lgtm.github.io/>
 - 仓库：<https://github.com/wenxiangyang65-lgtm/wenxiangyang65-lgtm.github.io>
 - 发布分支：`main`
 - 服务器：腾讯云轻量应用服务器，上海，Ubuntu 22.04 LTS，实例 `lhins-27kgc1ew`。
 - 服务器部署账号：`portfolio-deploy`，没有 sudo 权限；管理员仍使用原来的 `ubuntu` 账号。
-- 当前没有绑定自有域名。腾讯云入口先使用 HTTP 公网 IP；原 GitHub 入口继续提供 HTTPS。
+- 正式域名 yangwenxiang.com 与 www.yangwenxiang.com 已解析至腾讯云，并启用 HTTPS；HTTP 自动跳转到 HTTPS。GitHub 原入口保持独立可用。
 
 这是完整静态网站，含已经导出的 Next.js AWE 页面和其余独立项目页面。服务器只需要 Nginx、Python 3 和 rsync；不需要 Node 常驻进程、PM2 或数据库。构建由 GitHub 完成，图片编码使用锁定版本的 sharp 开发依赖。
 
@@ -181,3 +182,9 @@ content/publish-exclusions.json 仅列出该项目已不再引用的旧版静态
 新版 `deploy/nginx-portfolio.conf` 只对带 16 位内容摘要 `v` 参数的 CSS/JS 使用长期缓存，HTML、健康检查和无内容摘要的代码保持重新验证。图片和视频沿用原缓存时长，避免旧版作品滞留。GitHub Pages 的响应头仍由平台管理。
 
 Nginx 配置需管理员安装；网站发布账号没有该权限。将本目录的 `nginx-portfolio.conf` 与 `apply-performance-config.sh` 放在同一服务器文件夹，在管理员终端运行 `sudo bash /所在文件夹/apply-performance-config.sh`。脚本备份现有专属站点配置，先执行 `nginx -t`，通过后才重载；失败会恢复原配置。不修改其他站点、域名或图片视频资源。
+
+## 整站同步与共享视频（2026-11-19）
+
+辛选营销案例与独立 AI 影片项目共用 `content/video-sources.json` 指定的原高清成片。构建生成 `shared-video-sources.js`，冗余副本保留在源目录中，但不再进入发布包。不同剪辑、字幕版本与独立镜头片段不合并。
+
+腾讯云继续发布完整 `build/`，视频直接由本站提供。GitHub Pages 通过 `scripts/build-pages.mjs` 生成 `build-pages/`，保留全部页面、图片与交互；较大的 AI 成片及其镜头视频复用腾讯云正式域名 `https://yangwenxiang.com/` 下的原文件 HTTPS 地址，并附带本次发布版本参数，支持 Range 请求与原时间点播放。此步骤不转码、不降低图片或视频画质，不再因整站超过 1 GB 而跳过 GitHub 更新。`pages-media.json` 与部署清单记录每个共享视频的大小、摘要及共用地址。

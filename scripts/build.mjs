@@ -13,7 +13,7 @@ await rm(output,{recursive:true,force:true});
 const excluded=new Set(JSON.parse(await readFile('content/publish-exclusions.json','utf8')).paths);
 await cp('dist',output,{recursive:true,filter:path=>!path.endsWith('.DS_Store')&&!excluded.has(relative(resolve('dist'),path))});
 const projects=await compileContent(output);
-await optimisePublishedImages(output);
+await optimisePublishedImages(output,{enforceSizeLimit:false,preserve:['projects/xinxuan-campaign/']});
 const delivery=await prepareDelivery(output);
 console.log(`加载优化：${delivery.versionedReferences} 个代码引用按内容更新版本；${delivery.compressedFiles} 个文本文件生成无损传输副本；作品媒体不重新编码。`);
 const commit=process.env.GITHUB_SHA||execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();

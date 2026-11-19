@@ -17,12 +17,12 @@ async function allFiles(root) {
   }
   return found;
 }
-export async function optimisePublishedImages(output) {
+export async function optimisePublishedImages(output, {enforceSizeLimit=true, preserve=[]}={}) {
   const files=await allFiles(output),sizes=await Promise.all(files.map(async p=>[p,(await stat(p)).size]));
   let total=sizes.reduce((sum,[,bytes])=>sum+bytes,0);
   const before=total,cache=resolve('.publish-image-cache');
   await mkdir(cache,{recursive:true});
-  const candidates=sizes.filter(([p,n])=>p.endsWith('.webp')&&n>256*1024);
+  const candidates=sizes.filter(([p,n])=>p.endsWith('.webp')&&n>256*1024&&!preserve.some(prefix=>relative(output,p).startsWith(prefix)));
   const selected=new Map(),eligible=[];
   let publishedPlan={images:{}};
   try {publishedPlan=JSON.parse(await readFile('content/published-images.json','utf8'));}catch(error){if(error.code!=='ENOENT')throw error;}
@@ -97,7 +97,7 @@ export async function optimisePublishedImages(output) {
     }
   }));
   for(const quality of [86,82,78]) {
-    if(total<=TARGET)break;
+    if(!enforceSizeLimit||total<=TARGET)break;
     // Use the original source again, avoiding successive lossy re-encoding.
     for(const item of eligible.sort((a,b)=>b.bytes-a.bytes)) {
       const previous=selected.get(item.path)?.after||item.bytes,data=await encode(item.path,quality,item.metadata);
@@ -108,7 +108,7 @@ export async function optimisePublishedImages(output) {
   }
   const report={sourceBytes:before,publishedBytes:total,savedBytes:before-total,sourceFilesUnchanged:true,videoFilesUnchanged:true,animatedImagesUnchanged:true,images:[...selected.values()]};
   await writeFile(resolve(output,'image-optimisation.json'),JSON.stringify(report,null,2)+'\n');
-  if(total>LIMIT-2_000_000)throw Error(`发布包仍超过 GitHub Pages 体积上限: ${(total/1048576).toFixed(1)} MB`);
+  if(enforceSizeLimit&&total>LIMIT-2_000_000)throw Error(`发布包仍超过 GitHub Pages 体积上限: ${(total/1048576).toFixed(1)} MB`);
   console.log(`发布包图片优化：${(before/1048576).toFixed(1)} → ${(total/1048576).toFixed(1)} MB，${selected.size} 张原尺寸静态图；原稿和视频未改动。`);
   if(reused)console.log(`复用 ${reused} 张已核验发布图片；源图和发布图均通过 SHA-256 校验。`);
   return report;

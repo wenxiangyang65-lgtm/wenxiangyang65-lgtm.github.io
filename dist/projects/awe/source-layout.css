@@ -108,3 +108,29 @@ main.awe-page #live-commerce h3 {font-size:14px;}
 /* Give the two evidence collages half a board each; metrics keep one shared type size below. */
 #live-commerce > div > div > .grid:has(> div > button[aria-label="预览 微博热搜话题截图"]) {grid-template-columns:repeat(2,minmax(0,1fr));}
 #live-commerce > div > div > .grid:has(> div > button[aria-label="预览 微博热搜话题截图"]) > div:last-child {grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;}
+
+/* Thumbnail overlays fit the original narrow artwork columns on phones. */
+@media(max-width:700px){
+ #visual-language button .tracking-\[\.24em\]{letter-spacing:.04em;font-size:7px;}
+ #visual-language button .text-\[10px\]{font-size:7px;letter-spacing:.04em;}
+}
+
+/* Transparent artwork must not receive a rectangular scan-light overlay. */
+#hero button[aria-label="打开未来家空间主视觉预览"]::after,
+#creative > div > div:nth-child(7) > button::after,
+#creative > div > div:nth-child(8) > button::after {content:none;display:none;}
+#hero button[aria-label="打开未来家空间主视觉预览"],
+#hero button[aria-label="打开未来家空间主视觉预览"] > div {background:transparent;box-shadow:none;overflow:visible;}
+/* Extend the dark diagram over the style board's upper corners. */
+#creative > div > div:nth-child(7) > button {width:110%;margin-left:-5%;overflow:visible;}
+#creative > div > div:nth-child(7) img {width:100%;max-width:none;}
+/* Feather only the background, leaving artwork and lettering fully opaque. */
+#creative > div > div:nth-child(8) {background:transparent;isolation:isolate;}
+#creative > div > div:nth-child(8)::before {
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:linear-gradient(180deg,#fff 0%,#f3f3f3 15%,#575757 42%,#020202 68%);
+ -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent),linear-gradient(180deg,transparent,#000 7%,#000 94%,transparent);
+ mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent),linear-gradient(180deg,transparent,#000 7%,#000 94%,transparent);
+ -webkit-mask-composite:source-in;mask-composite:intersect;
+}
+#creative > div > div:nth-child(8) > * {position:relative;z-index:1;}

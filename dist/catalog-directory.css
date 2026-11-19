@@ -213,6 +213,7 @@ html.catalog-gallery-open {
   z-index: 18;
   min-height: 0;
   overflow: hidden;
+  overflow: clip; /* Keep focused neighboring discs from scrolling the fixed camera. */
   isolation: isolate;
   background: #fff;
   color: #121212;
@@ -375,22 +376,22 @@ html.catalog-gallery-open {
   top: var(--trail-y);
   left: var(--trail-x);
   color: #22354b;
-  font: 600 clamp(7px, .8vw, 11px)/1 ui-monospace, Menlo, monospace;
+  font: 500 clamp(9px, .85vw, 12px)/1 ui-monospace, Menlo, monospace;
   letter-spacing: .06em;
   white-space: nowrap;
   text-shadow: 0 0 2px #fff, 0 0 5px #fffd;
-  animation: gallery-code-fade .46s ease-out forwards;
+  animation: gallery-code-fade .68s ease-out forwards;
 }
 @keyframes gallery-code-fade {
   from {
     transform: translate(-50%, -50%) rotate(var(--trail-angle));
-    opacity: .82;
-    filter: blur(.25px);
+    opacity: .9;
+    filter: blur(0);
   }
   to {
     transform: translate(calc(-50% + var(--trail-dx)), calc(-50% + var(--trail-dy))) rotate(var(--trail-angle));
     opacity: 0;
-    filter: blur(3px);
+    filter: blur(1.4px);
   }
 }
 .gallery-info {
@@ -487,3 +488,6 @@ html.catalog-gallery-open {
   :is(.catalog-directory, .catalog-gallery) *,
   :is(.catalog-directory, .catalog-gallery) *::before { animation: none !important; transition: none !important; }
 }
+
+/* A viewport layer lets native touch scrolling keep the index trail aligned. */
+.directory-code-trail {position:fixed;z-index:30;}

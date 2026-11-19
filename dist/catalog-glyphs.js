@@ -102,6 +102,8 @@ window.initializeCatalogGlyphs = function (reduced) {
 
   const characters = '01020256{}[]/';
   let dots = [];
+  let glyphCells = new Map();
+  const glyphCellSize = 24;
   let width = 0;
   let height = 0;
   let density = 1;
@@ -115,6 +117,57 @@ window.initializeCatalogGlyphs = function (reduced) {
   let pointer = null;
   const hover = {clientX: 0, clientY: 0, inside: false};
   const lens = {x: 0, y: 0, amount: 0};
+  let fragments = [];
+  let lastFragment = {time: -Infinity, x: -Infinity, y: -Infinity};
+
+  function scatterCode(event) {
+    if (reduced.matches || pointer || returning || progress < .97) return;
+    const rect = art.getBoundingClientRect();
+    if (rect.bottom <= 0 || rect.top >= innerHeight) return;
+    const x = event.clientX - rect.left, y = event.clientY - rect.top;
+    const now = performance.now();
+    if (now - lastFragment.time < 85 || Math.hypot(x - lastFragment.x, y - lastFragment.y) < 7) return;
+    // Release only from the lettering, so moving through blank space stays quiet.
+    const near = [];
+    const cellX = Math.floor(x / glyphCellSize), cellY = Math.floor(y / glyphCellSize);
+    for (let row = cellY - 1; row <= cellY + 1; row++) {
+      for (let column = cellX - 1; column <= cellX + 1; column++) {
+        for (const dot of glyphCells.get(`${column}:${row}`) || []) {
+          if (!(dot.detachedUntil > now) && (dot.x - x) ** 2 + (dot.y - y) ** 2 < 18 ** 2) near.push(dot);
+        }
+      }
+    }
+    if (!near.length) return;
+    lastFragment = {time: now, x, y};
+    for (let i = 0; i < 3; i++) {
+      const dot = near.splice(Math.floor(Math.random() * near.length), 1)[0];
+      if (!dot) break;
+      const life = 720 + Math.random() * 300;
+      dot.detachedUntil = now + life;
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 52 + Math.random() * 42;
+      fragments.push({x: dot.x, y: dot.y, vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 20, born: now, life,
+        glyph: dot.glyph, size: 7 + Math.random() * 2});
+    }
+    fragments = fragments.slice(-24);
+  }
+
+  function drawFragments(exit) {
+    const now = performance.now();
+    fragments = fragments.filter(fragment => now - fragment.born < fragment.life);
+    context.save();
+    for (const fragment of fragments) {
+      const age = (now - fragment.born) / fragment.life;
+      const seconds = (now - fragment.born) / 1000;
+      context.globalAlpha = .8 * (1 - age * age) * (1 - exit);
+      context.font = `500 ${fragment.size}px ui-monospace, Menlo, monospace`;
+      context.fillText(fragment.glyph, fragment.x + fragment.vx * seconds,
+        fragment.y + fragment.vy * seconds + 12 * seconds * seconds);
+    }
+    context.restore();
+    return fragments.length > 0;
+  }
 
   function drawTitle(text, family, weight, baseline, size, share, silhouette) {
     ink.font = `${weight} ${size}px ${family}`;
@@ -155,6 +208,7 @@ window.initializeCatalogGlyphs = function (reduced) {
     const pixels = ink.getImageData(0, 0, width, height).data;
     const pitch = Math.max(3, Math.round(width / 184));
     dots = [];
+    fragments = [];
     for (let y = pitch; y < height - pitch; y += pitch) {
       for (let x = pitch; x < width - pitch; x += pitch * .72) {
         const ix = Math.round(x);
@@ -168,6 +222,12 @@ window.initializeCatalogGlyphs = function (reduced) {
           glyph: characters[(ix * 7 + y * 13) % characters.length]
         });
       }
+    }
+    glyphCells = new Map();
+    for (const dot of dots) {
+      const key = `${Math.floor(dot.x / glyphCellSize)}:${Math.floor(dot.y / glyphCellSize)}`;
+      if (!glyphCells.has(key)) glyphCells.set(key, []);
+      glyphCells.get(key).push(dot);
     }
     if (!dots.length) return;
     context.setTransform(density, 0, 0, density, 0, 0);
@@ -288,6 +348,7 @@ window.initializeCatalogGlyphs = function (reduced) {
     drawTransfer(transfer, settled);
     if (rect.bottom <= 0 || rect.top > innerHeight || !rect.height) {
       lens.amount = 0;
+      fragments = [];
       return;
     }
     const scrollExit = reduced.matches ? 0 : Math.max(0, Math.min(1, -rect.top / (rect.height * .68)));
@@ -296,7 +357,9 @@ window.initializeCatalogGlyphs = function (reduced) {
     const radius = Math.max(42, Math.min(112, width * .117)) * .4;
     const radiusSquared = radius * radius;
     context.clearRect(0, 0, width, height);
+    const now = performance.now();
     for (const dot of dots) {
+      if (!reduced.matches && dot.detachedUntil > now) continue;
       if (!reduced.matches && dot.departure !== undefined && transfer > dot.departure) continue;
       // At rest the dots make a legible wordmark. On exit, the grid breaks into short streams.
       const opacity = (dot.seed < .06 ? .8 : Math.max(0, (settled - dot.seed * .58) / .42)) * (1 - exit);
@@ -320,7 +383,8 @@ window.initializeCatalogGlyphs = function (reduced) {
       } else context.fillText(dot.glyph, x, y);
     }
     context.globalAlpha = 1;
-    if (follow) queueDraw();
+    const scattering = drawFragments(exit);
+    if (follow || scattering) queueDraw();
   }
 
   function updateLens(exit) {
@@ -443,6 +507,7 @@ window.initializeCatalogGlyphs = function (reduced) {
     hover.inside = true;
     hover.clientX = event.clientX;
     hover.clientY = event.clientY;
+    scatterCode(event);
     queueDraw();
   });
   art.addEventListener('pointerleave', () => {
@@ -470,6 +535,7 @@ window.initializeCatalogGlyphs = function (reduced) {
   }
   reduced.addEventListener('change', () => {
     if (reduced.matches) {
+      fragments = [];
       cancelAnimationFrame(animation);
       returning = false;
       returnProgress = 0;

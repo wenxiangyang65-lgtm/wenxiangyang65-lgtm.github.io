@@ -13,13 +13,33 @@ async function videoViewer(key,time=0){
   const info=videos[key];if(!info)return;galleryItems=[];show(info[0]);const revision=mediaRevision;const hd=await hdPromise;if(!dialog.open||revision!==mediaRevision)return;
   const video=document.createElement('video');video.className='dialog-video';video.controls=true;video.playsInline=true;video.preload='metadata';video.setAttribute('aria-label',info[0]);
   const toolbar=document.createElement('div');toolbar.className='video-quality';const status=document.createElement('span');const switcher=document.createElement('button');switcher.type='button';toolbar.append(status,switcher);content.append(toolbar,video);
-  let isHd=true,start=time,usingFallback=false;
+  let isHd=true,start=time,usingFallback=false,loadAttempt=0,bufferUrl=null,bufferRequest=null;
+  const clearBuffer=()=>{bufferRequest?.abort();bufferRequest=null;if(bufferUrl){URL.revokeObjectURL(bufferUrl);bufferUrl=null;}};
+  dialog.addEventListener('close',clearBuffer,{once:true});
   const fallback=()=>{if(isHd&&hd?.videos[key]?.smoothSrc&&hd.videos[key].smoothSrc!==hd.videos[key].src){load(false,video.currentTime||start,!video.paused);return;}stopStream();usingFallback=true;status.textContent='视频暂时无法加载，请重新打开。';};
   const load=(high,position,play=false)=>{
-    stopStream();start=position;isHd=high;usingFallback=false;
-    const seek=()=>{if(start&&Math.abs(video.currentTime-start)>1)video.currentTime=start;};video.onloadedmetadata=seek;video.oncanplay=()=>{seek();video.oncanplay=null;if(play)video.play().catch(()=>{});};
-    status.textContent=high?'1080P 高清':'流畅播放';switcher.textContent=high?'切换流畅':'切换1080P高清';
-    const stream=hd?.videos[key],src=high?stream?.src:stream?.smoothSrc;switcher.hidden=!stream?.smoothSrc||stream.smoothSrc===stream.src;
+    stopStream();clearBuffer();start=position;isHd=high;usingFallback=false;
+    const attempt=++loadAttempt;let buffering=false,buffered=false;
+    const stream=hd?.videos[key],src=high?stream?.src:stream?.smoothSrc;
+    const quality=high?'1080P 高清':'流畅播放';
+    const seek=()=>{
+      if(buffering)return false;
+      if(!start||Math.abs(video.currentTime-start)<.1)return true;
+      // Local previews may not support byte ranges. Buffer once before seeking,
+      // rather than silently starting at the beginning of a requested chapter.
+      if(!buffered&&(!video.seekable.length||video.seekable.end(video.seekable.length-1)<start)){
+        buffering=true;status.textContent='正在定位片段…';bufferRequest=new AbortController();
+        fetch(src,{signal:bufferRequest.signal}).then(response=>{if(!response.ok)throw new Error('Video unavailable');return response.blob();}).then(blob=>{
+          if(attempt!==loadAttempt||revision!==mediaRevision||!dialog.open)return;
+          buffered=true;buffering=false;bufferUrl=URL.createObjectURL(blob);status.textContent=quality;video.src=bufferUrl;video.load();
+        }).catch(error=>{if(error.name!=='AbortError'&&attempt===loadAttempt&&revision===mediaRevision){buffering=false;status.textContent='片段暂时无法定位，请重新打开。';}});
+        return false;
+      }
+      video.currentTime=start;return true;
+    };
+    video.onloadedmetadata=seek;video.oncanplay=()=>{if(!seek())return;video.oncanplay=null;if(play)video.play().catch(()=>{});};
+    status.textContent=quality;switcher.textContent=high?'切换流畅':'切换1080P高清';
+    switcher.hidden=!stream?.smoothSrc||stream.smoothSrc===stream.src;
     if(!src){fallback();return;}
     video.src=src;video.load();
   };

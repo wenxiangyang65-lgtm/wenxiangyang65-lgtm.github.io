@@ -25,6 +25,14 @@ export async function check() {
     if(!target.startsWith(root+'/')&&target!==root){errors.push(`资源越出站点目录: ${raw}`);return;}
     try {const info=await stat(target);if(info.isDirectory())await stat(resolve(target,'index.html'));}catch{errors.push(`${relative(root,source)} → ${raw}`);}
   }
+  const videoSources=JSON.parse(await readFile('content/video-sources.json','utf8')).aliases;
+  const excluded=new Set(JSON.parse(await readFile('content/publish-exclusions.json','utf8')).paths);
+  for(const [alias,target] of Object.entries(videoSources)) {
+    if(!alias.endsWith('.mp4')||!target.endsWith('.mp4')||alias===target||videoSources[target]||excluded.has(target))errors.push(`共享视频映射无效: ${alias}`);
+    await localReference(alias,resolve(root,'index.html'));
+    await localReference(target,resolve(root,'index.html'));
+    if(!excluded.has(alias))errors.push(`共享视频副本仍被打包: ${alias}`);
+  }
   for(const p of projects) {
     if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(p.slug)||slugs.has(p.slug)||numbers.has(p.n))errors.push(`重复或无效项目: ${p.slug}`);
     slugs.add(p.slug);numbers.add(p.n);
